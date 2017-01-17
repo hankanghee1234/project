@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="update" parameterType="MemberVO">
-		update tbl_member set userpw = #{userpw}, email = #{email}, 
+		update tbl_member set userpw = #{userpw}, email = #{email},
 		uname = #{uname}, modidate = now() where userid = #{userid}
 	</update>
 	
