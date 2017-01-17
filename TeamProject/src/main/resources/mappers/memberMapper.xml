@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.team.dao.MemberMapper">
+
+	<insert id="create" parameterType="MemberVO">
+		insert into tbl_member (userid, userpw, email, uname) 
+		values (#{userid}, #{userpw}, #{email}, #{uname})
+	</insert>
+	
+	<select id="read" resultType="MemberVO">
+		select * from tbl_member where userid = #{userid}
+	</select>
+	
+	<update id="update" parameterType="MemberVO">
+		update tbl_member set userpw = #{userpw}, email = #{email}, 
+		uname = #{uname}, modidate = now() where userid = #{userid}
+	</update>
+	
+	<delete id="delete" parameterType="MemberVO">
+		delete from tbl_member where userid = #{userid}
+	</delete>
+	
+	<select id="list" resultType="MemberVO">
+		select * from tbl_member
+	</select>
+</mapper>
