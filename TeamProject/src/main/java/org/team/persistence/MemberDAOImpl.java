@@ -2,17 +2,18 @@ package org.team.persistence;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.team.domain.MemberVO;
 
+@Repository
 public class MemberDAOImpl implements MemberDAO {
 	
-	@Inject
+	@Autowired
 	private SqlSession session;
 	
-	private String NAME = "";
+	private String NAME = "org.team.dao.MemberMapper";
 	
 	@Override
 	public void create(MemberVO vo) throws Exception {
