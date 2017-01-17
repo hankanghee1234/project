@@ -2,27 +2,27 @@
 <!DOCTYPE mapper 
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.team.dao.MemberMapper">
+<mapper namespace="org.team.dao.FileMapper">
 
-	<insert id="create" parameterType="MemberVO">
+	<insert id="create" parameterType="FileVO">
 		insert into tbl_member (userid, userpw, email, uname) 
 		values (#{userid}, #{userpw}, #{email}, #{uname})
 	</insert>
 	
-	<select id="read" resultType="MemberVO">
+	<select id="read" resultType="FileVO">
 		select * from tbl_member where userid = #{userid}
 	</select>
 	
-	<update id="update" parameterType="MemberVO">
+	<update id="update" parameterType="FileVO">
 		update tbl_member set userpw = #{userpw}, email = #{email},
 		uname = #{uname}, modidate = now() where userid = #{userid}
 	</update>
 	
-	<delete id="delete" parameterType="MemberVO">
+	<delete id="delete" parameterType="FileVO">
 		delete from tbl_member where userid = #{userid}
 	</delete>
 	
-	<select id="list" resultType="MemberVO">
+	<select id="list" resultType="FileVO">
 		select * from tbl_member
 	</select>
 	
