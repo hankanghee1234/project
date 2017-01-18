@@ -20,7 +20,6 @@ public class HomeController {
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public void myPage() throws Exception {
 		logger.info("myPage페이지.........");
-
 	}
 
 }
