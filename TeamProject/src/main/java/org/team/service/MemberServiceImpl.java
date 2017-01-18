@@ -5,12 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.team.domain.MemberVO;
+import org.team.persistence.MemberDAOImpl;
 
 @Service
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
-	private MemberService service;
+	private MemberDAOImpl service;
 	
 	@Override
 	public void create(MemberVO vo) throws Exception {

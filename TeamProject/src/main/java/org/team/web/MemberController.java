@@ -17,7 +17,7 @@ public class MemberController {
 	@Autowired
 	private MemberServiceImpl service;
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registGET() throws Exception {
@@ -35,10 +35,9 @@ public class MemberController {
 		
 		return "redirect:./member/list";
 	}
-	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void regist() throws Exception {
-		logger.info("register GET............");
 
-	}
+	/*@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public void list() throws Exception {
+		logger.info("list GET..........");
+	}*/
 }
