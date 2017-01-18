@@ -43,13 +43,8 @@
 					<input type="password" placeholder="비밀번호" name="userpw" /> 
 					<input type="text" placeholder="이름" name="uname" /> 
 					<input type="text" placeholder="이메일" name="email" />
-					<button>회원가입</button>  
-
-					<!-- 프로필 공간 -->
-
-					<!-- 네이버 구글 인증 -->
-
-					<button>create</button> 
+					<button>회원가입</button>   
+					<!-- 프로필 공간 --> 
 					<p class="message">
 						회원가입을 하신건가요? <a href="#">로그인 하러 가기</a>
 					</p>
