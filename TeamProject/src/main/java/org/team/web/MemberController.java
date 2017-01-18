@@ -16,29 +16,31 @@ public class MemberController {
 
 	@Autowired
 	private MemberServiceImpl service;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registGET() throws Exception {
 		logger.info("register GET............");
-
 	}
-	
+
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registPOST(MemberVO vo, Model model) throws Exception {
 		logger.info("register POST............");
 		logger.info(vo.toString());
-		
+
 		service.create(vo);
 		model.addAttribute("vo", vo);
-		
+
 		return "redirect:./member/list";
 	}
-	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void regist() throws Exception {
-		logger.info("register GET............");
+
+	@RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
+	public boolean loginPOST(String userid) throws Exception {
+		boolean check = service.loginDupleChk(userid);
+		logger.info("로그인체크..." + check);
+		return check;
 
 	}
+
 }
