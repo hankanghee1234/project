@@ -33,7 +33,7 @@ public class MemberController {
 		service.create(vo);
 		model.addAttribute("vo", vo);
 		
-		return "redirect:./member/list";
+		return "redirect:../index";
 	}
 
 	/*@RequestMapping(value = "/list", method = RequestMethod.GET)

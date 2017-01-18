@@ -43,10 +43,11 @@
 
 		<div class="login-page">
 			<div class="form">
-				<form class="register-form">
-					<input type="text" placeholder="name" /> <input type="id"
-						placeholder="id" /> <input type="password" placeholder="password" />
-					<input type="text" placeholder="email address" />
+				<form class="register-form" action="<c:url value='/member/register'/>" method="post">
+					<input type="id" placeholder="id" name="userid"/> 
+					<input type="password" placeholder="password" name="userpw"/>
+					<input type="text" placeholder="email address" name="email"/>
+					<input type="text" placeholder="name" name="uname"/> 
 
 					<!-- 프로필 공간 -->
 
@@ -62,8 +63,8 @@
 				</form>
 				<form class="login-form" method="post"
 					action="<c:url value='/member/loginPOST'/>">
-					<input type="text" placeholder="username" /> <input
-						type="password" placeholder="password" />
+					<input type="text" placeholder="userid" name="userid"/> 
+					<input type="password" placeholder="password" name="userpw"/>
 					<button>login</button>
 					<p class="message">
 						회원이 아니신가요? <a href="#">회원 가입</a>
