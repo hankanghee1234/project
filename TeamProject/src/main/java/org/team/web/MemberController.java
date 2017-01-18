@@ -28,11 +28,9 @@ public class MemberController {
 	public String registPOST(MemberVO vo, Model model) throws Exception {
 		logger.info("register POST............");
 		logger.info(vo.toString());
-
 		service.create(vo);
 		model.addAttribute("vo", vo);
-
-		return "redirect:./member/list";
+		return "redirect:/member/list";
 	}
 
 	@RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
