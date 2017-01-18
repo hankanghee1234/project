@@ -40,7 +40,7 @@
 			<a class="btn btn-dark btn-lg" id="P-list">게스트</a> <a
 				class="btn btn-dark btn-lg" id="presenter">발표자</a>
 		</p>
-
+		<!-- 회원가입 -->
 		<div class="login-page">
 			<div class="form">
 				<form class="register-form" action="<c:url value='/member/register'/>" method="post">
@@ -91,7 +91,7 @@
 						test(<a href="">test4.ppt</a>)
 					</p>
 					<p>
-						test(<a href="">test5.exl</a>)
+						test(<a href="">test5.xls</a>)
 					</p>
 
 

@@ -32,7 +32,6 @@ public class MemberController {
 		service.create(vo);
 		model.addAttribute("vo", vo);
 
-		
 		return "redirect:../index";
 		
 	}
