@@ -64,12 +64,7 @@
 				<form class="login-form" method="post" action="<c:url value='/member/loginPOST'/>">
 					<input type="text" placeholder="username" name="userid" /> 
 					<input type="password" placeholder="password" name="userpw" />
-					<button>로그인</button> 
-				<form class="login-form" method="post"
-					action="<c:url value='/member/loginPOST'/>">
-					<input type="text" placeholder="userid" name="userid"/> 
-					<input type="password" placeholder="password" name="userpw"/>
-					<button>login</button> 
+					<button>로그인</button>  
 					<p class="message">
 						회원이 아니신가요? <a href="#">회원 가입</a>
 					</p>

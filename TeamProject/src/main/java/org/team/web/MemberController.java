@@ -33,10 +33,9 @@ public class MemberController {
 		logger.info(vo.toString());
 		service.create(vo);
 
-		rttr.addAttribute("vo", vo);
+		rttr.addFlashAttribute("msg", "registSUCCESS");
+		return "redirect:/index";
 
-		return "redirect:../index";
-		
 	}
 
 	@RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
