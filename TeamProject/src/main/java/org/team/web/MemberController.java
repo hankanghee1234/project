@@ -4,10 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.MemberVO;
 import org.team.service.MemberServiceImpl;
@@ -42,14 +40,17 @@ public class MemberController {
 		logger.info("비밀번호" + vo.getUserpw());
 		boolean check = service.memberLogin(vo);
 		logger.info("아이디 있는지 여부.." + check);
+		
 		if (check == true) {
 			rttr.addFlashAttribute("msg", "loginSUCCESS");
 			logger.info("로그인성공..." + check);
 			return "redirect:/member/mypage";
+			
 		} else {
 			rttr.addFlashAttribute("msg", "loginFail");
 			logger.info("로그인실패..." + check);
 			return "redirect:/index";
+			
 		}
 	}
 

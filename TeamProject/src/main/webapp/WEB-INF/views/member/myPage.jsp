@@ -44,11 +44,9 @@ body {
 				style="padding-right: 0px;">
 				<div class="profile-v1-pp">
 					<img src="../resources/miminium-master/asset/img/avatar.jpg">
-					<h3>Presenter Name</h3>
-					<h4>
-						Email :<a href="" style="color: green;">abcd1234@nvaer.com</a>
-					</h4>
-
+					<h3><input type="hidden" name="userid" value="${param.userid}"></h3>
+					<h3><input type="hidden" name="email" value="${param.email}"></h3>
+					<h3><input type="hidden" name="uname" value="${param.uname}"></h3>
 				</div>
 
 				<div class="col-md-12 profile-v1-cover">
@@ -362,25 +360,15 @@ body {
 						<button class=" btn btn-circle btn-3d btn-lg btn-primary"
 							value="primary">
 							<span class="fa fa-paypal"></span>
-<<<<<<< HEAD
-							
-=======
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
+
 						</button>
 					</div>
-<<<<<<< HEAD
-				
-=======
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
 	</div>
 		<!-- end: content -->
 
-=======
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 		<button id="mimin-mobile-menu-opener"
 			class="animated rubberBand btn btn-circle btn-danger">
 			<span class="fa fa-bars"></span>
