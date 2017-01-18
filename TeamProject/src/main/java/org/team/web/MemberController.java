@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.MemberVO;
 import org.team.service.MemberServiceImpl;
 
@@ -19,18 +21,19 @@ public class MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registGET() throws Exception {
-		logger.info("register GET............");
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
+	public void registGET(Model model, @RequestParam("userid") String userid) throws Exception {
+		logger.info("MEMBER MYPAGE............");
+		model.addAttribute("member", service.read(userid));
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registPOST(MemberVO vo, Model model) throws Exception {
+	public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
 		logger.info("register POST............");
 		logger.info(vo.toString());
-
 		service.create(vo);
-		model.addAttribute("vo", vo);
+
+		rttr.addAttribute("vo", vo);
 
 		return "redirect:../index";
 		
