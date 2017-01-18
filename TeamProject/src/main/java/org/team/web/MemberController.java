@@ -53,7 +53,6 @@ public class MemberController {
 			rttr.addFlashAttribute("msg", "loginFail");
 			logger.info("로그인실패..." + check);
 			return "redirect:/index";
-
 		}
 	}
 
