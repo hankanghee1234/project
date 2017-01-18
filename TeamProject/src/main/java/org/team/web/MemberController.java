@@ -43,8 +43,6 @@ public class MemberController {
 		String userid = vo.getUserid();
 		String userpw = vo.getUserpw();
 		boolean check = service.memberLogin(vo);
-		logger.info("아이디 있는지 여부.." + check);
-
 		if (check == true) {
 			rttr.addFlashAttribute("msg", "loginSUCCESS");
 			logger.info("로그인성공..." + check);
@@ -52,13 +50,8 @@ public class MemberController {
 		} else {
 			rttr.addFlashAttribute("msg", "loginFail");
 			logger.info("로그인실패..." + check);
-			return "redirect:/index";
+			return loginUtil.Fail(req, res);
 		}
-	}
-
-	@RequestMapping(value = "/loginSUCCESS", method = RequestMethod.POST)
-	public void loginSUCCESS() throws Exception {
-
 	}
 
 	@RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
