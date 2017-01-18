@@ -56,8 +56,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/loginSUCCESS", method = RequestMethod.POST)
 	public void loginSUCCESS() throws Exception {
-	}
-
+	} 
 	@RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
 	public boolean dupleCheck(String userid) throws Exception {
 		boolean check = service.loginDupleChk(userid);
