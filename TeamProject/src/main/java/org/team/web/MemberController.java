@@ -36,5 +36,9 @@ public class MemberController {
 		return "redirect:./member/list";
 	}
 	
-	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public void regist() throws Exception {
+		logger.info("register GET............");
+
+	}
 }
