@@ -37,24 +37,35 @@
 				class="btn btn-dark btn-lg" id="presenter">발표자</a>
 		</p>
 		<div class="login-page">
-			<div class="form">
+			<div class="form"> 
 				<form class="register-form" method="post" action="<c:url value='/member/register'/>">
 					<input type="id" placeholder="회원아이디" name="userid" /> 
 					<input type="password" placeholder="비밀번호" name="userpw" /> 
 					<input type="text" placeholder="이름" name="uname" /> 
 					<input type="text" placeholder="이메일" name="email" />
-					<button>회원가입</button>
+					<button>회원가입</button>  
+
+					<!-- 프로필 공간 -->
+
+					<!-- 네이버 구글 인증 -->
+
+					<button>create</button> 
 					<p class="message">
 						회원가입을 하신건가요? <a href="#">로그인 하러 가기</a>
 					</p>
 					<p class="message">
 						<a href="#" class="back">뒤로 가기</a>
 					</p>
-				</form>
+				</form> 
 				<form class="login-form" method="post" action="<c:url value='/member/loginPOST'/>">
 					<input type="text" placeholder="username" name="userid" /> 
 					<input type="password" placeholder="password" name="userpw" />
-					<button>로그인</button>
+					<button>로그인</button> 
+				<form class="login-form" method="post"
+					action="<c:url value='/member/loginPOST'/>">
+					<input type="text" placeholder="userid" name="userid"/> 
+					<input type="password" placeholder="password" name="userpw"/>
+					<button>login</button> 
 					<p class="message">
 						회원이 아니신가요? <a href="#">회원 가입</a>
 					</p>
