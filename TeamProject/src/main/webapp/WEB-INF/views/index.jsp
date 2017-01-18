@@ -104,10 +104,9 @@
 	display: none;
 }
 
-.list-page{
+.list-page {
 	display: none;
 }
-
 
 .container {
 	position: relative;
@@ -209,8 +208,8 @@
 					</p>
 				</form>
 				<form class="login-form">
-					<input type="text" placeholder="username" /> <input type="password"
-						placeholder="password" />
+					<input type="text" placeholder="username" /> <input
+						type="password" placeholder="password" />
 					<button>login</button>
 					<p class="message">
 						Not registered? <a href="#">Create an account</a>
@@ -220,33 +219,43 @@
 					</p>
 
 				</form>
-				
+
 			</div>
 
 		</div>
-		
-		<div class="list-page">
-		
-		<div class="form">
-				<form class="list-form">
-					
-					<p>test(<a href="">test1.ppt</a>)</p>
-					<p>test(<a href="">test2.hwp</a>)</p>
-					<p>test(<a href="">test3.doc</a>)</p>
-					<p>test(<a href="">test4.ppt</a>)</p>
-					<p>test(<a href="">test5.exl</a>)</p>
 
-					
+		<div class="list-page">
+
+			<div class="form">
+				<form class="list-form">
+
+					<p>
+						test(<a href="">test1.ppt</a>)
+					</p>
+					<p>
+						test(<a href="">test2.hwp</a>)
+					</p>
+					<p>
+						test(<a href="">test3.doc</a>)
+					</p>
+					<p>
+						test(<a href="">test4.ppt</a>)
+					</p>
+					<p>
+						test(<a href="">test5.exl</a>)
+					</p>
+
+
 					<p class="message">
 						Want Back? <a href="#" class="back">Back the Home</a>
 					</p>
-					
+
 				</form>
-				
+
 			</div>
 		</div>
-		
-		
+
+
 		<div class="text-vertical-center"></div>
 	</div>
 	</header>
