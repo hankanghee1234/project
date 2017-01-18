@@ -23,6 +23,11 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
 	rel="stylesheet" type="text/css">
+<!-- 제이쿼리 -->
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<!-- 앵귤러JS -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
 <body>
 	<!-- Header -->
@@ -55,9 +60,10 @@
 						Want Back? <a href="#" class="back">Back the Home</a>
 					</p>
 				</form>
-				<form class="login-form" method="post" action="<c:url value='/member/loginPOST'/>">
-					<input type="text" placeholder="username" /> 
-					<input type="password" placeholder="password" />
+				<form class="login-form" method="post"
+					action="<c:url value='/member/loginPOST'/>">
+					<input type="text" placeholder="username" /> <input
+						type="password" placeholder="password" />
 					<button>login</button>
 					<p class="message">
 						회원이 아니신가요? <a href="#">회원 가입</a>
@@ -66,16 +72,11 @@
 						<a href="#" class="back">뒤로 가기</a>
 					</p>
 				</form>
-
 			</div>
-
 		</div>
-
 		<div class="list-page">
-
 			<div class="form">
 				<form class="list-form">
-
 					<p>
 						test(<a href="">test1.ppt</a>)
 					</p>
@@ -102,6 +103,7 @@
 		<div class="text-vertical-center"></div>
 	</div>
 	</header>
+
 
 	<script
 		src="${pageContext.request.contextPath}/resources/startbootstrap/js/jquery.js"></script>
