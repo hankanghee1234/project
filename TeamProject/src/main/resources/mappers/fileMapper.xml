@@ -5,25 +5,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.team.dao.FileMapper">
 
 	<insert id="create" parameterType="FileVO">
-		insert into tbl_member (userid, userpw, email, uname) 
-		values (#{userid}, #{userpw}, #{email}, #{uname})
+		insert into tbl_file (originname, copyname, userid) 
+		values (#{originname}, #{copyname}, #{userid})
 	</insert>
 	
 	<select id="read" resultType="FileVO">
-		select * from tbl_member where userid = #{userid}
+		select * from tbl_file where fno = #{fno}
 	</select>
 	
 	<update id="update" parameterType="FileVO">
-		update tbl_member set userpw = #{userpw}, email = #{email},
-		uname = #{uname}, modidate = now() where userid = #{userid}
+		update tbl_file set originname = #{originname}, copyname = #{copyname}, 
+		modidate = now() where fno = #{fno}
 	</update>
 	
 	<delete id="delete" parameterType="FileVO">
-		delete from tbl_member where userid = #{userid}
+		delete from tbl_file where fno = #{fno}
 	</delete>
 	
 	<select id="list" resultType="FileVO">
-		select * from tbl_member
+		select * from tbl_file
 	</select>
 	
 </mapper>

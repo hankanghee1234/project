@@ -5,25 +5,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.team.dao.ImgMapper">
 
 	<insert id="create" parameterType="ImgVO">
-		insert into tbl_member (userid, userpw, email, uname) 
-		values (#{userid}, #{userpw}, #{email}, #{uname})
+		insert into tbl_img (fno, img) 
+		values (#{fno}, #{img})
 	</insert>
 	
 	<select id="read" resultType="ImgVO">
-		select * from tbl_member where userid = #{userid}
+		select * from tbl_img where ino = #{ino}
 	</select>
 	
 	<update id="update" parameterType="ImgVO">
-		update tbl_member set userpw = #{userpw}, email = #{email},
-		uname = #{uname}, modidate = now() where userid = #{userid}
+		update tbl_img set img = #{img}, modidate = now() where ino = #{ino}
 	</update>
 	
 	<delete id="delete" parameterType="ImgVO">
-		delete from tbl_member where userid = #{userid}
+		delete from tbl_img where ino = #{ino}
 	</delete>
 	
 	<select id="list" resultType="ImgVO">
-		select * from tbl_member
+		select * from tbl_img
 	</select>
 	
 </mapper>
