@@ -1,9 +1,12 @@
 /**
- * index page 스크립트 소스
+ * index page 스크립트 소스 정재관
  */
-$(document)
-		.ready(
-				function() {
+$(document).ready(function() {
+	var msg = '${msg}';
+	if (msg == 'registSUCCESS') {
+		alert('회원가입에 성공하셨습니다!');
+	};
+
 					// Presentation List FadeIn
 					$("#P-list").click(function(event) {
 

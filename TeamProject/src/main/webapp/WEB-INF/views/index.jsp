@@ -15,7 +15,6 @@
 <link
 	href="${pageContext.request.contextPath}/resources/startbootstrap/css/stylish-portfolio.css"
 	rel="stylesheet">
-
 <link
 	href="${pageContext.request.contextPath}/resources/startbootstrap/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -39,23 +38,23 @@
 		</p>
 		<div class="login-page">
 			<div class="form">
-				<form class="register-form">
-					<input type="text" placeholder="name" /> <input type="id"
-						placeholder="id" /> <input type="password" placeholder="password" />
-					<input type="text" placeholder="email address" />
-					<button>create</button>
+				<form class="register-form" method="post" action="<c:url value='/member/register'/>">
+					<input type="id" placeholder="회원아이디" name="userid" /> 
+					<input type="password" placeholder="비밀번호" name="userpw" /> 
+					<input type="text" placeholder="이름" name="uname" /> 
+					<input type="text" placeholder="이메일" name="email" />
+					<button>회원가입</button>
 					<p class="message">
-						Already registered? <a href="#">Sign In</a>
+						회원가입을 하신건가요? <a href="#">로그인 하러 가기</a>
 					</p>
 					<p class="message">
-						Want Back? <a href="#" class="back">Back the Home</a>
+						<a href="#" class="back">뒤로 가기</a>
 					</p>
 				</form>
-				<form class="login-form" method="post"
-					action="<c:url value='/member/loginPOST'/>">
-					<input type="text" placeholder="username" /> <input
-						type="password" placeholder="password" />
-					<button>login</button>
+				<form class="login-form" method="post" action="<c:url value='/member/loginPOST'/>">
+					<input type="text" placeholder="username" name="userid" /> 
+					<input type="password" placeholder="password" name="userpw" />
+					<button>로그인</button>
 					<p class="message">
 						회원이 아니신가요? <a href="#">회원 가입</a>
 					</p>
