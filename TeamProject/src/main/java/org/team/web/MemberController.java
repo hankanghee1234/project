@@ -36,10 +36,27 @@ public class MemberController {
 		return "redirect:/index";
 	}
 
+	@RequestMapping(value = "/loginPOST", method = RequestMethod.POST)
+	public String loginPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
+		logger.info("아이디" + vo.getUserid());
+		logger.info("비밀번호" + vo.getUserpw());
+		boolean check = service.memberLogin(vo);
+		logger.info("아이디 있는지 여부.." + check);
+		if (check == true) {
+			rttr.addFlashAttribute("msg", "loginSUCCESS");
+			logger.info("로그인성공..." + check);
+			return "redirect:/member/mypage";
+		} else {
+			rttr.addFlashAttribute("msg", "loginFail");
+			logger.info("로그인실패..." + check);
+			return "redirect:/index";
+		}
+	}
+
 	@RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
-	public boolean loginPOST(String userid) throws Exception {
+	public boolean dupleCheck(String userid) throws Exception {
 		boolean check = service.loginDupleChk(userid);
-		logger.info("로그인체크..." + check);
+		logger.info("중복체크..." + check);
 		return check;
 	}
 }

@@ -9,8 +9,8 @@
 <meta name="author" content="Isna Nur Azis">
 <meta name="keyword" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" type="text/css" href="../resources/miminium-master/asset/css/bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css"
+	href="../resources/miminium-master/asset/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
 	href="../resources/miminium-master/asset/css/plugins/font-awesome.min.css">
 <link rel="stylesheet" type="text/css"
@@ -362,21 +362,29 @@ body {
 						<button class=" btn btn-circle btn-3d btn-lg btn-primary"
 							value="primary">
 							<span class="fa fa-paypal"></span>
+<<<<<<< HEAD
 							
+=======
+>>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 						</button>
 					</div>
+<<<<<<< HEAD
 				
+=======
+>>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</div>
 		<!-- end: content -->
 
+=======
+>>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 		<button id="mimin-mobile-menu-opener"
 			class="animated rubberBand btn btn-circle btn-danger">
 			<span class="fa fa-bars"></span>
 		</button>
-		<!-- end: Mobile -->
 </body>
 
 <script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
