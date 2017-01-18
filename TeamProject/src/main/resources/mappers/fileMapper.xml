@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="create" parameterType="FileVO">
 		insert into tbl_file (originname, copyname, userid) 
-		values (#{originname}, #{copyname}, #{userid})
+		values (#{originName}, #{copyName}, #{userid})
 	</insert>
 	
 	<select id="read" resultType="FileVO">
@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="update" parameterType="FileVO">
-		update tbl_file set originname = #{originname}, copyname = #{copyname}, 
+		update tbl_file set originname = #{originName}, copyname = #{copyName}, 
 		modidate = now() where fno = #{fno}
 	</update>
 	
