@@ -40,7 +40,5 @@ public class MemberController {
 		boolean check = service.loginDupleChk(userid);
 		logger.info("로그인체크..." + check);
 		return check;
-
 	}
-
 }

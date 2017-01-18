@@ -5,13 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.team.domain.MemberVO;
+
 import org.team.persistence.MemberDAO;
+
+import org.team.persistence.MemberDAOImpl;
 
 @Service
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberDAO memberDAO;
+
+	private MemberDAOImpl service;
 
 	@Override
 	public void create(MemberVO vo) throws Exception {
