@@ -53,8 +53,8 @@
 					</p>
 				</form> 
 				<form class="login-form" method="post" action="<c:url value='/member/loginPOST'/>">
-					<input type="text" placeholder="username" name="userid" /> 
-					<input type="password" placeholder="password" name="userpw" />
+					<input type="text" placeholder="회원아이디" name="userid" /> 
+					<input type="password" placeholder="비밀먼호" name="userpw" />
 					<button>로그인</button>  
 					<p class="message">
 						회원이 아니신가요? <a href="#">회원 가입</a>
