@@ -1,49 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--
-
-    Welcome to the light side of the source, young padawan.
-
-    One step closer to learn something interesting you are...
-
-                               ____                  
-                            _.' :  `._               
-                        .-.'`.  ;   .'`.-.           
-               __      / : ___\ ;  /___ ; \      __  
-             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
-             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
-                  `:-.._J '-.-'L__ `-.-' L_..-;'     
-                    "-.__ ;  .-"  "-.  : __.-"       
-                        L ' /.======.\ ' J           
-                         "-.   "__"   .-"            
-                        __.l"-:_JL_;-";.__           
-                     .-j/'.;  ;""""  / .'\"-.        
-                   .' /:`. "-.:     .-" .';  `.      
-                .-"  / ;  "-. "-..-" .-"  :    "-.   
-             .+"-.  : :      "-.__.-"      ;-._   \  
-             ; \  `.; ;                    : : "+. ; 
-             :  ;   ; ;                    : ;  : \: 
-             ;  :   ; :                    ;:   ;  : 
-            : \  ;  :  ;                  : ;  /  :: 
-            ;  ; :   ; :                  ;   :   ;: 
-            :  :  ;  :  ;                : :  ;  : ; 
-            ;\    :   ; :                ; ;     ; ; 
-            : `."-;   :  ;              :  ;    /  ; 
-             ;    -:   ; :              ;  : .-"   : 
-             :\     \  :  ;            : \.-"      : 
-              ;`.    \  ; :            ;.'_..-=  / ; 
-              :  "-.  "-:  ;          :/."      .'  :
-               \         \ :          ;/  __        :
-                \       .-`.\        /t-""  ":-+.   :
-                 `.  .-"    `l    __/ /`. :  ; ; \  ;
-                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
-                    \ / .-"   /.     .'.' ;_:'    ;  
-                     :-""-.`./-.'     /    `.___.'   
-                           \ `t  ._  /               
-                            "-.t-._:'                
-
--->
 
 <!--
     
@@ -65,17 +22,22 @@
 
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=1024" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
-    
-    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
-    <meta name="author" content="Bartek Szopka" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1024" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>impress.js | presentation tool based on the power of CSS3
+	transforms and transitions in modern browsers | by Bartek Szopka
+	@bartaz</title>
 
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+<meta name="description"
+	content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+<meta name="author" content="Bartek Szopka" />
 
-    <!--
+<link
+	href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
+	rel="stylesheet" />
+
+<!--
         
         Impress.js doesn't depend on any external stylesheets. It adds all of the styles it needs for the
         presentation to work.
@@ -90,10 +52,10 @@
         When creating your own presentation get rid of this file. Start from scratch, it's fun!
         
     -->
-    <link href="/resources/impress/css/impress-demo.css" rel="stylesheet" />
-    
-    <link rel="shortcut icon" href="favicon.png" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link href="/resources/impress/css/impress-demo.css" rel="stylesheet" />
+
+<link rel="shortcut icon" href="favicon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
 
 <!--
@@ -116,15 +78,22 @@
 -->
 <body class="impress-not-supported">
 
-<!--
+	<!--
     For example this fallback message is only visible when there is `impress-not-supported` class on body.
 -->
-<div class="fallback-message">
-    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
-    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-</div>
+	<div class="fallback-message">
+		<p>
+			Your browser <b>doesn't support the features required</b> by
+			impress.js, so you are presented with a simplified version of this
+			presentation.
+		</p>
+		<p>
+			For the best experience please use the latest <b>Chrome</b>, <b>Safari</b>
+			or <b>Firefox</b> browser.
+		</p>
+	</div>
 
-<!--
+	<!--
     
     Now that's the core element used by impress.js.
     
@@ -145,9 +114,9 @@
     right around the corner of this tag ;)
     
 -->
-<div id="impress">
+	<div id="impress">
 
-    <!--
+		<!--
         
         Here is where interesting thing start to happen.
         
@@ -164,11 +133,13 @@
         It will not be rotated or scaled.
         
     -->
-    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
-        <q>Aren¡¯t you just <b>bored</b> with all those slides-based presentations?</q>
-    </div>
+		<div id="bored" class="step slide" data-x="-1000" data-y="-1500">
+			<q>Aren¡¯t you just <b>bored</b> with all those slides-based
+				presentations?
+			</q>
+		</div>
 
-    <!--
+		<!--
         
         The `id` attribute of the step element is used to identify it in the URL, but it's optional.
         If it is not defined, it will get a default value of `step-N` where N is a number of slide.
@@ -183,15 +154,20 @@
         Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
         
     -->
-    <div class="step slide" data-x="0" data-y="-1500">
-        <q>Don¡¯t you think that presentations given <strong>in modern browsers</strong> shouldn¡¯t <strong>copy the limits</strong> of ¡®classic¡¯ slide decks?</q>
-    </div>
+		<div class="step slide" data-x="0" data-y="-1500">
+			<q>Don¡¯t you think that presentations given <strong>in
+					modern browsers</strong> shouldn¡¯t <strong>copy the limits</strong> of
+				¡®classic¡¯ slide decks?
+			</q>
+		</div>
 
-    <div class="step slide" data-x="1000" data-y="-1500">
-        <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
-    </div>
+		<div class="step slide" data-x="1000" data-y="-1500">
+			<q>Would you like to <strong>impress your audience</strong> with
+				<strong>stunning visualization</strong> of your talk?
+			</q>
+		</div>
 
-    <!--
+		<!--
         
         This is an example of step element being scaled.
         
@@ -201,13 +177,15 @@
         down (4 times) to make it back to its correct size.
         
     -->
-    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <span class="try">then you should try</span>
-        <h1>impress.js<sup>*</sup></h1>
-        <span class="footnote"><sup>*</sup> no rhyme intended</span>
-    </div>
+		<div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+			<span class="try">then you should try</span>
+			<h1>
+				impress.js<sup>*</sup>
+			</h1>
+			<span class="footnote"><sup>*</sup> no rhyme intended</span>
+		</div>
 
-    <!--
+		<!--
         
         This element introduces rotation.
         
@@ -215,17 +193,24 @@
         element should be rotated by 90 degrees clockwise.
         
     -->
-    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-        <p>It¡¯s a <strong>presentation tool</strong> <br/>
-        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
-    </div>
+		<div id="its" class="step" data-x="850" data-y="3000" data-rotate="90"
+			data-scale="5">
+			<p>
+				It¡¯s a <strong>presentation tool</strong> <br /> inspired by the
+				idea behind <a href="http://prezi.com">prezi.com</a> <br /> and
+				based on the <strong>power of CSS3 transforms and
+					transitions</strong> in modern browsers.
+			</p>
+		</div>
 
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
-    </div>
+		<div id="big" class="step" data-x="3500" data-y="2100"
+			data-rotate="180" data-scale="6">
+			<p>
+				visualize your <b>big</b> <span class="thoughts">thoughts</span>
+			</p>
+		</div>
 
-    <!--
+		<!--
         
         And now it gets really exciting! We move into third dimension!
         
@@ -234,11 +219,14 @@
         positioned far away from us (by 3000px).
         
     -->
-    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-        <p>and <b>tiny</b> ideas</p>
-    </div>
+		<div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000"
+			data-rotate="300" data-scale="1">
+			<p>
+				and <b>tiny</b> ideas
+			</p>
+		</div>
 
-    <!--
+		<!--
         
         This step here doesn't introduce anything new when it comes to data attributes, but you
         should notice in the demo that some words of this text are being animated.
@@ -258,24 +246,34 @@
         Only one current step has the `present` class.
         
     -->
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
-    </div>
+		<div id="ing" class="step" data-x="3500" data-y="-850"
+			data-rotate="270" data-scale="6">
+			<p>
+				by <b class="positioning">positioning</b>, <b class="rotating">rotating</b>
+				and <b class="scaling">scaling</b> them on an infinite canvas
+			</p>
+		</div>
 
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-    </div>
+		<div id="imagination" class="step" data-x="6700" data-y="-300"
+			data-scale="6">
+			<p>
+				the only <b>limit</b> is your <b class="imagination">imagination</b>
+			</p>
+		</div>
 
-    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
-    </div>
+		<div id="source" class="step" data-x="6300" data-y="2000"
+			data-rotate="20" data-scale="4">
+			<p>want to know more?</p>
+			<q><a href="http://github.com/bartaz/impress.js">use the
+					source</a>, Luke!</q>
+		</div>
 
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <p>one more thing...</p>
-    </div>
+		<div id="one-more-thing" class="step" data-x="6000" data-y="4000"
+			data-scale="2">
+			<p>one more thing...</p>
+		</div>
 
-    <!--
+		<!--
         
         And the last one shows full power and flexibility of impress.js.
         
@@ -287,12 +285,17 @@
         as `data-rotate` (these two are basically aliases).
         
     -->
-    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it¡¯s</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-        <span class="footnote">* beat that, prezi ;)</span>
-    </div>
+		<div id="its-in-3d" class="step" data-x="6200" data-y="4300"
+			data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+			<p>
+				<span class="have">have</span> <span class="you">you</span> <span
+					class="noticed">noticed</span> <span class="its">it¡¯s</span> <span
+					class="in">in</span> <b>3D<sup>*</sup></b>?
+			</p>
+			<span class="footnote">* beat that, prezi ;)</span>
+		</div>
 
-    <!--
+		<!--
         
         So to summarize of all the possible attributes used to position presentation steps, we have:
         
@@ -307,12 +310,12 @@
         CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
         
     -->
-    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
-    </div>
+		<div id="overview" class="step" data-x="3000" data-y="1500"
+			data-scale="10"></div>
 
-</div>
+	</div>
 
-<!--
+	<!--
     
     Hint is not related to impress.js in any way.
     
@@ -336,16 +339,16 @@
     Just sayin' ;)
     
 -->
-<div class="hint">
-    <p>Use a spacebar or arrow keys to navigate</p>
-</div>
-<script>
-if ("ontouchstart" in document.documentElement) { 
-    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-}
-</script>
+	<div class="hint">
+		<p>Use a spacebar or arrow keys to navigate</p>
+	</div>
+	<script>
+		if ("ontouchstart" in document.documentElement) {
+			document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+		}
+	</script>
 
-<!--
+	<!--
     
     Last, but not least.
     
@@ -360,10 +363,12 @@ if ("ontouchstart" in document.documentElement) {
     Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
     
 -->
-<script src="/resources/impress/js/impress.js"></script>
-<script>impress().init();</script>
+	<script src="/resources/impress/js/impress.js"></script>
+	<script>
+		impress().init();
+	</script>
 
-<!--
+	<!--
     
     The `impress()` function also gives you access to the API that controls the presentation.
     
