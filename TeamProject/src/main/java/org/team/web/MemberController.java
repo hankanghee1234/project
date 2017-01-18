@@ -22,9 +22,9 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
-	public void registGET(Model model, @RequestParam("userid") String userid) throws Exception {
+	public void mypageGET(/*Model model, @RequestParam("userid") String userid*/) throws Exception {
 		logger.info("MEMBER MYPAGE............");
-		model.addAttribute("member", service.read(userid));
+		/*model.addAttribute("member", service.read(userid));*/
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
