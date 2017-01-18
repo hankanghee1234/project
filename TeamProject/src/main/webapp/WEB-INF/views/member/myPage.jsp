@@ -9,8 +9,8 @@
 <meta name="author" content="Isna Nur Azis">
 <meta name="keyword" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" type="text/css" href="../resources/miminium-master/asset/css/bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css"
+	href="../resources/miminium-master/asset/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
 	href="../resources/miminium-master/asset/css/plugins/font-awesome.min.css">
 <link rel="stylesheet" type="text/css"
@@ -362,88 +362,15 @@ body {
 						<button class=" btn btn-circle btn-3d btn-lg btn-primary"
 							value="primary">
 							<span class="fa fa-paypal"></span>
-
 						</button>
-
-
-
-
 					</div>
-
-					<!--  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-pie-chart icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">UI/UX Development</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="19" aria-valuemin="0" aria-valuemax="100" style="width: 19%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-energy icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Server Optimation</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-user icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">User Status</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                   <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-fire icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Firewall Status</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="panel-footer bg-white border-none">
-                                    <center>
-                                      <input type="button" value="download as pdf" class="btn btn-danger box-shadow-none">
-                                    </center>
-                                </div>
-                              </div> -->
 				</div>
-
 			</div>
-
 		</div>
-		<!-- end: content -->
-
 		<button id="mimin-mobile-menu-opener"
 			class="animated rubberBand btn btn-circle btn-danger">
 			<span class="fa fa-bars"></span>
 		</button>
-		<!-- end: Mobile -->
 </body>
 
 <script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
