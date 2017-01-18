@@ -58,6 +58,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/loginSUCCESS", method = RequestMethod.POST)
 	public void loginSUCCESS() throws Exception {
+
 	}
 
 	@RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
