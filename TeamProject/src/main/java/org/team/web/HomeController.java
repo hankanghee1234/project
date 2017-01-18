@@ -20,10 +20,20 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@RequestMapping(value="/test", method = RequestMethod.GET)
-	public void Test() throws Exception {
-		logger.info("TEST............");
+	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public void test() throws Exception {
+		logger.info("test페이지.........");
+		
 	}
+	
+	@RequestMapping(value = "/test2", method = RequestMethod.GET)
+	public void test2() throws Exception {
+		logger.info("test2페이지.........");
+		
+	}
+	
+	
 	
 	@RequestMapping(value="/impress", method = RequestMethod.GET)
 	public void impressTest() throws Exception {
