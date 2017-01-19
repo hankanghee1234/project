@@ -48,4 +48,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.memberLogin(vo);
 	}
 
+	@Override
+	public void broadStart(String userid) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
