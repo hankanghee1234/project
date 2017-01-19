@@ -42,7 +42,7 @@
 					action="<c:url value='/member/register'/>">
 					<input type="id" placeholder="회원아이디" name="userid" /> <input
 						type="password" placeholder="비밀번호" name="userpw" /> <input
-						type="text" placeholder="이름" name="uname" /> <input type="text"
+						type="text" placeholder="이름" name="username" /> <input type="text"
 						placeholder="이메일" name="email" />
 					<button>회원가입</button>
 					<!-- 프로필 공간 -->

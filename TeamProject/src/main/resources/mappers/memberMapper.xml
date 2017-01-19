@@ -6,9 +6,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="create" parameterType="MemberVO">
 		insert into tbl_member
-		(userid, userpw, email, uname)
+		(userid, userpw, email, username)
 		values (#{userid}, #{userpw}, #{email},
-		#{uname})
+		#{username})
 	</insert>
 
 	<select id="read" resultType="MemberVO">
@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update" parameterType="MemberVO">
 		update tbl_member set userpw =
 		#{userpw}, email = #{email},
-		uname = #{uname}, modidate = now() where
+		username = #{username}, modidate = now() where
 		userid = #{userid}
 	</update>
 
