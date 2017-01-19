@@ -20,4 +20,10 @@ public class loginUtil {
 		System.out.println("로그인쿠키.. : " + loginCookie.getValue());
 		return "redirect:/member/myPage";
 	}
+
+	public static String Fail(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		// res.sendRedirect("/index");
+		System.out.println("로그인실패..");
+		return "redirect:/index";
+	}
 }
