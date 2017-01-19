@@ -38,7 +38,160 @@ body {
 <body>
 
 	<!-- start: Content -->
-	<div id="content" class="profile-v1">
+	<div class="container-fluid" id="content">
+		<div class="row">
+			<div class="col-md-12 container-fluid-wrapper">
+				<div class="row">
+					<div class="col-md-8 container-fluid-cover-wrap" align="center"
+				style="padding-right: 0px;" >
+						<h3>PPT LIST</h3>
+						<nav class="navbar navbar-default navbar-inverse" role="navigation">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse"
+								data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="#">Brand</a>
+						</div>
+
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li><a href="#">Link</a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle" 
+								data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Action</a></li>
+										<li><a href="#">Another action</a></li>
+										<li><a href="#">Something else here</a></li>
+										<li class="divider"></li>
+										<li><a href="#">Separated link</a></li>
+										<li class="divider"></li>
+										<li><a href="#">One more separated link</a></li>
+									</ul></li>
+							</ul>
+							<form class="navbar-form navbar-left" role="search">
+								<div class="form-group">
+									<input type="text" class="form-control" />
+								</div>
+								<button type="submit" class="btn btn-default">Submit</button>
+							</form>
+						</div>
+
+						</nav>
+						<table class="table table-hover table-condensed table-bordered">
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>발표자료</th>
+									<th>발표자</th>
+									<th>등록일</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="info">
+									<td>1</td>
+									<td><a href="#">TB - Monthly</a></td>
+									<td>01/04/2012</td>
+									<td>Default</td>
+								</tr>
+								<tr class="active">
+									<td>2</td>
+									<td><a href="#">TB - Monthly</a></td>
+									<td>01/04/2012</td>
+									<td>Approved</td>
+								</tr>
+								<tr class="success">
+									<td>3</td>
+									<td><a href="#">TB - Monthly</a></td>
+									<td>02/04/2012</td>
+									<td>Declined</td>
+								</tr>
+								<tr class="warning">
+									<td>4</td>
+									<td><a href="#">TB - Monthly</a></td>
+									<td>03/04/2012</td>
+									<td>Pending</td>
+								</tr>
+								<tr class="danger">
+									<td>5</td>
+									<td><a href="#">TB - Monthly</a></td>
+									<td>04/04/2012</td>
+									<td>Call in to confirm</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="btn-group">
+							<button class="btn btn-default" type="button">
+								<em class="glyphicon glyphicon-align-left"></em> Left
+							</button>
+							<button class="btn btn-default" type="button">
+								<em class="glyphicon glyphicon-align-center"></em> Center
+							</button>
+							<button class="btn btn-default" type="button">
+								<em class="glyphicon glyphicon-align-right"></em> Right
+							</button>
+							<button class="btn btn-default" type="button">
+								<em class="glyphicon glyphicon-align-justify"></em> Justify
+							</button>
+						</div>
+					</div>
+					<!-- carousel 적용 -->
+					<div class="col-md-4">
+						<div class="carousel slide" id="carousel-199518">
+							<ol class="carousel-indicators">
+								<li data-slide-to="0" data-target="#carousel-199518"></li>
+								<li data-slide-to="1" data-target="#carousel-199518" class="active"></li>
+								<li data-slide-to="2" data-target="#carousel-199518"></li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="item">
+									<img alt="Carousel Bootstrap First"
+										src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
+									<div class="carousel-caption">
+									</div>
+								</div>
+								<div class="item active">
+									<img alt="Carousel Bootstrap Second"
+										src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
+									<div class="carousel-caption">
+										
+									</div>
+								</div>
+								<div class="item">
+									<img alt="Carousel Bootstrap Third"
+										src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
+									<div class="carousel-caption">
+										
+									</div>
+								</div>
+							</div>
+							<a class="left carousel-control" href="#carousel-199518" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span></a> 
+								<a class="right carousel-control" href="#carousel-199518" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span></a>
+						</div>
+						<dl>
+							<dt>Description lists</dt>
+							<dd>A description list is perfect for defining terms.</dd>
+							<dt>Euismod</dt>
+							<dd>Vestibulum id ligula porta felis euismod semper eget
+								lacinia odio sem nec elit.</dd>
+							<dd>Donec id elit non mi porta gravida at eget metus.</dd>
+							<dt>Malesuada porta</dt>
+							<dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+							<dt>Felis euismod semper eget lacinia</dt>
+							<dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris
+								condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%-- <div id="content" class="profile-v1">
 		<div class="col-md-10 col-sm-10 profile-v1-wrapper">
 			<div class="col-md-9  profile-v1-cover-wrap"
 				style="padding-right: 0px;">
@@ -88,8 +241,6 @@ body {
 
 			</div>
 		</div>
-	
-
 
 		<div class="col-md-12 col-sm-12 profile-v1-body">
 
@@ -366,13 +517,13 @@ body {
 				</div>
 			</div>
 		</div>
-	</div>
-		<!-- end: content -->
+	</div> --%>
+	<!-- end: content -->
 
-		<button id="mimin-mobile-menu-opener"
-			class="animated rubberBand btn btn-circle btn-danger">
-			<span class="fa fa-bars"></span>
-		</button>
+	<button id="mimin-mobile-menu-opener"
+		class="animated rubberBand btn btn-circle btn-danger">
+		<span class="fa fa-bars"></span>
+	</button>
 </body>
 
 <script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
