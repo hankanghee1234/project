@@ -153,6 +153,7 @@ body {
 									<div class="carousel-caption">
 									</div>
 								</div>
+								
 								<div class="item active">
 									<img alt="Carousel Bootstrap Second"
 										src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
