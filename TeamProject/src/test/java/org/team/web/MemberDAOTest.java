@@ -22,7 +22,7 @@ public class MemberDAOTest {
 		vo.setUserid("user10");
 		vo.setUserpw("user10");
 		vo.setEmail("aaa@bbb.com");
-		vo.setUname("user10");
+		vo.setUsername("user10");
 
 		dao.create(vo);
 		System.out.println(vo);
@@ -42,7 +42,7 @@ public class MemberDAOTest {
 		MemberVO vo = new MemberVO();
 		vo.setUserpw("user11");
 		vo.setEmail("bbb@ccc.com");
-		vo.setUname("user11");
+		vo.setUsername("user11");
 		vo.setUserid("user00");
 
 		dao.update(vo);
