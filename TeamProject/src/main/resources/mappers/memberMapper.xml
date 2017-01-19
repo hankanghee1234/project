@@ -32,6 +32,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_member
 	</select>
 
+	<update id="broadStart" parameterType="String">
+		UPDATE tbl_member SET broad_state
+		= 1
+		WHERE userid = #{userid}
+	</update>
+
 	<select id="memberLogin" resultType="String" parameterType="MemberVO">
 		select
 		userid from

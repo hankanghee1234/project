@@ -21,7 +21,7 @@ public class MemberController {
 	@Autowired
 	private MemberServiceImpl service;
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public void mypageGET() throws Exception {

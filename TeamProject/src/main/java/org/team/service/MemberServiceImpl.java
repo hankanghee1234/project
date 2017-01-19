@@ -39,6 +39,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	public void broadStart(String userid) throws Exception {
+		memberDAO.broadStart(userid);
+	}
+
+	@Override
 	public boolean loginDupleChk(String userid) throws Exception {
 		return memberDAO.loginDupleChk(userid);
 	}
