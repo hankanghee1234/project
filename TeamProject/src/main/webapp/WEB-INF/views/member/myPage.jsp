@@ -48,12 +48,9 @@ body {
 
 						<span class="sr-only">Toggle navigation</span> <span
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-
-						<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
+							class="icon-bar"></span> <span class="sr-only">Toggle
+							navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+						<span class="icon-bar"></span>
 
 					</button>
 					<a class="navbar-brand" href="#">Brand</a>
@@ -127,7 +124,7 @@ body {
 				</div>
 			</div>
 
-<script type="text/javascript">
+			<script type="text/javascript">
 $(document).ready(function(){
 	
 	$("#createBtn").on("click", funtion(){
@@ -144,21 +141,6 @@ $(document).ready(function(){
 	
 });
 </script>
-		<div class="col-md-6">
-			<div class="carousel slide" id="carousel-9196">
-				<div class="carousel-inner">
-					<div class="item active">
-						<img alt="Carousel Bootstrap First"
-							src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
-					</div>
-					<div class="item">
-						<img alt="Carousel Bootstrap Second"
-							src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
-					</div>
-					<div class="item">
-						<img alt="Carousel Bootstrap Third"
-							src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
-
 			<div class="col-md-6">
 				<div class="carousel slide" id="carousel-9196">
 					<div class="carousel-inner">
@@ -173,44 +155,54 @@ $(document).ready(function(){
 						<div class="item">
 							<img alt="Carousel Bootstrap Third"
 								src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
+
+							<div class="col-md-6">
+								<div class="carousel slide" id="carousel-9196">
+									<div class="carousel-inner">
+										<div class="item active">
+											<img alt="Carousel Bootstrap First"
+												src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
+										</div>
+										<div class="item">
+											<img alt="Carousel Bootstrap Second"
+												src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
+										</div>
+										<div class="item">
+											<img alt="Carousel Bootstrap Third"
+												src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
+										</div>
+
+									</div>
+									<a class="left carousel-control" href="#carousel-9196"
+										data-slide="prev"> <span
+										class="glyphicon glyphicon-chevron-left"></span></a> <a
+										class="right carousel-control" href="#carousel-9196"
+										data-slide="next"> <span
+										class="glyphicon glyphicon-chevron-right"></span></a>
+								</div>
+
+								<a class="left carousel-control" href="#carousel-9196"
+									data-slide="prev"> <span
+									class="glyphicon glyphicon-chevron-left"></span></a> <a
+									class="right carousel-control" href="#carousel-9196"
+									data-slide="next"> <span
+									class="glyphicon glyphicon-chevron-right"></span></a>
+							</div>
+							<p class="text-left text-success lead"></p>
+							<h3>회의란 무엇인가?</h3>
+							<h4>회의를 하기 위해서는 필요한 것들에 대해서 알아보도록 하겠습니다.</h4>
 						</div>
-
 					</div>
-					<a class="left carousel-control" href="#carousel-9196"
-						data-slide="prev"> <span
-						class="glyphicon glyphicon-chevron-left"></span></a> <a
-						class="right carousel-control" href="#carousel-9196"
-						data-slide="next"> <span
-						class="glyphicon glyphicon-chevron-right"></span></a>
 				</div>
-
-				<a class="left carousel-control" href="#carousel-9196" data-slide="prev"> 
-				<span class="glyphicon glyphicon-chevron-left"></span></a>
-				<a class="right carousel-control" href="#carousel-9196" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span></a>
-			</div>
-				<p class="text-left text-success lead"></p>
-				<h3>회의란 무엇인가?</h3>
-				<h4>회의를 하기 위해서는 필요한 것들에 대해서 알아보도록 하겠습니다.</h4>
-
-
-
-				<p class="text-left text-success lead"></p>
-				<h3>회의란 무엇인가?</h3>
-				<h4>회의를 하기 위해서는 필요한 것들에 대해서 알아보도록 하겠습니다.</h4>
-
-
 			</div>
 		</div>
-	</div>
+		<button id="mimin-mobile-menu-opener"
+			class="animated rubberBand btn btn-circle btn-danger"></button>
+		<button id="mimin-mobile-menu-opener"
+			class="animated rubberBand btn btn-circle btn-danger">
 
-	<button id="mimin-mobile-menu-opener" class="animated rubberBand btn btn-circle btn-danger">
-
-	<button id="mimin-mobile-menu-opener"
-		class="animated rubberBand btn btn-circle btn-danger">
-
-		<span class="fa fa-bars"></span>
-	</button>
+			<span class="fa fa-bars"></span>
+		</button>
 </body>
 
 <script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
