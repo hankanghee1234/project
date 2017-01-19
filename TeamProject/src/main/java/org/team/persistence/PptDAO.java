@@ -2,13 +2,13 @@ package org.team.persistence;
 
 import java.util.List;
 
-import org.team.domain.PPTVO;
+import org.team.domain.PptVO;
 
-public interface PPTDAO {
+public interface PptDAO {
 
-	public void create(PPTVO vo) throws Exception;
+	public void create(PptVO vo) throws Exception;
 
-	public List<PPTVO> pptUserList() throws Exception;
+	public List<PptVO> pptUserList() throws Exception;
 
 	public void update(Integer pptno) throws Exception;
 
