@@ -2,11 +2,12 @@
  * index page 스크립트 소스 정재관
  */
 $(document).ready(function() {
-	var msg = '${msg}';
-	if (msg == 'registSUCCESS') {
-		alert('회원가입에 성공하셨습니다!');
-	};
-
+					var msg = '${msg}';
+					if (msg == 'registSUCCESS') {
+						alert('회원가입에 성공하셨습니다!');
+					} else if (msg == 'loginFail') {
+						alert('로그인에 실패하였습니다.. 다시로그인해주세요!');
+					}
 					// Presentation List FadeIn
 					$("#P-list").click(function(event) {
 
