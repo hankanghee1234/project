@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.team.dao.PptMapper">
+
+	<insert id="create" parameterType="PptVO">
+		insert into tbl_pptdesc (fno, userid, ppt_kind, ppt_title, ppt_desc) 
+		values (#{fno}, #{userid}, #{ppt_kind}, #{ppt_title}, #{ppt_desc})
+	</insert>
+	
+	<select id="list" resultType="PptVO">
+		select * from tbl_pptdesc
+	</select>
+	
+	<update id="update" parameterType="PptVO">
+		update tbl_pptdesc set ppt_kind = #{ppt_kind}, ppt_title = #{ppt_title},
+		ppt_desc = #{ppt_desc}, modidate = now() where pptno = #{pptno}
+	</update>
+	
+	<delete id="delete" parameterType="PptVO">
+		delete from tbl_pptdesc where pptno = #{pptno}
+	</delete>
+		
+</mapper>

@@ -39,6 +39,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	public void broadStart(String userid) throws Exception {
+		
+	}
+	
+	@Override
 	public boolean loginDupleChk(String userid) throws Exception {
 		return memberDAO.loginDupleChk(userid);
 	}
@@ -48,10 +53,6 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.memberLogin(vo);
 	}
 
-	@Override
-	public void broadStart(String userid) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
