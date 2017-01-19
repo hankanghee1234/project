@@ -27,7 +27,17 @@ public class MemberController {
 	public void mypageGET() throws Exception {
 		logger.info("MEMBER MYPAGE............");
 	}
+	
+	@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
+	public void mypage2GET() throws Exception {
+		logger.info("MEMBER MYPAGE2............");
+	}
 
+	@RequestMapping(value = "/myPage3", method = RequestMethod.GET)
+	public void mypage3GET() throws Exception {
+		logger.info("MEMBER MYPAGE3............");
+	}
+	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
 		logger.info("register POST............");
