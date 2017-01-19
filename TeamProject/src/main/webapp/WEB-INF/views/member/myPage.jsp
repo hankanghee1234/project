@@ -35,27 +35,19 @@ body {
 }
 </style>
 <body>
-	<!-- carousel 적용 -->
-	<div class="container-fluid" id="content"
-		style="border: 1px solid black; background-color: lightblue; padding-top: 50px; padding-right: 30px; padding-bottom: 50px; padding-left: 80px;">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6" align="center">
+			<div class="col-md-5">
+				<h3>PPT LIST 정보</h3>
 				<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
-
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
 						data-target="#bs-example-navbar-collapse-1">
-
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span> <span class="sr-only">Toggle
-							navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-
+						<span class="sr-only">Toggle navigation</span><span
+							class="icon-bar"></span><span class="icon-bar"></span><span
+							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Brand</a>
 				</div>
-
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
@@ -78,115 +70,100 @@ body {
 						<button type="submit" class="btn btn-default">Submit</button>
 					</form>
 				</div>
-
-				</nav>
+			</nav>
 				<table class="table">
 					<thead>
-						<tr class="danger">
-
-							<th>번호</th>
-							<th>PPT 제목</th>
-							<th>발표자</th>
-							<th>등록일</th>
+						<tr>
+							<th>#</th>
+							<th>Product</th>
+							<th>Payment Taken</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="info">
+						<tr>
 							<td>1</td>
-							<td><a href="#">TB - Monthly</a></td>
-							<td>Default</td>
+							<td>TB - Monthly</td>
 							<td>01/04/2012</td>
+							<td>Default</td>
 						</tr>
 						<tr class="active">
-							<td>2</td>
-							<td><a href="#">TB - Monthly</a></td>
-							<td>Approved</td>
+							<td>1</td>
+							<td>TB - Monthly</td>
 							<td>01/04/2012</td>
+							<td>Approved</td>
 						</tr>
 						<tr class="success">
-							<td>3</td>
-							<td><a href="#">TB - Monthly</a></td>
-							<td>Declined</td>
+							<td>2</td>
+							<td>TB - Monthly</td>
 							<td>02/04/2012</td>
+							<td>Declined</td>
 						</tr>
 						<tr class="warning">
-							<td>4</td>
-							<td><a href="#">TB - Monthly</a></td>
-							<td>Pending</td>
+							<td>3</td>
+							<td>TB - Monthly</td>
 							<td>03/04/2012</td>
+							<td>Pending</td>
 						</tr>
 					</tbody>
 				</table>
 				<div class="btn-group">
-					<button class="btn btn-primary" type="button" id="createBtn">생성</button>
-					<button class="btn btn-info" type="button" id="updateBtn">수정</button>
-					<button class="btn btn-warning" type="button" id="deleteBtn">삭제</button>
+					<button class="btn btn-default" type="button">
+						Left
+					</button>
+					<button class="btn btn-default" type="button">
+						Center
+					</button>
+					<button class="btn btn-default" type="button">
+						Right
+					</button>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="carousel slide" id="carousel-9196">
+			
+			<div class="col-md-7">
+				<div class="carousel slide" id="carousel-383787">
+					<ol class="carousel-indicators">
+						<li class="active" data-slide-to="0"
+							data-target="#carousel-383787"></li>
+						<li data-slide-to="1" data-target="#carousel-383787"></li>
+						<li data-slide-to="2" data-target="#carousel-383787"></li>
+					</ol>
 					<div class="carousel-inner">
 						<div class="item active">
 							<img alt="Carousel Bootstrap First"
 								src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
+							<div class="carousel-caption">
+								
+							</div>
 						</div>
 						<div class="item">
 							<img alt="Carousel Bootstrap Second"
 								src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
+							<div class="carousel-caption">
+								
+							</div>
 						</div>
 						<div class="item">
 							<img alt="Carousel Bootstrap Third"
 								src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
-
-							<div class="col-md-6">
-								<div class="carousel slide" id="carousel-9196">
-									<div class="carousel-inner">
-										<div class="item active">
-											<img alt="Carousel Bootstrap First"
-												src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
-										</div>
-										<div class="item">
-											<img alt="Carousel Bootstrap Second"
-												src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
-										</div>
-										<div class="item">
-											<img alt="Carousel Bootstrap Third"
-												src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
-										</div>
-
-									</div>
-									<a class="left carousel-control" href="#carousel-9196"
-										data-slide="prev"> <span
-										class="glyphicon glyphicon-chevron-left"></span></a> <a
-										class="right carousel-control" href="#carousel-9196"
-										data-slide="next"> <span
-										class="glyphicon glyphicon-chevron-right"></span></a>
-								</div>
-
-								<a class="left carousel-control" href="#carousel-9196"
-									data-slide="prev"> <span
-									class="glyphicon glyphicon-chevron-left"></span></a> <a
-									class="right carousel-control" href="#carousel-9196"
-									data-slide="next"> <span
-									class="glyphicon glyphicon-chevron-right"></span></a>
+							<div class="carousel-caption">
+								
 							</div>
-							<p class="text-left text-success lead"></p>
-							<h3>회의란 무엇인가?</h3>
-							<h4>회의를 하기 위해서는 필요한 것들에 대해서 알아보도록 하겠습니다.</h4>
 						</div>
 					</div>
+					<a class="left carousel-control" href="#carousel-383787" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span></a>
+					<a class="right carousel-control" href="#carousel-383787" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span></a>
 				</div>
+				
+				<p class="lead">
+					아...정말 힘들다...너무 힘들다....짜증난다.....집에 가고 싶다...
+					집에좀 보내주라....너무 외롭다...보고싶다....도망가고 싶다.....
+				</p>
 			</div>
 		</div>
 	</div>
-	<button id="mimin-mobile-menu-opener"
-		class="animated rubberBand btn btn-circle btn-danger"></button>
-	<button id="mimin-mobile-menu-opener"
-		class="animated rubberBand btn btn-circle btn-danger">
-
-		<span class="fa fa-bars"></span>
-	</button>
-
 
 </body>
 
