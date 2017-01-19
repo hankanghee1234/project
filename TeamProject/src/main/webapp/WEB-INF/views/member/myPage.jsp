@@ -123,24 +123,6 @@ body {
 					<button class="btn btn-warning" type="button" id="deleteBtn">삭제</button>
 				</div>
 			</div>
-
-			<script type="text/javascript">
-$(document).ready(function(){
-	
-	$("#createBtn").on("click", funtion(){
-		
-	});
-	
-	$("#updateBtn").on("click", fucntion(){
-		
-	});
-	
-	$("#deleteBtn").on("click", fucntion(){
-		
-	});
-	
-});
-</script>
 			<div class="col-md-6">
 				<div class="carousel slide" id="carousel-9196">
 					<div class="carousel-inner">
@@ -196,13 +178,16 @@ $(document).ready(function(){
 				</div>
 			</div>
 		</div>
-		<button id="mimin-mobile-menu-opener"
-			class="animated rubberBand btn btn-circle btn-danger"></button>
-		<button id="mimin-mobile-menu-opener"
-			class="animated rubberBand btn btn-circle btn-danger">
+	</div>
+	<button id="mimin-mobile-menu-opener"
+		class="animated rubberBand btn btn-circle btn-danger"></button>
+	<button id="mimin-mobile-menu-opener"
+		class="animated rubberBand btn btn-circle btn-danger">
 
-			<span class="fa fa-bars"></span>
-		</button>
+		<span class="fa fa-bars"></span>
+	</button>
+
+
 </body>
 
 <script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
