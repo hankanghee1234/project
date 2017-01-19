@@ -35,12 +35,27 @@ body {
 }
 </style>
 <body>
+<<<<<<< HEAD
 	<div class="container-fluid">
+=======
+<<<<<<< HEAD
+=======
+	<!-- carousel 적용 -->
+	<div class="container-fluid" id="content"
+		style="border: 1px solid black; background-color: lightblue; padding-top: 50px; padding-right: 30px; padding-bottom: 50px; padding-left: 80px;">
+>>>>>>> branch 'master' of https://github.com/hankanghee1234/project.git
 		<div class="row">
 			<div class="col-md-5">
 				<h3>PPT LIST 정보</h3>
 				<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
+<<<<<<< HEAD
+=======
+>>>>>>> branch 'master' of https://github.com/hankanghee1234/project.git
+
+<<<<<<< HEAD
+=======
+>>>>>>> branch 'master' of https://github.com/hankanghee1234/project.git
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
 						data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span><span
@@ -165,20 +180,21 @@ body {
 		</div>
 	</div>
 
+>>>>>>> branch 'master' of https://github.com/hankanghee1234/project.git
 </body>
 
-<script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
-<script src="../resources/miminium-master/asset/js/jquery.ui.min.js"></script>
-<script src="../resources/miminium-master/asset/js/bootstrap.min.js"></script>
+<script src="../resources/miminium-master/asset/js/jquery.min.js" />
+<script src="../resources/miminium-master/asset/js/jquery.ui.min.js" />
+<script src="../resources/miminium-master/asset/js/bootstrap.min.js" />
 <script
-	src="../resources/miminium-master/asset/js/plugins/icheck.min.js"></script>
+	src="../resources/miminium-master/asset/js/plugins/icheck.min.js" />
 <script
-	src="../resources/miminium-master/asset/js/plugins/moment.min.js"></script>
+	src="../resources/miminium-master/asset/js/plugins/moment.min.js" />
 <script
-	src="../resources/miminium-master/asset/js/plugins/mediaelement-and-player.min.js"></script>
+	src="../resources/miminium-master/asset/js/plugins/mediaelement-and-player.min.js" />
 <script
-	src="../resources/miminium-master/asset/js/plugins/jquery.nicescroll.js"></script>
-<script src="../resources/miminium-master/asset/js/main.js"></script>
+	src="../resources/miminium-master/asset/js/plugins/jquery.nicescroll.js" />
+<script src="../resources/miminium-master/asset/js/main.js" />
 
 <script type="text/javascript">
 	$(document).ready(function() {

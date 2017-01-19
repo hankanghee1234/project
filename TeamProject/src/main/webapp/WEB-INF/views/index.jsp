@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,15 +9,23 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="${pageContext.request.contextPath}/resources/startbootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/startbootstrap/css/stylish-portfolio.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/startbootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<link
+	href="${pageContext.request.contextPath}/resources/startbootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/resources/startbootstrap/css/stylish-portfolio.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/resources/startbootstrap/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css">
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<!-- 앵귤러JS -->
+<!-- 핸들바스 -->
 <script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 </head>
 <body>
 	<!-- Header -->
@@ -24,8 +33,8 @@
 	<div class="text-vertical-center">
 		<h1 class="title">Let's presentation!</h1>
 		<p>
-			<a class="btn btn-dark btn-lg" id="P-list">게스트</a> 
-			<a class="btn btn-dark btn-lg" id="presenter">발표자</a>
+			<a class="btn btn-dark btn-lg" id="P-list">게스트</a> <a
+				class="btn btn-dark btn-lg" id="presenter">발표자</a>
 		</p>
 		<div class="login-page">
 			<div class="form">
@@ -60,9 +69,9 @@
 		</div>
 		<div class="list-page">
 			<div class="form">
-				<form class="list-form">
+				<form class="list-form" id='chatList'>
 					<p>
-						test(<a href="">test1.ppt</a>)
+						test&nbsp;&nbsp;-&nbsp;&nbsp;<a href="">&nbsp;&nbsp;test1.ppt</a>
 					</p>
 					<p>
 						test(<a href="">test2.hwp</a>)
@@ -85,8 +94,11 @@
 		<div class="text-vertical-center"></div>
 	</div>
 	</header>
-<script src="${pageContext.request.contextPath}/resources/startbootstrap/js/jquery.js"></script>
-<script src="${pageContext.request.contextPath}/resources/startbootstrap/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/startbootstrap/js/index.js"></script>
 </body>
+<script
+	src="${pageContext.request.contextPath}/resources/startbootstrap/js/jquery.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/startbootstrap/js/bootstrap.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/startbootstrap/js/index.js"></script>
 </html>
