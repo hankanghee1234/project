@@ -357,7 +357,43 @@ body {
 					<div class="panel-heading bg-white border-none">
 						<h4>Report</h4>
 					</div>
-
+					
+					<div class="panel box-v4">
+				
+				<div class="carousel slide" id="carousel-383787">
+					<ol class="carousel-indicators">
+						<li class="" data-slide-to="0" data-target="#carousel-383787"></li>
+						<li data-slide-to="1" data-target="#carousel-383787" class=""></li>
+						<li data-slide-to="2" data-target="#carousel-383787" class="active"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="item">
+							<img alt="Carousel Bootstrap First" src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg">
+							<div class="carousel-caption">
+								
+							</div>
+						</div>
+						<div class="item">
+							<img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg">
+							<div class="carousel-caption">
+								
+							</div>
+						</div>
+						<div class="item active">
+							<img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg">
+							<div class="carousel-caption">
+								
+							</div>
+						</div>
+					</div>
+					<a class="left carousel-control" href="#carousel-383787" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span></a>
+					<a class="right carousel-control" href="#carousel-383787" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span></a>
+				</div>
+				
+					</div>	
+					
 					<div class="panel box-v4">
 						<div class="panel-heading bg-white border-none">
 							<h4>
@@ -377,39 +413,35 @@ body {
 
 						</div>
 					</div>
-					
-					<div class="panel box-v4">
-					
-					                                <div class="panel-body">
-                                    
-                            
-                             <button class=" btn btn-circle btn-3d btn-lg btn-primary" value="primary">
-                                <span class="fa fa-dot-circle-o"></span>
-                                
-                              </button>
-                               
-                             <button class=" btn btn-circle btn-3d btn-lg btn-primary" value="primary">
-                           <span class="fa fa-times"></span>
-                              </button>
-                               
-                                                            <button class=" btn btn-circle btn-3d btn-lg btn-primary" value="primary">
-                                <span class="fa fa-gear"></span>
-                                
-                              </button>
-                               
-                                                            <button class=" btn btn-circle btn-3d btn-lg btn-primary" value="primary">
-                                <span class="fa fa-paypal"></span>
 
-                              </button>
-                              
-                               
-                                                              
-                               
-                               </div>
-					
-					
+					<div class="panel box-v4">
+
+						<div class="panel-body">
+
+
+							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+								value="primary">
+								<span class="fa fa-dot-circle-o"></span>
+
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+								value="primary">
+								<span class="fa fa-times"></span>
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+								value="primary">
+								<span class="fa fa-gear"></span>
+
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+								value="primary">
+								<span class="fa fa-paypal"></span>
+							</button>
+						</div>
 					</div>
-					
 				</div>
 
 				<!--  <div class="media">
