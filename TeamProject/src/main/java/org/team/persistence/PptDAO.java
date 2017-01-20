@@ -10,7 +10,7 @@ public interface PptDAO {
 
 	public List<PptVO> pptUserList() throws Exception;
 
-	public void update(Integer pptno) throws Exception;
+	public void update(PptVO vo) throws Exception;
 
 	public void delete(Integer pptno) throws Exception;
 }
