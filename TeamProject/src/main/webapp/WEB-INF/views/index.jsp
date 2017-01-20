@@ -33,17 +33,17 @@
 	<div class="text-vertical-center">
 		<h1 class="title">Let's presentation!</h1>
 		<p>
-			<a class="btn btn-dark btn-lg" id="P-list">게스트</a> <a
-				class="btn btn-dark btn-lg" id="presenter">발표자</a>
+			<a class="btn btn-dark btn-lg" id="P-list">게스트</a>
+			<a class="btn btn-dark btn-lg" id="presenter">발표자</a>
 		</p>
 		<div class="login-page">
 			<div class="form">
 				<form class="register-form" method="post"
 					action="<c:url value='/member/register'/>">
-					<input type="id" placeholder="회원아이디" name="userid" /> <input
-						type="password" placeholder="비밀번호" name="userpw" /> <input
-						type="text" placeholder="이름" name="username" /> <input type="text"
-						placeholder="이메일" name="email" />
+					<input type="id" placeholder="회원아이디" name="userid" /> 
+					<input type="password" placeholder="비밀번호" name="userpw" />
+					<input type="text" placeholder="이름" name="username" /> 
+					<input type="text" placeholder="이메일" name="email" />
 					<button>회원가입</button>
 					<!-- 프로필 공간 -->
 					<p class="message">
@@ -55,8 +55,8 @@
 				</form>
 				<form class="login-form" method="post"
 					action="<c:url value='/member/loginPOST'/>">
-					<input type="text" placeholder="회원아이디" name="userid" /> <input
-						type="password" placeholder="비밀먼호" name="userpw" />
+					<input type="text" placeholder="회원아이디" name="userid" /> 
+					<input type="password" placeholder="비밀먼호" name="userpw" />
 					<button>로그인</button>
 					<p class="message">
 						회원이 아니신가요? <a href="#">회원 가입</a>
