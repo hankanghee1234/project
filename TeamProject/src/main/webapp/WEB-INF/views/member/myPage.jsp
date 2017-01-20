@@ -270,11 +270,9 @@ body {
 								</tbody>
 							</table>
 						</div>
-						<!--                   <div class="col-md-6" style="padding-top:20px;">
-                    <span>showing 0-10 of 30 items</span>
-                  </div> -->
+					
 						<!-- list paging 처리 -->
-						<!-- <div class="col-md-8">
+						<div class="col-md-8">
 							<ul class="pagination pull-right">
 								<li><a href="#" aria-label="Previous"> <span
 										aria-hidden="true">«</span>
@@ -288,7 +286,7 @@ body {
 										aria-hidden="true">»</span>
 								</a></li>
 							</ul>
-						</div> -->
+						</div>
 					</div>
 				</div>
 			</div>

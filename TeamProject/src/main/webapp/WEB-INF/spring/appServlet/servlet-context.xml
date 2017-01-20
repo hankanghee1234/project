@@ -9,11 +9,6 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
-
-
-
-
 	<websocket:handlers>
         <websocket:mapping path="/websocket/echo.do" handler="myHandler"/>
     </websocket:handlers>
