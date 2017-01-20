@@ -11,7 +11,7 @@ public class PptDAOImpl implements PptDAO {
 	@Autowired
 	private SqlSession session;
 	
-	private String NAME = "";
+	private String NAME = "org.team.dao.PptMapper";
 	
 	@Override
 	public void create(PptVO vo) throws Exception {
