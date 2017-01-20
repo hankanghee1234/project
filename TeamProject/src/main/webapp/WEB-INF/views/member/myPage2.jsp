@@ -94,10 +94,10 @@ body {
 							</h2>
 						</div>
 
-						<div class="panel-body">
+						<!-- <div class="panel-body">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
 
-								<!-- 이름 -->
+								이름
 								<div class="form-group">
 									<label class="col-sm-2 control-label text-right"></label>
 									<div class="col-sm-10">
@@ -106,7 +106,7 @@ body {
 									</div>
 								</div>
 
-								<!-- 아이디 -->
+								아이디
 								<div class="form-group">
 									<label class="col-sm-2 control-label text-right"></label>
 									<div class="col-sm-10">
@@ -115,7 +115,7 @@ body {
 									</div>
 								</div>
 
-								<!-- 비밀번호 -->
+								비밀번호
 								<div class="form-group">
 									<label class="col-sm-2 control-label text-right"></label>
 									<div class="col-sm-10">
@@ -124,7 +124,7 @@ body {
 									</div>
 								</div>
 
-								<!-- 이메일 -->
+								이메일
 								<div class="form-group">
 									<label class="col-sm-2 control-label text-right"></label>
 									<div class="col-sm-10">
@@ -135,15 +135,15 @@ body {
 
 							</div>
 
-<!-- 							프로파일 삽입 공간
+							프로파일 삽입 공간
 							<div class="panel-body"
 								style="position: relative; border: 1px solid black;">프로파일
-								첨부 장소</div> -->
+								첨부 장소</div>
 
-							<!-- 수정확인 버튼 -->
+							수정확인 버튼
 							<button class="btn btn-primary btn-3d btn-login">
 								Already a User?</button>
-						</div>
+						</div> -->
 
 						<div class="modal-footer"></div>
 					</div>
@@ -230,20 +230,21 @@ body {
 								<!-- /.col-lg-6 -->
 							</div>
 						</div>
+						<!-- ppt list -->
 						<div class="responsive-table">
-
 							<table class="table table-striped table-bordered" width="100%"
 								cellspacing="0">
 								<thead>
 									<tr>
-										<th><div class="icheckbox_flat-red"
-												style="position: relative;">
+										<th>
+											<div class="icheckbox_flat-red" style="position: relative;">
 												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
+														style="position: absolute; opacity: 0;">
 												<ins class="iCheck-helper"
 													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></th>
-										<th>Name</th>
+											</div>
+										</th>
+										<th>발표자</th>
 										<th>Position</th>
 										<th>Office</th>
 										<th>Age</th>
@@ -252,13 +253,14 @@ body {
 								</thead>
 								<tbody>
 									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
+										<td>
+											<div class="icheckbox_flat-red" style="position: relative;">
 												<input type="checkbox" class="icheck" name="checkbox1"
 													style="position: absolute; opacity: 0;">
 												<ins class="iCheck-helper"
 													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
+										</div>
+										</td>
 										<td>Tiger Nixon</td>
 										<td>System Architect</td>
 										<td>Edinburgh</td>
@@ -266,141 +268,7 @@ body {
 										<td>2011/04/25</td>
 
 									</tr>
-									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
-										<td>Garrett Winters</td>
-										<td>Accountant</td>
-										<td>Tokyo</td>
-										<td>63</td>
-										<td>2011/07/25</td>
-
-									</tr>
-									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
-										<td>Ashton Cox</td>
-										<td>Junior Technical Author</td>
-										<td>San Francisco</td>
-										<td>66</td>
-										<td>2009/01/12</td>
-
-									</tr>
-									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
-										<td>Cedric Kelly</td>
-										<td>Senior Javascript Developer</td>
-										<td>Edinburgh</td>
-										<td>22</td>
-										<td>2012/03/29</td>
-
-									</tr>
-									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
-										<td>Airi Satou</td>
-										<td>Accountant</td>
-										<td>Tokyo</td>
-										<td>33</td>
-										<td>2008/11/28</td>
-
-									</tr>
-									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
-										<td>Brielle Williamson</td>
-										<td>Integration Specialist</td>
-										<td>New York</td>
-										<td>61</td>
-										<td>2012/12/02</td>
-
-									</tr>
-									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
-										<td>Herrod Chandler</td>
-										<td>Sales Assistant</td>
-										<td>San Francisco</td>
-										<td>59</td>
-										<td>2012/08/06</td>
-
-									</tr>
-									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
-										<td>Rhona Davidson</td>
-										<td>Integration Specialist</td>
-										<td>Tokyo</td>
-										<td>55</td>
-										<td>2010/10/14</td>
-
-									</tr>
-									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
-										<td>Colleen Hurst</td>
-										<td>Javascript Developer</td>
-										<td>San Francisco</td>
-										<td>39</td>
-										<td>2009/09/15</td>
-
-									</tr>
-									<tr>
-										<td><div class="icheckbox_flat-red"
-												style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div></td>
-										<td>Sonya Frost</td>
-										<td>Software Engineer</td>
-										<td>Edinburgh</td>
-										<td>23</td>
-										<td>2008/12/13</td>
-
-									</tr>
+									
 								</tbody>
 							</table>
 						</div>

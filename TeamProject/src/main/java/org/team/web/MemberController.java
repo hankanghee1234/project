@@ -7,11 +7,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.MemberVO;
+import org.team.domain.PptVO;
 import org.team.service.MemberServiceImpl;
+import org.team.service.PptServiceImpl;
 import org.team.util.loginUtil;
 
 @Controller
@@ -19,30 +22,30 @@ import org.team.util.loginUtil;
 public class MemberController {
 
 	@Autowired
-	private MemberServiceImpl service;
+	private MemberServiceImpl memberDAO;
 
+	@Autowired
+	private PptServiceImpl pptDAO;
+	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
-	public void mypageGET() throws Exception {
-		logger.info("MEMBER MYPAGE............");
+	public void pptListGET(Model model) throws Exception {
+		logger.info("PPT List GET............");
+		
+		model.addAttribute("list", pptDAO.pptUserList());
 	}
 	
-	@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
 	public void mypage2GET() throws Exception {
 		logger.info("MEMBER MYPAGE2............");
-	}
+	}*/
 
-	@RequestMapping(value = "/myPage3", method = RequestMethod.GET)
-	public void mypage3GET() throws Exception {
-		logger.info("MEMBER MYPAGE3............");
-	}
-	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
 		logger.info("register POST............");
 		logger.info(vo.toString());
-		service.create(vo);
+		memberDAO.create(vo);
 		rttr.addFlashAttribute("msg", "registSUCCESS");
 		return "redirect:/index";
 	}
@@ -52,7 +55,7 @@ public class MemberController {
 			throws Exception {
 		String userid = vo.getUserid();
 		String userpw = vo.getUserpw();
-		boolean check = service.memberLogin(vo);
+		boolean check = memberDAO.memberLogin(vo);
 		if (check == true) {
 			rttr.addFlashAttribute("msg", "loginSUCCESS");
 			logger.info("로그인성공..." + check);
@@ -66,8 +69,24 @@ public class MemberController {
 
 	@RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
 	public boolean dupleCheck(String userid) throws Exception {
-		boolean check = service.loginDupleChk(userid);
+		boolean check = memberDAO.loginDupleChk(userid);
 		logger.info("중복체크..." + check);
 		return check;
+	}
+	
+	@RequestMapping(value = "/pptResiter", method = RequestMethod.GET)
+	public void registGET() throws Exception {
+		logger.info("PPT register GET...............");
+	}
+	
+	@RequestMapping(value = "/pptResiter", method = RequestMethod.POST)
+	public String registPOST(PptVO vo, Model model) throws Exception {
+		logger.info("PPT register GET...............");
+		logger.info(vo.toString());
+		
+		pptDAO.create(vo);
+		model.addAttribute("vo", vo);
+		
+		return "redirect:/myPage";
 	}
 }
