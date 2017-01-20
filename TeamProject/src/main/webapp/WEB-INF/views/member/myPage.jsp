@@ -1,16 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <meta name="description" content="Miminium Admin Template v.1">
 <meta name="author" content="Isna Nur Azis">
 <meta name="keyword" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- start: Css -->
 <link rel="stylesheet" type="text/css"
 	href="../resources/miminium-master/asset/css/bootstrap.min.css">
+
+<!-- plugins -->
 <link rel="stylesheet" type="text/css"
 	href="../resources/miminium-master/asset/css/plugins/font-awesome.min.css">
 <link rel="stylesheet" type="text/css"
@@ -23,158 +29,455 @@
 	href="../resources/miminium-master/asset/css/plugins/icheck/skins/flat/red.css">
 <link href="../resources/miminium-master/asset/css/style.css"
 	rel="stylesheet">
+<!-- end: Css -->
 
 <link rel="shortcut icon"
 	href="../resources/miminium-master/asset/img/logomi.png">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
+</head>
+
+
 <style>
 body {
-	background-image: url("../resources/conference1.jpg");
+	/* background-image: url("../resources/conference1.jpg"); */
+	background-color: black;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 </style>
+
 <body>
 
-	<div class="container-fluid">
+	<!-- start: Content -->
+	<div id="content" class="profile-v1">
+		<div class="col-md-10 col-sm-10 profile-v1-wrapper" style="color:">
+			<div class="col-md-12  profile-v1-cover-wrap"
+				style="padding-right: 0px;">
+				<div class="profile-v1-pp">
+					<img src="../resources/miminium-master/asset/img/avatar.jpg">
 
-	<!-- carousel 적용 -->
-	<div class="container-fluid" id="content"
-		style="border: 1px solid black; background-color: lightblue; padding-top: 50px; padding-right: 30px; padding-bottom: 50px; padding-left: 80px;">
 
-		<div class="row">
-			<div class="col-md-5">
-				<h3>PPT LIST 정보</h3>
-				<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span><span
-							class="icon-bar"></span><span class="icon-bar"></span><span
-							class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul></li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" />
+					<div class="presenter-imformatiop"
+						style="text-align: left; position: absolute;">
+						<h3 class="media-heading" style="color: yellow;">Presenter
+							Name</h3>
+						<h4 class="media-heading" style="color: yellow;">
+							Email :<a href="" class="media-heading">abcd1234@naver.com</a>
+						</h4>
+					</div>
+
+					<button
+						class="btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+						style="position: relative;">
+						<div>
+							<span class="icons icon-settings"></span>
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
+					</button>
+
+					<div class="modal-content">
+						<div class="modal-header" style="height: 50px;">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+
+							<h4>회원정보 수정</h4>
+							<h2 class="modal-title">
+								<i class="icon-user icons"></i>
+							</h2>
+						</div>
+
+						<!-- <div class="panel-body">
+							<div class="modal-body col-md-12" style="line-height: 10px;">
+
+								이름
+								<div class="form-group">
+									<label class="col-sm-2 control-label text-right"></label>
+									<div class="col-sm-10">
+										<input type="name" class="form-control"
+											placeholder="이름을 입력해 주십시오.">
+									</div>
+								</div>
+
+								아이디
+								<div class="form-group">
+									<label class="col-sm-2 control-label text-right"></label>
+									<div class="col-sm-10">
+										<input type="id" class="form-control"
+											placeholder="아이디를 입력해주십시오.">
+									</div>
+								</div>
+
+								비밀번호
+								<div class="form-group">
+									<label class="col-sm-2 control-label text-right"></label>
+									<div class="col-sm-10">
+										<input type="password" class="form-control"
+											placeholder="비밀번호를 입력해 주십시오.">
+									</div>
+								</div>
+
+								이메일
+								<div class="form-group">
+									<label class="col-sm-2 control-label text-right"></label>
+									<div class="col-sm-10">
+										<input type="email" class="form-control"
+											placeholder="이메일을 입력해 주십시오.">
+									</div>
+								</div>
+
+							</div>
+
+							프로파일 삽입 공간
+							<div class="panel-body"
+								style="position: relative; border: 1px solid black;">프로파일
+								첨부 장소</div>
+
+							수정확인 버튼
+							<button class="btn btn-primary btn-3d btn-login">
+								Already a User?</button>
+						</div> -->
+
+						<div class="modal-footer"></div>
+					</div>
+
 				</div>
-			</nav>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Product</th>
-							<th>Payment Taken</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>TB - Monthly</td>
-							<td>01/04/2012</td>
-							<td>Default</td>
-						</tr>
-						<tr class="active">
-							<td>1</td>
-							<td>TB - Monthly</td>
-							<td>01/04/2012</td>
-							<td>Approved</td>
-						</tr>
-						<tr class="success">
-							<td>2</td>
-							<td>TB - Monthly</td>
-							<td>02/04/2012</td>
-							<td>Declined</td>
-						</tr>
-						<tr class="warning">
-							<td>3</td>
-							<td>TB - Monthly</td>
-							<td>03/04/2012</td>
-							<td>Pending</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="btn-group">
-					<button class="btn btn-default" type="button">
-						Left
-					</button>
-					<button class="btn btn-default" type="button">
-						Center
-					</button>
-					<button class="btn btn-default" type="button">
-						Right
-					</button>
+
+				<div class="col-md-12 profile-v1-cover">
+					<img src="../resources/miminium-master/asset/img/bg1.jpg"
+						class="img-responsive" style="height: 300px;">
 				</div>
 			</div>
-			
-			<div class="col-md-7">
-				<div class="carousel slide" id="carousel-383787">
-					<ol class="carousel-indicators">
-						<li class="active" data-slide-to="0"
-							data-target="#carousel-383787"></li>
-						<li data-slide-to="1" data-target="#carousel-383787"></li>
-						<li data-slide-to="2" data-target="#carousel-383787"></li>
-					</ol>
-					<div class="carousel-inner">
-						<div class="item active">
-							<img alt="Carousel Bootstrap First"
-								src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
-							<div class="carousel-caption">
-								
+
+			<!-- 프로필 옆 버튼 공간 추가-->
+			<!-- <div class="col-md-3 col-sm-12 padding-0 profile-v1-right">
+				 <div class="col-md-6 col-sm-4 profile-v1-right-wrap padding-0">
+					<div
+						class="col-md-12 padding-0 sub-profile-v1-right text-center sub-profile-v1-right1">
+						<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+							value="primary">
+
+							<span class="icons icon-settings"></span>
+
+						</button>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-sm-4 profile-v1-right-wrap padding-0">
+					<div
+						class="col-md-12 sub-profile-v1-right text-center sub-profile-v1-right2">
+						<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+							value="primary">
+							<span class="fa fa-paper-plane-o"></span>
+						</button>
+					</div>
+				</div>
+
+			</div> -->
+		</div>
+
+		<div class="col-md-12 col-sm-12 profile-v1-body">
+			<div class="col-md-5">
+				<div class="panel">
+					<div class="panel-body">
+						<div class="col-md-12 padding-0" style="padding-bottom: 20px;">
+							<div class="col-md-6" style="padding-left: 10px;">
+								<div class="icheckbox_flat-red" style="position: relative;">
+									<input type="checkbox" class="icheck pull-left"
+										name="checkbox1" style="position: absolute; opacity: 0;">
+									<ins class="iCheck-helper"
+										style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+								</div>
+								<select>
+									<option>Delete</option>
+									<option>Ignore</option>
+									<option>Cancel</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<div class="col-lg-12">
+									<div class="input-group">
+										<input type="text" class="form-control" aria-label="...">
+										<div class="input-group-btn">
+											<button type="button" class="btn btn-default dropdown-toggle"
+												data-toggle="dropdown" aria-haspopup="true"
+												aria-expanded="false">
+												Search<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu dropdown-menu-right">
+												<li><a href="#">Action</a></li>
+												<li><a href="#">Another action</a></li>
+												<li><a href="#">Something else here</a></li>
+												<li role="separator" class="divider"></li>
+												<li><a href="#">Separated link</a></li>
+											</ul>
+										</div>
+										<!-- /btn-group -->
+									</div>
+									<!-- /input-group -->
+								</div>
+								<!-- /.col-lg-6 -->
 							</div>
 						</div>
-						<div class="item">
-							<img alt="Carousel Bootstrap Second"
-								src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
-							<div class="carousel-caption">
-								
-							</div>
+						<!-- ppt list 작성-->
+						<div class="responsive-table">
+							<table class="table table-striped table-bordered" width="100%"
+								cellspacing="0">
+								<thead>
+									<tr>
+										<th>
+											<div class="icheckbox_flat-red" style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div>
+										</th>
+										<th>PPT번호</th>
+										<th>PPT등록번호</th>
+										<th>발표자</th>
+										<th>발표분야</th>
+										<th>제목</th>
+										<th>내용</th>
+										<th>등록일</th>
+										<th>수정일</th>
+									</tr>
+								</thead>
+									<tbody>
+									<c:forEach items="${list}" var="PptVO">
+										<ul class="List">
+											<tr>
+												<td>
+													<div class="icheckbox_flat-red" style="position: relative;">
+														<input type="checkbox" class="icheck" name="checkbox1"
+															style="position: absolute; opacity: 0;">
+														<ins class="iCheck-helper"
+															style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+													</div>
+												</td>
+												<td>${PptVO.pptno}</td>
+												<td>${PptVO.fno}</td>
+												<td>${PptVO.userid}</td>
+												<td>${PptVO.ppt_kind}</td>
+												<td><a href="">${PptVO.ppt_title}</a></td>
+												<td>${PptVO.ppt_desc}</td>
+												<td>${PptVO.regdate}</td>
+												<td>${PptVO.updatedate}</td>
+											</tr>
+										</ul>
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
-						<div class="item">
-							<img alt="Carousel Bootstrap Third"
-								src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
-							<div class="carousel-caption">
-								
+						<!--                   <div class="col-md-6" style="padding-top:20px;">
+                    <span>showing 0-10 of 30 items</span>
+                  </div> -->
+						<!-- list paging 처리 -->
+						<!-- <div class="col-md-8">
+							<ul class="pagination pull-right">
+								<li><a href="#" aria-label="Previous"> <span
+										aria-hidden="true">«</span>
+								</a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#" aria-label="Next"> <span
+										aria-hidden="true">»</span>
+								</a></li>
+							</ul>
+						</div> -->
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-5">
+				<div class="panel box-v3">
+					<div class="panel-heading bg-white border-none">
+						<h4>Report</h4>
+					</div>
+
+					<div class="panel box-v4">
+
+						<div class="panel-body">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div id="carousel-example-generic" class="carousel slide"
+									data-ride="carousel">
+									<ol class="carousel-indicators">
+										<li data-target="#carousel-example-generic" data-slide-to="0"
+											class=""></li>
+										<li data-target="#carousel-example-generic" data-slide-to="1"
+											class="active"></li>
+										<li data-target="#carousel-example-generic" data-slide-to="2"
+											class=""></li>
+									</ol>
+									<div class="carousel-inner">
+										<div class="item">
+											<img class="img-responsive"
+												data-src="holder.js/900x500/auto/#777:#555/text:First slide"
+												alt="First slide"
+												src="../resources/miminium-master/asset/img/bg1.jpg">
+										</div>
+										<div class="item active">
+											<img class="img-responsive"
+												data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
+												alt="Second slide"
+												src="../resources/miminium-master/asset/img/bg1.jpg">
+										</div>
+										<div class="item">
+											<img class="img-responsive"
+												data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
+												alt="Third slide"
+												src="../resources/miminium-master/asset/img/bg1.jpg">
+										</div>
+									</div>
+									<a class="left carousel-control"
+										href="#carousel-example-generic" role="button"
+										data-slide="prev"> <span
+										class="glyphicon glyphicon-chevron-left"></span>
+									</a> <a class="right carousel-control"
+										href="#carousel-example-generic" role="button"
+										data-slide="next"> <span
+										class="glyphicon glyphicon-chevron-right"></span>
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>
-					<a class="left carousel-control" href="#carousel-383787" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left"></span></a>
-					<a class="right carousel-control" href="#carousel-383787" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right"></span></a>
+
+					<div class="panel box-v4">
+						<div class="panel-heading bg-white border-none">
+							<h4>
+								<span class="icon-notebook icons"></span> Agenda
+							</h4>
+						</div>
+						<div class="panel-body padding-0">
+							<div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
+								<h2>Checking Your Server!</h2>
+								<p>Daily Check on Server status, mostly looking at servers
+									with alerts/warnings</p>
+								<b><span class="icon-clock icons"></span> Today at 15:00</b>
+							</div>
+							<div class="calendar fc fc-ltr fc-unthemed">
+								<div class="fc-toolbar"></div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="panel box-v4">
+
+						<div class="panel-body">
+
+
+							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+								value="primary">
+								<span class="fa fa-dot-circle-o"></span>
+
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+								value="primary">
+								<span class="fa fa-times"></span>
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+								value="primary">
+								<span class="fa fa-gear"></span>
+
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+								value="primary">
+								<span class="fa fa-paypal"></span>
+							</button>
+						</div>
+					</div>
 				</div>
-				
-				<p class="lead">
-					아...정말 힘들다...너무 힘들다....짜증난다.....집에 가고 싶다...
-					집에좀 보내주라....너무 외롭다...보고싶다....도망가고 싶다.....
-				</p>
+
+				<!--  <div class="media">
+                                    <div class="media-left">
+                                        <span class="icon-pie-chart icons" style="font-size:2em;"></span>
+                                    </div>
+                                    <div class="media-body">
+                                      <h5 class="media-heading">UI/UX Development</h5>
+                                        <div class="progress progress-mini">
+                                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="19" aria-valuemin="0" aria-valuemax="100" style="width: 19%;">
+                                            <span class="sr-only">60% Complete</span>
+                                          </div>
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="media">
+                                    <div class="media-left">
+                                        <span class="icon-energy icons" style="font-size:2em;"></span>
+                                    </div>
+                                    <div class="media-body">
+                                      <h5 class="media-heading">Server Optimation</h5>
+                                        <div class="progress progress-mini">
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;">
+                                            <span class="sr-only">60% Complete</span>
+                                          </div>
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="media">
+                                    <div class="media-left">
+                                        <span class="icon-user icons" style="font-size:2em;"></span>
+                                    </div>
+                                    <div class="media-body">
+                                      <h5 class="media-heading">User Status</h5>
+                                        <div class="progress progress-mini">
+                                          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%;">
+                                            <span class="sr-only">60% Complete</span>
+                                          </div>
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                   <div class="media">
+                                    <div class="media-left">
+                                        <span class="icon-fire icons" style="font-size:2em;"></span>
+                                    </div>
+                                    <div class="media-body">
+                                      <h5 class="media-heading">Firewall Status</h5>
+                                        <div class="progress progress-mini">
+                                          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                                            <span class="sr-only">60% Complete</span>
+                                          </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel-footer bg-white border-none">
+                                    <center>
+                                      <input type="button" value="download as pdf" class="btn btn-danger box-shadow-none">
+                                    </center>
+                                </div>
+                              </div> -->
 			</div>
+
 		</div>
+
 	</div>
+	<!-- end: content -->
 
-
+	<button id="mimin-mobile-menu-opener"
+		class="animated rubberBand btn btn-circle btn-danger">
+		<span class="fa fa-bars"></span>
+	</button>
+	<!-- end: Mobile -->
 </body>
 
-<script src="../resources/miminium-master/asset/js/jquery.min.js" ></script>
+<script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
 <script src="../resources/miminium-master/asset/js/jquery.ui.min.js"></script>
 <script src="../resources/miminium-master/asset/js/bootstrap.min.js"></script>
 <script
