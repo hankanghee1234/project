@@ -74,7 +74,7 @@
 						test&nbsp;&nbsp;-&nbsp;&nbsp;<a href="">&nbsp;&nbsp;test1.ppt</a>
 					</p>
 					<p>
-						test(<a href="">test2.hwp</a>)
+						test(<a href="http://192.168.0.28:8080">test2.hwp</a>)
 					</p>
 					<p>
 						test(<a href="">test3.doc</a>)

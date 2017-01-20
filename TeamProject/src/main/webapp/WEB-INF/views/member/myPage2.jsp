@@ -46,8 +46,8 @@
 
 <style>
 body {
-	background-image: url("../resources/conference1.jpg");
-	/* 	background-color:black;*/
+	/* background-image: url("../resources/conference1.jpg"); */
+	background-color: black;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -57,26 +57,108 @@ body {
 
 	<!-- start: Content -->
 	<div id="content" class="profile-v1">
-		<div class="col-md-10 col-sm-10 profile-v1-wrapper">
-			<div class="col-md-9  profile-v1-cover-wrap"
+		<div class="col-md-10 col-sm-10 profile-v1-wrapper" style="color:">
+			<div class="col-md-12  profile-v1-cover-wrap"
 				style="padding-right: 0px;">
 				<div class="profile-v1-pp">
 					<img src="../resources/miminium-master/asset/img/avatar.jpg">
-					<h3>Presenter Name</h3>
-					<h4>
-						Email :<a href="" style="color: green;">abcd1234@nvaer.com</a>
-					</h4>
+
+
+					<div class="presenter-imformatiop"
+						style="text-align: left; position: absolute;">
+						<h3 class="media-heading" style="color: yellow;">Presenter
+							Name</h3>
+						<h4 class="media-heading" style="color: yellow;">
+							Email :<a href="" class="media-heading">abcd1234@naver.com</a>
+						</h4>
+					</div>
+
+					<button
+						class="btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+						style="position: relative;">
+						<div>
+							<span class="icons icon-settings"></span>
+						</div>
+					</button>
+
+					<div class="modal-content">
+						<div class="modal-header" style="height: 50px;">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+
+							<h4>회원정보 수정</h4>
+							<h2 class="modal-title">
+								<i class="icon-user icons"></i>
+							</h2>
+						</div>
+
+						<div class="panel-body">
+							<div class="modal-body col-md-12" style="line-height: 10px;">
+
+								<!-- 이름 -->
+								<div class="form-group">
+									<label class="col-sm-2 control-label text-right"></label>
+									<div class="col-sm-10">
+										<input type="name" class="form-control"
+											placeholder="이름을 입력해 주십시오.">
+									</div>
+								</div>
+
+								<!-- 아이디 -->
+								<div class="form-group">
+									<label class="col-sm-2 control-label text-right"></label>
+									<div class="col-sm-10">
+										<input type="id" class="form-control"
+											placeholder="아이디를 입력해주십시오.">
+									</div>
+								</div>
+
+								<!-- 비밀번호 -->
+								<div class="form-group">
+									<label class="col-sm-2 control-label text-right"></label>
+									<div class="col-sm-10">
+										<input type="password" class="form-control"
+											placeholder="비밀번호를 입력해 주십시오.">
+									</div>
+								</div>
+
+								<!-- 이메일 -->
+								<div class="form-group">
+									<label class="col-sm-2 control-label text-right"></label>
+									<div class="col-sm-10">
+										<input type="email" class="form-control"
+											placeholder="이메일을 입력해 주십시오.">
+									</div>
+								</div>
+
+							</div>
+
+<!-- 							프로파일 삽입 공간
+							<div class="panel-body"
+								style="position: relative; border: 1px solid black;">프로파일
+								첨부 장소</div> -->
+
+							<!-- 수정확인 버튼 -->
+							<button class="btn btn-primary btn-3d btn-login">
+								Already a User?</button>
+						</div>
+
+						<div class="modal-footer"></div>
+					</div>
 
 				</div>
 
 				<div class="col-md-12 profile-v1-cover">
 					<img src="../resources/miminium-master/asset/img/bg1.jpg"
-						class="img-responsive">
+						class="img-responsive" style="height: 300px;">
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-12 padding-0 profile-v1-right">
 
-				<div class="col-md-6 col-sm-4 profile-v1-right-wrap padding-0">
+			<!-- 프로필 옆 버튼 공간 추가-->
+			<!-- <div class="col-md-3 col-sm-12 padding-0 profile-v1-right">
+				 <div class="col-md-6 col-sm-4 profile-v1-right-wrap padding-0">
 					<div
 						class="col-md-12 padding-0 sub-profile-v1-right text-center sub-profile-v1-right1">
 						<button class=" btn btn-circle btn-3d btn-lg btn-primary"
@@ -98,15 +180,7 @@ body {
 					</div>
 				</div>
 
-				<div class="col-md-12 col-sm-4 profile-v1-right-wrap padding-0">
-					<div
-						class="col-md-12 sub-profile-v1-right text-center sub-profile-v1-right3">
-						<h1>82001</h1>
-						<p>Post</p>
-					</div>
-				</div>
-
-			</div>
+			</div> -->
 		</div>
 
 
@@ -357,43 +431,55 @@ body {
 					<div class="panel-heading bg-white border-none">
 						<h4>Report</h4>
 					</div>
-					
+
 					<div class="panel box-v4">
-				
-				<div class="carousel slide" id="carousel-383787">
-					<ol class="carousel-indicators">
-						<li class="" data-slide-to="0" data-target="#carousel-383787"></li>
-						<li data-slide-to="1" data-target="#carousel-383787" class=""></li>
-						<li data-slide-to="2" data-target="#carousel-383787" class="active"></li>
-					</ol>
-					<div class="carousel-inner">
-						<div class="item">
-							<img alt="Carousel Bootstrap First" src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg">
-							<div class="carousel-caption">
-								
-							</div>
-						</div>
-						<div class="item">
-							<img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg">
-							<div class="carousel-caption">
-								
-							</div>
-						</div>
-						<div class="item active">
-							<img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg">
-							<div class="carousel-caption">
-								
+
+						<div class="panel-body">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div id="carousel-example-generic" class="carousel slide"
+									data-ride="carousel">
+									<ol class="carousel-indicators">
+										<li data-target="#carousel-example-generic" data-slide-to="0"
+											class=""></li>
+										<li data-target="#carousel-example-generic" data-slide-to="1"
+											class="active"></li>
+										<li data-target="#carousel-example-generic" data-slide-to="2"
+											class=""></li>
+									</ol>
+									<div class="carousel-inner">
+										<div class="item">
+											<img class="img-responsive"
+												data-src="holder.js/900x500/auto/#777:#555/text:First slide"
+												alt="First slide"
+												src="../resources/miminium-master/asset/img/bg1.jpg">
+										</div>
+										<div class="item active">
+											<img class="img-responsive"
+												data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
+												alt="Second slide"
+												src="../resources/miminium-master/asset/img/bg1.jpg">
+										</div>
+										<div class="item">
+											<img class="img-responsive"
+												data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
+												alt="Third slide"
+												src="../resources/miminium-master/asset/img/bg1.jpg">
+										</div>
+									</div>
+									<a class="left carousel-control"
+										href="#carousel-example-generic" role="button"
+										data-slide="prev"> <span
+										class="glyphicon glyphicon-chevron-left"></span>
+									</a> <a class="right carousel-control"
+										href="#carousel-example-generic" role="button"
+										data-slide="next"> <span
+										class="glyphicon glyphicon-chevron-right"></span>
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>
-					<a class="left carousel-control" href="#carousel-383787" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left"></span></a>
-					<a class="right carousel-control" href="#carousel-383787" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right"></span></a>
-				</div>
-				
-					</div>	
-					
+
 					<div class="panel box-v4">
 						<div class="panel-heading bg-white border-none">
 							<h4>
