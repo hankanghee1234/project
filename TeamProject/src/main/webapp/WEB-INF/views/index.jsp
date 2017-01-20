@@ -68,7 +68,7 @@
 			</div>
 		</div>
 		<div class="list-page">
-			<div class="form">
+			<div class="form" method="post">
 				<form class="list-form" id='chatList'>
 					<p>
 						test&nbsp;&nbsp;-&nbsp;&nbsp;<a href="">&nbsp;&nbsp;test1.ppt</a>
