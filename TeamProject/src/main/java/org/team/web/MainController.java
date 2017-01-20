@@ -16,4 +16,10 @@ public class MainController {
 		logger.info("index페이지.........");
 		return "index";
 	}
+	
+	@RequestMapping(value = "/socket", method = RequestMethod.GET)
+	public String socket() throws Exception {
+		logger.info("socket페이지.........");
+		return "socket";
+	}
 }

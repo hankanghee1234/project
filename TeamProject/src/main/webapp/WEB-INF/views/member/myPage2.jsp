@@ -522,7 +522,7 @@ body {
 
 							</button>
 
-							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
+							<button class=" btn btn-circle btn-3d btn-lg btn-primary" id="no"
 								value="primary">
 								<span class="fa fa-paypal"></span>
 							</button>
@@ -604,6 +604,14 @@ body {
 		<span class="fa fa-bars"></span>
 	</button>
 	<!-- end: Mobile -->
+	
+	
+	<form method="get" id="Node" action="http://192.168.0.28:8080/" >
+
+
+   </form>
+
+	
 </body>
 
 <script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
@@ -630,6 +638,13 @@ body {
 			videoVolume : 'vertical',
 			features : [ 'playpause', 'progress', 'volume', 'fullscreen' ]
 		});
+		
+		
+		$('#no').on("click", function () {
+		
+			$('#Node').submit();
+			
+		})
 	});
 </script>
 
