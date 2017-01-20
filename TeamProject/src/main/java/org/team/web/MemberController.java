@@ -74,19 +74,4 @@ public class MemberController {
 		return check;
 	}
 	
-	@RequestMapping(value = "/pptResiter", method = RequestMethod.GET)
-	public void registGET() throws Exception {
-		logger.info("PPT register GET...............");
-	}
-	
-	@RequestMapping(value = "/pptResiter", method = RequestMethod.POST)
-	public String registPOST(PptVO vo, Model model) throws Exception {
-		logger.info("PPT register GET...............");
-		logger.info(vo.toString());
-		
-		pptDAO.create(vo);
-		model.addAttribute("vo", vo);
-		
-		return "redirect:/myPage";
-	}
 }
