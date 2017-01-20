@@ -17,6 +17,7 @@ public class SocketHandler extends TextWebSocketHandler implements InitializingB
        private final Logger logger = LogManager.getLogger(getClass());
        private Set<WebSocketSession> sessionSet = new HashSet<WebSocketSession>();
  
+       
       //소스 설명
 /*
 Set을 이용하여 클라이언트에서 접속 Session 을 유지한다.
