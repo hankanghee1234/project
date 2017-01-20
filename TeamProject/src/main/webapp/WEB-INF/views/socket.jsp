@@ -22,7 +22,7 @@
 		[출처] Spring 4 WebSocket 샘플 구현|작성자 완전컴맹
 		*/
 		
-            var wsUri = "ws://localhost:8082/websocket/websocket/echo.do";
+            var wsUri = "ws://localhost:8082/websocket/echo.do";
            
             function init() {
                 output = document.getElementById("output");
