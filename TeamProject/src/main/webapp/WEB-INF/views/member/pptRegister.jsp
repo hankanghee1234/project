@@ -8,12 +8,12 @@
 </head>
 <body>
 <form action="pptRegister" method="post">
-<div class="box-body">
+	<div class="box-body">
 			<div class="form-group">
 				<label for="Inputfno">PPT 등록번호</label> 
 				<input type="text" name="fno" class="form-control" placeholder="Enter Fno">
 			</div>
-			<div class="form-group" >
+			<div class="form-group">
 				<label for="InputUserid">등록자</label> 
 				<input type="text" name="userid" class="form-control" placeholder="Enter UserID">
 			</div>
@@ -29,8 +29,8 @@
 				<label for="Inputppt_Desc">내용</label>
 				<input type="text" name="ppt_desc" class="form-control" placeholder="Enter Ppt_Desc">
 			</div>	
-			<button class="btn btn-primary" type="button" name="submit">등록</button>
-		</div>
+		<button class="btn btn-primary" type="button" name="submit">등록</button>
+	</div>
 </form>
 </body>
 </html>
