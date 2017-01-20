@@ -11,36 +11,36 @@ import org.team.persistence.FileDAOImpl;
 public class FileServiceImpl implements FileService {
 
 	@Autowired
-	private FileDAOImpl service;
+	private FileDAOImpl fileDAO;
 	
 	@Override
 	public void create(FileVO vo) throws Exception {
 		
-		service.create(vo);
+		fileDAO.create(vo);
 	}
 
 	@Override
 	public FileVO read(Integer fno) throws Exception {
 
-		return service.read(fno);
+		return fileDAO.read(fno);
 	}
 
 	@Override
 	public void update(FileVO vo) throws Exception {
 
-		service.update(vo);
+		fileDAO.update(vo);
 	}
 
 	@Override
 	public void delete(Integer fno) throws Exception {
 		
-		service.delete(fno);
+		fileDAO.delete(fno);
 	}
 
 	@Override
 	public List<FileVO> list() throws Exception {
 
-		return service.list();
+		return fileDAO.list();
 	}
 
 }

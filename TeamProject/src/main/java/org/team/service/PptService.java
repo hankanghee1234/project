@@ -1,10 +1,10 @@
-package org.team.persistence;
+package org.team.service;
 
 import java.util.List;
 
 import org.team.domain.PptVO;
 
-public interface PptDAO {
+public interface PptService {
 
 	public void create(PptVO vo) throws Exception;
 

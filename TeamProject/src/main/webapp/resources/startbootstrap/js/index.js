@@ -11,11 +11,13 @@ $(document)
 				alert('로그인에 실패하였습니다.. 다시로그인해주세요!');
 			}
 
-			$.getJSON("/PPT/chatList", function(list) { 
+			$.getJSON("/PPT/chatList", function(list) { // 이 안에서 ppt 자료를 JSON data로 입력받아서 호출하는곳
 				var chatList = $('#chatList'); 
 				$(list).each(function(index, data) {
 
-chatList.html("<p>" + data.ppt_title + "  -  <a href=node/chat?" + data.userid + ">  " + data.userid + "</a></p>");
+					chatList.html("<p>" 
+							+ data.ppt_title + "  -  <a href=node/chat?" 
+							+ data.userid + ">  " + data.userid + "</a></p>");
 
 					console.log(index);
 					console.log(data); 

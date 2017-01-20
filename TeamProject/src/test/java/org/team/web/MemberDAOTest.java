@@ -19,10 +19,10 @@ public class MemberDAOTest {
 	public void testCreate() throws Exception {
 
 		MemberVO vo = new MemberVO();
-		vo.setUserid("user10");
-		vo.setUserpw("user10");
+		vo.setUserid("user11");
+		vo.setUserpw("user11");
 		vo.setEmail("aaa@bbb.com");
-		vo.setUsername("user10");
+		vo.setUsername("user11");
 
 		dao.create(vo);
 		System.out.println(vo);

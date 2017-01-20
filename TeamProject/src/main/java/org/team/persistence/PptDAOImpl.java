@@ -4,14 +4,16 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.team.domain.PptVO;
 
+@Repository
 public class PptDAOImpl implements PptDAO {
 
 	@Autowired
 	private SqlSession session;
 	
-	private String NAME = "";
+	private String NAME = "org.team.dao.PptMapper";
 	
 	@Override
 	public void create(PptVO vo) throws Exception {
@@ -26,9 +28,9 @@ public class PptDAOImpl implements PptDAO {
 	}
 
 	@Override
-	public void update(Integer pptno) throws Exception {
+	public void update(PptVO vo) throws Exception {
 		
-		session.update(NAME + ".update", pptno);
+		session.update(NAME + ".update", vo);
 	}
 
 	@Override
