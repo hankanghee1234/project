@@ -11,36 +11,36 @@ import org.team.persistence.ImgDAOImpl;
 public class ImgServiceImpl implements ImgService {
 
 	@Autowired
-	private ImgDAOImpl service;
+	private ImgDAOImpl imgDAO;
 
 	@Override
 	public void create(ImgVO vo) throws Exception {
 
-		service.create(vo);
+		imgDAO.create(vo);
 	}
 
 	@Override
 	public ImgVO read(Integer ino) throws Exception {
 
-		return service.read(ino);
+		return imgDAO.read(ino);
 	}
 
 	@Override
 	public void update(ImgVO vo) throws Exception {
 
-		service.update(vo);
+		imgDAO.update(vo);
 	}
 
 	@Override
 	public void delete(Integer ino) throws Exception {
 
-		service.delete(ino);
+		imgDAO.delete(ino);
 	}
 
 	@Override
 	public List<ImgVO> list() throws Exception {
 
-		return service.list();
+		return imgDAO.list();
 	}
 
 }
