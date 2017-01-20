@@ -54,7 +54,7 @@
             function doSend(message) {
                 writeToScreen("Message Sent: " + message);
                 websocket.send(message);
-                //websocket.close();
+             /*    websocket.close(); */
             }
             function writeToScreen(message) {
                 var pre = document.createElement("p");
