@@ -244,8 +244,6 @@ body {
 										<th>발표분야</th>
 										<th>제목</th>
 										<th>내용</th>
-										<th>등록일</th>
-										<th>수정일</th>
 									</tr>
 								</thead>
 									<tbody>
@@ -265,9 +263,7 @@ body {
 												<td>${PptVO.userid}</td>
 												<td>${PptVO.ppt_kind}</td>
 												<td><a href="">${PptVO.ppt_title}</a></td>
-												<td>${PptVO.ppt_desc}</td>
-												<td>${PptVO.regdate}</td>
-												<td>${PptVO.updatedate}</td>
+												<td>${PptVO.ppt_desc}</td>	
 											</tr>
 										</ul>
 									</c:forEach>
