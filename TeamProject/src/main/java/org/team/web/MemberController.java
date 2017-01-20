@@ -36,10 +36,10 @@ public class MemberController {
 		model.addAttribute("list", pptDAO.pptUserList());
 	}
 	
-	/*@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
+	@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
 	public void mypage2GET() throws Exception {
 		logger.info("MEMBER MYPAGE2............");
-	}*/
+	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
