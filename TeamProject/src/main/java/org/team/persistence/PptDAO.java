@@ -16,6 +16,8 @@ public interface PptDAO {
 
 	public void delete(Integer pptno) throws Exception;
 	
+	public List<PptVO> listPage(int page) throws Exception;
+	
 	public List<PptVO> listCriteria(Criteria cri) throws Exception;
 	
 	public int countPaging(Criteria cri) throws Exception;

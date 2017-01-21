@@ -1,12 +1,16 @@
 package org.team.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.team.domain.Criteria;
 import org.team.domain.PptVO;
+import org.team.domain.SearchCriteria;
 import org.team.persistence.PptDAOImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -58,4 +62,54 @@ public class PptDAOTest {
 		dao.delete(pptno);
 		System.out.println(pptno);
 	}
+	
+	@Test
+	public void listPageTest() throws Exception {
+		
+		int page = 1;
+		
+		List<PptVO> list = dao.listPage(page);
+		
+		for (PptVO PptVO : list) {
+			System.out.println(PptVO.getPptno() + ":" + PptVO.getFno() + ":" + PptVO.getUserid()
+			+ ":" + PptVO.getPpt_kind() + ":" + PptVO.getPpt_title() + ":" + PptVO.getPpt_desc());
+		}
+	}
+	
+	@Test
+	public void listCriteriaTest() throws Exception {
+		
+		Criteria cri = new Criteria();
+		
+		cri.setPage(1);
+		cri.setPerPageNum(20);
+		
+		List<PptVO> list = dao.listCriteria(cri);
+		
+		for (PptVO PptVO : list) {
+			System.out.println(PptVO.getPptno() + ":" + PptVO.getFno() + ":" + PptVO.getUserid()
+			+ ":" + PptVO.getPpt_kind() + ":" + PptVO.getPpt_title() + ":" + PptVO.getPpt_desc());
+		}
+	}
+	
+	@Test
+	public void testSearchCount() throws Exception {
+		
+		SearchCriteria cri = new SearchCriteria();
+		cri.setPage(1);
+		cri.setKeyword("user02");
+		cri.setSearchType("u");
+		
+		System.out.println("===============================");
+		
+		List<PptVO> list = dao.listSearch(cri);
+		
+		for (PptVO PptVO : list) {
+			System.out.println(PptVO.getPptno() + ":" + PptVO.getFno() + ":" + PptVO.getUserid()
+			+ ":" + PptVO.getPpt_kind() + ":" + PptVO.getPpt_title() + ":" + PptVO.getPpt_desc());
+		}
+		
+		System.out.println("================================");
+		System.out.println("COUNT: " + dao.listSearchCount(cri));
+	} 
 }

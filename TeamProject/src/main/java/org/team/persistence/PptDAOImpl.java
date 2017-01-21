@@ -43,27 +43,38 @@ public class PptDAOImpl implements PptDAO {
 	}
 
 	@Override
+	public List<PptVO> listPage(int page) throws Exception {
+		
+		if(page <= 0) {
+			page = 1;
+		}
+		page = (page - 1) * 10;
+		
+		return session.selectList(NAME + ".listPage", page);
+	}
+
+	@Override
 	public List<PptVO> listCriteria(Criteria cri) throws Exception {
-	
-		return null;
+		
+		return session.selectList(NAME + ".listCriteria", cri);
 	}
 
 	@Override
 	public int countPaging(Criteria cri) throws Exception {
 		
-		return 0;
+		return session.selectOne(NAME + ".countPaging", cri);
 	}
 
 	@Override
 	public List<PptVO> listSearch(SearchCriteria cri) throws Exception {
 		
-		return null;
+		return session.selectList(NAME + ".listSearch", cri);
 	}
 
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 		
-		return 0;
+		return session.selectOne(NAME + ".listSearchCount", cri);
 	}
 
 }

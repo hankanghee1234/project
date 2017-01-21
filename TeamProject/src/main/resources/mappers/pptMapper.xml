@@ -56,6 +56,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from tbl_pptdesc where pptno = #{pptno}
 	</delete>
 
+	<select id="listPage" resultType="PptVO">
+		<![CDATA[
+		select pptno, fno, userid, ppt_kind, ppt_title, ppt_desc, regdate, modidate
+		from tbl_pptdesc where pptno > 0 order by pptno desc, regdate desc limit #{page}, 10
+		]]>
+	</select>
+	
 	<select id="listCriteria" resultType="PptVO">
 		<![CDATA[
 		select pptno, fno, userid, ppt_kind, ppt_title, ppt_desc, regdate, modidate
