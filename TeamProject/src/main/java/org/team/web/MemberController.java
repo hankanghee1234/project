@@ -8,11 +8,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.MemberVO;
-import org.team.domain.PptVO;
+import org.team.domain.PageMaker;
+import org.team.domain.SearchCriteria;
 import org.team.service.MemberServiceImpl;
 import org.team.service.PptServiceImpl;
 import org.team.util.loginUtil;
@@ -30,11 +32,18 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
-	public void pptListGET(Model model) throws Exception {
+	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
 		logger.info("PPT List GET............");
+		logger.info(cri.toString());
 		
-		model.addAttribute("list", pptDAO.pptUserList());
-	}
+		model.addAttribute("list", pptDAO.listSearchCriteria(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(pptDAO.listSearchCount(cri));
+		
+		model.addAttribute("pageMaker", pageMaker);
+	} // 페이징 처리 및 검색 조건 처리 contoller 완료
 	
 	@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
 	public void mypage2GET() throws Exception {
