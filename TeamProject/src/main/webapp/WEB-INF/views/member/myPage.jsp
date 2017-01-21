@@ -187,18 +187,14 @@ body {
 					<div class="panel-body">
 						<div class="col-md-12 padding-0" style="padding-bottom: 20px;">
 							<div class="col-md-6" style="padding-left: 10px;">
-								<div class="icheckbox_flat-red" style="position: relative;">
-									<input type="checkbox" class="icheck pull-left"
-										name="checkbox1" style="position: absolute; opacity: 0;">
-									<ins class="iCheck-helper"
-										style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-								</div>
+								
 								<select>
 									<option>Delete</option>
 									<option>Ignore</option>
 									<option>Cancel</option>
 								</select>
 							</div>
+							<!-- 검색 조건 처리 -->
 							<div class="col-md-6">
 								<div class="col-lg-12">
 									<div class="input-group">
@@ -209,13 +205,7 @@ body {
 												aria-expanded="false">
 												Search<span class="caret"></span>
 											</button>
-											<ul class="dropdown-menu dropdown-menu-right">
-												<li><a href="#">Action</a></li>
-												<li><a href="#">Another action</a></li>
-												<li><a href="#">Something else here</a></li>
-												<li role="separator" class="divider"></li>
-												<li><a href="#">Separated link</a></li>
-											</ul>
+											
 										</div>
 										<!-- /btn-group -->
 									</div>
@@ -224,6 +214,7 @@ body {
 								<!-- /.col-lg-6 -->
 							</div>
 						</div>
+						<!-- /.검색조건 처리 완료 -->
 						<!-- ppt list 작성-->
 						<div class="responsive-table">
 							<table class="table table-striped table-bordered" width="100%"
@@ -247,6 +238,7 @@ body {
 									</tr>
 								</thead>
 									<tbody>
+									<!-- ppt 리스트 보여주기 -->
 									<c:forEach items="${list}" var="PptVO">
 										<ul class="List">
 											<tr>

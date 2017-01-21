@@ -3,23 +3,88 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.team.dao.PptMapper">
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 'u'.toString()">
+				and userid like CONCAT ('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'k'.toString()">
+				and ppt_kind like CONCAT ('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 't'.toString()">
+				and ppt_tilte like CONCAT ('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'd'.toString()">
+				and ppt_desc like CONCAT ('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'uk'.toString()">
+				and (userid like CONCAT ('%', #{keyword}, '%')
+				OR ppt_kind like CONCAT ('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'kt'.toString()">
+				and (ppt_kind like CONCAT ('%', #{keyword}, '%')
+				OR ppt_title like CONCAT ('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'td'.toString()">
+				and (ppt_title like CONCAT ('%', #{keyword}, '%')
+				OR ppt_desc like CONCAT ('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'uktd'.toString()">
+				and (userid like CONCAT ('%', #{keyword}, '%')
+				OR ppt_kind like CONCAT ('%', #{keyword}, '%')
+				OR ppt_title like CONCAT ('%',#{keyword}, '%')
+				OR ppt_desc like CONCAT ('%',#{keyword}, '%'))
+			</if>
+		</if>
+	</sql>
 
 	<insert id="create" parameterType="PptVO">
-		insert into tbl_pptdesc (fno, userid, ppt_kind, ppt_title, ppt_desc) 
+		insert into tbl_pptdesc (fno, userid, ppt_kind, ppt_title, ppt_desc)
 		values (#{fno}, #{userid}, #{ppt_kind}, #{ppt_title}, #{ppt_desc})
 	</insert>
-	
+
 	<select id="list" resultType="PptVO">
 		select * from tbl_pptdesc
 	</select>
-	
+
 	<update id="update" parameterType="PptVO">
 		update tbl_pptdesc set ppt_kind = #{ppt_kind}, ppt_title = #{ppt_title},
 		ppt_desc = #{ppt_desc}, modidate = now() where pptno = #{pptno}
 	</update>
-	
+
 	<delete id="delete" parameterType="PptVO">
 		delete from tbl_pptdesc where pptno = #{pptno}
 	</delete>
-		
+
+	<select id="listCriteria" resultType="PptVO">
+		<![CDATA[
+		select pptno, fno, userid, ppt_kind, ppt_title, ppt_desc, regdate, modidate
+		from tbl_pptdesc where pptno > 0 order by pptno desc, regdate desc limit #{pageStart}, #{perPageNum}	
+		]]>
+	</select>
+
+	<select id="countPaging" resultType="int">
+		<![CDATA[
+		select count(pptno) from tbl_pptdesc where pptno > 0			
+		]]>
+	</select>
+
+	<select id="listSearch" resultType="PptVO">
+		<![CDATA[
+		select * from tbl_pptdesc where pptno > 0
+		]]>
+		<include refid="search"></include> 
+		<![CDATA[
+		order by pptno desc
+		limit #{pageStart}, #{perPageNum}		
+		]]>
+	</select>
+
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[
+		select count(pptno) from tbl_pptdesc where pptno > 0	
+		]]>
+		<include refid="search"></include>
+	</select>
+
 </mapper>
