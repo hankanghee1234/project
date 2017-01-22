@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -180,51 +180,76 @@ body {
 
 			</div> -->
 		</div>
-	
+
 		<div class="col-md-12 col-sm-12 profile-v1-body">
 			<div class="col-md-5">
 				<div class="panel">
 					<div class="panel-body">
-					<h3>PPT LIST</h3>
+						<h3>PPT LIST</h3>
 						<div class="col-md-12 padding-0" style="padding-bottom: 20px;">
 							<div class="col-md-8" style="padding-left: 10px;">
-							<!-- 검색 조건 처리 -->
+								<!-- 검색 조건 처리 -->
 								<select name="searchType">
-									<option value="n"<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-									<option value="u"<c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
-									<option value="k"<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
-									<option value="t"<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
-									<option value="d"<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
-									<option value="uk"<c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID OR PPT_KIND</option>
-									<option value="kt"<c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND OR PPT_TITLE</option>
-									<option value="td"<c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE OR PPT_DESC</option>
+									<option value="n"
+										<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
+									<option value="u"
+										<c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
+									<option value="k"
+										<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
+									<option value="t"
+										<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
+									<option value="d"
+										<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
+									<option value="uk"
+										<c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID
+										OR PPT_KIND</option>
+									<option value="kt"
+										<c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND
+										OR PPT_TITLE</option>
+									<option value="td"
+										<c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE
+										OR PPT_DESC</option>
 								</select>
-							<div class="input-group">
-								<input type="text" class="form-control" name="keyword" id="keywordInput" value="${cri.keyword}">
-								<button type="button" class="btn btn-default" id="searchBtn">검색</button>
-							</div> <!-- /input-group -->
-							<div class="col-md-8">
-								<div class="col-lg-10">
-									
-								</div>		
-							</div>
+								<div class="input-group">
+									<input type="text" class="form-control" name="keyword"
+										id="keywordInput" value="${cri.keyword}">
+									<button type="button" class="btn btn-default" id="searchBtn">검색</button>
+								</div>
+								<!-- /input-group -->
+								<div class="col-md-8">
+									<div class="col-lg-10"></div>
+								</div>
 								<!-- /.col-md-8 -->
+							</div>
 						</div>
-					</div> <!-- /.검색조건 처리 완료 -->+
-<script src="https://code.jquery.com/jquery-2.2.4.js"
-		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-		crossorigin="anonymous"></script>
-							
-<script>
-	$(document).ready(function(){
-		
-		$("#searchBtn").on("click", function(event){
-			self.location = "list" + '${pageMaker.makeQuery(1)}' + "&searchType=" +
-						$("select option:selected").val() + "&keyword=" + $('#keywordInput').val();
-		});
-		
-	});
-</script>					
+						<!-- /.검색조건 처리 완료 -->
+						<script src="https://code.jquery.com/jquery-2.2.4.js"
+							integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+							crossorigin="anonymous"></script>
+
+						<script>
+							$(document)
+									.ready(
+											function() {
+
+												$("#searchBtn")
+														.on(
+																"click",
+																function(event) {
+																	self.location = "myPage"
+																			+ '${pageMaker.makeQuery(1)}'
+																			+ "&searchType="
+																			+ $(
+																					"select option:selected")
+																					.val()
+																			+ "&keyword="
+																			+ $(
+																					'#keywordInput')
+																					.val();
+																});
+
+											});
+						</script>
 						<!-- ppt list 작성-->
 						<div class="responsive-table">
 							<table class="table table-striped table-bordered" width="100%"
@@ -247,7 +272,7 @@ body {
 										<th>내용</th>
 									</tr>
 								</thead>
-									<tbody>
+								<tbody>
 									<!-- ppt 리스트 보여주기 -->
 									<c:forEach items="${list}" var="PptVO">
 										<ul class="List">
@@ -265,28 +290,32 @@ body {
 												<td>${PptVO.userid}</td>
 												<td>${PptVO.ppt_kind}</td>
 												<td><a href="">${PptVO.ppt_title}</a></td>
-												<td>${PptVO.ppt_desc}</td>	
+												<td>${PptVO.ppt_desc}</td>
 											</tr>
 										</ul>
 									</c:forEach>
 								</tbody>
 							</table>
 						</div>
-					
+
 						<!-- list paging 처리 -->
 						<div class="col-md-8">
 							<ul class="pagination pull-right">
-								<li><a href="#" aria-label="Previous"> <span
-										aria-hidden="true">«</span>
-								</a></li>
-								<li class="active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#" aria-label="Next"> <span
-										aria-hidden="true">»</span>
-								</a></li>
+								<c:if test="${pageMaker.prev}">
+									<li><a
+										href="myPage${pageMaker.makeSearch(pageMaker.startPage - 1)}"
+										aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+								</c:if>
+								<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+									<li class="active" <c:out value="${pageMaker.cri.page == idx?'class = active':''}"/>>
+										<a href="myPage${pageMaker.makeSearch(idx)}">${idx}</a>	
+									</li>
+								</c:forEach>
+								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+									<li><a
+										href="myPage${pageMaker.makeSearch(pageMaker.endPage + 1)}"
+										aria-label="Next"><span aria-hidden="true">»</span></a></li>
+								</c:if>
 							</ul>
 						</div>
 					</div>
