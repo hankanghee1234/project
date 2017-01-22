@@ -11,7 +11,7 @@
 
 	
 <!-- 	<form method="get" id="Node" action="http://192.168.0.28:8080/" > -->
-	<form method="get" id="Node" action="http://localhost:8080/" >
+	<form method="post" id="nodeWeb" action="nodeWeb" >
 
    </form>
    
@@ -34,6 +34,7 @@
         
         
         <button id="sendSocket" >sendSocket</button>
+                <button id="node" >node</button>
         
         
  <script src="https://code.jquery.com/jquery-2.2.4.js"></script> 
@@ -48,6 +49,11 @@
 		 
 		$("#Socket").submit();
 	});
+	 
+	 $("#node").on("click", function () {
+		 
+			$("#nodeWeb").submit();
+		});
 			      
 			      /*Javascript WebSocket 이벤트 정리
 			onopen
