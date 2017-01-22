@@ -55,7 +55,8 @@ public class MainController {
         cm.ClientRun("test");
         
         logger.info("sendSocket test 보냈음.........");
-        return "redirect:http://192.168.0.28:8080";
+     /*   return "redirect:http://192.168.0.28:8080";*/
+        return "redirect:http://localhost:8080";
         
 	
 	}

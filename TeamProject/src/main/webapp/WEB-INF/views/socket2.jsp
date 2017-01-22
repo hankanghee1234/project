@@ -10,8 +10,8 @@
 
 
 	
-	<form method="get" id="Node" action="http://192.168.0.28:8080/" >
-
+<!-- 	<form method="get" id="Node" action="http://192.168.0.28:8080/" > -->
+	<form method="get" id="Node" action="http://localhost:8080/" >
 
    </form>
    
