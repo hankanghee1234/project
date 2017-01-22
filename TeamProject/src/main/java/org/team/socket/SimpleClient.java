@@ -27,9 +27,12 @@ public class SimpleClient{
         InputStreamReader isr = null;
         BufferedReader br = null;
         */
+        
         try{
-            socket = new Socket("192.168.0.28", 8081);
+//            socket = new Socket("192.168.0.28", 8081);
+            socket = new Socket("localhost", 8081);
             os = socket.getOutputStream();
+            
             osw = new OutputStreamWriter(os);
             bw = new BufferedWriter(osw);            //서버로 전송을 위한 OutputStream
         
@@ -38,7 +41,7 @@ public class SimpleClient{
             br = new BufferedReader(isr);        // 서버로부터 Data를 받음
 */            
             bw.write(data);
-            bw.newLine();
+ /*           bw.newLine();*/
             bw.flush();
             
      /*       String receiveData = "";

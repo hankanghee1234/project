@@ -83,4 +83,9 @@ public class MemberController {
 		return check;
 	}
 	
+	@RequestMapping(value = "/createPage", method = RequestMethod.GET)
+	public void createPageGET() throws Exception {
+		logger.info("CREATE PAGE............");
+	}
+	
 }
