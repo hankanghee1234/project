@@ -29,12 +29,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and (ppt_title like CONCAT ('%', #{keyword}, '%')
 				OR ppt_desc like CONCAT ('%', #{keyword}, '%'))
 			</if>
-			<if test="searchType == 'uktd'.toString()">
-				and (userid like CONCAT ('%', #{keyword}, '%')
-				OR ppt_kind like CONCAT ('%', #{keyword}, '%')
-				OR ppt_title like CONCAT ('%',#{keyword}, '%')
-				OR ppt_desc like CONCAT ('%',#{keyword}, '%'))
-			</if>
 		</if>
 	</sql>
 

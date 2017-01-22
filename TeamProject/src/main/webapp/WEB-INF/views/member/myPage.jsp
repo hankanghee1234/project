@@ -180,41 +180,51 @@ body {
 
 			</div> -->
 		</div>
-
+	
 		<div class="col-md-12 col-sm-12 profile-v1-body">
 			<div class="col-md-5">
 				<div class="panel">
 					<div class="panel-body">
+					<h3>PPT LIST</h3>
 						<div class="col-md-12 padding-0" style="padding-bottom: 20px;">
-							<div class="col-md-6" style="padding-left: 10px;">
-								
-								<select>
-									<option>Delete</option>
-									<option>Ignore</option>
-									<option>Cancel</option>
-								</select>
-							</div>
+							<div class="col-md-8" style="padding-left: 10px;">
 							<!-- 검색 조건 처리 -->
-							<div class="col-md-6">
-								<div class="col-lg-12">
-									<div class="input-group">
-										<input type="text" class="form-control" aria-label="...">
-										<div class="input-group-btn">
-											<button type="button" class="btn btn-default dropdown-toggle"
-												data-toggle="dropdown" aria-haspopup="true"
-												aria-expanded="false">
-												Search<span class="caret"></span>
-											</button>
-											
-										</div>
-										<!-- /btn-group -->
-									</div>
-									<!-- /input-group -->
-								</div>
-								<!-- /.col-lg-6 -->
+								<select name="searchType">
+									<option value="n"<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
+									<option value="u"<c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
+									<option value="k"<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
+									<option value="t"<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
+									<option value="d"<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
+									<option value="uk"<c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID OR PPT_KIND</option>
+									<option value="kt"<c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND OR PPT_TITLE</option>
+									<option value="td"<c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE OR PPT_DESC</option>
+								</select>
+							<div class="input-group">
+								<input type="text" class="form-control" name="keyword" id="keywordInput" value="${cri.keyword}">
+								<button type="button" class="btn btn-default" id="searchBtn">검색</button>
+							</div> <!-- /input-group -->
+							<div class="col-md-8">
+								<div class="col-lg-10">
+									
+								</div>		
 							</div>
+								<!-- /.col-md-8 -->
 						</div>
-						<!-- /.검색조건 처리 완료 -->
+					</div> <!-- /.검색조건 처리 완료 -->+
+<script src="https://code.jquery.com/jquery-2.2.4.js"
+		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+		crossorigin="anonymous"></script>
+							
+<script>
+	$(document).ready(function(){
+		
+		$("#searchBtn").on("click", function(event){
+			self.location = "list" + '${pageMaker.makeQuery(1)}' + "&searchType=" +
+						$("select option:selected").val() + "&keyword=" + $('#keywordInput').val();
+		});
+		
+	});
+</script>					
 						<!-- ppt list 작성-->
 						<div class="responsive-table">
 							<table class="table table-striped table-bordered" width="100%"
