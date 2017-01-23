@@ -82,7 +82,16 @@ body {
 							<span class="icons icon-settings"></span>
 						</div>
 					</button>
-					<div class="modal-content">
+
+					<button
+						class="secession btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+						style="position: relative;">
+						<div>
+							<span class="icon-user-unfollow"></span>
+						</div>
+					</button>
+
+					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
@@ -149,6 +158,42 @@ body {
 						<div class="modal-footer"></div>
 					</div>
 
+
+
+
+					<div class="modal-content modal-secession">
+						<div class="modal-header" style="height: 50px;">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+
+							<h4>회원탈퇴 확인</h4>
+							<h2 class="modal-title">
+								<i class="icon-user icons"></i>
+							</h2>
+						</div>
+
+						<div class="panel-body" style="text-align: center;">
+							<div class="modal-body col-md-12" style="line-height: 10px;">
+
+								<h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
+
+							</div>
+
+							<button class=" btn-flip btn btn-3d btn-primary" value="primary">
+								<span class="fa fa-circle-thin"></span>
+							</button>
+
+							<button class=" btn-flip btn btn-3d btn-danger" value="primary">
+								<span class="fa fa-times"></span>
+							</button>
+
+						</div>
+
+						<div class="modal-footer"></div>
+					</div>
+
 				</div>
 
 				<div class="col-md-12 profile-v1-cover">
@@ -187,213 +232,232 @@ body {
 
 
 		<div class="col-md-12 col-sm-12 profile-v1-body">
-			<div class="col-md-5">
-				<div class="panel">
-					<div class="panel-body">
-						<h3>PPT LIST</h3>
-						<div class="col-md-12 padding-0" style="padding-bottom: 20px;">
-							<div class="col-md-8" style="padding-left: 10px;">
-								<!-- 검색 조건 처리 -->
-								<select name="searchType">
-									<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-									<option value="u" <c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
-									<option value="k" <c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
-									<option value="t" <c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
-									<option value="d" <c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
-									<option value="uk" <c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID OR PPT_KIND</option>
-									<option value="kt" <c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND OR PPT_TITLE</option>
-									<option value="td" <c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE OR PPT_DESC</option>
-								</select>	
-							</div>
-						</div>
-							<div class="col-md-6">
-								<div class="col-lg-12">
+			<div class="panel">
+				<div class="col-md-5">
+					<div class="panel">
+						<div class="panel-body">
+							<h3>PPT LIST</h3>
+							<div class="col-md-10 padding-0">
+								<div class="col-md-5" style="padding-left: 2px;">
+									<!-- 검색 조건 처리 -->
+									<select name="searchType">
+										<option value="n"
+											<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
+										<option value="u"
+											<c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
+										<option value="k"
+											<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
+										<option value="t"
+											<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
+										<option value="d"
+											<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
+										<option value="uk"
+											<c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID
+											OR PPT_KIND</option>
+										<option value="kt"
+											<c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND
+											OR PPT_TITLE</option>
+										<option value="td"
+											<c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE
+											OR PPT_DESC</option>
+									</select>
+
 									<div class="input-group">
 										<div class="input-group">
-											<input type="text" class="form-control" name="keyword" id="keywordInput" value="${cri.keyword}">				
+											<input type="text" class="form-control" name="keyword"
+												id="keywordInput" value="${cri.keyword}">
 										</div>
-								<!-- /input-group -->
+										<!-- /input-group -->
 										<div class="input-group-btn">
 											<button type="button" class="btn btn-default" id="searchBtn">검색</button>
 										</div>
 										<!-- /btn-group -->
 									</div>
-									<!-- /input-group -->
+
 								</div>
-								<!-- /.col-lg-6 -->
 							</div>
+
+
+
+
+
 						</div>
-					
 						<!-- ppt list 작성-->
-						<div class="responsive-table">
-							<table class="table table-striped table-bordered" width="100%"
-								cellspacing="0">
-								<thead>
-									<tr>
-										<th>
-											<div class="icheckbox_flat-red" style="position: relative;">
-												<input type="checkbox" class="icheck" name="checkbox1"
-													style="position: absolute; opacity: 0;">
-												<ins class="iCheck-helper"
-													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div>
-										</th>
-										<th>PPT번호</th>
-										<th>PPT등록번호</th>
-										<th>발표자</th>
-										<th>발표분야</th>
-										<th>제목</th>
-										<th>내용</th>
-									</tr>
-								</thead>
-								<tbody>
-								<!-- ppt 리스트 보여주기 -->
-								<c:forEach items="${list}" var="PptVO">
-									<ul class="List">
+						<div class="panel-body">
+							<div class="responsive-table">
+								<table class="table table-striped table-bordered" width="100%"
+									cellspacing="0">
+									<thead>
 										<tr>
-											<td>
+											<th>
 												<div class="icheckbox_flat-red" style="position: relative;">
 													<input type="checkbox" class="icheck" name="checkbox1"
 														style="position: absolute; opacity: 0;">
 													<ins class="iCheck-helper"
 														style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
 												</div>
-											</td>
-											<td>${PptVO.pptno}</td>
-											<td>${PptVO.fno}</td>
-											<td>${PptVO.userid}</td>
-											<td>${PptVO.ppt_kind}</td>
-											<td><a href="">${PptVO.ppt_title}</a></td>
-											<td>${PptVO.ppt_desc}</td>
+											</th>
+											<th>PPT번호</th>
+											<th>PPT등록번호</th>
+											<th>발표자</th>
+											<th>발표분야</th>
+											<th>제목</th>
+											<th>내용</th>
 										</tr>
-									</ul>
-								</c:forEach>
-								</tbody>
-							</table>
+									</thead>
+									<tbody>
+										<!-- ppt 리스트 보여주기 -->
+										<c:forEach items="${list}" var="PptVO">
+											<ul class="List">
+												<tr>
+													<td>
+														<div class="icheckbox_flat-red"
+															style="position: relative;">
+															<input type="checkbox" class="icheck" name="checkbox1"
+																style="position: absolute; opacity: 0;">
+															<ins class="iCheck-helper"
+																style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+														</div>
+													</td>
+													<td>${PptVO.pptno}</td>
+													<td>${PptVO.fno}</td>
+													<td>${PptVO.userid}</td>
+													<td>${PptVO.ppt_kind}</td>
+													<td><a href="">${PptVO.ppt_title}</a></td>
+													<td>${PptVO.ppt_desc}</td>
+												</tr>
+											</ul>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
+							<!-- list paging 처리 -->
+							<div class="col-md-8">
+								<ul class="pagination pull-right">
+									<c:if test="${pageMaker.prev}">
+										<li><a
+											href="myPage${pageMaker.makeSearch(pageMaker.startPage - 1)}"
+											aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+									</c:if>
+									<c:forEach begin="${pageMaker.startPage}"
+										end="${pageMaker.endPage}" var="idx">
+										<li class="active"
+											<c:out value="${pageMaker.cri.page == idx?'class = active':''}"/>>
+											<a href="myPage${pageMaker.makeSearch(idx)}">${idx}</a>
+										</li>
+									</c:forEach>
+									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+										<li><a
+											href="myPage${pageMaker.makeSearch(pageMaker.endPage + 1)}"
+											aria-label="Next"><span aria-hidden="true">»</span></a></li>
+									</c:if>
+								</ul>
+							</div>
 						</div>
-						<!-- list paging 처리 -->
-						<div class="col-md-8">
-							<ul class="pagination pull-right">
-								<c:if test="${pageMaker.prev}">
-									<li><a
-										href="myPage${pageMaker.makeSearch(pageMaker.startPage - 1)}"
-										aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-								</c:if>
-								<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-									<li class="active" <c:out value="${pageMaker.cri.page == idx?'class = active':''}"/>>
-										<a href="myPage${pageMaker.makeSearch(idx)}">${idx}</a>	
-									</li>
-								</c:forEach>
-								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-									<li><a
-										href="myPage${pageMaker.makeSearch(pageMaker.endPage + 1)}"
-										aria-label="Next"><span aria-hidden="true">»</span></a></li>
-								</c:if>
-							</ul>
+					</div>
+				</div>
+
+
+				<div class="col-md-5">
+					<div class="panel box-v3">
+						<h4>Select Option</h4>
+						<div class="panel box-v4">
+							<div class="panel-body">
+								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+									value="primary">
+									<span class="fa fa-dot-circle-o"></span>
+
+								</button>
+
+								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+									value="primary">
+									<span class="fa fa-times"></span>
+								</button>
+
+								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+									value="primary">
+									<span class="fa fa-gear"></span>
+
+								</button>
+
+								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+									value="primary" onclick="location.href='createPage'">
+									<span class="fa fa-paypal"></span>
+								</button>
+							</div>
 						</div>
+
+						<div class="panel box-v4">
+							<div class="panel-heading bg-white border-none">
+								<h4>
+									<span class="icon-notebook icons"></span> PPT Imformation
+								</h4>
+							</div>
+							<div class="panel-body">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div id="carousel-example-generic" class="carousel slide"
+										data-ride="carousel">
+										<ol class="carousel-indicators">
+											<li data-target="#carousel-example-generic" data-slide-to="0"
+												class=""></li>
+											<li data-target="#carousel-example-generic" data-slide-to="1"
+												class="active"></li>
+											<li data-target="#carousel-example-generic" data-slide-to="2"
+												class=""></li>
+										</ol>
+										<div class="carousel-inner">
+											<div class="item">
+												<img class="img-responsive"
+													data-src="holder.js/900x500/auto/#777:#555/text:First slide"
+													alt="First slide"
+													src="../resources/miminium-master/asset/img/bg1.jpg">
+											</div>
+											<div class="item active">
+												<img class="img-responsive"
+													data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
+													alt="Second slide"
+													src="../resources/miminium-master/asset/img/bg1.jpg">
+											</div>
+											<div class="item">
+												<img class="img-responsive"
+													data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
+													alt="Third slide"
+													src="../resources/miminium-master/asset/img/bg1.jpg">
+											</div>
+										</div>
+										<a class="left carousel-control"
+											href="#carousel-example-generic" role="button"
+											data-slide="prev"> <span
+											class="glyphicon glyphicon-chevron-left"></span>
+										</a> <a class="right carousel-control"
+											href="#carousel-example-generic" role="button"
+											data-slide="next"> <span
+											class="glyphicon glyphicon-chevron-right"></span>
+										</a>
+									</div>
+									<div class="panel-body padding-0">
+										<div
+											class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
+											<h2>Checking Your Server!</h2>
+											<p>Daily Check on Server status, mostly looking at
+												servers with alerts/warnings</p>
+											<b><span class="icon-clock icons"></span> Today at 15:00</b>
+										</div>
+										<div class="calendar fc fc-ltr fc-unthemed">
+											<div class="fc-toolbar"></div>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-5">
-				<div class="panel box-v3">
-				<h4>Select Option</h4>
-					<div class="panel box-v4">
-						<div class="panel-body">
-							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-								value="primary">
-								<span class="fa fa-dot-circle-o"></span>
-
-							</button>
-
-							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-								value="primary">
-								<span class="fa fa-times"></span>
-							</button>
-
-							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-								value="primary">
-								<span class="fa fa-gear"></span>
-
-							</button>
-
-							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-								value="primary" onclick="location.href='createPage'">
-								<span class="fa fa-paypal"></span>
-							</button>
-						</div>
-					</div>
-
-					<div class="panel box-v4">
-						<div class="panel-heading bg-white border-none">
-							<h4>
-								<span class="icon-notebook icons"></span> PPT Imformation
-							</h4>
-						</div>
-						<div class="panel-body">
-							<div class="col-md-12 col-sm-12 col-xs-12">
-								<div id="carousel-example-generic" class="carousel slide"
-									data-ride="carousel">
-									<ol class="carousel-indicators">
-										<li data-target="#carousel-example-generic" data-slide-to="0"
-											class=""></li>
-										<li data-target="#carousel-example-generic" data-slide-to="1"
-											class="active"></li>
-										<li data-target="#carousel-example-generic" data-slide-to="2"
-											class=""></li>
-									</ol>
-									<div class="carousel-inner">
-										<div class="item">
-											<img class="img-responsive"
-												data-src="holder.js/900x500/auto/#777:#555/text:First slide"
-												alt="First slide"
-												src="../resources/miminium-master/asset/img/bg1.jpg">
-										</div>
-										<div class="item active">
-											<img class="img-responsive"
-												data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
-												alt="Second slide"
-												src="../resources/miminium-master/asset/img/bg1.jpg">
-										</div>
-										<div class="item">
-											<img class="img-responsive"
-												data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
-												alt="Third slide"
-												src="../resources/miminium-master/asset/img/bg1.jpg">
-										</div>
-									</div>
-									<a class="left carousel-control"
-										href="#carousel-example-generic" role="button"
-										data-slide="prev"> <span
-										class="glyphicon glyphicon-chevron-left"></span>
-									</a> <a class="right carousel-control"
-										href="#carousel-example-generic" role="button"
-										data-slide="next"> <span
-										class="glyphicon glyphicon-chevron-right"></span>
-									</a>
-								</div>
-								<div class="panel-body padding-0">
-							<div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
-								<h2>Checking Your Server!</h2>
-								<p>Daily Check on Server status, mostly looking at servers
-									with alerts/warnings</p>
-								<b><span class="icon-clock icons"></span> Today at 15:00</b>
-							</div>
-							<div class="calendar fc fc-ltr fc-unthemed">
-								<div class="fc-toolbar"></div>
-							</div>
-
-						</div>
-								
-							</div>
-						</div>
-					</div>
-
-					</div>
-
-				</div>
-
-				<!--  <div class="media">
+			<!--  <div class="media">
                                     <div class="media-left">
                                         <span class="icon-pie-chart icons" style="font-size:2em;"></span>
                                     </div>
@@ -455,14 +519,14 @@ body {
                                     </center>
                                 </div>
                               </div> -->
-			</div>
-	<!-- end: content -->
+		</div>
+		<!-- end: content -->
 
-	<button id="mimin-mobile-menu-opener"
-		class="animated rubberBand btn btn-circle btn-danger">
-		<span class="fa fa-bars"></span>
-	</button>
-	<!-- end: Mobile -->
+		<button id="mimin-mobile-menu-opener"
+			class="animated rubberBand btn btn-circle btn-danger">
+			<span class="fa fa-bars"></span>
+		</button>
+		<!-- end: Mobile -->
 </body>
 
 <script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
@@ -479,20 +543,25 @@ body {
 <script src="../resources/miminium-master/asset/js/main.js"></script>
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"
-		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-		crossorigin="anonymous"></script>
-		
+	integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+	crossorigin="anonymous"></script>
+
 <!-- 검색 조건 jQuery -->
 <script>
-	$(document).ready(function() {
-		$("#searchBtn").on("click",function(event) {
-			self.location = "myPage"+ '${pageMaker.makeQuery(1)}'+ "&searchType="
-							+ $("select option:selected").val()+ "&keyword="
-							+ $('#keywordInput').val();
-		});
+	$(document).ready(
+			function() {
+				$("#searchBtn").on(
+						"click",
+						function(event) {
+							self.location = "myPage"
+									+ '${pageMaker.makeQuery(1)}'
+									+ "&searchType="
+									+ $("select option:selected").val()
+									+ "&keyword=" + $('#keywordInput').val();
+						});
 
-	});
-</script>	
+			});
+</script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -513,11 +582,20 @@ body {
 	$(".modal-content").hide();
 
 	$(".close").click(function() {
-		$(".modal-content").hide("slow");
+		$(".modal-reset").hide();
 	});
 
 	$(".reset").click(function() {
-		$(".modal-content").toggle("slow");
+		$(".modal-reset").toggle("slow");
+
+	});
+
+	$(".close").click(function() {
+		$(".modal-secession").hide();
+	});
+
+	$(".secession").click(function() {
+		$(".modal-secession").toggle("slow");
 
 	});
 </script>
