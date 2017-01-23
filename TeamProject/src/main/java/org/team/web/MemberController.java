@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.MemberVO;
 import org.team.domain.PageMaker;
@@ -32,11 +33,13 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
-	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
-		logger.info("PPT List GET............");
+	public void pptListGET(@RequestParam(value="userid", required=false)String userid, 
+			@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
+		logger.info("PPT List GET & membership GET............");
 		logger.info(cri.toString());
 		
 		model.addAttribute("list", pptDAO.listSearchCriteria(cri));
+		model.addAttribute("read", memberDAO.read(userid));
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
@@ -82,6 +85,16 @@ public class MemberController {
 		logger.info("중복체크..." + check);
 		return check;
 	}
-
+	
+	@RequestMapping(value = "/myPage", method = RequestMethod.POST)
+	public String updatePost(MemberVO vo, Model model) throws Exception {
+		logger.info("update Post...........");
+		logger.info(vo.toString());
+		
+		memberDAO.update(vo);
+		model.addAttribute("vo", vo);
+		
+		return "redirect:/myPage";
+	} // update controller end
 	
 }

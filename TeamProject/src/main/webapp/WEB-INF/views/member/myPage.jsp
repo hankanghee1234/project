@@ -64,15 +64,11 @@ body {
 				style="padding-right: 0px;">
 				<div class="profile-v1-pp">
 					<img src="../resources/miminium-master/asset/img/avatar.jpg">
-
-
-					<div class="presenter-imformatiop"
-						style="text-align: left; position: absolute;">
-						<h3 class="media-heading" style="color: yellow;">Presenter
-							Name</h3>
-						<h3 class="media-heading" style="color: yellow;">
-							Email :<a href="" class="media-heading">abcd1234@naver.com</a>
-						</h3>
+					<div class="presenter-imformatiop" style="text-align: left; position: absolute;">
+						<!-- 유저 정보 출력 -->
+						<input type="hidden" name="userid" value="${param.userid}">
+						<h3 class="media-heading" style="color: yellow;">${read.username}</h3>
+						<h3 class="media-heading" style="color: yellow;">${read.email}</h3>
 					</div>
 
 					<button
@@ -84,11 +80,9 @@ body {
 					</button>
 					<div class="modal-content">
 						<div class="modal-header" style="height: 50px;">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">×</span>
 							</button>
-
 							<h4>회원정보 수정</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
@@ -97,54 +91,62 @@ body {
 
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
-
-								<!-- 이름 -->
-								<div class="form-group">
-									<label class="col-sm-2 control-label text-right"></label>
-									<div class="col-sm-10">
-										<input type="name" class="form-control"
-											placeholder="이름을 입력해 주십시오.">
+								<form role="form" action="update" method="post">
+								<!-- 아이디는 고정값으로 보여주기 -->
+									<div class="form-group">
+										<label class="col-sm-2 control-label text-right"></label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="userid"
+										placeholder="유저 아이디 정보" readonly="readonly" value="${MemberVO.userid}">
+										</div>
 									</div>
-								</div>
-
-								<!-- 아이디 -->
-								<div class="form-group">
-									<label class="col-sm-2 control-label text-right"></label>
-									<div class="col-sm-10">
-										<input type="id" class="form-control"
-											placeholder="아이디를 입력해주십시오.">
+									<!-- 비밀번호 -->
+									<div class="form-group">
+										<label class="col-sm-2 control-label text-right"></label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="userpw"
+												placeholder="패스워드 수정" value="${MemberVO.userpw}">
+										</div>
 									</div>
-								</div>
-
-								<!-- 비밀번호 -->
-								<div class="form-group">
-									<label class="col-sm-2 control-label text-right"></label>
-									<div class="col-sm-10">
-										<input type="password" class="form-control"
-											placeholder="비밀번호를 입력해 주십시오.">
+									<!-- 이메일 -->
+									<div class="form-group">
+										<label class="col-sm-2 control-label text-right"></label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="email"
+												placeholder="이메일 수정" value="${MemberVO.email}">
+										</div>
 									</div>
-								</div>
-
-								<!-- 이메일 -->
-								<div class="form-group">
-									<label class="col-sm-2 control-label text-right"></label>
-									<div class="col-sm-10">
-										<input type="email" class="form-control"
-											placeholder="이메일을 입력해 주십시오.">
+									<!-- 이름 -->
+									<div class="form-group">
+										<label class="col-sm-2 control-label text-right"></label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="username"
+												placeholder="이름 수정" value="${MemberVO.username}">
+										</div>
 									</div>
-								</div>
-
+								</form>
 							</div>
-
+							<button class="btn btn-primary" id="udpateBtn">회원정보수정</button>
+						</div>
+<script>
+	$(document).ready(function(){
+		
+		var formObj = $("form[role='form']");
+		console.log(formObj);
+		
+		$("#updateBtn").on("click", function(){
+			formObj.submit();
+			
+		});
+		
+	});
+</script>
 							<!-- 							프로파일 삽입 공간
 							<div class="panel-body"
 								style="position: relative; border: 1px solid black;">프로파일
 								첨부 장소</div> -->
 
 							<!-- 수정확인 버튼 -->
-							<button class="btn btn-primary btn-3d btn-login">
-								Already a User?</button>
-						</div>
 
 						<div class="modal-footer"></div>
 					</div>
