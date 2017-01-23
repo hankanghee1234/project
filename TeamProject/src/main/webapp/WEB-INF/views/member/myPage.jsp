@@ -49,6 +49,10 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+
+.modal-content {
+	position: relative;
+}
 </style>
 
 <body>
@@ -66,19 +70,18 @@ body {
 						style="text-align: left; position: absolute;">
 						<h3 class="media-heading" style="color: yellow;">Presenter
 							Name</h3>
-						<h4 class="media-heading" style="color: yellow;">
+						<h3 class="media-heading" style="color: yellow;">
 							Email :<a href="" class="media-heading">abcd1234@naver.com</a>
-						</h4>
+						</h3>
 					</div>
 
 					<button
-						class="btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+						class="reset btn ripple-infinite btn-round btn-3d btn-default btn-lg"
 						style="position: relative;">
 						<div>
 							<span class="icons icon-settings"></span>
 						</div>
 					</button>
-
 					<div class="modal-content">
 						<div class="modal-header" style="height: 50px;">
 							<button type="button" class="close" data-dismiss="modal"
@@ -92,10 +95,10 @@ body {
 							</h2>
 						</div>
 
-						<!-- <div class="panel-body">
+						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
 
-								이름
+								<!-- 이름 -->
 								<div class="form-group">
 									<label class="col-sm-2 control-label text-right"></label>
 									<div class="col-sm-10">
@@ -104,7 +107,7 @@ body {
 									</div>
 								</div>
 
-								아이디
+								<!-- 아이디 -->
 								<div class="form-group">
 									<label class="col-sm-2 control-label text-right"></label>
 									<div class="col-sm-10">
@@ -113,7 +116,7 @@ body {
 									</div>
 								</div>
 
-								비밀번호
+								<!-- 비밀번호 -->
 								<div class="form-group">
 									<label class="col-sm-2 control-label text-right"></label>
 									<div class="col-sm-10">
@@ -122,7 +125,7 @@ body {
 									</div>
 								</div>
 
-								이메일
+								<!-- 이메일 -->
 								<div class="form-group">
 									<label class="col-sm-2 control-label text-right"></label>
 									<div class="col-sm-10">
@@ -133,15 +136,15 @@ body {
 
 							</div>
 
-							프로파일 삽입 공간
+							<!-- 							프로파일 삽입 공간
 							<div class="panel-body"
 								style="position: relative; border: 1px solid black;">프로파일
-								첨부 장소</div>
+								첨부 장소</div> -->
 
-							수정확인 버튼
+							<!-- 수정확인 버튼 -->
 							<button class="btn btn-primary btn-3d btn-login">
 								Already a User?</button>
-						</div> -->
+						</div>
 
 						<div class="modal-footer"></div>
 					</div>
@@ -181,6 +184,8 @@ body {
 			</div> -->
 		</div>
 
+
+
 		<div class="col-md-12 col-sm-12 profile-v1-body">
 			<div class="col-md-5">
 				<div class="panel">
@@ -190,66 +195,35 @@ body {
 							<div class="col-md-8" style="padding-left: 10px;">
 								<!-- 검색 조건 처리 -->
 								<select name="searchType">
-									<option value="n"
-										<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-									<option value="u"
-										<c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
-									<option value="k"
-										<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
-									<option value="t"
-										<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
-									<option value="d"
-										<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
-									<option value="uk"
-										<c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID
-										OR PPT_KIND</option>
-									<option value="kt"
-										<c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND
-										OR PPT_TITLE</option>
-									<option value="td"
-										<c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE
-										OR PPT_DESC</option>
-								</select>
-								<div class="input-group">
-									<input type="text" class="form-control" name="keyword"
-										id="keywordInput" value="${cri.keyword}">
-									<button type="button" class="btn btn-default" id="searchBtn">검색</button>
-								</div>
-								<!-- /input-group -->
-								<div class="col-md-8">
-									<div class="col-lg-10"></div>
-								</div>
-								<!-- /.col-md-8 -->
+									<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
+									<option value="u" <c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
+									<option value="k" <c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
+									<option value="t" <c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
+									<option value="d" <c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
+									<option value="uk" <c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID OR PPT_KIND</option>
+									<option value="kt" <c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND OR PPT_TITLE</option>
+									<option value="td" <c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE OR PPT_DESC</option>
+								</select>	
 							</div>
 						</div>
-						<!-- /.검색조건 처리 완료 -->
-						<script src="https://code.jquery.com/jquery-2.2.4.js"
-							integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-							crossorigin="anonymous"></script>
-
-						<script>
-							$(document)
-									.ready(
-											function() {
-
-												$("#searchBtn")
-														.on(
-																"click",
-																function(event) {
-																	self.location = "myPage"
-																			+ '${pageMaker.makeQuery(1)}'
-																			+ "&searchType="
-																			+ $(
-																					"select option:selected")
-																					.val()
-																			+ "&keyword="
-																			+ $(
-																					'#keywordInput')
-																					.val();
-																});
-
-											});
-						</script>
+							<div class="col-md-6">
+								<div class="col-lg-12">
+									<div class="input-group">
+										<div class="input-group">
+											<input type="text" class="form-control" name="keyword" id="keywordInput" value="${cri.keyword}">				
+										</div>
+								<!-- /input-group -->
+										<div class="input-group-btn">
+											<button type="button" class="btn btn-default" id="searchBtn">검색</button>
+										</div>
+										<!-- /btn-group -->
+									</div>
+									<!-- /input-group -->
+								</div>
+								<!-- /.col-lg-6 -->
+							</div>
+						</div>
+					
 						<!-- ppt list 작성-->
 						<div class="responsive-table">
 							<table class="table table-striped table-bordered" width="100%"
@@ -273,31 +247,30 @@ body {
 									</tr>
 								</thead>
 								<tbody>
-									<!-- ppt 리스트 보여주기 -->
-									<c:forEach items="${list}" var="PptVO">
-										<ul class="List">
-											<tr>
-												<td>
-													<div class="icheckbox_flat-red" style="position: relative;">
-														<input type="checkbox" class="icheck" name="checkbox1"
-															style="position: absolute; opacity: 0;">
-														<ins class="iCheck-helper"
-															style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-													</div>
-												</td>
-												<td>${PptVO.pptno}</td>
-												<td>${PptVO.fno}</td>
-												<td>${PptVO.userid}</td>
-												<td>${PptVO.ppt_kind}</td>
-												<td><a href="">${PptVO.ppt_title}</a></td>
-												<td>${PptVO.ppt_desc}</td>
-											</tr>
-										</ul>
-									</c:forEach>
+								<!-- ppt 리스트 보여주기 -->
+								<c:forEach items="${list}" var="PptVO">
+									<ul class="List">
+										<tr>
+											<td>
+												<div class="icheckbox_flat-red" style="position: relative;">
+													<input type="checkbox" class="icheck" name="checkbox1"
+														style="position: absolute; opacity: 0;">
+													<ins class="iCheck-helper"
+														style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+												</div>
+											</td>
+											<td>${PptVO.pptno}</td>
+											<td>${PptVO.fno}</td>
+											<td>${PptVO.userid}</td>
+											<td>${PptVO.ppt_kind}</td>
+											<td><a href="">${PptVO.ppt_title}</a></td>
+											<td>${PptVO.ppt_desc}</td>
+										</tr>
+									</ul>
+								</c:forEach>
 								</tbody>
 							</table>
 						</div>
-
 						<!-- list paging 처리 -->
 						<div class="col-md-8">
 							<ul class="pagination pull-right">
@@ -324,12 +297,39 @@ body {
 
 			<div class="col-md-5">
 				<div class="panel box-v3">
-					<div class="panel-heading bg-white border-none">
-						<h4>Report</h4>
+				<h4>Select Option</h4>
+					<div class="panel box-v4">
+						<div class="panel-body">
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary">
+								<span class="fa fa-dot-circle-o"></span>
+
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary">
+								<span class="fa fa-times"></span>
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary">
+								<span class="fa fa-gear"></span>
+
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary" onclick="location.href='createPage'">
+								<span class="fa fa-paypal"></span>
+							</button>
+						</div>
 					</div>
 
 					<div class="panel box-v4">
-
+						<div class="panel-heading bg-white border-none">
+							<h4>
+								<span class="icon-notebook icons"></span> PPT Imformation
+							</h4>
+						</div>
 						<div class="panel-body">
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div id="carousel-example-generic" class="carousel slide"
@@ -372,17 +372,7 @@ body {
 										class="glyphicon glyphicon-chevron-right"></span>
 									</a>
 								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="panel box-v4">
-						<div class="panel-heading bg-white border-none">
-							<h4>
-								<span class="icon-notebook icons"></span> Agenda
-							</h4>
-						</div>
-						<div class="panel-body padding-0">
+								<div class="panel-body padding-0">
 							<div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
 								<h2>Checking Your Server!</h2>
 								<p>Daily Check on Server status, mostly looking at servers
@@ -394,36 +384,13 @@ body {
 							</div>
 
 						</div>
-					</div>
-
-					<div class="panel box-v4">
-
-						<div class="panel-body">
-
-
-							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-								value="primary">
-								<span class="fa fa-dot-circle-o"></span>
-
-							</button>
-
-							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-								value="primary">
-								<span class="fa fa-times"></span>
-							</button>
-
-							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-								value="primary">
-								<span class="fa fa-gear"></span>
-
-							</button>
-
-							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-								value="primary">
-								<span class="fa fa-paypal"></span>
-							</button>
+								
+							</div>
 						</div>
 					</div>
+
+					</div>
+
 				</div>
 
 				<!--  <div class="media">
@@ -489,10 +456,6 @@ body {
                                 </div>
                               </div> -->
 			</div>
-
-		</div>
-
-	</div>
 	<!-- end: content -->
 
 	<button id="mimin-mobile-menu-opener"
@@ -515,6 +478,22 @@ body {
 	src="../resources/miminium-master/asset/js/plugins/jquery.nicescroll.js"></script>
 <script src="../resources/miminium-master/asset/js/main.js"></script>
 
+<script src="https://code.jquery.com/jquery-2.2.4.js"
+		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+		crossorigin="anonymous"></script>
+		
+<!-- 검색 조건 jQuery -->
+<script>
+	$(document).ready(function() {
+		$("#searchBtn").on("click",function(event) {
+			self.location = "myPage"+ '${pageMaker.makeQuery(1)}'+ "&searchType="
+							+ $("select option:selected").val()+ "&keyword="
+							+ $('#keywordInput').val();
+		});
+
+	});
+</script>	
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('input').iCheck({
@@ -526,6 +505,20 @@ body {
 			videoVolume : 'vertical',
 			features : [ 'playpause', 'progress', 'volume', 'fullscreen' ]
 		});
+	});
+</script>
+
+
+<script>
+	$(".modal-content").hide();
+
+	$(".close").click(function() {
+		$(".modal-content").hide("slow");
+	});
+
+	$(".reset").click(function() {
+		$(".modal-content").toggle("slow");
+
 	});
 </script>
 
