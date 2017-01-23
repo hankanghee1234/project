@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values (#{fno}, #{userid}, #{ppt_kind}, #{ppt_title}, #{ppt_desc})
 	</insert>
 
-	<select id="list" resultType="PptVO">
+	<select id="pptList" resultType="PptVO">
 		select * from tbl_pptdesc
 	</select>
 
