@@ -31,7 +31,7 @@ public class MemberController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
-	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
+	@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
 	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
 		logger.info("PPT List GET............");
 		logger.info(cri.toString());
@@ -45,10 +45,10 @@ public class MemberController {
 		model.addAttribute("pageMaker", pageMaker);
 	} // 페이징 처리 및 검색 조건 처리 contoller 완료
 	
-	/*@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
-	public void mypage2GET() throws Exception {
-		logger.info("MEMBER MYPAGE2............");
-	}*/
+	@RequestMapping(value = "/myPage3", method = RequestMethod.GET)
+	public void mypage3GET() throws Exception {
+		logger.info("MEMBER MYPAGE3............");
+	}
 
 
 	@RequestMapping(value = "/createPage", method = RequestMethod.GET)

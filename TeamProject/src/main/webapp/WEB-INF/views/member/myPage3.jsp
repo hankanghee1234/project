@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -187,34 +186,42 @@ body {
 
 
 		<div class="col-md-12 col-sm-12 profile-v1-body">
+
 			<div class="col-md-5">
+
 				<div class="panel">
 					<div class="panel-body">
-						<h3>PPT LIST</h3>
 						<div class="col-md-12 padding-0" style="padding-bottom: 20px;">
-							<div class="col-md-8" style="padding-left: 10px;">
-								<!-- 검색 조건 처리 -->
-								<select name="searchType">
-									<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-									<option value="u" <c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
-									<option value="k" <c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
-									<option value="t" <c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
-									<option value="d" <c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
-									<option value="uk" <c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID OR PPT_KIND</option>
-									<option value="kt" <c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND OR PPT_TITLE</option>
-									<option value="td" <c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE OR PPT_DESC</option>
-								</select>	
+							<div class="col-md-6" style="padding-left: 10px;">
+								<div class="icheckbox_flat-red" style="position: relative;">
+									<input type="checkbox" class="icheck pull-left"
+										name="checkbox1" style="position: absolute; opacity: 0;">
+									<ins class="iCheck-helper"
+										style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+								</div>
+								<select>
+									<option>Delete</option>
+									<option>Ignore</option>
+									<option>Cancel</option>
+								</select>
 							</div>
-						</div>
 							<div class="col-md-6">
 								<div class="col-lg-12">
 									<div class="input-group">
-										<div class="input-group">
-											<input type="text" class="form-control" name="keyword" id="keywordInput" value="${cri.keyword}">				
-										</div>
-								<!-- /input-group -->
+										<input type="text" class="form-control" aria-label="...">
 										<div class="input-group-btn">
-											<button type="button" class="btn btn-default" id="searchBtn">검색</button>
+											<button type="button" class="btn btn-default dropdown-toggle"
+												data-toggle="dropdown" aria-haspopup="true"
+												aria-expanded="false">
+												Search<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu dropdown-menu-right">
+												<li><a href="#">Action</a></li>
+												<li><a href="#">Another action</a></li>
+												<li><a href="#">Something else here</a></li>
+												<li role="separator" class="divider"></li>
+												<li><a href="#">Separated link</a></li>
+											</ul>
 										</div>
 										<!-- /btn-group -->
 									</div>
@@ -223,75 +230,196 @@ body {
 								<!-- /.col-lg-6 -->
 							</div>
 						</div>
-					
-						<!-- ppt list 작성-->
 						<div class="responsive-table">
+
 							<table class="table table-striped table-bordered" width="100%"
 								cellspacing="0">
 								<thead>
 									<tr>
-										<th>
-											<div class="icheckbox_flat-red" style="position: relative;">
+										<th><div class="icheckbox_flat-red"
+												style="position: relative;">
 												<input type="checkbox" class="icheck" name="checkbox1"
 													style="position: absolute; opacity: 0;">
 												<ins class="iCheck-helper"
 													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-											</div>
-										</th>
-										<th>PPT번호</th>
-										<th>PPT등록번호</th>
-										<th>발표자</th>
-										<th>발표분야</th>
-										<th>제목</th>
-										<th>내용</th>
+											</div></th>
+										<th>Name</th>
+										<th>Position</th>
+										<th>Office</th>
+										<th>Age</th>
+										<th>Start date</th>
 									</tr>
 								</thead>
 								<tbody>
-								<!-- ppt 리스트 보여주기 -->
-								<c:forEach items="${list}" var="PptVO">
-									<ul class="List">
-										<tr>
-											<td>
-												<div class="icheckbox_flat-red" style="position: relative;">
-													<input type="checkbox" class="icheck" name="checkbox1"
-														style="position: absolute; opacity: 0;">
-													<ins class="iCheck-helper"
-														style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-												</div>
-											</td>
-											<td>${PptVO.pptno}</td>
-											<td>${PptVO.fno}</td>
-											<td>${PptVO.userid}</td>
-											<td>${PptVO.ppt_kind}</td>
-											<td><a href="">${PptVO.ppt_title}</a></td>
-											<td>${PptVO.ppt_desc}</td>
-										</tr>
-									</ul>
-								</c:forEach>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Tiger Nixon</td>
+										<td>System Architect</td>
+										<td>Edinburgh</td>
+										<td>61</td>
+										<td>2011/04/25</td>
+
+									</tr>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Garrett Winters</td>
+										<td>Accountant</td>
+										<td>Tokyo</td>
+										<td>63</td>
+										<td>2011/07/25</td>
+
+									</tr>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Ashton Cox</td>
+										<td>Junior Technical Author</td>
+										<td>San Francisco</td>
+										<td>66</td>
+										<td>2009/01/12</td>
+
+									</tr>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Cedric Kelly</td>
+										<td>Senior Javascript Developer</td>
+										<td>Edinburgh</td>
+										<td>22</td>
+										<td>2012/03/29</td>
+
+									</tr>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Airi Satou</td>
+										<td>Accountant</td>
+										<td>Tokyo</td>
+										<td>33</td>
+										<td>2008/11/28</td>
+
+									</tr>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Brielle Williamson</td>
+										<td>Integration Specialist</td>
+										<td>New York</td>
+										<td>61</td>
+										<td>2012/12/02</td>
+
+									</tr>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Herrod Chandler</td>
+										<td>Sales Assistant</td>
+										<td>San Francisco</td>
+										<td>59</td>
+										<td>2012/08/06</td>
+
+									</tr>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Rhona Davidson</td>
+										<td>Integration Specialist</td>
+										<td>Tokyo</td>
+										<td>55</td>
+										<td>2010/10/14</td>
+
+									</tr>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Colleen Hurst</td>
+										<td>Javascript Developer</td>
+										<td>San Francisco</td>
+										<td>39</td>
+										<td>2009/09/15</td>
+
+									</tr>
+									<tr>
+										<td><div class="icheckbox_flat-red"
+												style="position: relative;">
+												<input type="checkbox" class="icheck" name="checkbox1"
+													style="position: absolute; opacity: 0;">
+												<ins class="iCheck-helper"
+													style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+											</div></td>
+										<td>Sonya Frost</td>
+										<td>Software Engineer</td>
+										<td>Edinburgh</td>
+										<td>23</td>
+										<td>2008/12/13</td>
+
+									</tr>
 								</tbody>
 							</table>
 						</div>
 						<!--                   <div class="col-md-6" style="padding-top:20px;">
                     <span>showing 0-10 of 30 items</span>
                   </div> -->
-						<!-- list paging 처리 -->
 						<div class="col-md-8">
 							<ul class="pagination pull-right">
-								<c:if test="${pageMaker.prev}">
-									<li><a
-										href="myPage${pageMaker.makeSearch(pageMaker.startPage - 1)}"
-										aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-								</c:if>
-								<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-									<li class="active" <c:out value="${pageMaker.cri.page == idx?'class = active':''}"/>>
-										<a href="myPage${pageMaker.makeSearch(idx)}">${idx}</a>	
-									</li>
-								</c:forEach>
-								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-									<li><a
-										href="myPage${pageMaker.makeSearch(pageMaker.endPage + 1)}"
-										aria-label="Next"><span aria-hidden="true">»</span></a></li>
-								</c:if>
+								<li><a href="#" aria-label="Previous"> <span
+										aria-hidden="true">«</span>
+								</a></li>
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#" aria-label="Next"> <span
+										aria-hidden="true">»</span>
+								</a></li>
 							</ul>
 						</div>
 					</div>
@@ -392,7 +520,6 @@ body {
 						</div>
 					</div>
 
-					</div>
 
 				</div>
 
@@ -513,19 +640,4 @@ body {
 	});
 </script>
 
-<script src="https://code.jquery.com/jquery-2.2.4.js"
-		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-		crossorigin="anonymous"></script>
-		
-<!-- 검색 조건 jQuery -->
-<script>
-	$(document).ready(function() {
-		$("#searchBtn").on("click",function(event) {
-			self.location = "myPage"+ '${pageMaker.makeQuery(1)}'+ "&searchType="
-							+ $("select option:selected").val()+ "&keyword="
-							+ $('#keywordInput').val();
-		});
-
-	});
-</script>	
 </html>
