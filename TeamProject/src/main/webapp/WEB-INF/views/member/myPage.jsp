@@ -66,8 +66,8 @@ body {
 					<div class="presenter-imformatiop"
 						style="text-align: left; position: absolute;">
 						<!-- 유저 정보 출력 -->
-						<input type="hidden" name="userid" value="${param.userid}">
-						<h3></h3>
+						<h3 style="color:blue;">${read.username}</h3>
+						<h3 style="color:yellow;">${read.email}</h3>
 					</div>
 
 					<button
@@ -103,19 +103,18 @@ body {
 							<div class="modal-body col-md-12" style="line-height: 10px;">
 								<form action="update" method="post">
 								<!-- 아이디는 고정값으로 보여주기 -->
-								<input type="hidden" name="userid" value="${param.userid}">
 									<div class="form-group">
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="userid"
-										placeholder="회원 아이디 정보" readonly="readonly" value="${MemberVO.userid}">
+										readonly="readonly" value="${read.userid}">
 										</div>
 									</div>
 									<!-- 비밀번호 -->
 									<div class="form-group">
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control" name="userpw"
+											<input type="password" class="form-control" name="userpw"
 												placeholder="패스워드 수정" value="${MemberVO.userpw}">
 										</div>
 									</div>
@@ -249,7 +248,7 @@ body {
 									</thead>
 									<tbody>
 										<!-- ppt 리스트 보여주기 -->
-										<c:forEach items="${list}" var="PptVO">
+										<c:forEach items="${pptList}" var="PptVO">
 											<ul class="pptList">
 												<tr>
 													<td>

@@ -1,5 +1,6 @@
 package org.team.web;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.MemberVO;
 import org.team.domain.PageMaker;
@@ -40,14 +40,23 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
-	public void pptListGET(@RequestParam(value="userid", required=false)String userid, 
-			@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
+	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model, 
+			HttpServletRequest request) throws Exception {
 		logger.info("PPT List GET & membership GET............");
-
 		logger.info(cri.toString());
 		
-		model.addAttribute("list", pptDAO.listSearchCriteria(cri));
-		model.addAttribute("read", memberDAO.read(userid));
+		Cookie[] cookies = request.getCookies();
+		String myid = null;
+		for (Cookie cookie : cookies) {
+			if(cookie.getName().equals("login")){
+				myid = cookie.getValue();
+				break;
+			}
+		} 
+		// myid = user00, 로그인 처리가 되면 로그인한 정보가 출력이 되어야 한다.
+		
+		model.addAttribute("pptList", pptDAO.listSearchCriteria(cri));
+		model.addAttribute("read", memberDAO.read(myid));
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
