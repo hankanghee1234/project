@@ -286,11 +286,11 @@ body {
 					<div class="panel box-v3">
 						<h4>Select Option</h4>
 						<div class="panel box-v4">
-							<div class="panel-body">
+							<div class="panel-body">   
+							    <!--  -->
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary">
 									<span class="fa fa-dot-circle-o"></span>
-
 								</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
@@ -301,7 +301,6 @@ body {
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary">
 									<span class="fa fa-gear"></span>
-
 								</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
@@ -310,7 +309,7 @@ body {
 								</button>
 							</div>
 						</div>
-
+						<!-- PPT 미리보기 화면 뿌려주기 -->
 						<div class="panel box-v4">
 							<div class="panel-heading bg-white border-none">
 								<h4>
