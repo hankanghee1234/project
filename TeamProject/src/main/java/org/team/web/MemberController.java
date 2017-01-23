@@ -32,6 +32,16 @@ public class MemberController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
+	
+	@RequestMapping(value = "/impressTest", method = RequestMethod.GET)
+	public void impressTestGET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
+		logger.info("impressTest GET............");}
+
+	@RequestMapping(value = "/impressTest2", method = RequestMethod.GET)
+	public void impressTest2GET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
+		logger.info("impressTest2 GET............");}
+
+	
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
