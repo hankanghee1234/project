@@ -67,8 +67,7 @@ body {
 						style="text-align: left; position: absolute;">
 						<!-- 유저 정보 출력 -->
 						<input type="hidden" name="userid" value="${param.userid}">
-						<h3 class="media-heading" style="color: yellow;">${read.username}</h3>
-						<h3 class="media-heading" style="color: yellow;">${read.email}</h3>
+						<h3></h3>
 					</div>
 
 					<button
@@ -102,8 +101,9 @@ body {
 
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
-								<form role="form" action="update" method="post">
+								<form action="update" method="post">
 								<!-- 아이디는 고정값으로 보여주기 -->
+								<input type="hidden" name="userid" value="${param.userid}">
 									<div class="form-group">
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
@@ -136,17 +136,11 @@ body {
 										</div>
 									</div>
 								</form>
-							
-							</div>
-
-							<!-- 							프로파일 삽입 공간
-							<div class="panel-body"
-								style="position: relative; border: 1px solid black;">프로파일
-								첨부 장소</div> -->
+							</div>							
 
 							<!-- 수정확인 버튼 -->
-							<button class="btn btn-primary btn-3d btn-login">
-								Already a User?</button>
+							<button class="btn btn-primary btn-3d btn-login" id="updateBtn">
+								회원정보수정</button>
 						</div>
 
 						<div class="modal-footer"></div>
@@ -170,16 +164,14 @@ body {
 
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
-
 								<h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
-
 							</div>
 
 							<button class=" btn-flip btn btn-3d btn-primary" value="primary">
 								<span class="fa fa-circle-thin"></span>
 							</button>
 
-							<button class=" btn-flip btn btn-3d btn-danger" value="primary">
+							<button class=" btn-flip btn btn-3d btn-danger" value="danger">
 								<span class="fa fa-times"></span>
 							</button>
 
@@ -195,32 +187,8 @@ body {
 						class="img-responsive" style="height: 300px;">
 				</div>
 			</div>
-
-			<!-- 프로필 옆 버튼 공간 추가-->
-			<!-- <div class="col-md-3 col-sm-12 padding-0 profile-v1-right">
-				 <div class="col-md-6 col-sm-4 profile-v1-right-wrap padding-0">
-					<div
-						class="col-md-12 padding-0 sub-profile-v1-right text-center sub-profile-v1-right1">
-						<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-							value="primary">
-							<span class="icons icon-settings"></span>
-						</button>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-4 profile-v1-right-wrap padding-0">
-					<div
-						class="col-md-12 sub-profile-v1-right text-center sub-profile-v1-right2">
-						<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-							value="primary">
-							<span class="fa fa-paper-plane-o"></span>
-						</button>
-					</div>
-				</div>
-			</div> -->
 		</div>
 	
-
-
 		<div class="col-md-12 col-sm-12 profile-v1-body">
 			<div class="panel">
 				<div class="col-md-5">
@@ -282,7 +250,7 @@ body {
 									<tbody>
 										<!-- ppt 리스트 보여주기 -->
 										<c:forEach items="${list}" var="PptVO">
-											<ul class="List">
+											<ul class="pptList">
 												<tr>
 													<td>
 														<div class="icheckbox_flat-red"
@@ -430,67 +398,9 @@ body {
 					</div>
 				</div>
 			</div>
-	</div>
-			<!--  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-pie-chart icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">UI/UX Development</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="19" aria-valuemin="0" aria-valuemax="100" style="width: 19%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-energy icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Server Optimation</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-user icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">User Status</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                   <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-fire icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Firewall Status</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="panel-footer bg-white border-none">
-                                    <center>
-                                      <input type="button" value="download as pdf" class="btn btn-danger box-shadow-none">
-                                    </center>
-                                </div>
-                              </div> -->
 		</div>
+	</div>
+			
 		<!-- end: content -->
 
 		<button id="mimin-mobile-menu-opener"
