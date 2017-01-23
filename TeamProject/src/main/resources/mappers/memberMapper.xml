@@ -5,27 +5,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.team.dao.MemberMapper">
 
 	<insert id="create" parameterType="MemberVO">
-		insert into tbl_member
-		(userid, userpw, email, username)
-		values (#{userid}, #{userpw}, #{email},
-		#{username})
+		insert into tbl_member (userid, userpw, email, username)
+		values (#{userid}, #{userpw}, #{email}, #{username})
 	</insert>
 
 	<select id="read" resultType="MemberVO">
-		select * from tbl_member where
-		userid = #{userid}
+		select * from tbl_member where userid = #{userid}
 	</select>
 
 	<update id="update" parameterType="MemberVO">
-		update tbl_member set userpw =
-		#{userpw}, email = #{email},
-		username = #{username}, modidate = now() where
-		userid = #{userid}
+		update tbl_member set userpw = #{userpw}, email = #{email},
+		username = #{username}, modidate = now() where userid = #{userid}
 	</update>
 
 	<delete id="delete" parameterType="MemberVO">
-		delete from tbl_member where
-		userid = #{userid}
+		delete from tbl_member where userid = #{userid}
 	</delete>
 
 	<select id="list" resultType="MemberVO">
@@ -33,19 +27,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="memberLogin" resultType="String" parameterType="MemberVO">
-		select
-		userid from
-		tbl_member
-		where
-		userid = #{userid} and userpw =
-		#{userpw}
+		select userid from tbl_member where userid = #{userid} and userpw = #{userpw}
 	</select>
 
 	<select id="loginDupleChk" resultType="String">
-		select userid from
-		tbl_member
-		where
-		userid = #{userid}
+		select userid from tbl_member where userid = #{userid}
 	</select>
 
 </mapper>
