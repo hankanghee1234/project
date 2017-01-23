@@ -6,9 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-
-
-
 <meta name="description" content="Miminium Admin Template v.1">
 <meta name="author" content="Isna Nur Azis">
 <meta name="keyword" content="">
@@ -51,6 +48,10 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+
+.modal-content {
+	position: relative;
+}
 </style>
 
 <body>
@@ -68,19 +69,18 @@ body {
 						style="text-align: left; position: absolute;">
 						<h3 class="media-heading" style="color: yellow;">Presenter
 							Name</h3>
-						<h4 class="media-heading" style="color: yellow;">
+						<h3 class="media-heading" style="color: yellow;">
 							Email :<a href="" class="media-heading">abcd1234@naver.com</a>
-						</h4>
+						</h3>
 					</div>
 
 					<button
-						class="btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+						class="reset btn ripple-infinite btn-round btn-3d btn-default btn-lg"
 						style="position: relative;">
 						<div>
 							<span class="icons icon-settings"></span>
 						</div>
 					</button>
-
 					<div class="modal-content">
 						<div class="modal-header" style="height: 50px;">
 							<button type="button" class="close" data-dismiss="modal"
@@ -94,7 +94,7 @@ body {
 							</h2>
 						</div>
 
-						<div class="panel-body">
+						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
 
 								<!-- 이름 -->
@@ -135,7 +135,7 @@ body {
 
 							</div>
 
-<!-- 							프로파일 삽입 공간
+							<!-- 							프로파일 삽입 공간
 							<div class="panel-body"
 								style="position: relative; border: 1px solid black;">프로파일
 								첨부 장소</div> -->
@@ -428,12 +428,39 @@ body {
 
 			<div class="col-md-5">
 				<div class="panel box-v3">
-					<div class="panel-heading bg-white border-none">
-						<h4>Report</h4>
+				<h4>Select Option</h4>
+					<div class="panel box-v4">
+						<div class="panel-body">
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary">
+								<span class="fa fa-dot-circle-o"></span>
+
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary">
+								<span class="fa fa-times"></span>
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary">
+								<span class="fa fa-gear"></span>
+
+							</button>
+
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary" onclick="location.href='createPage'">
+								<span class="fa fa-paypal"></span>
+							</button>
+						</div>
 					</div>
 
 					<div class="panel box-v4">
-
+						<div class="panel-heading bg-white border-none">
+							<h4>
+								<span class="icon-notebook icons"></span> PPT Imformation
+							</h4>
+						</div>
 						<div class="panel-body">
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div id="carousel-example-generic" class="carousel slide"
@@ -476,17 +503,7 @@ body {
 										class="glyphicon glyphicon-chevron-right"></span>
 									</a>
 								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="panel box-v4">
-						<div class="panel-heading bg-white border-none">
-							<h4>
-								<span class="icon-notebook icons"></span> Agenda
-							</h4>
-						</div>
-						<div class="panel-body padding-0">
+								<div class="panel-body padding-0">
 							<div class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
 								<h2>Checking Your Server!</h2>
 								<p>Daily Check on Server status, mostly looking at servers
@@ -498,36 +515,12 @@ body {
 							</div>
 
 						</div>
-					</div>
-
-					<div class="panel box-v4">
-
-						<div class="panel-body">
-
-
-							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-								value="primary">
-								<span class="fa fa-dot-circle-o"></span>
-
-							</button>
-
-							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-								value="primary">
-								<span class="fa fa-times"></span>
-							</button>
-
-							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-								value="primary">
-								<span class="fa fa-gear"></span>
-
-							</button>
-
-							<button class=" btn btn-circle btn-3d btn-lg btn-primary"
-								value="primary">
-								<span class="fa fa-paypal"></span>
-							</button>
+								
+							</div>
 						</div>
 					</div>
+
+
 				</div>
 
 				<!--  <div class="media">
@@ -630,6 +623,20 @@ body {
 			videoVolume : 'vertical',
 			features : [ 'playpause', 'progress', 'volume', 'fullscreen' ]
 		});
+	});
+</script>
+
+
+<script>
+	$(".modal-content").hide();
+
+	$(".close").click(function() {
+		$(".modal-content").hide("slow");
+	});
+
+	$(".reset").click(function() {
+		$(".modal-content").toggle("slow");
+
 	});
 </script>
 

@@ -33,9 +33,9 @@ public class MemberController {
 		logger.info("MEMBER MYPAGE2............");
 	}
 
-	@RequestMapping(value = "/myPage3", method = RequestMethod.GET)
-	public void mypage3GET() throws Exception {
-		logger.info("MEMBER MYPAGE3............");
+	@RequestMapping(value = "/createPage", method = RequestMethod.GET)
+	public void createPageGET() throws Exception {
+		logger.info("CREATE PAGE............");
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
