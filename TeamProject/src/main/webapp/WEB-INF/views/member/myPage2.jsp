@@ -177,17 +177,15 @@ body {
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
 
-							<h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
+								<h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
 
 							</div>
 
-							<button class=" btn-flip btn btn-3d btn-primary"
-								value="primary">
+							<button class=" btn-flip btn btn-3d btn-primary" value="primary">
 								<span class="fa fa-circle-thin"></span>
 							</button>
 
-							<button class=" btn-flip btn btn-3d btn-danger"
-								value="primary">
+							<button class=" btn-flip btn btn-3d btn-danger" value="primary">
 								<span class="fa fa-times"></span>
 							</button>
 
@@ -264,11 +262,6 @@ body {
 											OR PPT_DESC</option>
 									</select>
 
-								</div>
-
-
-								<div class="col-md-6">
-
 									<div class="input-group">
 										<div class="input-group">
 											<input type="text" class="form-control" name="keyword"
@@ -282,8 +275,12 @@ body {
 									</div>
 
 								</div>
-
 							</div>
+
+
+
+
+
 						</div>
 						<!-- ppt list 작성-->
 						<div class="panel-body">
