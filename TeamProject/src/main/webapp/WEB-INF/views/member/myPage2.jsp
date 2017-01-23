@@ -49,7 +49,6 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-
 .modal-content {
 	position: relative;
 }
@@ -64,15 +63,12 @@ body {
 				style="padding-right: 0px;">
 				<div class="profile-v1-pp">
 					<img src="../resources/miminium-master/asset/img/avatar.jpg">
-
-
 					<div class="presenter-imformatiop"
 						style="text-align: left; position: absolute;">
-						<h3 class="media-heading" style="color: yellow;">Presenter
-							Name</h3>
-						<h3 class="media-heading" style="color: yellow;">
-							Email :<a href="" class="media-heading">abcd1234@naver.com</a>
-						</h3>
+						<!-- 유저 정보 출력 -->
+						<input type="hidden" name="userid" value="${param.userid}">
+						<h3 class="media-heading" style="color: yellow;">${read.username}</h3>
+						<h3 class="media-heading" style="color: yellow;">${read.email}</h3>
 					</div>
 
 					<button
@@ -106,43 +102,41 @@ body {
 
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
-
-								<!-- 이름 -->
-								<div class="form-group">
-									<label class="col-sm-2 control-label text-right"></label>
-									<div class="col-sm-10">
-										<input type="name" class="form-control"
-											placeholder="이름을 입력해 주십시오.">
+								<form role="form" action="update" method="post">
+								<!-- 아이디는 고정값으로 보여주기 -->
+									<div class="form-group">
+										<label class="col-sm-2 control-label text-right"></label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="userid"
+										placeholder="회원 아이디 정보" readonly="readonly" value="${MemberVO.userid}">
+										</div>
 									</div>
-								</div>
-
-								<!-- 아이디 -->
-								<div class="form-group">
-									<label class="col-sm-2 control-label text-right"></label>
-									<div class="col-sm-10">
-										<input type="id" class="form-control"
-											placeholder="아이디를 입력해주십시오.">
+									<!-- 비밀번호 -->
+									<div class="form-group">
+										<label class="col-sm-2 control-label text-right"></label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="userpw"
+												placeholder="패스워드 수정" value="${MemberVO.userpw}">
+										</div>
 									</div>
-								</div>
-
-								<!-- 비밀번호 -->
-								<div class="form-group">
-									<label class="col-sm-2 control-label text-right"></label>
-									<div class="col-sm-10">
-										<input type="password" class="form-control"
-											placeholder="비밀번호를 입력해 주십시오.">
+									<!-- 이메일 -->
+									<div class="form-group">
+										<label class="col-sm-2 control-label text-right"></label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="email"
+												placeholder="이메일 수정" value="${MemberVO.email}">
+										</div>
 									</div>
-								</div>
-
-								<!-- 이메일 -->
-								<div class="form-group">
-									<label class="col-sm-2 control-label text-right"></label>
-									<div class="col-sm-10">
-										<input type="email" class="form-control"
-											placeholder="이메일을 입력해 주십시오.">
+									<!-- 이름 -->
+									<div class="form-group">
+										<label class="col-sm-2 control-label text-right"></label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="username"
+												placeholder="이름 수정" value="${MemberVO.username}">
+										</div>
 									</div>
-								</div>
-
+								</form>
+							
 							</div>
 
 							<!-- 							프로파일 삽입 공간
@@ -209,13 +203,10 @@ body {
 						class="col-md-12 padding-0 sub-profile-v1-right text-center sub-profile-v1-right1">
 						<button class=" btn btn-circle btn-3d btn-lg btn-primary"
 							value="primary">
-
 							<span class="icons icon-settings"></span>
-
 						</button>
 					</div>
 				</div>
-
 				<div class="col-md-6 col-sm-4 profile-v1-right-wrap padding-0">
 					<div
 						class="col-md-12 sub-profile-v1-right text-center sub-profile-v1-right2">
@@ -225,10 +216,9 @@ body {
 						</button>
 					</div>
 				</div>
-
 			</div> -->
 		</div>
-
+	
 
 
 		<div class="col-md-12 col-sm-12 profile-v1-body">
@@ -241,26 +231,15 @@ body {
 								<div class="col-md-5" style="padding-left: 2px;">
 									<!-- 검색 조건 처리 -->
 									<select name="searchType">
-										<option value="n"
-											<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-										<option value="u"
-											<c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
-										<option value="k"
-											<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
-										<option value="t"
-											<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
-										<option value="d"
-											<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
-										<option value="uk"
-											<c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID
-											OR PPT_KIND</option>
-										<option value="kt"
-											<c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND
-											OR PPT_TITLE</option>
-										<option value="td"
-											<c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE
-											OR PPT_DESC</option>
-									</select>
+									<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
+									<option value="u" <c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
+									<option value="k" <c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
+									<option value="t" <c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
+									<option value="d" <c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
+									<option value="uk" <c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID OR PPT_KIND</option>
+									<option value="kt" <c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND OR PPT_TITLE</option>
+									<option value="td" <c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE OR PPT_DESC</option>
+								</select>	
 
 									<div class="input-group">
 										<div class="input-group">
@@ -276,11 +255,6 @@ body {
 
 								</div>
 							</div>
-
-
-
-
-
 						</div>
 						<!-- ppt list 작성-->
 						<div class="panel-body">
@@ -456,7 +430,7 @@ body {
 					</div>
 				</div>
 			</div>
-
+	</div>
 			<!--  <div class="media">
                                     <div class="media-left">
                                         <span class="icon-pie-chart icons" style="font-size:2em;"></span>
@@ -470,7 +444,6 @@ body {
                                         </div>
                                     </div>
                                   </div>
-
                                   <div class="media">
                                     <div class="media-left">
                                         <span class="icon-energy icons" style="font-size:2em;"></span>
@@ -484,7 +457,6 @@ body {
                                         </div>
                                     </div>
                                   </div>
-
                                   <div class="media">
                                     <div class="media-left">
                                         <span class="icon-user icons" style="font-size:2em;"></span>
@@ -498,7 +470,6 @@ body {
                                         </div>
                                     </div>
                                   </div>
-
                                    <div class="media">
                                     <div class="media-left">
                                         <span class="icon-fire icons" style="font-size:2em;"></span>
@@ -548,19 +519,13 @@ body {
 
 <!-- 검색 조건 jQuery -->
 <script>
-	$(document).ready(
-			function() {
-				$("#searchBtn").on(
-						"click",
-						function(event) {
-							self.location = "myPage"
-									+ '${pageMaker.makeQuery(1)}'
-									+ "&searchType="
-									+ $("select option:selected").val()
-									+ "&keyword=" + $('#keywordInput').val();
-						});
-
-			});
+	$(document).ready(function() {
+		$("#searchBtn").on("click", function(event) {
+			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
+						+ $("select option:selected").val()
+						+ "&keyword=" + $('#keywordInput').val();
+		});
+	});
 </script>
 
 <script type="text/javascript">
@@ -580,23 +545,17 @@ body {
 
 <script>
 	$(".modal-content").hide();
-
 	$(".close").click(function() {
 		$(".modal-reset").hide();
 	});
-
 	$(".reset").click(function() {
 		$(".modal-reset").toggle("slow");
-
 	});
-
 	$(".close").click(function() {
 		$(".modal-secession").hide();
 	});
-
 	$(".secession").click(function() {
 		$(".modal-secession").toggle("slow");
-
 	});
 </script>
 

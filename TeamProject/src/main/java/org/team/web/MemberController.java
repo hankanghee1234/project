@@ -33,11 +33,13 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 
-	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
-	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
-		logger.info("PPT List GET............");}
-
 	@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
+	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
+		logger.info("PPT List GET............");
+		
+	}
+
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public void pptListGET(@RequestParam(value="userid", required=false)String userid, 
 			@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
 		logger.info("PPT List GET & membership GET............");
@@ -60,9 +62,6 @@ public class MemberController {
 		logger.info("MEMBER MYPAGE3............");
 	}
 
-
-
-	
 	@RequestMapping(value = "/createPage", method = RequestMethod.GET)
 	public void createPageGET() throws Exception {
 		logger.info("CREATE PAGE............");
