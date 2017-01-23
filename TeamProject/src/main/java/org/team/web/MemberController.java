@@ -45,12 +45,6 @@ public class MemberController {
 		model.addAttribute("pageMaker", pageMaker);
 	} // 페이징 처리 및 검색 조건 처리 contoller 완료
 	
-	/*@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
-	public void mypage2GET() throws Exception {
-		logger.info("MEMBER MYPAGE2............");
-	}*/
-
-
 	@RequestMapping(value = "/createPage", method = RequestMethod.GET)
 	public void createPageGET() throws Exception {
 		logger.info("CREATE PAGE............");
