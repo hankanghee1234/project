@@ -89,7 +89,6 @@ body {
 					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
 							
-
 							<h4>회원정보 수정</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
@@ -144,11 +143,7 @@ body {
 
 					<div class="modal-content modal-secession">
 						<div class="modal-header" style="height: 50px;">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
-
+							
 							<h4>회원탈퇴 확인</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
@@ -159,15 +154,9 @@ body {
 							<div class="modal-body col-md-12" style="line-height: 10px;">
 								<h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
 							</div>
-
-							<button class=" btn-flip btn btn-3d btn-primary" value="primary">
-								<span class="fa fa-circle-thin"></span>
-							</button>
-
-							<button class=" btn-flip btn btn-3d btn-danger" value="danger">
-								<span class="fa fa-times"></span>
-							</button>
-
+							<button class="btn btn-danger" id="deleteBtn" value="primary">삭제</button>
+							<button class="btn btn-warning" id="dangerBtn"
+							data-dismiss="modal" aria-label="Close">취소</button>	
 						</div>
 
 						<div class="modal-footer"></div>
@@ -436,6 +425,12 @@ body {
 		$("#updateBtn").on("click", function(){
 			formObj.submit();	
 		});
+		
+		$("#deleteBtn").on("click", function(){
+			formObj.attr("action", "delete");
+			formObj.attr("mehtod", "post");
+			formObj.submit();
+		});
 	});
 </script>
 
@@ -465,7 +460,7 @@ body {
 		$(".modal-reset").toggle("slow");
 	});
 	
-	$("#cancelBtn").click(function() {
+	$("#dangerBtn").click(function() {
 		$(".modal-secession").hide();
 	});
 	

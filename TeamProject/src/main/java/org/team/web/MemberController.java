@@ -125,7 +125,7 @@ public class MemberController {
 		
 		memberDAO.delete(userid);
 		
-		return "redirect:./myPage";
+		return "redirect:/index";
 	} // update controller end
 	
 }

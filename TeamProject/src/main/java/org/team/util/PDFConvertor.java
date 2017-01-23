@@ -20,7 +20,7 @@ import org.apache.poi.xslf.usermodel.XSLFSlide;
 
 public class PDFConvertor {
 	// 서버저장경로명
-	static final String savedPath = "J:\\ServerUploading\\PDFDir\\";
+	static final String savedPath = "C:\\zzz\\pptdesc\\";
 
 	public static void main(String[] args) throws Exception {
 		// 확장자명까지 작성해주어야함.
