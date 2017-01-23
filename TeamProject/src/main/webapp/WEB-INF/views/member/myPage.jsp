@@ -186,8 +186,8 @@ body {
 
 
 
-		<div class="col-md-12 col-sm-12 profile-v1-body">
-			<div class="col-md-5">
+		<div class="col-md-10 col-sm-10 profile-v1-body">
+			<div class="col-md-6">
 				<div class="panel">
 					<div class="panel-body">
 						<h3>PPT LIST</h3>
@@ -207,14 +207,14 @@ body {
 							</div>
 						</div>
 							<div class="col-md-6">
-								<div class="col-lg-12">
+								<div class="col-lg-6">
 									<div class="input-group">
-										<div class="input-group">
+										<div class="input-group" style="width:250px;">
 											<input type="text" class="form-control" name="keyword" id="keywordInput" value="${cri.keyword}">				
 										</div>
-								<!-- /input-group -->
+										<!-- /input-group -->
 										<div class="input-group-btn">
-											<button type="button" class="btn btn-default" id="searchBtn">검색</button>
+											<button type="button" class="btn btn-primary" id="searchBtn">검색</button>
 										</div>
 										<!-- /btn-group -->
 									</div>
@@ -263,7 +263,7 @@ body {
 											<td>${PptVO.fno}</td>
 											<td>${PptVO.userid}</td>
 											<td>${PptVO.ppt_kind}</td>
-											<td><a href="">${PptVO.ppt_title}</a></td>
+											<td><a href="#">${PptVO.ppt_title}</a></td>
 											<td>${PptVO.ppt_desc}</td>
 										</tr>
 									</ul>
@@ -295,7 +295,7 @@ body {
 				</div>
 			</div>
 
-			<div class="col-md-5">
+			<div class="col-md-6">
 				<div class="panel box-v3">
 				<h4>Select Option</h4>
 					<div class="panel box-v4">
@@ -303,7 +303,6 @@ body {
 							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 								value="primary">
 								<span class="fa fa-dot-circle-o"></span>
-
 							</button>
 
 							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
@@ -314,7 +313,6 @@ body {
 							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 								value="primary">
 								<span class="fa fa-gear"></span>
-
 							</button>
 
 							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
@@ -326,9 +324,7 @@ body {
 
 					<div class="panel box-v4">
 						<div class="panel-heading bg-white border-none">
-							<h4>
-								<span class="icon-notebook icons"></span> PPT Imformation
-							</h4>
+							<h4><span class="icon-notebook icons"></span> PPT Imformation</h4>
 						</div>
 						<div class="panel-body">
 							<div class="col-md-12 col-sm-12 col-xs-12">
@@ -382,16 +378,12 @@ body {
 							<div class="calendar fc fc-ltr fc-unthemed">
 								<div class="fc-toolbar"></div>
 							</div>
-
-						</div>
-								
-							</div>
-						</div>
+						</div>			
 					</div>
-
-					</div>
-
 				</div>
+			</div>
+		</div>
+	</div>
 
 				<!--  <div class="media">
                                     <div class="media-left">
