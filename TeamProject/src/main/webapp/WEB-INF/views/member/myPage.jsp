@@ -97,7 +97,7 @@ body {
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="userid"
-										placeholder="유저 아이디 정보" readonly="readonly" value="${MemberVO.userid}">
+										placeholder="회원 아이디 정보" readonly="readonly" value="${MemberVO.userid}">
 										</div>
 									</div>
 									<!-- 비밀번호 -->
@@ -128,19 +128,7 @@ body {
 							</div>
 							<button class="btn btn-primary" id="udpateBtn">회원정보수정</button>
 						</div>
-<script>
-	$(document).ready(function(){
-		
-		var formObj = $("form[role='form']");
-		console.log(formObj);
-		
-		$("#updateBtn").on("click", function(){
-			formObj.submit();
-			
-		});
-		
-	});
-</script>
+
 							<!-- 							프로파일 삽입 공간
 							<div class="panel-body"
 								style="position: relative; border: 1px solid black;">프로파일
@@ -255,7 +243,7 @@ body {
 										<tr>
 											<td>
 												<div class="icheckbox_flat-red" style="position: relative;">
-													<input type="checkbox" class="icheck" name="checkbox1"
+													<input type="checkbox" class="icheck" name="checkbox"
 														style="position: absolute; opacity: 0;">
 													<ins class="iCheck-helper"
 														style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
