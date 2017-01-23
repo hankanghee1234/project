@@ -39,7 +39,13 @@ public class MemberDAOImpl implements MemberDAO {
 	public List<MemberVO> list() throws Exception {
 		return session.selectList(NAME + ".list");
 	}
-
+	
+	@Override
+	public void broadStart(String userid) throws Exception {
+		
+		
+	}
+	
 	@Override
 	public boolean memberLogin(MemberVO vo) throws Exception {
 		String userid = session.selectOne(NAME + ".memberLogin", vo);
@@ -59,5 +65,7 @@ public class MemberDAOImpl implements MemberDAO {
 			return false;
 		}
 	}
+
+	
 
 }

@@ -88,10 +88,7 @@ body {
 
 					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+							
 
 							<h4>회원정보 수정</h4>
 							<h2 class="modal-title">
@@ -101,7 +98,7 @@ body {
 
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
-								<form action="update" method="post">
+								<form role="form" action="myPage" method="post">
 								<!-- 아이디는 고정값으로 보여주기 -->
 									<div class="form-group">
 										<label class="col-sm-2 control-label text-right"></label>
@@ -136,17 +133,14 @@ body {
 									</div>
 								</form>
 							</div>							
-
 							<!-- 수정확인 버튼 -->
-							<button class="btn btn-primary btn-3d btn-login" id="updateBtn">
-								회원정보수정</button>
+							<button class="btn btn-primary" id="updateBtn">수정</button>
+							<button class="btn btn-warning" id="cancelBtn"
+							data-dismiss="modal" aria-label="Close">취소</button>	
+						</div> 
+						<div class="modal-footer">
 						</div>
-
-						<div class="modal-footer"></div>
 					</div>
-
-
-
 
 					<div class="modal-content modal-secession">
 						<div class="modal-header" style="height: 50px;">
@@ -429,10 +423,18 @@ body {
 <!-- 검색 조건 jQuery -->
 <script>
 	$(document).ready(function() {
+		
 		$("#searchBtn").on("click", function(event) {
 			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
 						+ $("select option:selected").val()
 						+ "&keyword=" + $('#keywordInput').val();
+		});
+		
+		var formObj = $("form[role='form']");
+		console.log(formObj);
+		
+		$("#updateBtn").on("click", function(){
+			formObj.submit();	
 		});
 	});
 </script>
@@ -454,15 +456,19 @@ body {
 
 <script>
 	$(".modal-content").hide();
-	$(".close").click(function() {
+	
+	$("#cancelBtn").click(function() {
 		$(".modal-reset").hide();
 	});
+	
 	$(".reset").click(function() {
 		$(".modal-reset").toggle("slow");
 	});
-	$(".close").click(function() {
+	
+	$("#cancelBtn").click(function() {
 		$(".modal-secession").hide();
 	});
+	
 	$(".secession").click(function() {
 		$(".modal-secession").toggle("slow");
 	});

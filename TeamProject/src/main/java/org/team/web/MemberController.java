@@ -65,7 +65,6 @@ public class MemberController {
 		model.addAttribute("pageMaker", pageMaker);
 	} // 페이징 처리 및 검색 조건 처리 contoller 완료
 
-	
 	@RequestMapping(value = "/myPage3", method = RequestMethod.GET)
 	public void mypage3GET() throws Exception {
 		logger.info("MEMBER MYPAGE3............");
@@ -86,8 +85,9 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/loginPOST", method = RequestMethod.POST)
-	public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, RedirectAttributes rttr)
-			throws Exception {
+	public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, 
+			RedirectAttributes rttr) throws Exception {
+		
 		String userid = vo.getUserid();
 		String userpw = vo.getUserpw();
 		boolean check = memberDAO.memberLogin(vo);
@@ -110,14 +110,22 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/myPage", method = RequestMethod.POST)
-	public String updatePost(MemberVO vo, Model model) throws Exception {
+	public String updatePost(MemberVO vo) throws Exception {
 		logger.info("update Post...........");
 		logger.info(vo.toString());
 		
 		memberDAO.update(vo);
-		model.addAttribute("vo", vo);
 		
-		return "redirect:/myPage";
+		return "redirect:./myPage";
+	} // update controller end
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String deletePost(String userid) throws Exception {
+		logger.info("delete Post...........");
+		
+		memberDAO.delete(userid);
+		
+		return "redirect:./myPage";
 	} // update controller end
 	
 }
