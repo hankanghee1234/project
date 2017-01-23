@@ -281,7 +281,6 @@ body {
 					</div>
 				</div>
 
-
 				<div class="col-md-5">
 					<div class="panel box-v3">
 						<h4>Select Option</h4>
