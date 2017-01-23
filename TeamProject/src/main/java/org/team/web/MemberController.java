@@ -126,6 +126,6 @@ public class MemberController {
 		memberDAO.delete(userid);
 		
 		return "redirect:/index";
-	} // update controller end
+	} // delete controller end
 	
 }
