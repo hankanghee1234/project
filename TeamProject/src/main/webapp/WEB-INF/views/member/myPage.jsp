@@ -88,11 +88,7 @@ body {
 
 					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
-
+							
 							<h4>회원정보 수정</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
@@ -101,7 +97,7 @@ body {
 
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
-								<form action="update" method="post">
+								<form role="form" action="myPage" method="post">
 								<!-- 아이디는 고정값으로 보여주기 -->
 									<div class="form-group">
 										<label class="col-sm-2 control-label text-right"></label>
@@ -136,25 +132,18 @@ body {
 									</div>
 								</form>
 							</div>							
-
 							<!-- 수정확인 버튼 -->
-							<button class="btn btn-primary btn-3d btn-login" id="updateBtn">
-								회원정보수정</button>
+							<button class="btn btn-primary" id="updateBtn">수정</button>
+							<button class="btn btn-warning" id="cancelBtn"
+							data-dismiss="modal" aria-label="Close">취소</button>	
+						</div> 
+						<div class="modal-footer">
 						</div>
-
-						<div class="modal-footer"></div>
 					</div>
-
-
-
 
 					<div class="modal-content modal-secession">
 						<div class="modal-header" style="height: 50px;">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
-
+							
 							<h4>회원탈퇴 확인</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
@@ -165,15 +154,9 @@ body {
 							<div class="modal-body col-md-12" style="line-height: 10px;">
 								<h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
 							</div>
-
-							<button class=" btn-flip btn btn-3d btn-primary" value="primary">
-								<span class="fa fa-circle-thin"></span>
-							</button>
-
-							<button class=" btn-flip btn btn-3d btn-danger" value="danger">
-								<span class="fa fa-times"></span>
-							</button>
-
+							<button class="btn btn-danger" id="deleteBtn" value="primary">삭제</button>
+							<button class="btn btn-warning" id="dangerBtn"
+							data-dismiss="modal" aria-label="Close">취소</button>	
 						</div>
 
 						<div class="modal-footer"></div>
@@ -298,16 +281,15 @@ body {
 					</div>
 				</div>
 
-
 				<div class="col-md-5">
 					<div class="panel box-v3">
 						<h4>Select Option</h4>
 						<div class="panel box-v4">
-							<div class="panel-body">
+							<div class="panel-body">   
+							    <!--  -->
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary">
 									<span class="fa fa-dot-circle-o"></span>
-
 								</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
@@ -318,7 +300,6 @@ body {
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary">
 									<span class="fa fa-gear"></span>
-
 								</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
@@ -327,7 +308,7 @@ body {
 								</button>
 							</div>
 						</div>
-
+						<!-- PPT 미리보기 화면 뿌려주기 -->
 						<div class="panel box-v4">
 							<div class="panel-heading bg-white border-none">
 								<h4>
@@ -429,10 +410,24 @@ body {
 <!-- 검색 조건 jQuery -->
 <script>
 	$(document).ready(function() {
+		
 		$("#searchBtn").on("click", function(event) {
 			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
 						+ $("select option:selected").val()
 						+ "&keyword=" + $('#keywordInput').val();
+		});
+		
+		var formObj = $("form[role='form']");
+		console.log(formObj);
+		
+		$("#updateBtn").on("click", function(){
+			formObj.submit();	
+		});
+		
+		$("#deleteBtn").on("click", function(){
+			formObj.attr("action", "delete");
+			formObj.attr("mehtod", "post");
+			formObj.submit();
 		});
 	});
 </script>
@@ -454,15 +449,19 @@ body {
 
 <script>
 	$(".modal-content").hide();
-	$(".close").click(function() {
+	
+	$("#cancelBtn").click(function() {
 		$(".modal-reset").hide();
 	});
+	
 	$(".reset").click(function() {
 		$(".modal-reset").toggle("slow");
 	});
-	$(".close").click(function() {
+	
+	$("#dangerBtn").click(function() {
 		$(".modal-secession").hide();
 	});
+	
 	$(".secession").click(function() {
 		$(".modal-secession").toggle("slow");
 	});

@@ -22,7 +22,7 @@ import org.team.util.loginUtil;
 
 @Controller
 @RequestMapping("/member/*")
-public class MemberController {
+public class MypageController {
 
 	@Autowired
 	private MemberServiceImpl memberDAO;
@@ -30,24 +30,7 @@ public class MemberController {
 	@Autowired
 	private PptServiceImpl pptDAO;
 	
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-
-	
-	@RequestMapping(value = "/impressTest", method = RequestMethod.GET)
-	public void impressTestGET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
-		logger.info("impressTest GET............");}
-
-	@RequestMapping(value = "/impressTest2", method = RequestMethod.GET)
-	public void impressTest2GET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
-		logger.info("impressTest2 GET............");}
-
-	
-
-	@RequestMapping(value = "/myPage2", method = RequestMethod.GET)
-	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model) throws Exception {
-		logger.info("PPT List GET............");
-		
-	}
+	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model, 
@@ -65,21 +48,15 @@ public class MemberController {
 		} 
 		// myid = user00, 로그인 처리가 되면 로그인한 정보가 출력이 되어야 한다.
 		
-		model.addAttribute("pptList", pptDAO.listSearchCriteria(cri));
 		model.addAttribute("read", memberDAO.read(myid));
+		model.addAttribute("pptList", pptDAO.listSearchCriteria(cri));
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(pptDAO.listSearchCount(cri));
 		
 		model.addAttribute("pageMaker", pageMaker);
-	} // 페이징 처리 및 검색 조건 처리 contoller 완료
-
-	
-	@RequestMapping(value = "/myPage3", method = RequestMethod.GET)
-	public void mypage3GET() throws Exception {
-		logger.info("MEMBER MYPAGE3............");
-	}
+	} // 페이징 처리 및 검색 조건 처리 및 쿠키로 로그인 정보 출력 완료
 
 	@RequestMapping(value = "/createPage", method = RequestMethod.GET)
 	public void createPageGET() throws Exception {
@@ -90,17 +67,21 @@ public class MemberController {
 	public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
 		logger.info("register POST............");
 		logger.info(vo.toString());
+		
 		memberDAO.create(vo);
 		rttr.addFlashAttribute("msg", "registSUCCESS");
+		
 		return "redirect:/index";
 	}
 
 	@RequestMapping(value = "/loginPOST", method = RequestMethod.POST)
-	public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, RedirectAttributes rttr)
-			throws Exception {
+	public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, 
+			RedirectAttributes rttr) throws Exception {
+		
 		String userid = vo.getUserid();
 		String userpw = vo.getUserpw();
 		boolean check = memberDAO.memberLogin(vo);
+		
 		if (check == true) {
 			rttr.addFlashAttribute("msg", "loginSUCCESS");
 			logger.info("로그인성공..." + check);
@@ -120,14 +101,22 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/myPage", method = RequestMethod.POST)
-	public String updatePost(MemberVO vo, Model model) throws Exception {
+	public String updatePost(MemberVO vo) throws Exception {
 		logger.info("update Post...........");
 		logger.info(vo.toString());
 		
 		memberDAO.update(vo);
-		model.addAttribute("vo", vo);
 		
-		return "redirect:/myPage";
+		return "redirect:./myPage";
 	} // update controller end
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String deletePost(String userid) throws Exception {
+		logger.info("delete Post...........");
+		
+		memberDAO.delete(userid);
+		
+		return "redirect:/index";
+	} // delete controller end
 	
 }
