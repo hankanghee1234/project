@@ -16,7 +16,7 @@ import org.team.service.PptService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/PPT/*")
+@RequestMapping("/ppt/*")
 public class PptController {
 
    private static final Logger logger = LoggerFactory.getLogger(PptController.class);
