@@ -22,7 +22,7 @@ import org.team.util.loginUtil;
 
 @Controller
 @RequestMapping("/member/*")
-public class MypageController {
+public class MemberController {
 
 	@Autowired
 	private MemberServiceImpl memberDAO;
@@ -30,7 +30,7 @@ public class MypageController {
 	@Autowired
 	private PptServiceImpl pptDAO;
 	
-	private static final Logger logger = LoggerFactory.getLogger(MypageController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model, 

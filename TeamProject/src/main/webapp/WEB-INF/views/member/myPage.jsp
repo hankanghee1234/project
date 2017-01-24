@@ -190,7 +190,6 @@ body {
 									<option value="kt" <c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND OR PPT_TITLE</option>
 									<option value="td" <c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE OR PPT_DESC</option>
 								</select>	
-
 									<div class="input-group">
 										<div class="input-group">
 											<input type="text" class="form-control" name="keyword"
@@ -202,7 +201,6 @@ body {
 										</div>
 										<!-- /btn-group -->
 									</div>
-
 								</div>
 							</div>
 						</div>
@@ -218,7 +216,9 @@ body {
 													<input type="checkbox" class="icheck" name="checkbox1"
 														style="position: absolute; opacity: 0;">
 													<ins class="iCheck-helper"
-														style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+														style="position: absolute; top: 0%; left: 0%; display: block; 
+														width: 100%; height: 100%; margin: 0px; padding: 0px;
+														background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
 												</div>
 											</th>
 											<th>PPT번호</th>
@@ -240,7 +240,11 @@ body {
 															<input type="checkbox" class="icheck" name="checkbox1"
 																style="position: absolute; opacity: 0;">
 															<ins class="iCheck-helper"
-																style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+																style="position: absolute; top: 0%; left: 0%; 
+																display: block; width: 100%; height: 100%; 
+																margin: 0px; padding: 0px; 
+																background: rgb(255, 255, 255); border: 0px; 
+																opacity: 0;"></ins>
 														</div>
 													</td>
 													<td>${PptVO.pptno}</td>
@@ -289,22 +293,22 @@ body {
 							    <!--  -->
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary">
-									<span class="fa fa-dot-circle-o"></span>
+									수정
 								</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary">
-									<span class="fa fa-times"></span>
+									삭제
 								</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary">
-									<span class="fa fa-gear"></span>
+															
 								</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary" onclick="location.href='createPage'">
-									<span class="fa fa-paypal"></span>
+									생성
 								</button>
 							</div>
 						</div>
@@ -429,22 +433,17 @@ body {
 			formObj.attr("mehtod", "post");
 			formObj.submit();
 		});
+		
+		$("")
+	
+	
+	
 	});
+	
+	
 </script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('input').iCheck({
-			checkboxClass : 'icheckbox_flat-red',
-			radioClass : 'iradio_flat-red'
-		});
-		$('video,audio').mediaelementplayer({
-			alwaysShowControls : true,
-			videoVolume : 'vertical',
-			features : [ 'playpause', 'progress', 'volume', 'fullscreen' ]
-		});
-	});
-</script>
+
 
 
 <script>
