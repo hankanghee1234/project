@@ -24,8 +24,7 @@ public class PDFConvertor {
 
 	public static void main(String[] args) throws Exception {
 		// 확장자명까지 작성해주어야함.
-		PDFConvertor.JPGconvertor("test1.pdf");
-
+		PDFConvertor.JPGconvertor("test2.pptx");
 	}
 
 	public static void JPGconvertor(String Name) throws Exception {
