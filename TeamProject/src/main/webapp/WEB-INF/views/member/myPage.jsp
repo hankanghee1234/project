@@ -209,34 +209,26 @@ body {
 							<div class="responsive-table">
 								<table class="table table-striped table-bordered" width="100%"
 									cellspacing="0">
-									<thead>
-										<tr>
-											<th>
-												<div class="icheckbox_flat-red" style="position: relative;">
-													<input type="checkbox" class="icheck" name="checkbox1"
-														style="position: absolute; opacity: 0;">
-													<ins class="iCheck-helper"
-														style="position: absolute; top: 0%; left: 0%; display: block; 
-														width: 100%; height: 100%; margin: 0px; padding: 0px;
-														background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-												</div>
-											</th>
-											<th>PPT번호</th>
-											<th>PPT등록번호</th>
-											<th>발표자</th>
-											<th>발표분야</th>
-											<th>제목</th>
-											<th>내용</th>
-										</tr>
-									</thead>
 									<tbody>
+										<thead>
+											<tr>
+												<th>check</th>
+												<th>PPT번호</th>
+												<th>PPT등록번호</th>
+												<th>발표자</th>
+												<th>발표분야</th>
+												<th>제목</th>
+												<th>내용</th>
+											</tr>
+										</thead>
+									
 										<!-- ppt 리스트 보여주기 -->
 										<c:forEach items="${pptList}" var="PptVO">
 											<ul class="pptList">
+											<thead>
 												<tr>
 													<td>
-														<div class="icheckbox_flat-red"
-															style="position: relative;">
+														<div class="icheckbox_flat-red">
 															<input type="checkbox" class="icheck" name="checkbox1"
 																style="position: absolute; opacity: 0;">
 															<ins class="iCheck-helper"
@@ -254,6 +246,7 @@ body {
 													<td><a href="">${PptVO.ppt_title}</a></td>
 													<td>${PptVO.ppt_desc}</td>
 												</tr>
+											</thead>
 											</ul>
 										</c:forEach>
 									</tbody>
@@ -263,7 +256,7 @@ body {
 							<div class="col-md-8">
 								<ul class="pagination pull-right">
 									<c:if test="${pageMaker.prev}">
-										<li><a
+										<li class="active"><a
 											href="myPage${pageMaker.makeSearch(pageMaker.startPage - 1)}"
 											aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 									</c:if>
@@ -275,7 +268,7 @@ body {
 										</li>
 									</c:forEach>
 									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-										<li><a
+										<li class="active"><a
 											href="myPage${pageMaker.makeSearch(pageMaker.endPage + 1)}"
 											aria-label="Next"><span aria-hidden="true">»</span></a></li>
 									</c:if>
@@ -411,7 +404,7 @@ body {
 	integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 	crossorigin="anonymous"></script>
 
-<!-- 검색 조건 jQuery -->
+
 <script>
 	$(document).ready(function() {
 		
@@ -419,27 +412,34 @@ body {
 			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
 						+ $("select option:selected").val()
 						+ "&keyword=" + $('#keywordInput').val();
-		});
+		}); // 검색 조건 처리
 		
 		var formObj = $("form[role='form']");
 		console.log(formObj);
 		
 		$("#updateBtn").on("click", function(){
 			formObj.submit();	
-		});
+		}); //유저 정보 수정
 		
 		$("#deleteBtn").on("click", function(){
 			formObj.attr("action", "delete");
 			formObj.attr("mehtod", "post");
 			formObj.submit();
-		});
+		}); // 유저 정보 삭제
 		
-		$("")
-	
-	
-	
+		
+		$(function(){
+			$("#icheck").click(function(){
+				var check = $(this).is("");
+			})
+		})
+		/* $('input').icheck({
+				checkboxClass : 'icheckbox_flat-red',
+				radioClass : 'iradio_flat-red'
+		}); */
+			
+		
 	});
-	
 	
 </script>
 
