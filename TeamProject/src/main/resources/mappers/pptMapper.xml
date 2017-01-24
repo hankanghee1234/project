@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="pptList" resultType="PptVO">
 		select * from tbl_pptdesc where userid in
-		(select userid from btl_member where broad_state = 1)
+		(select userid from tbl_member where broad_state = 1)
 	</select>
 
 	<update id="update" parameterType="PptVO">
