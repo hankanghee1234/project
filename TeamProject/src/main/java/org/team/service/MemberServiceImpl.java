@@ -40,7 +40,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void broadStart(String userid) throws Exception {
-		
+		memberDAO.broadStart(userid);
 	}
 	
 	@Override
