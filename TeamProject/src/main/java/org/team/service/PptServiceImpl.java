@@ -22,9 +22,9 @@ public class PptServiceImpl implements PptService {
 	}
 
 	@Override
-	public List<PptVO> pptUserList(String userid) throws Exception {
+	public List<PptVO> pptUserList() throws Exception {
 		
-		return pptDAO.pptUserList(userid);
+		return pptDAO.pptUserList();
 	}
 
 	@Override

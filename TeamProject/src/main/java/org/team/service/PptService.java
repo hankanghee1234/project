@@ -10,7 +10,7 @@ public interface PptService {
 
 	public void create(PptVO vo) throws Exception;
 
-	public List<PptVO> pptUserList(String userid) throws Exception;
+	public List<PptVO> pptUserList() throws Exception;
 
 	public void update(PptVO vo) throws Exception;
 
