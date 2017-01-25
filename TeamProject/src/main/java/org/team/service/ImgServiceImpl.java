@@ -1,14 +1,11 @@
 package org.team.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.team.domain.ImgVO;
-import org.team.domain.PptVO;
 import org.team.persistence.ImgDAOImpl;
 
 @Service
@@ -26,7 +23,7 @@ public class ImgServiceImpl implements ImgService {
 	@Transactional
 	@Override
 	public List<ImgVO> read(Integer fno) throws Exception {
-		
+		 
 		return imgDAO.read(fno);
 	}
 

@@ -223,7 +223,7 @@ body {
 													<td>${PptVO.fno}</td>
 													<td>${PptVO.userid}</td>
 													<td>${PptVO.ppt_kind}</td>
-													<td><a href="">${PptVO.ppt_title}</a></td>
+													<td><a href="" id="${PptVO.fno}">${PptVO.ppt_title}</a></td>
 													<td>${PptVO.ppt_desc}</td>
 												</tr>
 											</ul>
@@ -276,12 +276,10 @@ body {
 									생성</button>
 							</div>
 						</div>
-						<!-- PPT 미리보기 화면 뿌려주기 -->
+						<!-- PPT 정보 출력 -->
 						<div class="panel box-v4">
 							<div class="panel-heading bg-white border-none">
-								<h4>
-									<span class="icon-notebook icons"></span> PPT Imformation
-								</h4>
+								<h4><span class="icon-notebook icons"></span>PPT 정보</h4>
 							</div>
 							<!-- ppt 이미지 정보 뿌리기 -->
 							<div class="panel-body">
@@ -317,14 +315,11 @@ body {
 											</div>
 										</div>
 										<a class="left carousel-control"
-											href="#carousel-example-generic" role="button"
-											data-slide="prev"> <span
-											class="glyphicon glyphicon-chevron-left"></span>
-										</a> <a class="right carousel-control"
-											href="#carousel-example-generic" role="button"
-											data-slide="next"> <span
-											class="glyphicon glyphicon-chevron-right"></span>
-										</a>
+											href="#carousel-example-generic" role="button" data-slide="prev">
+											<span class="glyphicon glyphicon-chevron-left"></span></a> 
+										<a class="right carousel-control" 
+											href="#carousel-example-generic" role="button" data-slide="next">
+											<span class="glyphicon glyphicon-chevron-right"></span></a>
 									</div>
 									<div class="panel-body padding-0">
 										<div
