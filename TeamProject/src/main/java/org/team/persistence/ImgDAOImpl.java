@@ -22,9 +22,9 @@ public class ImgDAOImpl implements ImgDAO {
 	}
 
 	@Override
-	public ImgVO read(Integer ino) throws Exception {
+	public ImgVO read(Integer fno) throws Exception {
 		
-		return session.selectOne(NAME + ".read", ino);
+		return session.selectOne(NAME + ".read", fno);
 	}
 
 	@Override
