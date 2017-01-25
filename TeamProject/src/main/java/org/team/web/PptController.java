@@ -33,7 +33,7 @@ public class PptController {
 	private ImgServiceImpl imgService;
 	
 	@ResponseBody
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	@RequestMapping(value = "/upload", method = RequestMethod.POST) 
 	public String upload(@RequestBody MultipartFile file) throws Exception {
 		logger.info("드롭존....테스트....." + file);
 		// 데이터를 넣어라 태호나아
