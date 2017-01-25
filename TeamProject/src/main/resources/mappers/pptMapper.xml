@@ -36,9 +36,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into tbl_pptdesc (fno, userid, ppt_kind, ppt_title, ppt_desc)
 		values (#{fno}, #{userid}, #{ppt_kind}, #{ppt_title}, #{ppt_desc})
 	</insert>
-
-	<select id="pptUserList" resultType="PptVO">
+	
+	<select id="pptGuestList" resultType="PptVO">
 		select * from tbl_pptdesc
+	</select>
+	
+	<select id="pptUserList" resultType="PptVO">
+		select * from tbl_pptdesc where userid = #{userid}
 	</select>
 
 	<update id="update" parameterType="PptVO">

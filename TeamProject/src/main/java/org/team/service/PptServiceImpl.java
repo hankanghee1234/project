@@ -20,11 +20,17 @@ public class PptServiceImpl implements PptService {
 		
 		pptDAO.create(vo);
 	}
-
+	
 	@Override
-	public List<PptVO> pptUserList() throws Exception {
+	public List<PptVO> pptGuestList() throws Exception {
+	
+		return pptDAO.pptGuestList();
+	}
+	
+	@Override
+	public List<PptVO> pptUserList(String userid) throws Exception {
 		
-		return pptDAO.pptUserList();
+		return pptDAO.pptUserList(userid);
 	}
 
 	@Override
@@ -62,6 +68,8 @@ public class PptServiceImpl implements PptService {
 		
 		return pptDAO.listSearchCount(cri);
 	}
+
+	
 
 
 
