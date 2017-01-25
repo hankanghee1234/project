@@ -332,7 +332,7 @@ body {
 													<td>${PptVO.fno}</td>
 													<td>${PptVO.userid}</td>
 													<td>${PptVO.ppt_kind}</td>
-													<td><a href="">${PptVO.ppt_title}</a></td>
+													<td><a href="" id="${PptVO.fno}">${PptVO.ppt_title}</a></td>
 													<td>${PptVO.ppt_desc}</td>
 												</tr>
 											</ul>
@@ -396,6 +396,7 @@ body {
 														https://github.com/hankanghee1234/project <<<<<<< HEAD
 													</button></a>
 
+<<<<<<< HEAD
 												<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 													value="primary">
 													<span class="fa fa-times"></span>
@@ -404,8 +405,52 @@ body {
 												<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 													value="primary" onclick="location.href='createPage'">
 													생성</button>
+=======
+								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+									value="primary" onclick="location.href='createPage'">
+									생성</button>
+							</div>
+						</div>
+						<!-- PPT 정보 출력 -->
+						<div class="panel box-v4">
+							<div class="panel-heading bg-white border-none">
+								<h4><span class="icon-notebook icons"></span>PPT 정보</h4>
+							</div>
+							<!-- ppt 이미지 정보 뿌리기 -->
+							<div class="panel-body">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div id="carousel-example-generic" class="carousel slide"
+										data-ride="carousel">
+										<ol class="carousel-indicators">
+											<li data-target="#carousel-example-generic" data-slide-to="0"
+												class=""></li>
+											<li data-target="#carousel-example-generic" data-slide-to="1"
+												class="active"></li>
+											<li data-target="#carousel-example-generic" data-slide-to="2"
+												class=""></li>
+										</ol>
+										<div class="carousel-inner">
+											<div class="item">
+												<img class="img-responsive"
+													data-src="holder.js/900x500/auto/#777:#555/text:First slide"
+													alt="First slide"
+													src="../resources/miminium-master/asset/img/bg1.jpg">
+											</div>
+											<div class="item active">
+												<img class="img-responsive"
+													data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
+													alt="Second slide"
+													src="../resources/miminium-master/asset/img/bg1.jpg">
+											</div>
+											<div class="item">
+												<img class="img-responsive"
+													data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
+													alt="Third slide"
+													src="../resources/miminium-master/asset/img/bg1.jpg">
+>>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 											</div>
 										</div>
+<<<<<<< HEAD
 										<!-- PPT 미리보기 화면 뿌려주기 -->
 										<div class="panel box-v4">
 											<div class="panel-heading bg-white border-none">
@@ -471,6 +516,25 @@ body {
 													</div>
 												</div>
 											</div>
+=======
+										<a class="left carousel-control"
+											href="#carousel-example-generic" role="button" data-slide="prev">
+											<span class="glyphicon glyphicon-chevron-left"></span></a> 
+										<a class="right carousel-control" 
+											href="#carousel-example-generic" role="button" data-slide="next">
+											<span class="glyphicon glyphicon-chevron-right"></span></a>
+									</div>
+									<div class="panel-body padding-0">
+										<div
+											class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
+											<h2>Checking Your Server!</h2>
+											<p>Daily Check on Server status, mostly looking at
+												servers with alerts/warnings</p>
+											<b><span class="icon-clock icons"></span> Today at 15:00</b>
+										</div>
+										<div class="calendar fc fc-ltr fc-unthemed">
+											<div class="fc-toolbar"></div>
+>>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 										</div>
 									</div>
 								</div>
@@ -601,7 +665,7 @@ body {
 
 
 <script>
-<<<<<<< HEAD
+
    $(document).ready(function() {
       
 /*       $("#circle2").on("click", function(event) {
@@ -627,7 +691,7 @@ body {
          formObj.submit();
       });
    });
-=======
+
 	$(document).ready(function() {
 		$("#searchBtn").on("click", function(event) {
 			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType=" 
@@ -658,11 +722,8 @@ body {
 				}); */
 
 	});
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 </script>
 
-<<<<<<< HEAD ======= >>>>>>> branch 'master' of
-https://github.com/hankanghee1234/project
 
 
 <script>

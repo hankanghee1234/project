@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.team.domain.ImgVO;
 import org.team.persistence.ImgDAOImpl;
 
@@ -18,10 +19,11 @@ public class ImgServiceImpl implements ImgService {
 
 		imgDAO.create(vo);
 	}
-
+	
+	@Transactional
 	@Override
 	public List<ImgVO> read(Integer fno) throws Exception {
-
+		 
 		return imgDAO.read(fno);
 	}
 
