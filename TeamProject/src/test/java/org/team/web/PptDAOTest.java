@@ -42,13 +42,6 @@ public class PptDAOTest {
 	}
 	
 	@Test
-	public void testUserlist() throws Exception {
-		
-		String userid = "user10";
-		System.out.println(dao.pptUserList(userid));
-	}
-
-	@Test
 	public void testUpdate() throws Exception {
 		
 		PptVO vo = new PptVO();
