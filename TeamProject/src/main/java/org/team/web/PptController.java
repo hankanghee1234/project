@@ -29,9 +29,6 @@ public class PptController {
 	@Autowired
 	private PptServiceImpl pptService;
 	
-	@Autowired
-	private ImgServiceImpl imgService;
-	
 	@ResponseBody
 	@RequestMapping(value = "/upload", method = RequestMethod.POST) 
 	public String upload(@RequestBody MultipartFile file) throws Exception {
@@ -51,19 +48,6 @@ public class PptController {
 	         entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);
 	      }
 	      return entity;
-	   }
-	   
-	@RequestMapping(value = "/myPage/{fno}", method = RequestMethod.GET)
-	public ResponseEntity<List<ImgVO>> imgView(@PathVariable("fno")Integer fno) throws Exception {
-		logger.info("myPage에서 image ppt 뿌려주기.....");
-		ResponseEntity<List<ImgVO>> entity = null;
-		try {
-			entity = new ResponseEntity<List<ImgVO>>(imgService.read(fno), HttpStatus.OK);
-		} catch(Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<List<ImgVO>>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
 	   }
 	   
 }

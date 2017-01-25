@@ -308,7 +308,7 @@ body {
                         </button>
                      </div>
                   </div>
-
+                  <!-- ppt 정보 뿌리기 -->				
                   <div class="panel box-v4">
                      <div class="panel-heading bg-white border-none">
                         <h4>

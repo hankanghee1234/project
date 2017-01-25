@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.team.domain.ImgVO;
+import org.team.domain.PptVO;
 
 @Repository
 public class ImgDAOImpl implements ImgDAO {
@@ -20,11 +21,17 @@ public class ImgDAOImpl implements ImgDAO {
 		
 		session.insert(NAME + ".create", vo);
 	}
-
+	
 	@Override
-	public List<ImgVO> read(Integer fno) throws Exception {
+	public List<PptVO> pptRead(Integer fno) throws Exception {
+	
+		return session.selectList(NAME + ".pptRead", fno);
+	}
+	
+	@Override
+	public List<ImgVO> imgRead(Integer fno) throws Exception {
 		
-		return session.selectList(NAME + ".read", fno);
+		return session.selectList(NAME + ".imgRead", fno);
 	}
 
 	@Override
@@ -44,5 +51,7 @@ public class ImgDAOImpl implements ImgDAO {
 		
 		return session.selectList(NAME + ".list");
 	}
+
+	
 
 }

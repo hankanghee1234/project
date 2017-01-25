@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.team.domain.ImgVO;
+import org.team.domain.PptVO;
 import org.team.persistence.ImgDAOImpl;
 
 @Service
@@ -20,13 +21,18 @@ public class ImgServiceImpl implements ImgService {
 		imgDAO.create(vo);
 	}
 	
-	@Transactional
 	@Override
-	public List<ImgVO> read(Integer fno) throws Exception {
-		 
-		return imgDAO.read(fno);
+	public List<ImgVO> imgRead(Integer fno) throws Exception {
+		
+		return imgDAO.imgRead(fno);
 	}
-
+	
+	@Override
+	public List<PptVO> pptRead(Integer fno) throws Exception {
+		
+		return imgDAO.pptRead(fno);
+	}
+	
 	@Override
 	public void update(ImgVO vo) throws Exception {
 
@@ -44,5 +50,7 @@ public class ImgServiceImpl implements ImgService {
 
 		return imgDAO.list();
 	}
+
+	
 
 }

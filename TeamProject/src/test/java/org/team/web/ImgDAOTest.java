@@ -28,10 +28,11 @@ public class ImgDAOTest {
 	}
 	
 	@Test
-	public void testRead() throws Exception {
+	public void testImgRead() throws Exception {
 		
 		Integer fno =10;
-		System.out.println(dao.read(fno));
+		System.out.println(dao.imgRead(fno));
+		System.out.println(dao.pptRead(fno));
 	}
 	
 	@Test
