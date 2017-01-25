@@ -22,13 +22,13 @@ public class PptDAOImpl implements PptDAO {
 		
 		session.insert(NAME + ".create", vo);
 	}
-
+	
 	@Override
-	public List<PptVO> pptUserList() throws Exception {
+	public List<PptVO> pptGuestList() throws Exception {
 		
-		return session.selectList(NAME + ".pptList");
+		return session.selectList(NAME + ".pptGuestList");
 	}
-
+	
 	@Override
 	public void update(PptVO vo) throws Exception {
 		
@@ -76,5 +76,7 @@ public class PptDAOImpl implements PptDAO {
 		
 		return session.selectOne(NAME + ".listSearchCount", cri);
 	}
+
+	
 
 }

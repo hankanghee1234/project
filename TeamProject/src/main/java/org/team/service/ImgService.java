@@ -8,7 +8,7 @@ public interface ImgService {
 
 	public void create(ImgVO vo) throws Exception;
 	
-	public ImgVO read(Integer ino) throws Exception;
+	public List<ImgVO> read(Integer fno) throws Exception;
 	
 	public void update(ImgVO vo) throws Exception;
 	

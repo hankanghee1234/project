@@ -98,27 +98,30 @@ WebSocketHandler가 부분 메시지를 처리할 때 호출
        @Override
        public void afterPropertiesSet() throws Exception {
  
-             Thread thread = new Thread(){
+    	   
+           Thread thread = new Thread(){
  
-                    int i=0;
-                    @Override
-                    public void run() {
-                           while (true){
+           int i=0;
+          
+           @Override
+           public void run() {
+               
+        	   while (true){
+        		   try {
+        			   sendMessage ("send message index "+i++);
+        			   Thread.sleep(1000);                
+                                        
+        		   } catch (InterruptedException e) {              
+        			   e.printStackTrace();
+                       break;              
+                   }
+               }
+           }
  
-                                 try {
-                                        sendMessage ("send message index "+i++);
-                                        Thread.sleep(1000);
-                                 } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                        break;
-                                 }
-                           }
-                    }
+      };
+      thread.start();
  
-             };
- 
-             thread.start();
-       }
+    }
  
 }
  

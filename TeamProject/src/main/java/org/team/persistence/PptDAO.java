@@ -10,8 +10,8 @@ public interface PptDAO {
 
 	public void create(PptVO vo) throws Exception;
 
-	public List<PptVO> pptUserList() throws Exception;
-
+	public List<PptVO> pptGuestList() throws Exception; // guest 접속으로 인한 ppt 정보 호출
+	
 	public void update(PptVO vo) throws Exception;
 
 	public void delete(Integer pptno) throws Exception;

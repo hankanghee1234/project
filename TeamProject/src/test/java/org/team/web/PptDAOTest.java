@@ -36,11 +36,11 @@ public class PptDAOTest {
 	}
 	
 	@Test
-	public void testList() throws Exception {
+	public void testGuestlist() throws Exception {
 		
-		System.out.println(dao.pptUserList());
+		System.out.println(dao.pptGuestList());
 	}
-
+	
 	@Test
 	public void testUpdate() throws Exception {
 		

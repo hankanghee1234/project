@@ -1,8 +1,8 @@
 package org.team.web;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,100 +25,65 @@ import org.team.util.loginUtil;
 public class MemberController {
 
    @Autowired
-   private MemberServiceImpl memberDAO;
+   private MemberServiceImpl memberService;
 
    @Autowired
-   private PptServiceImpl pptDAO;
-   
+   private PptServiceImpl pptService;
+
    private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
    @RequestMapping(value = "/myPage", method = RequestMethod.GET)
-   public void pptListGET(@ModelAttribute("cri")SearchCriteria cri, Model model, 
-         HttpServletRequest request) throws Exception {
+   public void pptListGET(@ModelAttribute("cri") SearchCriteria cri, Model model, 
+         HttpServletRequest req) throws Exception {
       logger.info("PPT List GET & membership GET............");
       logger.info(cri.toString());
-      
-      Cookie[] cookies = request.getCookies();
-      String myid = null;
-      for (Cookie cookie : cookies) {
-         if(cookie.getName().equals("login")){
-            myid = cookie.getValue();
-            break;
-         }
-      } 
-      // myid = user00, 로그인 처리가 되면 로그인한 정보가 출력이 되어야 한다.
-      
-      model.addAttribute("read", memberDAO.read(myid));
-      model.addAttribute("pptList", pptDAO.listSearchCriteria(cri));
+
+      HttpSession session = req.getSession();
+      String userid = session.getAttribute("userid").toString();      
+      System.out.println(userid);
+      cri.setUserid(userid);
+      model.addAttribute("read", memberService.read(userid));
+      model.addAttribute("pptUserList", pptService.listSearchCriteria(cri));
+      /* session처리로 로그인한 유저 정보 출력하여 로그인한 정보마다 ppt 정보 출력 */
       
       PageMaker pageMaker = new PageMaker();
       pageMaker.setCri(cri);
-      pageMaker.setTotalCount(pptDAO.listSearchCount(cri));
-      
-      model.addAttribute("pageMaker", pageMaker);
-   } // 페이징 처리 및 검색 조건 처리 및 쿠키로 로그인 정보 출력 완료
+      pageMaker.setTotalCount(pptService.listSearchCount(cri));
 
-   
-   
-/*   @RequestMapping(value = "/circle", method = RequestMethod.POST)
+      model.addAttribute("pageMaker", pageMaker);
+   } // 페이징 처리 및 검색 조건 처리 및 로그인 정보 출력 완료
+
+   @RequestMapping(value = "/circle", method = RequestMethod.POST)
    public String circle() throws Exception {
       logger.info("circle............");
-      cc?id=
-       return "redirect:http://192.168.0.15:8081/cc?id=9";
-   }*/
-   
-   @RequestMapping(value = "/circle", method = RequestMethod.POST)
-   public String circle(int ppt) throws Exception {
-      logger.info("circle............");
-      /*cc?id=*/
-       return "redirect:http://192.168.0.15:8081/cc?id="+ppt;
+      /* cc?id= */
+      return "redirect:http://localhost:8080/cc?id=9";
    }
-   
-   @RequestMapping(value = "/myPage2", method = RequestMethod.GET)
-   public void myPage2GET() throws Exception {
-      logger.info("myPage2 PAGE............");
-   }
-   
-   @RequestMapping(value = "/facebooktest", method = RequestMethod.GET)
-   public void facebooktestGET() throws Exception {
-      logger.info("facebooktest PAGE............");
-   }
-   
+
    @RequestMapping(value = "/createPage", method = RequestMethod.GET)
    public void createPageGET() throws Exception {
       logger.info("CREATE PAGE............");
    }
-   
-   @RequestMapping(value = "/dropzone", method = RequestMethod.GET)
-   public void dropzoneGET() throws Exception {
-      logger.info("dropzone PAGE............");
-   }
-   
-   @RequestMapping(value = "/dropzone2", method = RequestMethod.GET)
-   public void dropzone2GET() throws Exception {
-      logger.info("dropzone2 PAGE............");
-   }
-   
-   
+
    @RequestMapping(value = "/register", method = RequestMethod.POST)
    public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
       logger.info("register POST............");
       logger.info(vo.toString());
-      
-      memberDAO.create(vo);
+
+      memberService.create(vo);
       rttr.addFlashAttribute("msg", "registSUCCESS");
-      
+
       return "redirect:/index";
    }
 
    @RequestMapping(value = "/loginPOST", method = RequestMethod.POST)
-   public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, 
-         RedirectAttributes rttr) throws Exception {
-      
+   public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, RedirectAttributes rttr)
+         throws Exception {
+
       String userid = vo.getUserid();
       String userpw = vo.getUserpw();
-      boolean check = memberDAO.memberLogin(vo);
-      
+      boolean check = memberService.memberLogin(vo);
+
       if (check == true) {
          rttr.addFlashAttribute("msg", "loginSUCCESS");
          logger.info("로그인성공..." + check);
@@ -132,27 +97,27 @@ public class MemberController {
 
    @RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
    public boolean dupleCheck(String userid) throws Exception {
-      boolean check = memberDAO.loginDupleChk(userid);
+      boolean check = memberService.loginDupleChk(userid);
       logger.info("중복체크..." + check);
       return check;
    }
-   
+
    @RequestMapping(value = "/myPage", method = RequestMethod.POST)
    public String updatePost(MemberVO vo) throws Exception {
       logger.info("update Post...........");
       logger.info(vo.toString());
-      
-      memberDAO.update(vo);
-      
+
+      memberService.update(vo);
+
       return "redirect:./myPage";
    } // update controller end
-   
+
    @RequestMapping(value = "/delete", method = RequestMethod.POST)
    public String deletePost(String userid) throws Exception {
       logger.info("delete Post...........");
-      
-      memberDAO.delete(userid);
-      
+
+      memberService.delete(userid);
+
       return "redirect:/index";
    } // delete controller end
    

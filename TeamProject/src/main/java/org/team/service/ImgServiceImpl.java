@@ -20,9 +20,9 @@ public class ImgServiceImpl implements ImgService {
 	}
 
 	@Override
-	public ImgVO read(Integer ino) throws Exception {
+	public List<ImgVO> read(Integer fno) throws Exception {
 
-		return imgDAO.read(ino);
+		return imgDAO.read(fno);
 	}
 
 	@Override

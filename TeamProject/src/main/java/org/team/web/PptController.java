@@ -9,36 +9,30 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
-import org.team.service.PptService;
+import org.team.service.ImgServiceImpl;
+import org.team.service.PptServiceImpl;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/ppt/*")
 public class PptController {
-
 	private static final Logger logger = LoggerFactory.getLogger(PptController.class);
 
 	@Autowired
-	private PptService PptService;
+	private PptServiceImpl pptService;
+	
+	@Autowired
+	private ImgServiceImpl imgService;
+	@Autowired
 
-	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
-	public ResponseEntity<List<PptVO>> chatList() throws Exception {
-		logger.info("PPT리스트..인덱스페이지에서..");
-		ResponseEntity<List<PptVO>> entity = null;
-		try {
-			entity = new ResponseEntity<List<PptVO>>(PptService.pptUserList(), HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
 
 	@ResponseBody
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
@@ -48,4 +42,32 @@ public class PptController {
 		return "Success";
 	}
 
+	
+	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
+	   public ResponseEntity<List<PptVO>> chatList() throws Exception {
+	      logger.info("PPT리스트..인덱스페이지에서..");
+	      ResponseEntity<List<PptVO>> entity = null;
+	      try {
+	         entity = new ResponseEntity<List<PptVO>>(pptService.pptGuestList(), HttpStatus.OK);
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	         entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);
+	      }
+	      return entity;
+	   }
+	   
+	
+	@RequestMapping(value = "/myPage/{fno}", method = RequestMethod.GET)
+	public ResponseEntity<List<ImgVO>> imgView(@PathVariable("fno")Integer fno) throws Exception {
+		logger.info("myPage에서 image ppt 뿌려주기.....");
+		ResponseEntity<List<ImgVO>> entity = null;
+		try {
+			entity = new ResponseEntity<List<ImgVO>>(imgService.read(fno), HttpStatus.OK);
+		} catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<List<ImgVO>>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	   }
+	   
 }
