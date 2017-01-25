@@ -182,8 +182,7 @@ body {
 								<div class="col-md-5" style="padding-left: 2px;">
 									<!-- 검색 조건 처리 -->
 									<select name="searchType">
-										<option value="n"
-											<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
+										<option value="n"<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
 										<option value="u"<c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
 										<option value="k"<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
 										<option value="t"<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
@@ -196,13 +195,12 @@ body {
 										<div class="input-group">
 											<input type="text" class="form-control" name="keyword" id="keywordInput" value="${cri.keyword}">
 										</div>
-										<!-- /input-group -->
 										<div class="input-group-btn">
 											<button type="button" class="btn btn-default" id="searchBtn">검색</button>
 										</div>
 										<!-- /btn-group -->
 									</div>
-
+									<!-- /input-group -->
 								</div>
 							</div>
 						</div>
@@ -213,14 +211,6 @@ body {
 									cellspacing="0">
 									<thead>
 										<tr>
-											<th>
-												<div class="icheckbox_flat-red" style="position: relative;">
-													<input type="checkbox" class="icheck" name="checkbox1"
-														style="position: absolute; opacity: 0;">
-													<ins class="iCheck-helper"
-														style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-												</div>
-											</th>
 											<th>PPT번호</th>
 											<th>PPT등록번호</th>
 											<th>발표자</th>
@@ -231,18 +221,9 @@ body {
 									</thead>
 									<tbody>
 										<!-- ppt 리스트 보여주기 -->
-										<c:forEach items="${pptList}" var="PptVO">
-											<ul class="pptList">
+										<c:forEach items="${pptUserList}" var="PptVO">
+											<ul class="pptUserList">
 												<tr>
-													<td>
-														<div class="icheckbox_flat-red"
-															style="position: relative;">
-															<input type="checkbox" class="icheck" name="checkbox1"
-																style="position: absolute; opacity: 0;">
-															<ins class="iCheck-helper"
-																style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-														</div>
-													</td>
 													<td>${PptVO.pptno}</td>
 													<td>${PptVO.fno}</td>
 													<td>${PptVO.userid}</td>
@@ -288,19 +269,12 @@ body {
 							<div class="panel-body">
 								<button id="circle2"
 									class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary">
-									<span class="fa fa-dot-circle-o"></span>
-								</button>
+									value="primary">방송</button>
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary">삭제</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary"></button>
-
-								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary">
-									<span class="fa fa-times"></span>
-								</button>
+									value="primary">수정</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary" onclick="location.href='createPage'">
@@ -314,6 +288,7 @@ body {
 									<span class="icon-notebook icons"></span> PPT Imformation
 								</h4>
 							</div>
+							<!-- ppt 이미지 정보 뿌리기 -->
 							<div class="panel-body">
 								<div class="col-md-12 col-sm-12 col-xs-12">
 									<div id="carousel-example-generic" class="carousel slide"

@@ -29,7 +29,7 @@ public class PptController {
       logger.info("PPT리스트..인덱스페이지에서..");
       ResponseEntity<List<PptVO>> entity = null;
       try {
-         entity = new ResponseEntity<List<PptVO>>(PptService.pptUserList(), HttpStatus.OK);
+         entity = new ResponseEntity<List<PptVO>>(PptService.pptGuestList(), HttpStatus.OK);
       } catch (Exception e) {
          e.printStackTrace();
          entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);

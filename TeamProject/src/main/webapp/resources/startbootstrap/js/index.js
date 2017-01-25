@@ -1,24 +1,20 @@
 /**
  * index page 스크립트 소스 정재관
  */
-$(document)
-	.ready(
-		function() {
-			var msg = '${msg}';
-			if (msg == 'registSUCCESS') {
-				alert('회원가입에 성공하셨습니다!');
-			} else if (msg == 'loginFail') {
-				alert('로그인에 실패하였습니다.. 다시로그인해주세요!');
-			}
-
-			$.getJSON("/ppt/chatList", function(list) { // 이 안에서 ppt 자료를 JSON data로 입력받아서 호출하는곳
-				var chatList = $('#chatList'); 
-				$(list).each(function(index, data) {
-
-					chatList.html("<p>" 
-							+ data.ppt_title + "  -  <a href=node/chat?" 
-							+ data.userid + ">  " + data.userid + "</a></p>");
-
+$(document).ready(function() {
+	var msg = '${msg}';
+	if (msg == 'registSUCCESS') {
+		alert('회원가입에 성공하셨습니다!');
+	} else if (msg == 'loginFail') {
+		alert('로그인에 실패하였습니다.. 다시로그인해주세요!');
+	}
+	
+		$.getJSON("/ppt/chatList", function(list) { // 이 안에서 ppt 자료를 JSON data로 입력받아서 호출하는곳
+			var chatList = $('#chatList'); 
+			$(list).each(function(index, data) {
+				chatList.html("<p>" + data.ppt_title + "  -  <a href=node/chat?" 
+						+ data.userid + ">  " + data.userid + "</a></p>");
+				
 					console.log(index);
 					console.log(data); 
 					console.log(data.ppt_title); 
