@@ -25,8 +25,6 @@
    href="../resources/miminium-master/asset/css/plugins/mediaelementplayer.css">
 <link rel="stylesheet" type="text/css"
    href="../resources/miminium-master/asset/css/plugins/animate.min.css">
-<link rel="stylesheet" type="text/css"
-   href="../resources/miminium-master/asset/css/plugins/icheck/skins/flat/red.css">
 <link href="../resources/miminium-master/asset/css/style.css"
    rel="stylesheet">
 <!-- end: Css -->
@@ -164,7 +162,6 @@ body {
 
             </div>
 
-<<<<<<< HEAD
             <div class="col-md-12 profile-v1-cover">
                <img src="../resources/miminium-master/asset/img/bg1.jpg"
                   class="img-responsive" style="height: 300px;">
@@ -214,14 +211,7 @@ body {
                            cellspacing="0">
                            <thead>
                               <tr>
-                                 <th>
-                                    <div class="icheckbox_flat-red" style="position: relative;">
-                                       <input type="checkbox" class="icheck" name="checkbox1"
-                                          style="position: absolute; opacity: 0;">
-                                       <ins class="iCheck-helper"
-                                          style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                                    </div>
-                                 </th>
+
                                  <th>PPT번호</th>
                                  <th>PPT등록번호</th>
                                  <th>발표자</th>
@@ -234,16 +224,7 @@ body {
                               <!-- ppt 리스트 보여주기 -->
                               <c:forEach items="${pptList}" var="PptVO">
                                  <ul class="pptList">
-                                    <tr>
-                                       <td>
-                                          <div class="icheckbox_flat-red"
-                                             style="position: relative;">
-                                             <input type="checkbox" class="icheck" name="checkbox1"
-                                                style="position: absolute; opacity: 0;">
-                                             <ins class="iCheck-helper"
-                                                style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                                          </div>
-                                       </td>
+      
                                        <td>${PptVO.pptno}</td>
                                        <td>${PptVO.fno}</td>
                                        <td>${PptVO.userid}</td>
@@ -281,241 +262,24 @@ body {
                   </div>
                </div>
             </div>
-=======
-				<div class="col-md-12 profile-v1-cover">
-					<img src="../resources/miminium-master/asset/img/bg1.jpg"
-						class="img-responsive" style="height: 300px;">
-				</div>
-			</div>
-		</div>
-	
-		<div class="col-md-12 col-sm-12 profile-v1-body">
-			<div class="panel">
-				<div class="col-md-5">
-					<div class="panel">
-						<div class="panel-body">
-							<h3>PPT LIST</h3>
-							<div class="col-md-10 padding-0">
-								<div class="col-md-5" style="padding-left: 2px;">
-									<!-- 검색 조건 처리 -->
-									<select name="searchType">
-									<option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-									<option value="u" <c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
-									<option value="k" <c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
-									<option value="t" <c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
-									<option value="d" <c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
-									<option value="uk" <c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID OR PPT_KIND</option>
-									<option value="kt" <c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND OR PPT_TITLE</option>
-									<option value="td" <c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE OR PPT_DESC</option>
-								</select>	
-									<div class="input-group">
-										<div class="input-group">
-											<input type="text" class="form-control" name="keyword"
-												id="keywordInput" value="${cri.keyword}">
-										</div>
-										<!-- /input-group -->
-										<div class="input-group-btn">
-											<button type="button" class="btn btn-default" id="searchBtn">검색</button>
-										</div>
-										<!-- /btn-group -->
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- ppt list 작성-->
-						<div class="panel-body">
-							<div class="responsive-table">
-								<table class="table table-striped table-bordered" width="100%"
-									cellspacing="0">
-									<thead>
-										<tr>
-											<th>
-												<div class="icheckbox_flat-red" style="position: relative;">
-													<input type="checkbox" class="icheck" name="checkbox1"
-														style="position: absolute; opacity: 0;">
-													<ins class="iCheck-helper"
-														style="position: absolute; top: 0%; left: 0%; display: block; 
-														width: 100%; height: 100%; margin: 0px; padding: 0px;
-														background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-												</div>
-											</th>
-											<th>PPT번호</th>
-											<th>PPT등록번호</th>
-											<th>발표자</th>
-											<th>발표분야</th>
-											<th>제목</th>
-											<th>내용</th>
-										</tr>
-									</thead>
-									<tbody>
-										<!-- ppt 리스트 보여주기 -->
-										<c:forEach items="${pptList}" var="PptVO">
-											<ul class="pptList">
-												<tr>
-													<td>
-														<div class="icheckbox_flat-red"
-															style="position: relative;">
-															<input type="checkbox" class="icheck" name="checkbox1"
-																style="position: absolute; opacity: 0;">
-															<ins class="iCheck-helper"
-																style="position: absolute; top: 0%; left: 0%; 
-																display: block; width: 100%; height: 100%; 
-																margin: 0px; padding: 0px; 
-																background: rgb(255, 255, 255); border: 0px; 
-																opacity: 0;"></ins>
-														</div>
-													</td>
-													<td>${PptVO.pptno}</td>
-													<td>${PptVO.fno}</td>
-													<td>${PptVO.userid}</td>
-													<td>${PptVO.ppt_kind}</td>
-													<td><a href="">${PptVO.ppt_title}</a></td>
-													<td>${PptVO.ppt_desc}</td>
-												</tr>
-											</ul>
-										</c:forEach>
-									</tbody>
-								</table>
-							</div>
-							<!-- list paging 처리 -->
-							<div class="col-md-8">
-								<ul class="pagination pull-right">
-									<c:if test="${pageMaker.prev}">
-										<li><a
-											href="myPage${pageMaker.makeSearch(pageMaker.startPage - 1)}"
-											aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-									</c:if>
-									<c:forEach begin="${pageMaker.startPage}"
-										end="${pageMaker.endPage}" var="idx">
-										<li class="active"
-											<c:out value="${pageMaker.cri.page == idx?'class = active':''}"/>>
-											<a href="myPage${pageMaker.makeSearch(idx)}">${idx}</a>
-										</li>
-									</c:forEach>
-									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-										<li><a
-											href="myPage${pageMaker.makeSearch(pageMaker.endPage + 1)}"
-											aria-label="Next"><span aria-hidden="true">»</span></a></li>
-									</c:if>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 
-<<<<<<< HEAD
-=======
-				<div class="col-md-5">
-					<div class="panel box-v3">
-						<h4>Select Option</h4>
-						<div class="panel box-v4">
-							<div class="panel-body">   
-							    <!--  -->
-								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary">
-									수정
-								</button>
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 
-<<<<<<< HEAD
             <div class="col-md-5">
                <div class="panel box-v3">
                   <h4>Select Option</h4>
                   <div class="panel box-v4">
+                  
                      <div class="panel-body">
-                        <button id="circle2" class=" btn btn-circle btn-3d btn-sm btn-primary"
+                        <a href=""><button id="circle2" class=" btn btn-circle btn-3d btn-sm btn-primary"
                            value="primary">
                            <span class="fa fa-dot-circle-o"></span>
-=======
-								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary">
-									삭제
-								</button>
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 
-<<<<<<< HEAD
-                        </button>
-=======
-								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary">
-															
-								</button>
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
+                        </button></a>
 
-<<<<<<< HEAD
                         <button class=" btn btn-circle btn-3d btn-sm btn-primary"
                            value="primary">
                            <span class="fa fa-times"></span>
                         </button>
-=======
-								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary" onclick="location.href='createPage'">
-									생성
-								</button>
-							</div>
-						</div>
-						<!-- PPT 미리보기 화면 뿌려주기 -->
-						<div class="panel box-v4">
-							<div class="panel-heading bg-white border-none">
-								<h4>
-									<span class="icon-notebook icons"></span> PPT Imformation
-								</h4>
-							</div>
-							<div class="panel-body">
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<div id="carousel-example-generic" class="carousel slide"
-										data-ride="carousel">
-										<ol class="carousel-indicators">
-											<li data-target="#carousel-example-generic" data-slide-to="0"
-												class=""></li>
-											<li data-target="#carousel-example-generic" data-slide-to="1"
-												class="active"></li>
-											<li data-target="#carousel-example-generic" data-slide-to="2"
-												class=""></li>
-										</ol>
-										<div class="carousel-inner">
-											<div class="item">
-												<img class="img-responsive"
-													data-src="holder.js/900x500/auto/#777:#555/text:First slide"
-													alt="First slide"
-													src="../resources/miminium-master/asset/img/bg1.jpg">
-											</div>
-											<div class="item active">
-												<img class="img-responsive"
-													data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
-													alt="Second slide"
-													src="../resources/miminium-master/asset/img/bg1.jpg">
-											</div>
-											<div class="item">
-												<img class="img-responsive"
-													data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
-													alt="Third slide"
-													src="../resources/miminium-master/asset/img/bg1.jpg">
-											</div>
-										</div>
-										<a class="left carousel-control"
-											href="#carousel-example-generic" role="button"
-											data-slide="prev"> <span
-											class="glyphicon glyphicon-chevron-left"></span>
-										</a> <a class="right carousel-control"
-											href="#carousel-example-generic" role="button"
-											data-slide="next"> <span
-											class="glyphicon glyphicon-chevron-right"></span>
-										</a>
-									</div>
-									<div class="panel-body padding-0">
-										<div
-											class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
-											<h2>Checking Your Server!</h2>
-											<p>Daily Check on Server status, mostly looking at
-												servers with alerts/warnings</p>
-											<b><span class="icon-clock icons"></span> Today at 15:00</b>
-										</div>
-										<div class="calendar fc fc-ltr fc-unthemed">
-											<div class="fc-toolbar"></div>
-										</div>
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 
                         <button class=" btn btn-circle btn-3d btn-sm btn-primary"
                            value="primary">
@@ -602,11 +366,11 @@ body {
       </div>
    </div>
          
-         
+<!--          
    <form method="post" id="circle" action="circle">
-      <!--  <input id="circleHidden" type="hidden" name="id" value="9">
- -->
-    </form>
+      <input id="circleHidden" type="hidden"  value="9">
+ 
+    </form> -->
       <!-- end: content -->
 
       <button id="mimin-mobile-menu-opener"
@@ -619,8 +383,7 @@ body {
 <script src="../resources/miminium-master/asset/js/jquery.min.js"></script>
 <script src="../resources/miminium-master/asset/js/jquery.ui.min.js"></script>
 <script src="../resources/miminium-master/asset/js/bootstrap.min.js"></script>
-<script
-   src="../resources/miminium-master/asset/js/plugins/icheck.min.js"></script>
+
 <script
    src="../resources/miminium-master/asset/js/plugins/moment.min.js"></script>
 <script
@@ -635,12 +398,11 @@ body {
 
 <!-- 검색 조건 jQuery -->
 <script>
-<<<<<<< HEAD
    $(document).ready(function() {
       
-      $("#circle2").on("click", function(event) {
+/*       $("#circle2").on("click", function(event) {
          $("#circle").submit();
-      });
+      }); */
       
       $("#searchBtn").on("click", function(event) {
          self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
@@ -661,55 +423,9 @@ body {
          formObj.submit();
       });
    });
-=======
-	$(document).ready(function() {
-		
-		$("#searchBtn").on("click", function(event) {
-			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
-						+ $("select option:selected").val()
-						+ "&keyword=" + $('#keywordInput').val();
-		});
-		
-		var formObj = $("form[role='form']");
-		console.log(formObj);
-		
-		$("#updateBtn").on("click", function(){
-			formObj.submit();	
-		});
-		
-		$("#deleteBtn").on("click", function(){
-			formObj.attr("action", "delete");
-			formObj.attr("mehtod", "post");
-			formObj.submit();
-		});
-		
-		$("")
-	
-	
-	
-	});
-	
-	
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 </script>
 
-<<<<<<< HEAD
-<script type="text/javascript">
-   $(document).ready(function() {
-      $('input').iCheck({
-         checkboxClass : 'icheckbox_flat-red',
-         radioClass : 'iradio_flat-red'
-      });
-      $('video,audio').mediaelementplayer({
-         alwaysShowControls : true,
-         videoVolume : 'vertical',
-         features : [ 'playpause', 'progress', 'volume', 'fullscreen' ]
-      });
-   });
-</script>
-=======
 
->>>>>>> branch 'master' of https://github.com/hankanghee1234/project
 
 
 <script>

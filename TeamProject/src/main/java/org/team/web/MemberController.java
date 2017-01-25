@@ -89,6 +89,17 @@ public class MemberController {
       logger.info("CREATE PAGE............");
    }
    
+   @RequestMapping(value = "/dropzone", method = RequestMethod.GET)
+   public void dropzoneGET() throws Exception {
+      logger.info("dropzone PAGE............");
+   }
+   
+   @RequestMapping(value = "/dropzone2", method = RequestMethod.GET)
+   public void dropzone2GET() throws Exception {
+      logger.info("dropzone2 PAGE............");
+   }
+   
+   
    @RequestMapping(value = "/register", method = RequestMethod.POST)
    public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
       logger.info("register POST............");
