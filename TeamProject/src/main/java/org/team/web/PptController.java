@@ -31,9 +31,7 @@ public class PptController {
 	
 	@Autowired
 	private ImgServiceImpl imgService;
-	@Autowired
-
-
+	
 	@ResponseBody
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String upload(@RequestBody MultipartFile file) throws Exception {
@@ -42,7 +40,6 @@ public class PptController {
 		return "Success";
 	}
 
-	
 	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
 	   public ResponseEntity<List<PptVO>> chatList() throws Exception {
 	      logger.info("PPT리스트..인덱스페이지에서..");
@@ -56,7 +53,6 @@ public class PptController {
 	      return entity;
 	   }
 	   
-	
 	@RequestMapping(value = "/myPage/{fno}", method = RequestMethod.GET)
 	public ResponseEntity<List<ImgVO>> imgView(@PathVariable("fno")Integer fno) throws Exception {
 		logger.info("myPage에서 image ppt 뿌려주기.....");
