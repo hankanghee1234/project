@@ -36,9 +36,10 @@ public class PptDAOTest {
 	}
 	
 	@Test
-	public void testList() throws Exception {
+	public void testUserlist() throws Exception {
 		
-		System.out.println(dao.pptUserList());
+		String userid = "user10";
+		System.out.println(dao.pptUserList(userid));
 	}
 
 	@Test
