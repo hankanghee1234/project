@@ -160,6 +160,27 @@ body {
                   <div class="modal-footer"></div>
                </div>
 
+				<div class="modal-content modal-secession">
+                  <div class="modal-header" style="height: 50px;">
+                     
+                     <h4>회원탈퇴 확인</h4>
+                     <h2 class="modal-title">
+                        <i class="icon-user icons"></i>
+                     </h2>
+                  </div>
+
+                  <div class="panel-body" style="text-align: center;">
+                     <div class="modal-body col-md-12" style="line-height: 10px;">
+                        <h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
+                     </div>
+                     <button class="btn btn-danger" id="deleteBtn" value="primary">삭제</button>
+                     <button class="btn btn-warning" id="dangerBtn"
+                     data-dismiss="modal" aria-label="Close">취소</button>   
+                  </div>
+
+                  <div class="modal-footer"></div>
+               </div>
+					
             </div>
 
             <div class="col-md-12 profile-v1-cover">
