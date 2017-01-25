@@ -12,8 +12,6 @@ public interface PptService {
 	
 	public List<PptVO> pptGuestList() throws Exception;
 	
-	public List<PptVO> pptUserList(String userid) throws Exception;
-
 	public void update(PptVO vo) throws Exception;
 
 	public void delete(Integer pptno) throws Exception;

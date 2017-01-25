@@ -30,12 +30,6 @@ public class PptDAOImpl implements PptDAO {
 	}
 	
 	@Override
-	public List<PptVO> pptUserList(String userid) throws Exception {
-		
-		return session.selectList(NAME + ".pptUserList", userid);
-	}
-
-	@Override
 	public void update(PptVO vo) throws Exception {
 		
 		session.update(NAME + ".update", vo);

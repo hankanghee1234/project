@@ -22,14 +22,14 @@ public class PptController {
    private static final Logger logger = LoggerFactory.getLogger(PptController.class);
 
    @Autowired
-   private PptService PptService;
+   private PptService pptService;
 
    @RequestMapping(value = "/chatList", method = RequestMethod.GET)
    public ResponseEntity<List<PptVO>> chatList() throws Exception {
       logger.info("PPT리스트..인덱스페이지에서..");
       ResponseEntity<List<PptVO>> entity = null;
       try {
-         entity = new ResponseEntity<List<PptVO>>(PptService.pptGuestList(), HttpStatus.OK);
+         entity = new ResponseEntity<List<PptVO>>(pptService.pptGuestList(), HttpStatus.OK);
       } catch (Exception e) {
          e.printStackTrace();
          entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);

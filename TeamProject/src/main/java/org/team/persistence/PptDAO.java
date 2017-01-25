@@ -12,8 +12,6 @@ public interface PptDAO {
 
 	public List<PptVO> pptGuestList() throws Exception; // guest 접속으로 인한 ppt 정보 호출
 	
-	public List<PptVO> pptUserList(String userid) throws Exception; // 로그인 정보에 따른 ppt list 호출
-	
 	public void update(PptVO vo) throws Exception;
 
 	public void delete(Integer pptno) throws Exception;

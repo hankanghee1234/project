@@ -5,29 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.team.dao.PptMapper">
 	<sql id="search">
 		<if test="searchType != null">
-			<if test="searchType == 'u'.toString()">
-				and userid like CONCAT ('%', #{keyword}, '%')
-			</if>
 			<if test="searchType == 'k'.toString()">
 				and ppt_kind like CONCAT ('%', #{keyword}, '%')
 			</if>
 			<if test="searchType == 't'.toString()">
 				and ppt_tilte like CONCAT ('%', #{keyword}, '%')
-			</if>
-			<if test="searchType == 'd'.toString()">
-				and ppt_desc like CONCAT ('%', #{keyword}, '%')
-			</if>
-			<if test="searchType == 'uk'.toString()">
-				and (userid like CONCAT ('%', #{keyword}, '%')
-				OR ppt_kind like CONCAT ('%', #{keyword}, '%'))
-			</if>
-			<if test="searchType == 'kt'.toString()">
-				and (ppt_kind like CONCAT ('%', #{keyword}, '%')
-				OR ppt_title like CONCAT ('%', #{keyword}, '%'))
-			</if>
-			<if test="searchType == 'td'.toString()">
-				and (ppt_title like CONCAT ('%', #{keyword}, '%')
-				OR ppt_desc like CONCAT ('%', #{keyword}, '%'))
 			</if>
 		</if>
 	</sql>
@@ -41,10 +23,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_pptdesc
 	</select>
 	
-	<select id="pptUserList" resultType="PptVO">
-		select * from tbl_pptdesc where userid = #{userid}
-	</select>
-
 	<update id="update" parameterType="PptVO">
 		update tbl_pptdesc set ppt_kind = #{ppt_kind}, ppt_title = #{ppt_title},
 		ppt_desc = #{ppt_desc}, modidate = now() where pptno = #{pptno}
@@ -76,7 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="listSearch" resultType="PptVO">
 		<![CDATA[
-		select * from tbl_pptdesc where pptno > 0
+		select * from tbl_pptdesc where userid = #{userid}
 		]]>
 		<include refid="search"></include> 
 		<![CDATA[
@@ -87,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="listSearchCount" resultType="int">
 		<![CDATA[
-		select count(pptno) from tbl_pptdesc where pptno > 0	
+		select count(userid) from tbl_pptdesc where userid = #{userid}	
 		]]>
 		<include refid="search"></include>
 	</select>

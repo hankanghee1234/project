@@ -28,12 +28,6 @@ public class PptServiceImpl implements PptService {
 	}
 	
 	@Override
-	public List<PptVO> pptUserList(String userid) throws Exception {
-		
-		return pptDAO.pptUserList(userid);
-	}
-
-	@Override
 	public void update(PptVO vo) throws Exception {
 		
 		pptDAO.update(vo);

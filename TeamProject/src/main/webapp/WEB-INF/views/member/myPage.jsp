@@ -183,13 +183,8 @@ body {
 									<!-- 검색 조건 처리 -->
 									<select name="searchType">
 										<option value="n"<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-										<option value="u"<c:out value="${cri.searchType eq 'u'?'selected':''}"/>>USERID</option>
 										<option value="k"<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
-										<option value="t"<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
-										<option value="d"<c:out value="${cri.searchType eq 'd'?'selected':''}"/>>PPT_DESC</option>
-										<option value="uk"<c:out value="${cri.searchType eq 'uk'?'selected':''}"/>>USERID OR PPT_KIND</option>
-										<option value="kt"<c:out value="${cri.searchType eq 'kt'?'selected':''}"/>>PPT_KIND OR PPT_TITLE</option>
-										<option value="td"<c:out value="${cri.searchType eq 'td'?'selected':''}"/>>PPT_TITLE OR PPT_DESC</option>
+										<option value="t"<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>						
 									</select>
 									<div class="input-group">
 										<div class="input-group">
@@ -386,55 +381,35 @@ body {
 
 
 <script>
-	$(document).ready(
-			function() {
+	$(document).ready(function() {
+		$("#searchBtn").on("click", function(event) {
+			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType=" 
+							+ $("select option:selected").val() + "&keyword=" + $('#keywordInput').val();
+		}); // 검색 조건 처리
 
-				$("#searchBtn").on(
-						"click",
-						function(event) {
-							self.location = "myPage"
-									+ '${pageMaker.makeQuery(1)}'
-									+ "&searchType="
-									+ $("select option:selected").val()
-									+ "&keyword=" + $('#keywordInput').val();
-						}); // 검색 조건 처리
+		var formObj = $("form[role='form']");
+		console.log(formObj);
 
-				var formObj = $("form[role='form']");
-				console.log(formObj);
+		$("#updateBtn").on("click", function() {
+			formObj.submit();
+		}); //유저 정보 수정
 
-				$("#updateBtn").on("click", function() {
-					formObj.submit();
-				}); //유저 정보 수정
+		$("#deleteBtn").on("click", function() {
+			formObj.attr("action", "delete");
+			formObj.attr("mehtod", "post");
+			formObj.submit();
+		}); // 유저 정보 삭제
 
-				$("#deleteBtn").on("click", function() {
-					formObj.attr("action", "delete");
-					formObj.attr("mehtod", "post");
-					formObj.submit();
-				}); // 유저 정보 삭제
-
-				$(function() {
-					$("#icheck").click(function() {
-						var check = $(this).is("");
-					})
-				})
+		/* $(function() {	
+			$("#icheck").click(function() {
+				var check = $(this).is("");
+			})
+		}) */
 				/* $('input').icheck({
 						checkboxClass : 'icheckbox_flat-red',
 						radioClass : 'iradio_flat-red'
 				}); */
 
-			});
-
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('input').iCheck({
-			checkboxClass : 'icheckbox_flat-red',
-			radioClass : 'iradio_flat-red'
-		});
-		$('video,audio').mediaelementplayer({
-			alwaysShowControls : true,
-			videoVolume : 'vertical',
-			features : [ 'playpause', 'progress', 'volume', 'fullscreen' ]
-		});
 	});
 </script>
 
