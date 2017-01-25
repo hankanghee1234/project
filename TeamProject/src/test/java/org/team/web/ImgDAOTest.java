@@ -30,8 +30,8 @@ public class ImgDAOTest {
 	@Test
 	public void testRead() throws Exception {
 		
-		Integer ino =2;
-		System.out.println(dao.read(ino));
+		Integer fno =10;
+		System.out.println(dao.read(fno));
 	}
 	
 	@Test
