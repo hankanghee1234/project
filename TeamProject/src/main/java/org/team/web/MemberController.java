@@ -38,30 +38,20 @@ public class MemberController {
 		logger.info("PPT List GET & membership GET............");
 		logger.info(cri.toString());
 
-		  /*Cookie[] cookies = req.getCookies(); 
-		  String myid = null;
-		  
-		  for (Cookie cookie : cookies) { 
-			  
-		  if(cookie.getName().equals("login")){ 
-			  
-			  myid = cookie.getValue(); break; 
-		  	} 
-		 }*/ // myid = user00, 로그인 처리가 되면 로그인한 정보가 출력이 되어야 한다.
-		
 		HttpSession session = req.getSession();
 		String userid = session.getAttribute("userid").toString();		
 		System.out.println(userid);
 		cri.setUserid(userid);
 		model.addAttribute("read", memberService.read(userid));
 		model.addAttribute("pptUserList", pptService.listSearchCriteria(cri));
-
+		/* session처리로 로그인한 유저 정보 출력하여 로그인한 정보마다 ppt 정보 출력 */
+		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(pptService.listSearchCount(cri));
 
 		model.addAttribute("pageMaker", pageMaker);
-	} // 페이징 처리 및 검색 조건 처리 및 쿠키로 로그인 정보 출력 완료
+	} // 페이징 처리 및 검색 조건 처리 및 로그인 정보 출력 완료
 
 	@RequestMapping(value = "/circle", method = RequestMethod.POST)
 	public String circle() throws Exception {
