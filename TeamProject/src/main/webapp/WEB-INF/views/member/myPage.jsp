@@ -199,7 +199,7 @@ body {
                      <div class="col-md-12 padding-0">
                         <div class="col-md-8" style="padding-left: 2px;">
                            <!-- 검색 조건 처리 -->
-                           <select name="searchType">
+                          <select name="searchType">
                            <option value="n" <c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
                            <option value="k" <c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
                            <option value="t" <c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
@@ -220,14 +220,13 @@ body {
                         </div>
                      </div>
                   </div>
-                  <!-- ppt list 작성-->
+                  <!-- ppt list 출력-->
                   <div class="panel-body">
                      <div class="responsive-table">
                         <table class="table table-striped table-bordered" width="100%"
                            cellspacing="0">
                            <thead>
                               <tr>
-
                                  <th>PPT번호</th>
                                  <th>PPT등록번호</th>
                                  <th>발표자</th>
@@ -237,7 +236,7 @@ body {
                               </tr>
                            </thead>
                            <tbody>
-                              <!-- ppt 리스트 보여주기 -->
+                              <!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
                               <c:forEach items="${pptUserList}" var="PptVO">
                                  <ul class="pptUserList">
       								<tr>
