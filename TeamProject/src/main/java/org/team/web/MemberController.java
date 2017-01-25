@@ -79,6 +79,11 @@ public class MemberController {
       logger.info("myPage2 PAGE............");
    }
    
+   @RequestMapping(value = "/facebooktest", method = RequestMethod.GET)
+   public void facebooktestGET() throws Exception {
+      logger.info("facebooktest PAGE............");
+   }
+   
    @RequestMapping(value = "/createPage", method = RequestMethod.GET)
    public void createPageGET() throws Exception {
       logger.info("CREATE PAGE............");
