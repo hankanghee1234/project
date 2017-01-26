@@ -331,9 +331,8 @@ body {
 									<div class="panel-body padding-0">
 										<div id="context"
 											class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
-											<h2 id='pTitle'>ppt내용물... 타이틀이겠지.</h2>
-											<p id='pDesc'>내용물이 나오겠지...</p>
-											<b><span class="icon-clock icons"></span> Today at 15:00</b>
+											<h2 id='pTitle'></h2>
+											<p id='pDesc'></p>
 										</div>
 										<div class="calendar fc fc-ltr fc-unthemed">
 											<div class="fc-toolbar"></div>
@@ -425,9 +424,9 @@ body {
 				}
 			});
 
-		});
+		}); // ajax 처리로 이미지 및 ppt 정보 호출
 
-		$("#pptUptBtn").on("click", function(event) {
+		/* $("#pptUptBtn").on("click", function(event) {
 			
 			$.ajax({
 				url : "../ppt/pptUpt/" + fno,
@@ -449,7 +448,7 @@ body {
 					console.log(data);
 				}
 			});
-		});
+		}); */
 
 		$("#searchBtn").on("click", function(event) {
 			
