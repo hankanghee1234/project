@@ -54,7 +54,7 @@ public class PptController {
 	}
 
 	@RequestMapping(value = "/pptRead/{pptno}", method = RequestMethod.GET)
-	public @ResponseBody PptVO pptRead(@PathVariable("pptno") Integer pptno) throws Exception {
+	public @ResponseBody PptVO pptReadGET(@PathVariable("pptno") Integer pptno) throws Exception {
 		logger.info("pptRead GET..............");
 
 		return pptService.pptRead(pptno);
@@ -62,7 +62,7 @@ public class PptController {
 
 	@RequestMapping(value = "/imgRead/{fno}", method = RequestMethod.GET)
 	public @ResponseBody List<ImgVO> imgViewGET(@PathVariable("fno") Integer fno) throws Exception {
-		logger.info("IMage GET.이라구..한강희씨 제발!!!!!!!!코딩좀하라고.............");
+		logger.info("IMage GET................");
 
 		return imgService.imgRead(fno);
 	}
