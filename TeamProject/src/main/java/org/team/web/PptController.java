@@ -24,13 +24,14 @@ import org.team.service.PptServiceImpl;
 @RestController
 @RequestMapping("/ppt/*")
 public class PptController {
-	private static final Logger logger = LoggerFactory.getLogger(PptController.class);
-
+	
 	@Autowired
 	private PptServiceImpl pptService;
 
 	@Autowired
 	private ImgServiceImpl imgService;
+	
+	private static final Logger logger = LoggerFactory.getLogger(PptController.class);
 
 	@ResponseBody
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
