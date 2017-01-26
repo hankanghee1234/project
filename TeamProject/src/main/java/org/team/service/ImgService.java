@@ -11,8 +11,6 @@ public interface ImgService {
 	
 	public List<ImgVO> imgRead(Integer fno) throws Exception;
 	
-	public List<PptVO> pptRead(Integer fno) throws Exception;
-	
 	public void update(ImgVO vo) throws Exception;
 	
 	public void delete(Integer ino) throws Exception;

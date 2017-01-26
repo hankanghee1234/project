@@ -63,6 +63,12 @@ public class PptServiceImpl implements PptService {
 		return pptDAO.listSearchCount(cri);
 	}
 
+	@Override
+	public PptVO pptRead(Integer pptno) throws Exception {
+		
+		return pptDAO.pptRead(pptno);
+	}
+
 	
 
 

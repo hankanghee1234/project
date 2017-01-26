@@ -28,9 +28,12 @@ public class PptController {
 
 	@Autowired
 	private PptServiceImpl pptService;
-	
+
+	@Autowired
+	private ImgServiceImpl imgService;
+
 	@ResponseBody
-	@RequestMapping(value = "/upload", method = RequestMethod.POST) 
+	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String upload(@RequestBody MultipartFile file) throws Exception {
 		logger.info("드롭존....테스트....." + file);
 		// 데이터를 넣어라 태호나아
@@ -38,17 +41,29 @@ public class PptController {
 	}
 
 	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
-	   public ResponseEntity<List<PptVO>> chatList() throws Exception {
-	      logger.info("PPT리스트..인덱스페이지에서..");
-	      ResponseEntity<List<PptVO>> entity = null;
-	      try {
-	         entity = new ResponseEntity<List<PptVO>>(pptService.pptGuestList(), HttpStatus.OK);
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	         entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);
-	      }
-	      return entity;
-	   }
-	   
-	
+	public ResponseEntity<List<PptVO>> chatList() throws Exception {
+		logger.info("PPT리스트..인덱스페이지에서..");
+		ResponseEntity<List<PptVO>> entity = null;
+		try {
+			entity = new ResponseEntity<List<PptVO>>(pptService.pptGuestList(), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+
+	@RequestMapping(value = "/pptRead/{pptno}", method = RequestMethod.GET)
+	public @ResponseBody PptVO pptRead(@PathVariable("pptno") Integer pptno) throws Exception {
+		logger.info("pptRead GET..............");
+
+		return pptService.pptRead(pptno);
+	}
+
+	@RequestMapping(value = "/imgRead/{fno}", method = RequestMethod.GET)
+	public @ResponseBody List<ImgVO> imgViewGET(@PathVariable("fno") Integer fno) throws Exception {
+		logger.info("IMage GET.이라구..한강희씨 제발!!!!!!!!코딩좀하라고.............");
+
+		return imgService.imgRead(fno);
+	}
 }

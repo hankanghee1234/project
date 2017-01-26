@@ -32,7 +32,6 @@ public class ImgDAOTest {
 		
 		Integer fno =10;
 		System.out.println(dao.imgRead(fno));
-		System.out.println(dao.pptRead(fno));
 	}
 	
 	@Test

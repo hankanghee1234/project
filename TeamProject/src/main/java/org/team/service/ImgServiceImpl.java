@@ -28,12 +28,6 @@ public class ImgServiceImpl implements ImgService {
 	}
 	
 	@Override
-	public List<PptVO> pptRead(Integer fno) throws Exception {
-		
-		return imgDAO.pptRead(fno);
-	}
-	
-	@Override
 	public void update(ImgVO vo) throws Exception {
 
 		imgDAO.update(vo);

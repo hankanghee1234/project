@@ -8,11 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into tbl_img (fno, img) 
 		values (#{fno}, #{img})
 	</insert>
-	
-	<select id="pptRead" resultType="PptVO" parameterType="int">
-		select * from tbl_pptdesc where fno = #{fno}
-	</select>
-	
+
 	<select id="imgRead" resultType="ImgVO" parameterType="int">
 		select * from tbl_img where fno = #{fno} order by ino desc
 	</select>

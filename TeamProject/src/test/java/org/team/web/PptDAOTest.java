@@ -42,6 +42,13 @@ public class PptDAOTest {
 	}
 	
 	@Test
+	public void testPptRead() throws Exception {
+		
+		Integer pptno = 1;
+		System.out.println(dao.pptRead(pptno));
+	}
+	
+	@Test
 	public void testUpdate() throws Exception {
 		
 		PptVO vo = new PptVO();

@@ -13,7 +13,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</if>
 	</sql>
-
+	
+	<select id="pptRead" resultType="PptVO" parameterType="int">
+		select * from tbl_pptdesc where pptno = #{pptno}
+	</select>
+	
 	<insert id="create" parameterType="PptVO">
 		insert into tbl_pptdesc (fno, userid, ppt_kind, ppt_title, ppt_desc)
 		values (#{fno}, #{userid}, #{ppt_kind}, #{ppt_title}, #{ppt_desc})

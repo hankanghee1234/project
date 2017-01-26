@@ -23,12 +23,6 @@ public class ImgDAOImpl implements ImgDAO {
 	}
 	
 	@Override
-	public List<PptVO> pptRead(Integer fno) throws Exception {
-	
-		return session.selectList(NAME + ".pptRead", fno);
-	}
-	
-	@Override
 	public List<ImgVO> imgRead(Integer fno) throws Exception {
 		
 		return session.selectList(NAME + ".imgRead", fno);

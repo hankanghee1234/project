@@ -30,6 +30,12 @@ public class PptDAOImpl implements PptDAO {
 	}
 	
 	@Override
+	public PptVO pptRead(Integer pptno) throws Exception {
+		
+		return session.selectOne(NAME + ".pptRead", pptno);
+	}
+	
+	@Override
 	public void update(PptVO vo) throws Exception {
 		
 		session.update(NAME + ".update", vo);
@@ -76,6 +82,8 @@ public class PptDAOImpl implements PptDAO {
 		
 		return session.selectOne(NAME + ".listSearchCount", cri);
 	}
+
+	
 
 	
 
