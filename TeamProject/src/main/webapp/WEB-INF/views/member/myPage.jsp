@@ -83,7 +83,7 @@ body {
                      <span class="icon-user-unfollow"></span>
                   </div>
                </button>
-
+				<!-- 회원 정보 수정 하기 -->
                <div class="modal-content modal-reset">
                   <div class="modal-header" style="height: 50px;">
                      
@@ -137,8 +137,9 @@ body {
                   </div> 
                   <div class="modal-footer">
                   </div>
-               </div>
+               </div> <!-- /.회원 정보 수정 하기 -->
 
+				<!-- 회원 정보 삭제 하기 -->
                <div class="modal-content modal-secession">
                   <div class="modal-header" style="height: 50px;">
                      
@@ -160,28 +161,7 @@ body {
                   <div class="modal-footer"></div>
                </div>
 
-				<div class="modal-content modal-secession">
-                  <div class="modal-header" style="height: 50px;">
-                     
-                     <h4>회원탈퇴 확인</h4>
-                     <h2 class="modal-title">
-                        <i class="icon-user icons"></i>
-                     </h2>
-                  </div>
-
-                  <div class="panel-body" style="text-align: center;">
-                     <div class="modal-body col-md-12" style="line-height: 10px;">
-                        <h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
-                     </div>
-                     <button class="btn btn-danger" id="deleteBtn" value="primary">삭제</button>
-                     <button class="btn btn-warning" id="dangerBtn"
-                     data-dismiss="modal" aria-label="Close">취소</button>   
-                  </div>
-
-                  <div class="modal-footer"></div>
-               </div>
-					
-            </div>
+            </div> <!-- /.회원 정보 삭제 하기 -->
 
             <div class="col-md-12 profile-v1-cover">
                <img src="../resources/miminium-master/asset/img/bg1.jpg"
@@ -227,25 +207,18 @@ body {
                            cellspacing="0">
                            <thead>
                               <tr>
-                                 <th>PPT번호</th>
-                                 <th>PPT등록번호</th>
-                                 <th>발표자</th>
                                  <th>발표분야</th>
                                  <th>제목</th>
-                                 <th>내용</th>
                               </tr>
                            </thead>
                            <tbody>
                               <!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
                               <c:forEach items="${pptUserList}" var="PptVO">
                                  <ul class="pptUserList">
-      								<tr>
-                                       <td>${PptVO.pptno}</td>
-                                       <td>${PptVO.fno}</td>
-                                       <td>${PptVO.userid}</td>
+      								<tr id="${PptVO.pptno}">
                                        <td>${PptVO.ppt_kind}</td>
-                                       <td><a href="">${PptVO.ppt_title}</a></td>
-                                       <td>${PptVO.ppt_desc}</td>
+                                       <td><a class="title-tag" id="${PptVO.pptno}" href="#">
+                                       ${PptVO.ppt_title}</a></td>
                                     </tr>
                                  </ul>
                               </c:forEach>
@@ -277,19 +250,17 @@ body {
                   </div>
                </div>
             </div>
-
-
+			<!-- button 처리 -->
             <div class="col-md-5">
                <div class="panel box-v3">
                   <h4>Select Option</h4>
                   <div class="panel box-v4">
                   
                      <div class="panel-body">
-                        <a href=""><button id="circle2" class=" btn btn-circle btn-3d btn-sm btn-primary"
-                           value="primary">
+                        <button class=" btn btn-circle btn-3d btn-sm btn-primary"
+                        	 value="primary">
                            <span class="fa fa-dot-circle-o"></span>
-
-                        </button></a>
+                        </button>
 
                         <button class=" btn btn-circle btn-3d btn-sm btn-primary"
                            value="primary">
@@ -299,7 +270,6 @@ body {
                         <button class=" btn btn-circle btn-3d btn-sm btn-primary"
                            value="primary">
                            <span class="fa fa-gear"></span>
-
                         </button>
 
                         <button class=" btn btn-circle btn-3d btn-sm btn-primary"
@@ -308,11 +278,12 @@ body {
                         </button>
                      </div>
                   </div>
-                  <!-- ppt 정보 뿌리기 -->				
+                  
+                  <!-- ppt 정보 & img 뿌리기 -->				
                   <div class="panel box-v4">
                      <div class="panel-heading bg-white border-none">
                         <h4>
-                           <span class="icon-notebook icons"></span> PPT Imformation
+                          <span class="icon-notebook icons"></span> PPT Imformation
                         </h4>
                      </div>
                      <div class="panel-body">
@@ -411,7 +382,6 @@ body {
    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
    crossorigin="anonymous"></script>
 
-<!-- 검색 조건 jQuery -->
 <script>
    $(document).ready(function() {
       
@@ -419,24 +389,31 @@ body {
          $("#circle").submit();
       }); */
       
+ 	  $(".title-tag").on("click", function(event) { 
+ 		  event.preventDefault();	
+ 		  
+ 		  	  
+ 	  });
+      
       $("#searchBtn").on("click", function(event) {
          self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
                   + $("select option:selected").val()
                   + "&keyword=" + $('#keywordInput').val();
-      });
+      }); // 검색 조건 처리
       
       var formObj = $("form[role='form']");
       console.log(formObj);
       
       $("#updateBtn").on("click", function(){
          formObj.submit();   
-      });
+      }); // 유저 정보 update
       
       $("#deleteBtn").on("click", function(){
          formObj.attr("action", "delete");
          formObj.attr("mehtod", "post");
          formObj.submit();
-      });
+      }); // 유저 정보 delete
+      
    });
 </script>
 
