@@ -65,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="listSearchCount" resultType="int">
 		<![CDATA[
-		select count(userid) from tbl_pptdesc where userid = #{userid}	
+		select count(pptno) from tbl_pptdesc where userid = #{userid}	
 		]]>
 		<include refid="search"></include>
 	</select>
