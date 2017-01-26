@@ -400,6 +400,8 @@ body {
 				success : function(data) {
 					console.log(data.ppt_title);
 					console.log(data.ppt_desc);
+					$('#pTitle').empty();
+					$('#pDesc').empty();
 					$('#pTitle').append(data.ppt_title);
 					$('#pDesc').append(data.ppt_desc);
 				}
@@ -410,7 +412,16 @@ body {
 				type : "get",
 						
 				success : function(data) {
-					console.log(data);
+					  $.each(data, function(index, obj){ 
+					console.log(obj.img);
+					
+					
+                    $('#imgContext').append(
+                        '<div class="item" >'+'<img class="img-responsive" src="../resources/miminium-master/asset/img/'+obj.img+'.jpg"></div>' 
+                         );
+                    
+                    console.log(obj);
+                  }); 
 				}
 			});
 
