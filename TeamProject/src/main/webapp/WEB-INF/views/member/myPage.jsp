@@ -343,7 +343,7 @@ body {
 								</div>
 							</div>
 						</div>
-
+						<!-- /.ppt 정보 & img 뿌리기 -->
 					</div>
 				</div>
 			</div>
@@ -416,7 +416,7 @@ body {
 					
 					
                     $('#imgContext').append(
-                        '<div class="item" >'+'<img class="img-responsive" src="../resources/miminium-master/asset/img/'+obj.img+'.jpg"></div>' 
+                        	 
                          );
                     
                     console.log(obj);
@@ -472,9 +472,6 @@ body {
 
 	});
 </script>
-
-
-
 
 <script>
 	$(".modal-content").hide();
