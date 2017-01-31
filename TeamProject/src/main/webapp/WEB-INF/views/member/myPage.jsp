@@ -263,9 +263,7 @@ body {
 
 							<div class="panel-body">
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary" id="pptUptBtn">
-									<span class="fa fa-dot-circle-o"></span>
-								</button>
+									value="primary" id="createBtn">생성</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary" id="pptDelBtn">
@@ -452,19 +450,15 @@ body {
 
 		}); // ajax 처리로 이미지 및 ppt 정보 호출
 
-		/* $("#pptUptBtn").on("click", function(event) {
+		$("#createBtn").on("click", function(event) {
 			
-			$.ajax({
-				url : "../ppt/pptUpt/" + fno,
-				type : "get",
-
-				success : function(data) {
-					console.log(data);
-				}
-			});
+			event.preventDefault();
+			
+			
+			
 		});
 				
-		$("#pptDelBtn").on("click", function(event) {
+		/* $("#pptDelBtn").on("click", function(event) {
 					
 			$.ajax({	
 				url : "../ppt/imgRead/" + fno,	

@@ -61,7 +61,8 @@
 
 					<!-- facebook 로그인 -->
 				 	<fb:login-button scope="public_profile,email"
-						onlogin="checkLoginState();" class="fb-login-button" data-max-rows="1" data-size="xlarge"
+						onlogin="checkLoginState();" class="fb-login-button" 
+						data-max-rows="1" data-size="xlarge"
 						data-show-faces="false" data-auto-logout-link="true">
 					</fb:login-button> 
 

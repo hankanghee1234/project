@@ -3,6 +3,7 @@ package org.team.web;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
 import org.team.service.ImgServiceImpl;
@@ -50,9 +52,10 @@ public class PptController {
 	public String upload(@RequestBody MultipartFile file) throws Exception {
 		logger.info("Dropzone POST......" + file);
 		
+		UUID uid = UUID.randomUUID();
 		return "Success";
 	}
-
+	
 	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
 	public ResponseEntity<List<PptVO>> chatList() throws Exception {
 		logger.info("PPT리스트..인덱스페이지에서..");
@@ -78,5 +81,13 @@ public class PptController {
 		logger.info("IMage GET................");
 
 		return imgService.imgRead(fno);
+	}
+	
+	@RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
+	public String create(FileVO fvo, ImgVO ivo, PptVO pvo) throws Exception {
+		logger.info("pptCreate POST............");
+		
+		fvo.
+		return "";
 	}
 }
