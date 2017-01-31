@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
 import org.team.persistence.ImgDAOImpl;
@@ -15,12 +16,15 @@ public class ImgServiceImpl implements ImgService {
 	@Autowired
 	private ImgDAOImpl imgDAO;
 
+	@Transactional
 	@Override
-	public void create(ImgVO vo) throws Exception {
+	public void create(ImgVO ivo, FileVO fvo, PptVO pvo) throws Exception {
 
-		imgDAO.create(vo);
+		imgDAO.fileCreate(fvo);
+		imgDAO.imgCreate(ivo);
+		imgDAO.pptCreate(pvo);
 	}
-	
+
 	@Override
 	public List<ImgVO> imgRead(Integer fno) throws Exception {
 		
@@ -44,6 +48,10 @@ public class ImgServiceImpl implements ImgService {
 
 		return imgDAO.list();
 	}
+
+	
+
+	
 
 	
 

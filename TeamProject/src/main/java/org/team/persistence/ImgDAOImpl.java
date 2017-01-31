@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
 
@@ -17,9 +18,21 @@ public class ImgDAOImpl implements ImgDAO {
 	private String NAME = "org.team.dao.ImgMapper";
 	
 	@Override
-	public void create(ImgVO vo) throws Exception {
+	public void imgCreate(ImgVO ivo) throws Exception {
 		
-		session.insert(NAME + ".create", vo);
+		session.insert(NAME + ".imgCreate", ivo);
+	}
+	
+	@Override
+	public void fileCreate(FileVO fvo) throws Exception {
+		
+		session.insert(NAME + ".fileCreate", fvo);
+	}
+
+	@Override
+	public void pptCreate(PptVO pvo) throws Exception {
+		
+		session.insert(NAME + ".pptCreate", pvo);
 	}
 	
 	@Override
@@ -45,7 +58,5 @@ public class ImgDAOImpl implements ImgDAO {
 		
 		return session.selectList(NAME + ".list");
 	}
-
-	
 
 }

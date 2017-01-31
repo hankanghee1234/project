@@ -5,7 +5,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
+import org.team.domain.PptVO;
 import org.team.persistence.ImgDAOImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -18,13 +20,34 @@ public class ImgDAOTest {
 	@Test
 	public void testCreate() throws Exception {
 		
-		ImgVO vo = new ImgVO();
+		ImgVO ivo = new ImgVO();
 		
-		vo.setFno(5);
-		vo.setImg("1.jpg");
+		ivo.setFno(10);
+		ivo.setImg("1.jpg");
 		
-		dao.create(vo);
-		System.out.println(vo);
+		dao.imgCreate(ivo);
+		
+		FileVO fvo = new FileVO();
+		
+		fvo.setOriginName("test.pptx");
+		fvo.setCopyName("test.jpg");
+		fvo.setUserid("user10");
+		
+		dao.fileCreate(fvo);
+		
+		PptVO pvo = new PptVO();
+		
+		pvo.setFno(10);
+		pvo.setUserid("user10");
+		pvo.setPpt_kind("연예인");
+		pvo.setPpt_title("걸그룹");
+		pvo.setPpt_desc("아이오아이");
+		
+		dao.pptCreate(pvo);
+		
+		System.out.println(ivo);
+		System.out.println(fvo);
+		System.out.println(pvo);
 	}
 	
 	@Test
