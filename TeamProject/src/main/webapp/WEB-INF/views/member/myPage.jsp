@@ -375,28 +375,32 @@ body {
 
 			event.preventDefault();
 
-			var pptno = $(this).attr('id');
-			var fno = $(this).attr('name');
+			var pptno = $(this).attr('id'); // pptno를 아이디 값에 속성을 매김
+			var fno = $(this).attr('name'); // fno를 name 값에 속성을 매김
 			
 			console.log(fno);
 			console.log(pptno);
 			
+			/*pptRead를 ajax로 불러오기*/
 			$.ajax({
-				url : "../ppt/pptRead/" + pptno,
-				type : "get",
+				url : "../ppt/pptRead/" + pptno, // pptRead를 controller에 출력하여 pptno에 대한 ppt를 읽는다.
+				type : "get", // get 방식
 
 				success : function(data) {
 					console.log(data.ppt_title);
 					console.log(data.ppt_desc);
 					
-					$('#pTitle').empty();
-					$('#pDesc').empty();
+					$('#pTitle').empty(); 
+					$('#pDesc').empty(); 
+					// title과 desc 데이터를 비운다.
 					
 					$('#pTitle').append(data.ppt_title);
 					$('#pDesc').append(data.ppt_desc);
+					// title과 desc에 대한 내용을 삽입한다.
 				}
-			});
+			}); // ajax로 ppt_title과 ppt_context 내용 출력
 			
+			/*이미지와 버튼을 한번 없애준후 append로 재 삽입을 한다.*/
 			$('#imgContext').remove();
 			$('#prevBtn').remove();
 			$('#nextBtn').remove();
@@ -410,15 +414,18 @@ body {
 					 + 'role="button" data-slide="next">'
 					 + '<span class="glyphicon glyphicon-chevron-right"></span></a>'		
 			);
-	
+		
+			/*imgRead를 ajax로 불러오기*/
 			$.ajax({
-				url : "../ppt/imgRead/" + fno,
+				url : "../ppt/imgRead/" + fno, // imgRead에 대한 fno을 불러온다.
 				type : "get",
 						
 				success : function(data) {
 					 
 					$.each(data, function(index, obj){ 
 					console.log(obj.img);
+					
+					/*if~else구문으로 img를 active 실시*/
 					if(index==0){
 	                    $('#imgContext').append(
 	                    		  '<div class="item active">'
