@@ -27,10 +27,10 @@ public class ImgServiceImpl implements ImgService {
 
 	@Override
 	public List<ImgVO> imgRead(Integer fno) throws Exception {
-		
+
 		return imgDAO.imgRead(fno);
 	}
-	
+
 	@Override
 	public void update(ImgVO vo) throws Exception {
 
@@ -48,11 +48,5 @@ public class ImgServiceImpl implements ImgService {
 
 		return imgDAO.list();
 	}
-
-	
-
-	
-
-	
 
 }

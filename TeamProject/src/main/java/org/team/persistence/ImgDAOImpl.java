@@ -14,10 +14,11 @@ public class ImgDAOImpl implements ImgDAO {
 
 	@Autowired
 	private SqlSession session;
-	
+
 	private String NAME = "org.team.dao.ImgMapper";
-	
+
 	@Override
+
 	public void imgCreate(ImgVO ivo) throws Exception {
 		
 		session.insert(NAME + ".imgCreate", ivo);
@@ -34,28 +35,28 @@ public class ImgDAOImpl implements ImgDAO {
 		
 		session.insert(NAME + ".pptCreate", pvo);
 	}
-	
+
 	@Override
 	public List<ImgVO> imgRead(Integer fno) throws Exception {
-		
+
 		return session.selectList(NAME + ".imgRead", fno);
 	}
 
 	@Override
 	public void update(ImgVO vo) throws Exception {
-		
+
 		session.update(NAME + ".update", vo);
 	}
 
 	@Override
 	public void delete(Integer ino) throws Exception {
-		
+
 		session.delete(NAME + ".delete", ino);
 	}
 
 	@Override
 	public List<ImgVO> list() throws Exception {
-		
+
 		return session.selectList(NAME + ".list");
 	}
 

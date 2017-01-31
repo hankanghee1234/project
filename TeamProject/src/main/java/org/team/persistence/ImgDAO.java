@@ -17,8 +17,8 @@ public interface ImgDAO {
 	public List<ImgVO> imgRead(Integer fno) throws Exception; // ppt data에 대한 이미지 읽기
 	
 	public void update(ImgVO vo) throws Exception;
-	
+
 	public void delete(Integer ino) throws Exception;
-	
+
 	public List<ImgVO> list() throws Exception;
 }
