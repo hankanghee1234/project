@@ -31,7 +31,12 @@ public class MemberController {
    private PptServiceImpl pptService;
 
    private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-
+   
+   @RequestMapping(value = "/dropzone", method = RequestMethod.GET)
+   public void dropzoneGET() throws Exception {
+      logger.info("dropzone PAGE............");
+   }
+   
    @RequestMapping(value = "/myPage", method = RequestMethod.GET)
    public void pptListGET(@ModelAttribute("cri") SearchCriteria cri, Model model, 
          HttpServletRequest req) throws Exception {
