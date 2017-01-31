@@ -290,47 +290,35 @@ body {
 								<div class="col-md-12 col-sm-12 col-xs-12">
 									<div id="carousel-example-generic" class="carousel slide"
 										data-ride="carousel">
-										<ol class="carousel-indicators">
-											<li data-target="#carousel-example-generic" data-slide-to="0"
-												class=""></li>
-											<li data-target="#carousel-example-generic" data-slide-to="1"
-												class="active"></li>
-											<li data-target="#carousel-example-generic" data-slide-to="2"
-												class=""></li>
-										</ol>
+										
 										<div class="carousel-inner" id="imgContext">
-											<div class="item">
-												<img class="img-responsive"
-													data-src="holder.js/900x500/auto/#777:#555/text:First slide"
-													alt="First slide"
-													src="../resources/miminium-master/asset/img/bg1.jpg">
-											</div>
+											
 											<div class="item active">
 												<img class="img-responsive"
-													data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
-													alt="Second slide"
+													data-src="holder.js/900x500/auto"
+													src="../resources/miminium-master/asset/img/bg1.jpg">
+											</div>
+											 <div class="item">
+												<img class="img-responsive"
+													data-src="holder.js/900x500/auto"
 													src="../resources/miminium-master/asset/img/bg1.jpg">
 											</div>
 											<div class="item">
 												<img class="img-responsive"
-													data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
-													alt="Third slide"
+													data-src="holder.js/900x500/auto"
 													src="../resources/miminium-master/asset/img/bg1.jpg">
-											</div>
+											</div> 
+											
 										</div>
-										<a class="left carousel-control"
-											href="#carousel-example-generic" role="button"
-											data-slide="prev"> <span
-											class="glyphicon glyphicon-chevron-left"></span>
-										</a> <a class="right carousel-control"
-											href="#carousel-example-generic" role="button"
-											data-slide="next"> <span
-											class="glyphicon glyphicon-chevron-right"></span>
-										</a>
+										<a class="left carousel-control" id="prevBtn" href="#carousel-example-generic" 
+										role="button" data-slide="prev"> 
+											<span class="glyphicon glyphicon-chevron-left"></span></a> 
+											<a class="right carousel-control" id="nextBtn" href="#carousel-example-generic" 
+											role="button" data-slide="next">
+											<span class="glyphicon glyphicon-chevron-right"></span></a>
 									</div>
 									<div class="panel-body padding-0">
-										<div id="context"
-											class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
+										<div id="context" class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
 											<h2 id='pTitle'></h2>
 											<p id='pDesc'></p>
 										</div>
@@ -389,9 +377,10 @@ body {
 
 			var pptno = $(this).attr('id');
 			var fno = $(this).attr('name');
+			
 			console.log(fno);
 			console.log(pptno);
-
+			
 			$.ajax({
 				url : "../ppt/pptRead/" + pptno,
 				type : "get",
@@ -399,26 +388,56 @@ body {
 				success : function(data) {
 					console.log(data.ppt_title);
 					console.log(data.ppt_desc);
+					
 					$('#pTitle').empty();
 					$('#pDesc').empty();
+					
 					$('#pTitle').append(data.ppt_title);
 					$('#pDesc').append(data.ppt_desc);
 				}
 			});
 			
+			$('#imgContext').remove();
+			$('#prevBtn').remove();
+			$('#nextBtn').remove();
+			
+			$('#carousel-example-generic').append( 
+					'<div class="carousel-inner" id="imgContext"></div>'
+					 + '<a class="left carousel-control" id="prevBtn" href="#carousel-example-generic"' 
+					 + 'role="button" data-slide="prev">' 
+					 + '<span class="glyphicon glyphicon-chevron-left"></span></a>' 
+					 + '<a class="right carousel-control" id="nextBtn" href="#carousel-example-generic"' 
+					 + 'role="button" data-slide="next">'
+					 + '<span class="glyphicon glyphicon-chevron-right"></span></a>'		
+			);
+	
 			$.ajax({
 				url : "../ppt/imgRead/" + fno,
 				type : "get",
 						
 				success : function(data) {
-					  $.each(data, function(index, obj){ 
+					 
+					$.each(data, function(index, obj){ 
 					console.log(obj.img);
-					
-					
-                    $('#imgContext').append(
-                        	 
-                         );
-                    
+					if(index==0){
+	                    $('#imgContext').append(
+	                    		  '<div class="item active">'
+	                    		+ '<img class="img-responsive"' 
+	                    		+ 'data-src="holder.js/900x500/auto"' 
+	                    		+ 'src="../ppt/show?name=' + obj.img + '">'
+	                    		+ '</div>'
+	                        	 
+	                    );
+					} else {
+						 $('#imgContext').append(
+	                   		  '<div class="item">'
+	                   		+ '<img class="img-responsive"' 
+	                   		+ 'data-src="holder.js/900x500/auto"' 
+	                   		+ 'src="../ppt/show?name=' + obj.img + '">'
+	                   		+ '</div>'
+	                       	 
+	                   	 );
+					};
                     console.log(obj);
                   }); 
 				}
