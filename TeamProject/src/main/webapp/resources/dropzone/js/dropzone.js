@@ -36,7 +36,7 @@ $(function() {
 					success : function(data) {
 						console.log("통신데이터 값 : " + data);
 					}
-				});
+				}); // file upload 시 url 호출하여 data 출력
 
 			});
 			// Send file starts
