@@ -4,14 +4,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.team.dao.ImgMapper">
 
-	<insert id="imgCreate" parameterType="ImgVO">
-		insert into tbl_img (fno, img) 
-		values (#{fno}, #{img})
-	</insert>
-	
 	<insert id="fileCreate" parameterType="FileVO">
 		insert into tbl_file (originname, copyname, userid) 
 		values (#{originname}, #{copyname}, #{userid})
+	</insert>
+
+	<insert id="imgCreate" parameterType="ImgVO">
+		insert into tbl_img (fno, img) 
+		values (#{fno}, #{img})
 	</insert>
 	
 	<insert id="pptCreate" parameterType="PptVO">

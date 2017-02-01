@@ -96,7 +96,7 @@ body {
 
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
-								<form role="form" action="myPage" method="post">
+								<form role="form" action="updatePost" method="post">
 									<!-- 아이디는 고정값으로 보여주기 -->
 									<div class="form-group">
 										<label class="col-sm-2 control-label text-right"></label>
@@ -129,6 +129,7 @@ body {
 												placeholder="이름 수정" value="${MemberVO.username}">
 										</div>
 									</div>
+									<button class="btn btn-primary"></button>
 								</form>
 							</div>
 							<!-- 수정확인 버튼 -->
@@ -260,8 +261,7 @@ body {
 				<div class="col-md-5">
 					<div class="panel box-v3">
 						<h4>Select Option</h4>
-						<div class="panel box-v4">
-						<form id="" method="" action="/pptCreate">
+						<div class="panel box-v4">				
 							<div class="panel-body">
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary" id="createBtn">생성</button>
@@ -276,7 +276,6 @@ body {
 									<span class="fa fa-paypal"></span>
 								</button>
 							</div>
-							</form>
 						</div>
 						<!-- ppt 정보 & img 뿌리기 -->
 						<div class="panel box-v4">
@@ -336,7 +335,10 @@ body {
 			</div>
 		</div>
 	</div>
+<form id="f1">
+<input id="useridF" type="hidden" name="userid" >
 
+</form>
 	<!--          
    <form method="post" id="circle" action="circle">
       <input id="circleHidden" type="hidden"  value="9">
@@ -492,7 +494,27 @@ body {
 
 		$("#createBtn").on("click", function(){
 			
-		});
+			var cookie = document.cookie.split(';');
+	        console.log('로그인쿠키값!! : ' + cookie);
+
+	        var cooki = JSON.stringify(cookie);
+
+
+	        var cook = new Array();
+	        cook = cooki.split("=");
+
+	        console.log(cook[1]);
+
+	        var cook2 = new Array();
+	        cook2 = cook[1].split('"');
+
+	        console.log(cook2[0]);
+	        
+			$("#useridF").val(cook2[0]);
+			
+		
+			$("#f1").attr("action", "dropzone").submit();
+		}); // 생성 페이지 이동
 		
 	});
 </script>
