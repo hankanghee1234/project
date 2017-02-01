@@ -10,8 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert id="fileCreate" parameterType="FileVO">
-		insert into tbl_file (originName, copyName, userid) 
-		values (#{originName}, #{copyName}, #{userid})
+		insert into tbl_file (originname, copyname, userid) 
+		values (#{originname}, #{copyname}, #{userid})
 	</insert>
 	
 	<insert id="pptCreate" parameterType="PptVO">
