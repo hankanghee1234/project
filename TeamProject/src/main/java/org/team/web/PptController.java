@@ -29,6 +29,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
+import org.team.domain.UploadFileVO;
 import org.team.service.FileServiceImpl;
 import org.team.service.ImgServiceImpl;
 import org.team.service.PptServiceImpl;
@@ -84,7 +85,7 @@ public class PptController {
 		foss.close();
 		
 		return uploadName;
-	} // Dropzone end
+	} // drag & drop
 	
 	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
 	public ResponseEntity<List<PptVO>> chatList() throws Exception {
@@ -142,4 +143,26 @@ public class PptController {
 	public void delete() throws Exception {
 		
 	}*/
+	
+	  @ResponseBody
+	   @RequestMapping(value = "/upload2", method = RequestMethod.POST)
+	   public String upload(UploadFileVO vo) throws Exception {
+
+	      System.out.println("=======================");
+	      System.out.println(vo);
+	      System.out.println("=======================");
+	      
+	      
+	      List<MultipartFile> fileList = vo.getFile();
+	      
+	      StringBuffer names = new StringBuffer();
+	      
+	      for (MultipartFile multipartFile : fileList) {
+	         
+	         System.out.println(multipartFile.getOriginalFilename());
+	      }
+	      
+	      return "";
+	      
+	   }
 }

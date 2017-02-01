@@ -227,8 +227,7 @@ body {
 														name="${PptVO.fno}" href="#">${PptVO.ppt_title}</a></td>
 												</tr>
 											</ul>
-										</c:forEach>
-										
+										</c:forEach>									
 									</tbody>
 								</table>
 							</div>
@@ -262,7 +261,7 @@ body {
 					<div class="panel box-v3">
 						<h4>Select Option</h4>
 						<div class="panel box-v4">
-
+						<form id="" method="" action="/pptCreate">
 							<div class="panel-body">
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary" id="createBtn">생성</button>
@@ -277,8 +276,8 @@ body {
 									<span class="fa fa-paypal"></span>
 								</button>
 							</div>
+							</form>
 						</div>
-
 						<!-- ppt 정보 & img 뿌리기 -->
 						<div class="panel box-v4">
 							<div class="panel-heading bg-white border-none">
@@ -452,13 +451,6 @@ body {
 
 		}); // ajax 처리로 이미지 및 ppt 정보 호출
 
-		/* $("#createBtn").on("click", function(event) {
-			
-			event.preventDefault();
-			
-			
-			
-		}); */
 				
 		/* $("#pptDelBtn").on("click", function(event) {
 					
@@ -499,9 +491,7 @@ body {
 		}); // 유저 정보 delete
 
 		$("#createBtn").on("click", function(){
-			formObj.attr("action", "../ppt/pptCreate");
-			formObj.attr("mehtod", "get");
-			formObj.submit();
+			
 		});
 		
 	});

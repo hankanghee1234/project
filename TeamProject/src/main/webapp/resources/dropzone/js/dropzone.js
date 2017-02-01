@@ -1,65 +1,80 @@
 /**
  * Created by pox on 2017-01-25.
  */
+
+
+/*function List() {
+                 this.elements = {};
+                 this.idx = 0;
+                 this.length = 3;
+              }
+              
+              List.prototype.add = function(element) {
+                 this.length++;
+                 this.elements[this.idx++] = element;
+              };
+              
+              List.prototype.get = function(idx) {
+                 return this.elements[idx];
+              };
+              
+              
+              
+              var list = new List(); 
+*/
+
 $(function() {
-	var form = $('#my-awesome-dropzone');
-	console.log(form);
-	Dropzone.options.myAwesomeDropzone = {
-		url : '/ppt/upload',
-		uploadMultiple : true,
-		maxFilesize : 5000,
-		addRemoveLinks : true,
-		dictResponseError : 'Server not Configured',
-		acceptedFiles : "pptx,pdf,jpg,png",
-		init : function() {
-			var self = this;
-			console.log(self);
-			// config
-			self.options.addRemoveLinks = true;
-			self.options.dictRemoveFile = "Delete";
-			// New file added
-			self.on("addedfile", function(file) {
+   var form = $('#my-awesome-dropzone');
+   console.log(form);
 
-				console.log('new file added ', file);
-				form = $('#my-awesome-dropzone');
 
-				$.ajax({
-					type : "POST",
-					url : "/ppt/upload",
-					data : file,
-					contentType : false,
-					processData : false,
-					error : function(msg) {
-						console.log('통신실패!!');
-						console.log(msg);
-					},
-					success : function(data) {
-						console.log("통신데이터 값 : " + data);
-					}
-				}); // file upload 시 url 호출하여 data 출력
+   Dropzone.options.myAwesomeDropzone = {
+      url : '/ppt/upload2',
+/*      autoProcessQueue: false,*/
+      
+ /*     data : cook,*/
+      uploadMultiple : true,
+      maxFilesize : 5000,
+      addRemoveLinks : true,
+      dictResponseError : 'Server not Configured',
+    /*  acceptedFiles : ".pptx,.pdf,.jpg,.png,.doc,.docx,.odt",*/
+    /*  createImageThumbnails: false,*/
+      init : function() {
+                  
+         var self = this;
+         self.options.addRemoveLinks = true;
+         self.options.dictRemoveFile = "Delete";
+                
+         self.on("addedfile", function(file) {
+           
+         });
+         
+         // Send file starts
+         self.on("sending", function(file) {
+            console.log('upload started');
+            //console.log(file);
+         });
 
-			});
-			// Send file starts
-			self.on("sending", function(file) {
-				console.log('upload started', file);
-				$('.meter').show();
-			});
+         // File upload Progress
+         self.on("totaluploadprogress", function(progress) {
+            console.log("progress ", progress);
+            $('.roller').width(progress + '%');
+         });
 
-			// File upload Progress
-			self.on("totaluploadprogress", function(progress) {
-				console.log("progress ", progress);
-				$('.roller').width(progress + '%');
-			});
+         self.on("queuecomplete", function(progress) {
+            $('.meter').delay(999).slideUp(999);
+         });
 
-			self.on("queuecomplete", function(progress) {
-				$('.meter').delay(999).slideUp(999);
-			});
+         // On removing file
+         self.on("removedfile", function(file) {
+            console.log(file);
+         });
 
-			// On removing file
-			self.on("removedfile", function(file) {
-				console.log(file);
-			});
+      }
+   };
+});
 
-		}
-	};
+
+$('#up').on('click', function(event) {
+   $('#my-awesome-dropzone').submit();
 });
