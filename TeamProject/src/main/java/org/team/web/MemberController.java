@@ -108,21 +108,23 @@ public class MemberController {
    }
 
    @RequestMapping(value = "/myPage", method = RequestMethod.POST)
-   public String updatePost(MemberVO vo) throws Exception {
+   public String updatePost(MemberVO vo, RedirectAttributes rttr) throws Exception {
       logger.info("update Post...........");
       logger.info(vo.toString());
 
       memberService.update(vo);
-
+      rttr.addFlashAttribute("msg", "success");
+      
       return "redirect:./myPage";
    } // update controller end
 
    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-   public String deletePost(String userid) throws Exception {
+   public String deletePost(String userid, RedirectAttributes rttr) throws Exception {
       logger.info("delete Post...........");
 
       memberService.delete(userid);
-
+      rttr.addFlashAttribute("msg", "success");
+      
       return "redirect:/index";
    } // delete controller end
    
