@@ -14,7 +14,7 @@
 	}
 </style>
 <body>
-<form action="pptCreate" method="post" enctype="multipart/form-data">
+<form action="pptCreate" method="post">
 	<div class="form-group">
 		<label class="col-sm-2 control-label text-right"></label>
 		<div class="col-sm-10">
@@ -22,17 +22,11 @@
 			readonly="readonly" value="${read.userid}">
 		</div>
 	</div>
-	<div class="form-group">
+	 <div class="form-group">
 		<label class="col-sm-2 control-label text-right"></label>
 		<div class="col-sm-10">
 			<input type="text" class="form-control" name="fno" 
 			readonly="readonly" value="${read.fno}">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label text-right"></label>
-		<div class="col-sm-10">
-			<input type="file" class="form-control" name="file" value="${FileVO.originName}">
 		</div>
 	</div>
 	<div class="form-group">
@@ -56,25 +50,33 @@
 				placeholder="내용" value="${PptVO.ppt_desc}">
 		</div>
 	</div>
-	<button type="submit" name="확인" id="cBtn"></button>
-	<!-- <p><input type="hidden" name="uimg" id="imgsrc"></p> -->
+	<p><input type="hidden" name="originname" value="test.pdf"></p>
+	<p><input type="hidden" name="copyname" value="test.pdf"></p>
+	<p><input type="hidden" name="img" id="imgsrc"></p>
 		
-	<!-- <div class="fileDrop"></div>
+	<div class="fileDrop">
+	<h3 class="upload-title">파일 업로드 실시</h3>
 	<div class="uploadedList"></div>
-		
-	<div class="box-footer" align="center">
-		<button class="btn btn-primary">등록</button>
-	</div> -->
+	</div>	
+	
+	<button type="submit" class="btn btn-primary">등록</button>
+	
 </form>
 </body>
 
-<!-- <script src="https://code.jquery.com/jquery-2.2.4.js"
+<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
 		
 <script>
 	
 	$(document).ready(function() {
+		
+		var msg = '${msg}';
+		
+		if (msg == 'success') {
+			alert('완료되었습니다.');
+		}
 		
 		var uploadedList = $(".uploadedList");
 		
@@ -96,7 +98,7 @@
 			console.log(formData);
 			
 			$.ajax({
-				url : "upload",
+				url : "../ppt/upload",
 				data : formData,
 				dataType : 'text',
 				type : "post",
@@ -111,6 +113,6 @@
 		});
 
 	});
-</script>	 -->
+</script>
 
 </html>

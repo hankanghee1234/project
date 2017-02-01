@@ -228,6 +228,7 @@ body {
 												</tr>
 											</ul>
 										</c:forEach>
+										
 									</tbody>
 								</table>
 							</div>
@@ -499,7 +500,7 @@ body {
 
 		$("#createBtn").on("click", function(){
 			formObj.attr("action", "../ppt/pptCreate");
-			formObj.attr("method", "post");
+			formObj.attr("mehtod", "get");
 			formObj.submit();
 		});
 		

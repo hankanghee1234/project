@@ -29,6 +29,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
+import org.team.service.FileServiceImpl;
 import org.team.service.ImgServiceImpl;
 import org.team.service.PptServiceImpl;
 
@@ -42,6 +43,9 @@ public class PptController {
 
 	@Autowired
 	private ImgServiceImpl imgService;
+	
+	@Autowired
+	private FileServiceImpl fileService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(PptController.class);
 
@@ -80,7 +84,7 @@ public class PptController {
 		foss.close();
 		
 		return uploadName;
-	}
+	} // Dropzone end
 	
 	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
 	public ResponseEntity<List<PptVO>> chatList() throws Exception {
@@ -107,7 +111,7 @@ public class PptController {
 		logger.info("IMage GET................");
 
 		return imgService.imgRead(fno);
-	}
+	} // ppt 이미지 읽기
 	
 	@RequestMapping(value = "/pptCreate", method = RequestMethod.GET)
 	public void createGET() throws Exception {
@@ -121,9 +125,21 @@ public class PptController {
 		logger.info(ivo.toString());
 		logger.info(pvo.toString());
 		
+		fvo.setOriginName("test.pdf");
+		fvo.setCopyName("test.pdf");
 		imgService.create(fvo, ivo, pvo);
 		rttr.addFlashAttribute("msg", "success");
 		
 		return "redirect:./myPage";
 	}
+	
+	/*@RequestMapping()
+	public void update() throws Exception {
+		
+	}
+	
+	@RequestMapping()
+	public void delete() throws Exception {
+		
+	}*/
 }
