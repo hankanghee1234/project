@@ -198,7 +198,8 @@ body {
 										<!-- /input-group -->
 										<!-- btn-group -->
 										<div class="input-group-btn">
-											<button type="button" class="btn btn-default" id="searchBtn">검색</button>
+											<button type="button" class="btn btn-default" 
+											id="searchBtn">검색</button>
 										</div>
 										<!-- /btn-group -->
 									</div>
@@ -223,7 +224,7 @@ body {
 												<tr id="${PptVO.pptno}">
 													<td>${PptVO.ppt_kind}</td>
 													<td><a class="title-tag" id="${PptVO.pptno}"
-														name="${PptVO.fno}" href="#"> ${PptVO.ppt_title}</a></td>
+														name="${PptVO.fno}" href="#">${PptVO.ppt_title}</a></td>
 												</tr>
 											</ul>
 										</c:forEach>
@@ -450,13 +451,13 @@ body {
 
 		}); // ajax 처리로 이미지 및 ppt 정보 호출
 
-		$("#createBtn").on("click", function(event) {
+		/* $("#createBtn").on("click", function(event) {
 			
 			event.preventDefault();
 			
 			
 			
-		});
+		}); */
 				
 		/* $("#pptDelBtn").on("click", function(event) {
 					
@@ -476,7 +477,13 @@ body {
 							+ $("select option:selected").val() 
 							+ "&keyword=" + $('#keywordInput').val();
 		}); // 검색 조건 처리
-
+		
+		var msg = '${msg}';
+		
+		if (msg == 'success') {
+			alert('완료되었습니다.');
+		}
+		
 		var formObj = $("form[role='form']");
 		console.log(formObj);
 
@@ -490,6 +497,12 @@ body {
 			formObj.submit();
 		}); // 유저 정보 delete
 
+		$("#createBtn").on("click", function(){
+			formObj.attr("action", "../ppt/pptCreate");
+			formObj.attr("method", "post");
+			formObj.submit();
+		});
+		
 	});
 </script>
 
