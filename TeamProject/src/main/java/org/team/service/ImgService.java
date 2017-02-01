@@ -8,7 +8,7 @@ import org.team.domain.PptVO;
 
 public interface ImgService {
 
-	public void create(ImgVO ivo, FileVO fvo, PptVO pvo) throws Exception;
+	public void create(FileVO fvo, ImgVO ivo, PptVO pvo) throws Exception;
 
 	public List<ImgVO> imgRead(Integer fno) throws Exception;
 

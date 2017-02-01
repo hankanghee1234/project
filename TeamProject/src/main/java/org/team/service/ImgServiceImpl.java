@@ -18,7 +18,7 @@ public class ImgServiceImpl implements ImgService {
 
 	@Transactional
 	@Override
-	public void create(ImgVO ivo, FileVO fvo, PptVO pvo) throws Exception {
+	public void create( FileVO fvo, ImgVO ivo, PptVO pvo) throws Exception {
 
 		imgDAO.fileCreate(fvo);
 		imgDAO.imgCreate(ivo);
