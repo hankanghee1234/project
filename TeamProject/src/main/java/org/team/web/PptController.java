@@ -121,7 +121,7 @@ public class PptController {
 		logger.info(ivo.toString());
 		logger.info(pvo.toString());
 		
-		imgService.create(ivo, fvo, pvo);
+		imgService.create(fvo, ivo, pvo);
 		rttr.addFlashAttribute("msg", "success");
 		
 		return "redirect:./myPage";
