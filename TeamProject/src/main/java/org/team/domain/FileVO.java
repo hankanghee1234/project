@@ -5,8 +5,8 @@ import java.util.Date;
 public class FileVO {
 
 	private Integer fno;
-	private String originName;
-	private String copyName;
+	private String originname;
+	private String copyname;
 	private String userid;
 	private Date regdate;
 	private Date modidate;
@@ -18,16 +18,16 @@ public class FileVO {
 		this.fno = fno;
 	}
 	public String getOriginName() {
-		return originName;
+		return originname;
 	}
-	public void setOriginName(String originName) {
-		this.originName = originName;
+	public void setOriginName(String originname) {
+		this.originname = originname;
 	}
 	public String getCopyName() {
-		return copyName;
+		return copyname;
 	}
-	public void setCopyName(String copyName) {
-		this.copyName = copyName;
+	public void setCopyName(String copyname) {
+		this.copyname = copyname;
 	}
 	public String getUserid() {
 		return userid;
@@ -50,7 +50,7 @@ public class FileVO {
 	
 	@Override
 	public String toString() {
-		return "FileVO [fno=" + fno + ", originName=" + originName + ", copyName=" + copyName + ", userid=" + userid
+		return "FileVO [fno=" + fno + ", originname=" + originname + ", copyname=" + copyname + ", userid=" + userid
 				+ ", regdate=" + regdate + ", modidate=" + modidate + "]";
 	}
 	

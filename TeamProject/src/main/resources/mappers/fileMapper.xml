@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="create" parameterType="FileVO">
 		insert into tbl_file (originname, copyname, userid) 
-		values (#{originName}, #{copyName}, #{userid})
+		values (#{originname}, #{copyname}, #{userid})
 	</insert>
 	
 	<select id="read" resultType="FileVO">
