@@ -63,7 +63,7 @@ public class MainController {
         logger.info("sendSocket test 보냈음.........");
 
         
-        return "redirect:http://localhost:8082/socket2";
+        return "redirect:http://localhost:8081/socket2";
 	
 	}
     

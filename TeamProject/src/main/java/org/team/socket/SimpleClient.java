@@ -28,7 +28,7 @@ public class SimpleClient {
 
 		try {
 			// socket = new Socket("192.168.0.28", 8081);
-			socket = new Socket("localhost", 8081);
+			socket = new Socket("localhost", 5000);
 			os = socket.getOutputStream();
 
 			osw = new OutputStreamWriter(os);
