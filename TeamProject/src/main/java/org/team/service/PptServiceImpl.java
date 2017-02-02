@@ -34,9 +34,9 @@ public class PptServiceImpl implements PptService {
 	}
 
 	@Override
-	public void delete(Integer pptno) throws Exception {
+	public void delete(Integer fno) throws Exception {
 		
-		pptDAO.delete(pptno);
+		pptDAO.delete(fno);
 	}
 
 	@Override
@@ -64,9 +64,9 @@ public class PptServiceImpl implements PptService {
 	}
 
 	@Override
-	public PptVO pptRead(Integer pptno) throws Exception {
+	public PptVO pptRead(Integer fno) throws Exception {
 		
-		return pptDAO.pptRead(pptno);
+		return pptDAO.pptRead(fno);
 	}
 
 	

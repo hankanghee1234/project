@@ -2,13 +2,12 @@ package org.team.service;
 
 import java.util.List;
 
-import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
 
 public interface ImgService {
 
-	public void create(FileVO fvo, ImgVO ivo, PptVO pvo) throws Exception;
+	public void create(ImgVO ivo, PptVO pvo) throws Exception;
 
 	public List<ImgVO> imgRead(Integer fno) throws Exception;
 

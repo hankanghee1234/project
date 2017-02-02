@@ -5,7 +5,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
 import org.team.persistence.ImgDAOImpl;
@@ -26,15 +25,7 @@ public class ImgDAOTest {
 		ivo.setImg("1.jpg");
 		
 		dao.imgCreate(ivo);
-		
-		FileVO fvo = new FileVO();
-		
-		fvo.setOriginName("test.pptx");
-		fvo.setCopyName("test.jpg");
-		fvo.setUserid("user10");
-		
-		dao.fileCreate(fvo);
-		
+
 		PptVO pvo = new PptVO();
 		
 		pvo.setFno(10);
@@ -45,8 +36,7 @@ public class ImgDAOTest {
 		
 		dao.pptCreate(pvo);
 		
-		System.out.println(ivo);
-		System.out.println(fvo);
+		System.out.println(ivo);		
 		System.out.println(pvo);
 	}
 	

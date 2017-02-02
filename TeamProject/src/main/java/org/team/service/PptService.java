@@ -12,11 +12,11 @@ public interface PptService {
 	
 	public List<PptVO> pptGuestList() throws Exception;
 	
-	public PptVO pptRead(Integer pptno) throws Exception;
+	public PptVO pptRead(Integer fno) throws Exception;
 	
 	public void update(PptVO vo) throws Exception;
 
-	public void delete(Integer pptno) throws Exception;
+	public void delete(Integer fno) throws Exception;
 	
 	public List<PptVO> listCriteria(Criteria cri) throws Exception;
 	

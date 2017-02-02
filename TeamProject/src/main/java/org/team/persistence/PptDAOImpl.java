@@ -30,9 +30,9 @@ public class PptDAOImpl implements PptDAO {
 	}
 	
 	@Override
-	public PptVO pptRead(Integer pptno) throws Exception {
+	public PptVO pptRead(Integer fno) throws Exception {
 		
-		return session.selectOne(NAME + ".pptRead", pptno);
+		return session.selectOne(NAME + ".pptRead", fno);
 	}
 	
 	@Override
@@ -42,9 +42,9 @@ public class PptDAOImpl implements PptDAO {
 	}
 
 	@Override
-	public void delete(Integer pptno) throws Exception {
+	public void delete(Integer fno) throws Exception {
 		
-		session.delete(NAME + ".delete", pptno);
+		session.delete(NAME + ".delete", fno);
 		
 	}
 

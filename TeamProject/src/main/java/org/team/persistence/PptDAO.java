@@ -12,11 +12,11 @@ public interface PptDAO {
 
 	public List<PptVO> pptGuestList() throws Exception; // guest 접속으로 인한 ppt 정보 호출
 	
-	public PptVO pptRead(Integer pptno) throws Exception; // ppt data 읽기
+	public PptVO pptRead(Integer fno) throws Exception; // ppt data 읽기
 	
 	public void update(PptVO vo) throws Exception;
 
-	public void delete(Integer pptno) throws Exception;
+	public void delete(Integer fno) throws Exception;
 	
 	public List<PptVO> listPage(int page) throws Exception;
 	

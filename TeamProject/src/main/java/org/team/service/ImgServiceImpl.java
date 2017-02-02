@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
 import org.team.persistence.ImgDAOImpl;
@@ -18,9 +17,8 @@ public class ImgServiceImpl implements ImgService {
 
 	@Transactional
 	@Override
-	public void create( FileVO fvo, ImgVO ivo, PptVO pvo) throws Exception {
+	public void create(ImgVO ivo, PptVO pvo) throws Exception {
 
-		imgDAO.fileCreate(fvo);
 		imgDAO.imgCreate(ivo);
 		imgDAO.pptCreate(pvo);
 	}

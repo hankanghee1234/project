@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class PptVO {
 
-	private Integer pptno;
 	private Integer fno;
 	private String userid;
 	private String ppt_kind;
@@ -13,12 +12,6 @@ public class PptVO {
 	private Date regdate;
 	private Date modidate;
 	
-	public Integer getPptno() {
-		return pptno;
-	}
-	public void setPptno(Integer pptno) {
-		this.pptno = pptno;
-	}
 	public Integer getFno() {
 		return fno;
 	}
@@ -64,10 +57,11 @@ public class PptVO {
 	
 	@Override
 	public String toString() {
-		return "PptVO [pptno=" + pptno + ", fno=" + fno + ", userid=" + userid + ", ppt_kind=" + ppt_kind
-				+ ", ppt_title=" + ppt_title + ", ppt_desc=" + ppt_desc + ", regdate=" + regdate + ", modidate="
-				+ modidate + "]";
+		return "PptVO [fno=" + fno + ", userid=" + userid + ", ppt_kind=" + ppt_kind + ", ppt_title=" + ppt_title
+				+ ", ppt_desc=" + ppt_desc + ", regdate=" + regdate + ", modidate=" + modidate + "]";
 	}
+	
+	
 	
 	
 	

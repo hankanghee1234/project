@@ -25,7 +25,6 @@ public class PptDAOTest {
 		
 		PptVO vo = new PptVO();
 		
-		vo.setFno(3);
 		vo.setUserid("user10");
 		vo.setPpt_kind("java");
 		vo.setPpt_title("script");
@@ -44,8 +43,8 @@ public class PptDAOTest {
 	@Test
 	public void testPptRead() throws Exception {
 		
-		Integer pptno = 1;
-		System.out.println(dao.pptRead(pptno));
+		Integer fno = 1;
+		System.out.println(dao.pptRead(fno));
 	}
 	
 	@Test
@@ -56,7 +55,6 @@ public class PptDAOTest {
 		vo.setPpt_kind("script");
 		vo.setPpt_title("node");
 		vo.setPpt_desc("realsense");
-		vo.setPptno(2);
 		
 		dao.update(vo);
 		System.out.println(vo);
@@ -65,9 +63,9 @@ public class PptDAOTest {
 	@Test
 	public void testDelete() throws Exception {
 		
-		Integer pptno = 2;
-		dao.delete(pptno);
-		System.out.println(pptno);
+		Integer fno = 1;
+		dao.delete(fno);
+		System.out.println(fno);
 	}
 	
 	@Test
@@ -78,7 +76,7 @@ public class PptDAOTest {
 		List<PptVO> list = dao.listPage(page);
 		
 		for (PptVO PptVO : list) {
-			System.out.println(PptVO.getPptno() + ":" + PptVO.getFno() + ":" + PptVO.getUserid()
+			System.out.println(PptVO.getFno() + ":" + PptVO.getUserid()
 			+ ":" + PptVO.getPpt_kind() + ":" + PptVO.getPpt_title() + ":" + PptVO.getPpt_desc());
 		}
 	}
@@ -94,7 +92,7 @@ public class PptDAOTest {
 		List<PptVO> list = dao.listCriteria(cri);
 		
 		for (PptVO PptVO : list) {
-			System.out.println(PptVO.getPptno() + ":" + PptVO.getFno() + ":" + PptVO.getUserid()
+			System.out.println(PptVO.getFno() + ":" + PptVO.getUserid()
 			+ ":" + PptVO.getPpt_kind() + ":" + PptVO.getPpt_title() + ":" + PptVO.getPpt_desc());
 		}
 	}
@@ -112,7 +110,7 @@ public class PptDAOTest {
 		List<PptVO> list = dao.listSearch(cri);
 		
 		for (PptVO PptVO : list) {
-			System.out.println(PptVO.getPptno() + ":" + PptVO.getFno() + ":" + PptVO.getUserid()
+			System.out.println(PptVO.getFno() + ":" + PptVO.getUserid()
 			+ ":" + PptVO.getPpt_kind() + ":" + PptVO.getPpt_title() + ":" + PptVO.getPpt_desc());
 		}
 		

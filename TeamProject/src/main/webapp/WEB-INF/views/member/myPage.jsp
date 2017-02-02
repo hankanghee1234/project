@@ -222,10 +222,10 @@ body {
 										<!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
 										<c:forEach items="${pptUserList}" var="PptVO">
 											<ul class="pptUserList">
-												<tr id="${PptVO.pptno}">
+												<tr id="${PptVO.fno}">
 													<td>${PptVO.ppt_kind}</td>
-													<td><a class="title-tag" id="${PptVO.pptno}"
-														name="${PptVO.fno}" href="#">${PptVO.ppt_title}</a></td>
+													<td><a class="title-tag" id="${PptVO.fno}"
+														href="#">${PptVO.ppt_title}</a></td>
 												</tr>
 											</ul>
 										</c:forEach> <!-- /.로그인한 정보에 따른 ppt 리스트 보여주기 -->	 								
@@ -375,15 +375,14 @@ body {
 
 			event.preventDefault();
 
-			var pptno = $(this).attr('id'); // pptno를 아이디 값에 속성을 매김
-			var fno = $(this).attr('name'); // fno를 name 값에 속성을 매김
+			var fno = $(this).attr('id'); // fno를 아이디 값에 속성을 매김
 			
 			console.log(fno);
-			console.log(pptno);
+			console.log(userid);
 			
 			/*pptRead를 ajax로 불러오기*/
 			$.ajax({
-				url : "../ppt/pptRead/" + pptno, // pptRead를 controller에 출력하여 pptno에 대한 ppt를 읽는다.
+				url : "../ppt/pptRead/" + fno, // pptRead를 controller에 출력하여 fno에 대한 ppt를 읽는다.
 				type : "get", // get 방식
 
 				success : function(data) {

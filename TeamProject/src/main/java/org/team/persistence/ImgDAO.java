@@ -2,15 +2,12 @@ package org.team.persistence;
 
 import java.util.List;
 
-import org.team.domain.FileVO;
 import org.team.domain.ImgVO;
 import org.team.domain.PptVO;
 
 public interface ImgDAO {
 
 	public void imgCreate(ImgVO ivo) throws Exception;
-	
-	public void fileCreate(FileVO fvo) throws Exception;
 	
 	public void pptCreate(PptVO pvo) throws Exception;
 	

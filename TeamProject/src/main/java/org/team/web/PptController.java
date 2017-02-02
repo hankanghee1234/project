@@ -39,322 +39,286 @@ import org.team.util.PDFConvertor;
 @RequestMapping("/ppt/*")
 public class PptController {
 
-	@Autowired
-	private PptServiceImpl pptService;
+   @Autowired
+   private PptServiceImpl pptService;
 
-	@Autowired
-	private ImgServiceImpl imgService;
+   @Autowired
+   private ImgServiceImpl imgService;
 
-	/*
-	 * @Autowired private FileServiceImpl fileService;
-	 */
+   /*
+    * @Autowired private FileServiceImpl fileService;
+    */
 
-	private static final Logger logger = LoggerFactory.getLogger(PptController.class);
+   private static final Logger logger = LoggerFactory.getLogger(PptController.class);
 
-	@GetMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" })
-	public @ResponseBody byte[] show(String name) throws Exception {
+   @GetMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" })
+   public @ResponseBody byte[] show(String name) throws Exception {
 
-		InputStream in = new FileInputStream("C:\\zzz\\" + name);
+      InputStream in = new FileInputStream("C:\\zzz\\" + name);
 
-		return IOUtils.toByteArray(in);
-	}
+      return IOUtils.toByteArray(in);
+   }
 
-	@ResponseBody
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public String upload(@RequestBody MultipartFile file) throws Exception {
-		logger.info("drag & drop POST......" + file);
+   @ResponseBody
+   @RequestMapping(value = "/upload", method = RequestMethod.POST)
+   public String upload(@RequestBody MultipartFile file) throws Exception {
+      logger.info("drag & drop POST......" + file);
 
-		UUID uid = UUID.randomUUID();
+      UUID uid = UUID.randomUUID();
 
-		InputStream is = file.getInputStream();
-		String fileName = file.getOriginalFilename();
+      InputStream is = file.getInputStream();
+      String fileName = file.getOriginalFilename();
 
-		String uploadName = uid + "_" + fileName;
+      String uploadName = uid + "_" + fileName;
 
-		FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
-		FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
+      FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
+      FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
 
-		BufferedImage origin = ImageIO.read(is);
+      BufferedImage origin = ImageIO.read(is);
 
-		BufferedImage destImg = Scalr.resize(origin, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
+      BufferedImage destImg = Scalr.resize(origin, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
 
-		ImageIO.write(origin, "jpg", fos);
-		ImageIO.write(destImg, "jpg", foss);
+      ImageIO.write(origin, "jpg", fos);
+      ImageIO.write(destImg, "jpg", foss);
 
-		fos.close();
-		foss.close();
+      fos.close();
+      foss.close();
 
-		return uploadName;
-	} // drag & drop
+      return uploadName;
+   } // drag & drop
 
-	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
-	public ResponseEntity<List<PptVO>> chatList() throws Exception {
-		logger.info("PPT리스트..인덱스페이지에서..");
-		ResponseEntity<List<PptVO>> entity = null;
-		try {
-			entity = new ResponseEntity<List<PptVO>>(pptService.pptGuestList(), HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
+   @RequestMapping(value = "/chatList", method = RequestMethod.GET)
+   public ResponseEntity<List<PptVO>> chatList() throws Exception {
+      logger.info("PPT리스트..인덱스페이지에서..");
+      ResponseEntity<List<PptVO>> entity = null;
+      try {
+         entity = new ResponseEntity<List<PptVO>>(pptService.pptGuestList(), HttpStatus.OK);
+      } catch (Exception e) {
+         e.printStackTrace();
+         entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);
+      }
+      return entity;
+   }
 
-	@RequestMapping(value = "/pptRead/{pptno}", method = RequestMethod.GET)
-	public @ResponseBody PptVO pptReadGET(@PathVariable("pptno") Integer pptno) throws Exception {
-		logger.info("pptRead GET..............");
+   @RequestMapping(value = "/pptRead/{fno}", method = RequestMethod.GET)
+   public @ResponseBody PptVO pptReadGET(@PathVariable("fno") Integer fno) throws Exception {
+      logger.info("pptRead GET..............");
 
-		return pptService.pptRead(pptno);
-	}
+      return pptService.pptRead(fno);
+   }
 
-	@RequestMapping(value = "/imgRead/{fno}", method = RequestMethod.GET)
-	public @ResponseBody List<ImgVO> imgViewGET(@PathVariable("fno") Integer fno) throws Exception {
-		logger.info("IMage GET................");
+   @RequestMapping(value = "/imgRead/{fno}", method = RequestMethod.GET)
+   public @ResponseBody List<ImgVO> imgViewGET(@PathVariable("fno") Integer fno) throws Exception {
+      logger.info("IMage GET................");
 
-		return imgService.imgRead(fno);
-	} // ppt 이미지 읽기
+      return imgService.imgRead(fno);
+   } // ppt 이미지 읽기
 
-	@RequestMapping(value = "/pptCreate", method = RequestMethod.GET)
-	public void createGET() throws Exception {
-		logger.info("pptCreate GET............");
-	}
+   @RequestMapping(value = "/pptCreate", method = RequestMethod.GET)
+   public void createGET() throws Exception {
+      logger.info("pptCreate GET............");
+   }
 
-/*	@RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
-	public String create(FileVO fvo, ImgVO ivo, PptVO pvo, RedirectAttributes rttr) throws Exception {
-		logger.info("pptCreate POST............");
-		logger.info(fvo.toString());
-		logger.info(ivo.toString());
-		logger.info(pvo.toString());
+   
+  /* @RequestMapping(value = "/pptCreate2", method = RequestMethod.POST)
+   public String create2(ImgVO ivo, PptVO pvo, RedirectAttributes rttr) throws Exception {
+      logger.info("pptCreate POST............");
+      
+      logger.info(ivo.toString());
+      logger.info(pvo.toString());
 
-		fvo.setOriginName("test.pdf");
-		fvo.setCopyName("test.pdf");
-		imgService.create(fvo, ivo, pvo);
-		rttr.addFlashAttribute("msg", "success");
+      
+      
+      
+     
+      imgService.create(ivo, pvo);
+      rttr.addFlashAttribute("msg", "success");
 
-		return "redirect:./myPage";
-	}*/
-	
-	/*@ResponseBody*/
-	@RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
-	public String create(ArrayListVO data, String[] str, List<String> file) throws Exception {
-		logger.info("pptCreate POST............");
-		logger.info(data.toString());
-		System.out.println(data);
-		System.out.println(str);
-		
-		System.out.println(file);
+      return "redirect:./myPage";
+   }
+   */
+   
 
-	
-	/*	imgService.create(fvo, ivo, pvo);*/
-	
+   /*@ResponseBody*/
+   @RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
+   public String create(ArrayListVO data, String[] str, List<String> file) throws Exception {
+      logger.info("pptCreate POST............");
+      logger.info(data.toString());
+      System.out.println(data);
+      System.out.println(str);
+      
+      System.out.println(file);
 
-		return "redirect:./myPage";
-	}
-	
+   
+   /*   imgService.create(fvo, ivo, pvo);*/
+   
 
-	@ResponseBody
-	@RequestMapping(value = "/upload2", method = RequestMethod.POST)
-	public String upload2(UploadFileVO vo) throws Exception {
+      return "redirect:./myPage";
+   }
+   
 
-		System.out.println("=======================");
-		System.out.println(vo);
-		
-		System.out.println("=======================");
+   @ResponseBody
+   @RequestMapping(value = "/upload2", method = RequestMethod.POST)
+   public String upload2(UploadFileVO vo) throws Exception {
 
-		List<MultipartFile> fileList = vo.getFile();
+      System.out.println("=======================");
+      System.out.println(vo);
+      
+      System.out.println("=======================");
 
-		StringBuffer names = new StringBuffer();
+      List<MultipartFile> fileList = vo.getFile();
 
-		String fileName;
-		
-		for (MultipartFile multipartFile : fileList) {
+      StringBuffer names = new StringBuffer();
 
-			System.out.println(multipartFile.getOriginalFilename());
-			
-			
+      String fileName;
+      
+      for (MultipartFile multipartFile : fileList) {
 
-			
-		}
+         System.out.println(multipartFile.getOriginalFilename());
+         
+         
 
-		/*logger.info("drag & drop POST......" + file);
+         
+      }
 
-		UUID uid = UUID.randomUUID();
+      /*logger.info("drag & drop POST......" + file);
 
-		InputStream is = file.getInputStream();
-		String fileName = file.getOriginalFilename();
+      UUID uid = UUID.randomUUID();
 
-		String uploadName = uid + "_" + fileName;
+      InputStream is = file.getInputStream();
+      String fileName = file.getOriginalFilename();
 
-		FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
-		FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
+      String uploadName = uid + "_" + fileName;
 
-		BufferedImage origin = ImageIO.read(is);
+      FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
+      FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
 
-		BufferedImage destImg = Scalr.resize(origin, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
+      BufferedImage origin = ImageIO.read(is);
 
-		ImageIO.write(origin, "jpg", fos);
-		ImageIO.write(destImg, "jpg", foss);
+      BufferedImage destImg = Scalr.resize(origin, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
 
-		fos.close();
-		foss.close();
+      ImageIO.write(origin, "jpg", fos);
+      ImageIO.write(destImg, "jpg", foss);
+
+      fos.close();
+      foss.close();
 */
-		
-		return "copy finish";
+      
+      return "copy finish";
 
-	}
-	
-	
-	@ResponseBody
-	@RequestMapping(value = "/upload3", method = RequestMethod.POST)
-	public String upload3(UploadFileVO vo) throws Exception {
+   }
+   
+   
+   @ResponseBody
+   @RequestMapping(value = "/upload3", method = RequestMethod.POST)
+   public String upload3(UploadFileVO vo) throws Exception {
 
-		System.out.println("=======================");
-		System.out.println(vo);
-		
-		System.out.println("=======================");
+      System.out.println("=======================");
+      System.out.println(vo);
+      
+      System.out.println("=======================");
 
-		List<MultipartFile> fileList = vo.getFile();
+      List<MultipartFile> fileList = vo.getFile();
 
-		StringBuffer names = new StringBuffer();
+      StringBuffer names = new StringBuffer();
 
-		String fileName;
-		
-		
-		
-		
-		for (MultipartFile multipartFile : fileList) {
-			 
-			byte[] buf = multipartFile.getBytes();
-			System.out.println(multipartFile.getOriginalFilename());
-			
-			
-
-
-			InputStream is = multipartFile.getInputStream();
-		    fileName = multipartFile.getOriginalFilename();
+      String fileName;
+      
+      
+      
+      
+      for (MultipartFile multipartFile : fileList) {
+          
+         byte[] buf = multipartFile.getBytes();
+         System.out.println(multipartFile.getOriginalFilename());
+         
+         
 
 
-			FileOutputStream fos = new FileOutputStream("C:\\zzz\\pptdesc\\" + fileName);
+         InputStream is = multipartFile.getInputStream();
+          fileName = multipartFile.getOriginalFilename();
 
 
-			fos.write(buf);
-			fos.flush();
-			
+         FileOutputStream fos = new FileOutputStream("C:\\zzz\\pptdesc\\" + fileName);
 
-			fos.close();
-			
-			return fileName;
-			
-		}
 
-		
-		return "copy finish";
+         fos.write(buf);
+         fos.flush();
+         
 
-	}
+         fos.close();
+         
+         return fileName;
+         
+      }
 
-	@ResponseBody
-	@RequestMapping(value = "/pdfConverter", method = RequestMethod.POST)
-	public String[] pdfConverter(UploadFileVO data) throws Exception {
-		System.out.println("converterter입니다 : ");
-		System.out.println("converter : " + data);
-	/*	String name[] = new String[100];
-		String name2[] = new String[100];*/
-		
-/*		name2[0] = "success";*/
-		
-		
-		List<MultipartFile> fileList = data.getFile();
+      
+      return "copy finish";
 
-		StringBuffer names = new StringBuffer();
-		ArrayList<String> arrayList = new ArrayList<>();
-		
-		String arr[] = new String[1];
-		
-		
-		for (MultipartFile multipartFile : fileList) {
+   }
 
-			System.out.println("컨버터 : "+multipartFile.getOriginalFilename());
-			
-			String converName = multipartFile.getOriginalFilename();
-			
-			arrayList.addAll(PDFConvertor.JPGconvertor(converName));
-			
-			
-			System.out.println("arrayList : "+arrayList);
-			System.out.println("toString 임 : "+arrayList.toString());
-			
-			/*for(String temp : arrayList){
-				  arrayList.add(temp);
-				}
+
+   @RequestMapping(value = "/pdfConverter", method = RequestMethod.POST)
+   public @ResponseBody ArrayList<String> pdfConverter(UploadFileVO data) throws Exception {
+      System.out.println("converterter입니다 : ");
+      System.out.println("converter : " + data);
+   /*   String name[] = new String[100];
+      String name2[] = new String[100];*/
+      
+/*      name2[0] = "success";*/
+      
+      
+      List<MultipartFile> fileList = data.getFile();
+
+      StringBuffer names = new StringBuffer();
+      ArrayList<String> arrayList = new ArrayList<>();
+      
+      String arr[] = new String[3];
+      
+      
+      for (MultipartFile multipartFile : fileList) {
+
+         System.out.println("컨버터 : "+multipartFile.getOriginalFilename());
+         
+         String converName = multipartFile.getOriginalFilename();
+         
+         arrayList.addAll(PDFConvertor.JPGconvertor(converName));
+         
+         
+         System.out.println("arrayList : "+arrayList);
+         System.out.println("toString 임 : "+arrayList.toString());
+         
+         /*for(String temp : arrayList){
+              arrayList.add(temp);
+            }
+            
 */
-
-			
-			String[] array = arrayList.toArray(new String[arrayList.size()]);
-
-
-			
-			return array;
-		}
-
-		
-		
-		arr[0] = "success";
-		/*arrayList.add("data none");*/
-		
-		return arr;
-		
-		/* PDFConvertor.JPGconvertor(data); */
-
-	}
-	
-	
-	/*@ResponseBody
-	@RequestMapping(value = "/pptRegister", method = RequestMethod.POST)
-	public String pptRegister(UploadFileVO vo) throws Exception {
-
-		System.out.println("=======================");
-		System.out.println(vo);
-		
-		System.out.println("=======================");
-
-		List<MultipartFile> fileList = vo.getFile();
-
-		StringBuffer names = new StringBuffer();
-
-		String fileName;
-		
-		
-		
-		
-		for (MultipartFile multipartFile : fileList) {
-			 
-			byte[] buf = multipartFile.getBytes();
-			System.out.println(multipartFile.getOriginalFilename());
-			
-			
+         System.out.println(arrayList.get(0));
+         System.out.println(arrayList.get(1));
+         System.out.println(arrayList.get(2));
 
 
-			InputStream is = multipartFile.getInputStream();
-		    fileName = multipartFile.getOriginalFilename();
+         
+     /*  String[] arrays = arrayList.toArray(new String[arrayList.size()]);*/
 
 
-			FileOutputStream fos = new FileOutputStream("C:\\zzz\\pptdesc\\" + fileName);
+         
+         return arrayList;
+      }
 
+      
+      
+/*     arr[0] = "success";*/
+      arrayList.add("data none");
+      
+      return arrayList;
+      
+      /* PDFConvertor.JPGconvertor(data); */
 
-			fos.write(buf);
-			fos.flush();
-			
+   }
+   
+   
+   
 
-			fos.close();
-			
-			return fileName;
-			
-		}
-
-		
-		return "copy finish";
-
-	}*/
-
-	
+   
 }
