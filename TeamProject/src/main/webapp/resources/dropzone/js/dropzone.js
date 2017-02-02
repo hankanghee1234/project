@@ -1,8 +1,3 @@
-/**
- * Created by pox on 2017-01-25.
- */
-
-
 /*function List() {
                  this.elements = {};
                  this.idx = 0;
@@ -17,16 +12,13 @@
               List.prototype.get = function(idx) {
                  return this.elements[idx];
               };
-              
-              
-              
+   
               var list = new List(); 
 */
 
 $(function() {
    var form = $('#my-awesome-dropzone');
    console.log(form);
-
 
    Dropzone.options.myAwesomeDropzone = {
       url : '/ppt/upload2',
@@ -40,22 +32,20 @@ $(function() {
       dictResponseError : 'Server not Configured',
       
       accept : function(file, done) {
-    	  console.log(file);
-    	  console.log(file.name);
-    	  
+    	  console.log(file); // dropzone에 upload 후 file 형성
+    	  console.log(file.name); // dropzone에 upload 후 fileName 형성
     	  
       	 var formData = new FormData();
          
-         formData.append("file", file);
+         formData.append("file", file); // upload한 file 새성
     
          
          console.log(formData);
          console.log(formData.values());
     	  
-         $.ajax({
+         $.ajax({ // 파일 upload ajax
 				url : "../ppt/upload3", 
 				type : "post", 
-	
 				data : formData,
 				dataType : 'text',
 				contentType : false,
@@ -64,10 +54,9 @@ $(function() {
 					console.log(data);
 					
 					
-					$.ajax({
+					$.ajax({ // converter ajax
 						url : "../ppt/pdfConverter/", 
 						type : "post", 
-
 						data : formData,
 						dataType : 'text',
 						contentType : false,
@@ -78,23 +67,22 @@ $(function() {
 							$.each(data, function(index, obj){ 
 								console.log(obj); 
 		                         
-		                          $('.ddd').append(
+		                        $('.ddd').append(
 		                       
-  '<input id="conver" type="hidden" name="conver" value="'+obj+'" >'
+		                        '<input id="conver" type="hidden" name="conver" value="'+obj+'" >'
 		                              
-		                                );
-		                          
-		                          
-		                        }); 
+		                        );		                           
+							}); 
 							/*var formData = new FormData();
 					         
 					         formData.append("file", data);
-					    */
+					    
 							
-							//Db로 에이작스 해서 인설트만 해주면 끝 
-							//근데  data 안에 들어오는게 1개만 들어옴 그리고 
-							//PDFconverter도 지금 한개만 만들어짐 
-							/*$.ajax({
+							// Db로 에이작스 해서 인설트만 해주면 끝 
+							// 근데  data 안에 들어오는게 1개만 들어옴 그리고 
+							// PDFconverter도 지금 한개만 만들어짐 
+							
+							$.ajax({
 								url : "../ppt/pptCreate/", 
 								type : "post", 
 
@@ -107,10 +95,12 @@ $(function() {
 									
 								}
 							});*/
+							
 						}
-					});
+					}); 
+				
 				}
-			});
+			}); // 최종적으로 파일을 업로드 하게 되면 image로 파일이 변환이 되는 작업
  
     	  
     	  
@@ -195,7 +185,6 @@ $(function() {
 	
    };
 });
-
 
 $('#up').on('click', function(event) {
    $('#ddd').submit();
