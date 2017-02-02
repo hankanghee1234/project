@@ -100,6 +100,8 @@ $(function() {
                      console.log(splits1);
                      console.log(splits1[0]);
                      
+                     $('#ddd').append('<input id="userid" type="hidden" name="userid" >');
+                     
                        for(var m=0; m<splits1.length;m++){
                           console.log("스플릿1 시작?");
                           $('#ddd').append('<input class="img" type="hidden" name="img" value="'+splits1[m]+'" >');
