@@ -107,7 +107,7 @@ public class MemberController {
       return check;
    }
 
-   @RequestMapping(value = "/myPage", method = RequestMethod.POST)
+   @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
    public String updatePost(MemberVO vo, RedirectAttributes rttr) throws Exception {
       logger.info("update Post...........");
       logger.info(vo.toString());

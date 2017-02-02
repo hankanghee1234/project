@@ -33,6 +33,7 @@ import org.team.domain.UploadFileVO;
 import org.team.service.FileServiceImpl;
 import org.team.service.ImgServiceImpl;
 import org.team.service.PptServiceImpl;
+import org.team.util.PDFConvertor;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -45,8 +46,8 @@ public class PptController {
 	@Autowired
 	private ImgServiceImpl imgService;
 	
-	@Autowired
-	private FileServiceImpl fileService;
+	/*@Autowired
+	private FileServiceImpl fileService;*/
 	
 	private static final Logger logger = LoggerFactory.getLogger(PptController.class);
 
@@ -134,11 +135,13 @@ public class PptController {
 		return "redirect:./myPage";
 	}
 	
-	/*@RequestMapping()
-	public void update() throws Exception {
+	@RequestMapping(value="/pdfConverter", method = RequestMethod.POST)
+	public void pdfConverter(UploadFileVO data) throws Exception {
+		System.out.println(data);
+		/*PDFConvertor.JPGconvertor(data);*/
 		
 	}
-	
+	/*
 	@RequestMapping()
 	public void delete() throws Exception {
 		
@@ -146,7 +149,7 @@ public class PptController {
 	
 	  @ResponseBody
 	   @RequestMapping(value = "/upload2", method = RequestMethod.POST)
-	   public String upload(UploadFileVO vo) throws Exception {
+	   public String upload2(UploadFileVO vo) throws Exception {
 
 	      System.out.println("=======================");
 	      System.out.println(vo);
@@ -162,7 +165,7 @@ public class PptController {
 	         System.out.println(multipartFile.getOriginalFilename());
 	      }
 	      
-	      return "";
+	      return "success";
 	      
 	   }
 }

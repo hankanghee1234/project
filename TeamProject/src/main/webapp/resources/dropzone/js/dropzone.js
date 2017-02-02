@@ -37,16 +37,36 @@ $(function() {
       maxFilesize : 5000,
       addRemoveLinks : true,
       dictResponseError : 'Server not Configured',
+      
+
     /*  acceptedFiles : ".pptx,.pdf,.jpg,.png,.doc,.docx,.odt",*/
     /*  createImageThumbnails: false,*/
       init : function() {
-                  
+        
+    	 
+    	 
          var self = this;
          self.options.addRemoveLinks = true;
          self.options.dictRemoveFile = "Delete";
                 
          self.on("addedfile", function(file) {
-           
+        	 console.log(file.name);
+        	 var str = String (file.name);
+        	 console.log(str);
+        	 $.ajax({
+ 				url : "../ppt/pdfConverter/", 
+ 				type : "post",
+ 				data : str,
+ 				success : function(data) {
+ 					console.log(data);
+ 					/*$.each(data, function(index, obj){ 
+ 					
+ 					console.log(obj);
+                     
+                   }); */
+ 				}
+ 			});
+
          });
          
          // Send file starts
@@ -71,10 +91,12 @@ $(function() {
          });
 
       }
+   
+	
    };
 });
 
 
 $('#up').on('click', function(event) {
-   $('#my-awesome-dropzone').submit();
+   $('#ddd').submit();
 });
