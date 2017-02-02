@@ -26,4 +26,19 @@ public class loginUtil {
 		System.out.println("로그인실패..");
 		return "redirect:/index";
 	}
+	
+	public static String Geust(HttpServletRequest req, HttpServletResponse res, String userid) throws Exception {
+		String Geust = "Geust"+userid;
+		HttpSession session = req.getSession();
+		session.setAttribute("Geust", Geust);
+		req.setAttribute("Geust", Geust);
+		Cookie loginCookie = new Cookie("login", Geust);
+		loginCookie.setPath("/");
+		loginCookie.setMaxAge(60 * 60 * 24);
+		res.addCookie(loginCookie);
+		System.out.println("Geust쿠키.. : " + loginCookie.getValue());
+		return "redirect:/index";
+	}
+	
+	
 }

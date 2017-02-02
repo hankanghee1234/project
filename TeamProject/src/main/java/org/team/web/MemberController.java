@@ -100,6 +100,31 @@ public class MemberController {
       }
    }
 
+   @RequestMapping(value = "/loginGeustPOST", method = RequestMethod.POST)
+   public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res, String userid) throws Exception {
+
+   
+      
+      /*boolean check = memberService.memberLogin(vo);
+
+      if (check == true) {
+         rttr.addFlashAttribute("msg", "loginSUCCESS");
+         logger.info("로그인성공..." + check);
+         return loginUtil.Success(req, res, userid, userpw);
+      } else {
+         rttr.addFlashAttribute("msg", "loginFail");
+         logger.info("로그인실패..." + check);
+         return loginUtil.Fail(req, res);
+      }*/
+      
+        logger.info("GESUT 쿠키 생성 ...........");
+
+     
+        
+        return loginUtil.Geust(req, res, userid);
+   }
+
+   
    @RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
    public boolean dupleCheck(String userid) throws Exception {
       boolean check = memberService.loginDupleChk(userid);

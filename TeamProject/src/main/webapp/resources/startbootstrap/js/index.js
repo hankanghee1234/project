@@ -9,7 +9,7 @@ $(document).ready(function() {
 		alert('로그인에 실패하였습니다.. 다시로그인해주세요!');
 	}
 	
-		$.getJSON("/ppt/chatList", function(list) { // 이 안에서 ppt 자료를 JSON data로 입력받아서 호출하는곳
+	/*	$.getJSON("/ppt/chatList", function(list) { // 이 안에서 ppt 자료를 JSON data로 입력받아서 호출하는곳
 			var chatList = $('#chatList'); 
 			$(list).each(function(index, data) {
 				chatList.html("<p>" + data.ppt_title + "  -  <a href=node/chat?" 
@@ -22,13 +22,24 @@ $(document).ready(function() {
 				});
 
 			});
-
+*/
 			// Presentation List FadeIn
+			$("#Geust").click(function(event) {
+		
+				
+
+				$('#GeustForm').submit();
+		
+			});
+			
+	
 			$("#P-list").click(function(event) {
 
+				
 				$("#P-list").hide();
 				$("#presenter").hide();
 				$(".list-page").fadeIn("slow");
+			
 
 			});
 

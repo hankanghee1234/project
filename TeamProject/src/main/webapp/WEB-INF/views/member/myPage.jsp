@@ -263,6 +263,9 @@ body {
 						<h4>Select Option</h4>
 						<div class="panel box-v4">				
 							<div class="panel-body">
+							<button id="circle2" class=" btn btn-circle btn-3d btn-sm btn-primary"
+									value="primary">방송</button>
+									
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
 									value="primary" id="createBtn">생성</button>
 
@@ -338,11 +341,11 @@ body {
 <input id="useridF" type="hidden" name="userid" >
 
 </form>
-	<!--          
+             
    <form method="post" id="circle" action="circle">
       <input id="circleHidden" type="hidden"  value="9">
  
-    </form> -->
+    </form> 
 	<!-- end: content -->
 
 	<button id="mimin-mobile-menu-opener"
@@ -370,15 +373,23 @@ body {
 
 <script>
 	$(document).ready(function() {
+		
+		 var loginSession = '${userid}';
+			console.log(loginSession);
+			$('#circle2').on("click", function(event) {
+				
+				/* self.location.href="주소"; */
+				/* self.location.href="http://localhost:8082/cc?id=9#/2"; */
+				 self.location = "http://192.168.0.28:8082/cc?id=9&userid="+loginSession+"#/"; 
+			})
  
 		$(".title-tag").on("click", function(event) {
 
 			event.preventDefault();
 
-			var fno = $(this).attr('id'); // fno를 아이디 값에 속성을 매김
-			
+			var fno = $(this).attr('id'); // fno를 아이디 값에 속성을 매김		
 			console.log(fno);
-			console.log(userid);
+			
 			
 			/*pptRead를 ajax로 불러오기*/
 			$.ajax({
