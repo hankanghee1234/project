@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -20,16 +21,24 @@ import org.apache.poi.xslf.usermodel.XSLFSlide;
 
 public class PDFConvertor {
 	// 서버저장경로명
-	static final String savedPath = "C:\\zzz\\pptdesc\\";
+	static final String findPath = "C:\\zzz\\pptdesc\\";
+	
+	static final String savedPath = "C:\\zzz\\pptdesc\\sliceImg\\";
 
 	public static void main(String[] args) throws Exception {
 		// 확장자명까지 작성해주어야함.
 		PDFConvertor.JPGconvertor("test2.pptx");
 	}
 
-	public static void JPGconvertor(String Name) throws Exception {
+	public static ArrayList<String> JPGconvertor(String Name) throws Exception {
+		/*String arr[] = new String[9999];*/
 		
-		File file = new File(savedPath + Name);
+		ArrayList<String> arr = new ArrayList<>();
+		File file = new File(findPath + Name);
+		
+		/*arr[0]= "finish";*/
+		
+		arr.add("finish");
 		
 		String filePath = file.getAbsolutePath();
 		String fileStyle = filePath.substring(filePath.lastIndexOf("."));
@@ -45,14 +54,16 @@ public class PDFConvertor {
 			
 		case ".pptx":
 			System.out.println("ppt로...");
-			PDFConvertor.PPTXtoJPG(Name);
-			break;
+			
+			return PDFConvertor.PPTXtoJPG(Name); 
+			/*break;*/
 		}
+		return arr;
 	}
 
 	public static String PDFtoJPG(String PDFName) throws Exception {
 		// 저장된 파일을 읽어들이는부분..
-		File file = new File(savedPath + PDFName);
+		File file = new File(findPath + PDFName);
 		
 		PDDocument doc = PDDocument.load(file);
 		
@@ -71,9 +82,9 @@ public class PDFConvertor {
 		return PDFName;
 	}
 
-	public static void PPTXtoJPG(String PPTName) throws Exception {
+	public static ArrayList<String> PPTXtoJPG(String PPTName) throws Exception {
 		
-		FileInputStream is = new FileInputStream(savedPath + PPTName);
+		FileInputStream is = new FileInputStream(findPath + PPTName);
 		
 		XMLSlideShow ppt = new XMLSlideShow(is);
 		is.close();
@@ -87,6 +98,13 @@ public class PDFConvertor {
 		
 		List<XSLFSlide> slide = ppt.getSlides();
 		
+		/*String name[] = new String[100];*/
+		ArrayList<String> pptName = new ArrayList<>();
+		
+	
+
+		
+	
 		for (int i = 0; i < slide.size(); i++) {
 			BufferedImage img = new BufferedImage((int) Math.ceil(pgsize.width * zoom),
 					(int) Math.ceil(pgsize.height * zoom), BufferedImage.TYPE_INT_RGB);
@@ -97,12 +115,22 @@ public class PDFConvertor {
 			graphics.fill(new Rectangle2D.Float(0, 0, pgsize.width, pgsize.height));
 			slide.get(i).draw(graphics);
 			
+			
+			pptName.add((i + 1) + " - " + PPTName + ".jpg");
 			FileOutputStream out = new FileOutputStream
-					(savedPath + (i + 1) + " - " + PPTName + ".jpg");
+					(savedPath + pptName.get(i));
 			javax.imageio.ImageIO.write(img, "jpg", out);
 			
 			out.close();
+			
+			
 		}
 		ppt.close();
+		
+	
+
+			
+		
+		return pptName;
 	}
 }

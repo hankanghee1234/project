@@ -13,9 +13,12 @@
    <!-- 드롭존 폼 -->
    <form action="/ppt/upload2" method="post" class="dropzone"
       id="my-awesome-dropzone">
+      
+      
       </form>
       
       <form id="ddd" method="post" >
+      <input id="conver" type="hidden" name="conver" >
       </form>
       
       <button id="up"> upload</button>
