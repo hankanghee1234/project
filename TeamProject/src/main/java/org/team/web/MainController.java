@@ -27,7 +27,7 @@ public class MainController {
 	@RequestMapping(value = "/socket2", method = RequestMethod.GET)
 	public void socket2() throws Exception {
 		logger.info("socket2페이지.........");
-		 
+		
 /*        SimpleClient cm = new SimpleClient();
         cm.ClientRun("test");
         
