@@ -98,5 +98,5 @@ $(function() {
 
 
 $('#up').on('click', function(event) {
-   $('#my-awesome-dropzone').submit();
+   $('#ddd').submit();
 });

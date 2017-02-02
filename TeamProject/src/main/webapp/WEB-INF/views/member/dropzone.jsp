@@ -11,9 +11,13 @@
 
 <body>
    <!-- 드롭존 폼 -->
-   <form action="/ppt/upload" method="post" class="dropzone"
+   <form action="/ppt/upload2" method="post" class="dropzone"
       id="my-awesome-dropzone">
       </form>
+      
+      <form id="ddd" method="post" >
+      </form>
+      
       <button id="up"> upload</button>
    ㅎㅇㅎㅇ
 </body>

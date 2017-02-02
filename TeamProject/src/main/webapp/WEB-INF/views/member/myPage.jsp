@@ -172,7 +172,7 @@ body {
 				</div>
 			</div>
 		</div>
-
+		<!-- 검색 조건 처리 -->
 		<div class="col-md-12 col-sm-12 profile-v1-body">
 			<div class="panel">
 				<div class="col-md-5">
@@ -228,7 +228,7 @@ body {
 														name="${PptVO.fno}" href="#">${PptVO.ppt_title}</a></td>
 												</tr>
 											</ul>
-										</c:forEach>									
+										</c:forEach> <!-- /.로그인한 정보에 따른 ppt 리스트 보여주기 -->	 								
 									</tbody>
 								</table>
 							</div>
@@ -253,13 +253,13 @@ body {
 											aria-label="Next"><span aria-hidden="true">»</span></a></li>
 									</c:if>
 								</ul>
-							</div>
-						</div>
+							</div> <!-- /.list paging 처리 -->
+						</div> <!-- /.ppt list 출력-->
 					</div>
 				</div>
 				<!-- button 처리 -->
 				<div class="col-md-5">
-					<div class="panel box-v3">
+					<div class="panel box-v3">					
 						<h4>Select Option</h4>
 						<div class="panel box-v4">				
 							<div class="panel-body">
@@ -276,7 +276,7 @@ body {
 									<span class="fa fa-paypal"></span>
 								</button>
 							</div>
-						</div>
+						</div> 
 						<!-- ppt 정보 & img 뿌리기 -->
 						<div class="panel box-v4">
 							<div class="panel-heading bg-white border-none">
@@ -328,10 +328,9 @@ body {
 
 								</div>
 							</div>
-						</div>
-						<!-- /.ppt 정보 & img 뿌리기 -->
+						</div> <!-- /.ppt 정보 & img 뿌리기 -->
 					</div>
-				</div>
+				</div> <!-- /.button 처리 -->
 			</div>
 		</div>
 	</div>
@@ -452,19 +451,6 @@ body {
 			});
 
 		}); // ajax 처리로 이미지 및 ppt 정보 호출
-
-				
-		/* $("#pptDelBtn").on("click", function(event) {
-					
-			$.ajax({	
-				url : "../ppt/imgRead/" + fno,	
-				type : "get",
-
-				success : function(data) {
-					console.log(data);
-				}
-			});
-		}); */
 
 		$("#searchBtn").on("click", function(event) {
 			
