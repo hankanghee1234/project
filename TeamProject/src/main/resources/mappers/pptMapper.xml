@@ -19,6 +19,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values (#{userid}, #{ppt_kind}, #{ppt_title}, #{ppt_desc})
 	</insert>
 	
+	<select id="pptFnoReadList" resultType="PptFnoVO">
+		select fno from tbl_pptdesc where userid=#{userid}
+	</select>
+	
 	<select id="pptGuestList" resultType="PptVO">
 		select * from tbl_pptdesc
 	</select>

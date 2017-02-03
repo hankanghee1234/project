@@ -26,8 +26,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.team.domain.ArrayListVO;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.ImgVO;
+import org.team.domain.PptFnoVO;
 import org.team.domain.PptVO;
 import org.team.domain.UploadFileVO;
 import org.team.service.ImgServiceImpl;
@@ -145,16 +146,52 @@ public class PptController {
 
    /*@ResponseBody*/
    @RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
-   public String create(ArrayListVO data, String[] str, List<String> file) throws Exception {
+   public String create(ImgVO ivo, PptVO pvo, RedirectAttributes rttr) throws Exception {
       logger.info("pptCreate POST............");
-      logger.info(data.toString());
-      System.out.println(data);
-      System.out.println(str);
+      logger.info(ivo.toString());
+      logger.info(pvo.toString());
+      System.out.println(ivo);
+      System.out.println(pvo);
       
-      System.out.println(file);
+    pptService.create(pvo);
+    
+	
+	List<PptFnoVO> list = pptService.pptFnoRead("user01");
+	
+	
+	String tos = null;
+	System.out.println("0번쨰임  "+list.get(0));
+	
+	for(int i = 0; i<list.size();i++){
+		PptFnoVO str = list.get(i);
+		tos = str.toString();
+		
+		System.out.println(tos);
+		
+		String[] s1 = tos.split("=");
+			
+		System.out.println(s1[1]);
+		
+		String tos1 = s1[1].toString();
+		
+		String s2[] = tos1.split("]");
+		
+		System.out.println(s2[0]);
+		
+		tos = s2[0];
+		
+	}
+	
+	
 
-   
-   /*   imgService.create(fvo, ivo, pvo);*/
+	System.out.println("fno 값 : "+tos);
+	
+	Integer fno = Integer.parseInt(tos);
+	
+	System.out.println("fno 값 : "+fno);
+
+    ivo.setFno(fno);
+    imgService.create(ivo, pvo);
    
 
       return "redirect:./myPage";

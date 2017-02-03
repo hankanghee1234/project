@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.team.domain.Criteria;
+import org.team.domain.PptFnoVO;
 import org.team.domain.PptVO;
 import org.team.domain.SearchCriteria;
 
@@ -21,6 +22,13 @@ public class PptDAOImpl implements PptDAO {
 	public void create(PptVO vo) throws Exception {
 		
 		session.insert(NAME + ".create", vo);
+	}
+	
+	
+	
+	public List<PptFnoVO> pptFnoRead(String vo)throws Exception {
+		
+		return session.selectList(NAME + ".pptFnoReadList",vo);
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.team.domain.Criteria;
+import org.team.domain.PptFnoVO;
 import org.team.domain.PptVO;
 import org.team.domain.SearchCriteria;
 import org.team.persistence.PptDAOImpl;
@@ -20,6 +21,12 @@ public class PptServiceImpl implements PptService {
 		
 		pptDAO.create(vo);
 	}
+	
+	public List<PptFnoVO> pptFnoRead(String vo)throws Exception {
+		
+		return pptDAO.pptFnoRead(vo);
+	}
+	
 	
 	@Override
 	public List<PptVO> pptGuestList() throws Exception {
