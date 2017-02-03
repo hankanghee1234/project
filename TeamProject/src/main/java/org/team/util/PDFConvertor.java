@@ -23,7 +23,10 @@ public class PDFConvertor {
 	// 서버저장경로명
 	static final String findPath = "C:\\zzz\\pptdesc\\";
 	
-	static final String savedPath = "C:\\zzz\\pptdesc\\sliceImg\\";
+	static final String savedPath = "C:\\Users\\ASUS\\Desktop\\Last project\\chat3\\chat2\\public\\reveal-view\\img\\";
+
+	
+/*	static final String savedPath = "C:\\zzz\\pptdesc\\sliceImg\\";*/
 
 	public static void main(String[] args) throws Exception {
 		// 확장자명까지 작성해주어야함.
@@ -49,8 +52,7 @@ public class PDFConvertor {
 		
 		case ".pdf":
 			System.out.println("PDF로...");
-			PDFConvertor.PDFtoJPG(Name);
-			break;
+			return PDFConvertor.PDFtoJPG(Name);
 			
 		case ".pptx":
 			System.out.println("ppt로...");
@@ -61,7 +63,7 @@ public class PDFConvertor {
 		return arr;
 	}
 
-	public static String PDFtoJPG(String PDFName) throws Exception {
+	public static ArrayList<String> PDFtoJPG(String PDFName) throws Exception {
 		// 저장된 파일을 읽어들이는부분..
 		File file = new File(findPath + PDFName);
 		
@@ -69,9 +71,16 @@ public class PDFConvertor {
 		
 		PDFRenderer renderer = new PDFRenderer(doc);
 
+		ArrayList<String> pdfName = new ArrayList<>();
+		
+		
+		
+		
 		for (int i = 0; i < doc.getNumberOfPages(); i++) {
 		
 			BufferedImage image = renderer.renderImageWithDPI(i, 130);
+			
+			pdfName.add((i + 1) + " - " +PDFName + ".jpg");
 			
 			File PDF = new File(String.format("%s/%d - " + PDFName + ".jpg", savedPath, (i + 1)));
 			
@@ -79,7 +88,7 @@ public class PDFConvertor {
 		}
 		doc.close();
 		
-		return PDFName;
+		return pdfName;
 	}
 
 	public static ArrayList<String> PPTXtoJPG(String PPTName) throws Exception {
@@ -133,4 +142,8 @@ public class PDFConvertor {
 		
 		return pptName;
 	}
+	
+	
+	//word 파일하고 엑셀 등등 컨버터 하는거 추가기능으로 찾아봐야 할듯
+	
 }

@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and ppt_kind like CONCAT ('%', #{keyword}, '%')
 			</if>
 			<if test="searchType == 't'.toString()">
-				and ppt_tilte like CONCAT ('%', #{keyword}, '%')
+				and ppt_title like CONCAT ('%', #{keyword}, '%')
 			</if>
 		</if>
 	</sql>
