@@ -179,36 +179,9 @@ public class PptController {
       for (MultipartFile multipartFile : fileList) {
 
          System.out.println(multipartFile.getOriginalFilename());
-         
-         
-
-         
-      }
-
-      /*logger.info("drag & drop POST......" + file);
-
-      UUID uid = UUID.randomUUID();
-
-      InputStream is = file.getInputStream();
-      String fileName = file.getOriginalFilename();
-
-      String uploadName = uid + "_" + fileName;
-
-      FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
-      FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
-
-      BufferedImage origin = ImageIO.read(is);
-
-      BufferedImage destImg = Scalr.resize(origin, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
-
-      ImageIO.write(origin, "jpg", fos);
-      ImageIO.write(destImg, "jpg", foss);
-
-      fos.close();
-      foss.close();
-*/
       
-      return "copy finish";
+      }
+     return "copy finish";
 
    }
    
@@ -228,23 +201,15 @@ public class PptController {
 
       String fileName;
       
-      
-      
-      
       for (MultipartFile multipartFile : fileList) {
           
          byte[] buf = multipartFile.getBytes();
          System.out.println(multipartFile.getOriginalFilename());
          
-         
-
-
          InputStream is = multipartFile.getInputStream();
-          fileName = multipartFile.getOriginalFilename();
-
+         fileName = multipartFile.getOriginalFilename();
 
          FileOutputStream fos = new FileOutputStream("C:\\zzz\\pptdesc\\" + fileName);
-
 
          fos.write(buf);
          fos.flush();
@@ -266,12 +231,7 @@ public class PptController {
    public @ResponseBody ArrayList<String> pdfConverter(UploadFileVO data) throws Exception {
       System.out.println("converterter입니다 : ");
       System.out.println("converter : " + data);
-   /*   String name[] = new String[100];
-      String name2[] = new String[100];*/
-      
-/*      name2[0] = "success";*/
-      
-      
+
       List<MultipartFile> fileList = data.getFile();
 
       StringBuffer names = new StringBuffer();
@@ -291,33 +251,17 @@ public class PptController {
          
          System.out.println("arrayList : "+arrayList);
          System.out.println("toString 임 : "+arrayList.toString());
-         
-         /*for(String temp : arrayList){
-              arrayList.add(temp);
-            }
-            
-*/
+
          System.out.println(arrayList.get(0));
          System.out.println(arrayList.get(1));
          System.out.println(arrayList.get(2));
 
-
-         
-     /*  String[] arrays = arrayList.toArray(new String[arrayList.size()]);*/
-
-
          
          return arrayList;
       }
-
-      
-      
-/*     arr[0] = "success";*/
       arrayList.add("data none");
       
       return arrayList;
-      
-      /* PDFConvertor.JPGconvertor(data); */
 
    }
    

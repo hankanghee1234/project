@@ -1,5 +1,5 @@
 /**
- * Created by pox on 2017-01-25.
+ * Created by ASUS on 2017-02-03.
  */
 
 
@@ -17,11 +17,7 @@ function List() {
               List.prototype.get = function(idx) {
                  return this.elements[idx];
               };
-              
-              
-              
-             
-
+           
 
 $(function() {
    var form = $('#my-awesome-dropzone');
@@ -31,20 +27,20 @@ $(function() {
    Dropzone.options.myAwesomeDropzone = {
       url : '/ppt/upload2',
 /*      autoProcessQueue: false,*/
-      
- /*     data : cook,*/
       maxFiles: 6,
       uploadMultiple : true,
       maxFilesize : 100,
       addRemoveLinks : true,
       dictResponseError : 'Server not Configured',
+      acceptedFiles : ".pptx,.pdf",
+      /*acceptedFiles : ".pptx,.pdf,.jpg,.png,.doc,.docx,.odt",*/
+      
       
       accept : function(file, done) {
          console.log(file);
          console.log(file.name);
          
-         
-          var formData = new FormData();
+         var formData = new FormData();
          
          formData.append("file", file);
     
@@ -117,34 +113,7 @@ $(function() {
                      
                      
                      
-                     
-                     
-                     
                     
-         
-                  /*   for(data)
-                     
-                     
-                     $.each(data, function(index, obj){ 
-                        console.log(obj); 
-                               
-                                $('.ddd').append(
-                             
-                                         '<input id="conver" type="hidden" name="conver" value="'+obj+'" >'
-                                    
-                                      );
-                                
-                                
-                              }); */
-
-                     
-                     
-                     
-                     /*var formData = new FormData();
-                        
-                        formData.append("file", data);
-                   */
-                     
                      //Db로 에이작스 해서 인설트만 해주면 끝 
                      //근데  data 안에 들어오는게 1개만 들어옴 그리고 
                      //PDFconverter도 지금 한개만 만들어짐 
