@@ -55,10 +55,10 @@ public class PptController {
 	@GetMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" })
 	public @ResponseBody byte[] show(String name) throws Exception {
 
-		/* InputStream in = new FileInputStream("C:\\zzz\\" + name); */
+		InputStream in = new FileInputStream("C:\\zzz\\" + name);
 
-		InputStream in = new FileInputStream(
-				"C:\\Users\\ASUS\\Desktop\\Last project\\chat3\\chat2\\public\\reveal-view\\img\\" + name);
+		/*InputStream in = new FileInputStream(
+				"C:\\Users\\ASUS\\Desktop\\Last project\\chat3\\chat2\\public\\reveal-view\\img\\" + name);*/
 
 		return IOUtils.toByteArray(in);
 	}
@@ -122,6 +122,15 @@ public class PptController {
 	public void createGET() throws Exception {
 		logger.info("pptCreate GET............");
 	}
+	
+	/*@RequestMapping(value = "/delete/{fno}", method = RequestMethod.POST)
+	public @ResponseBody String pptDelete(@PathVariable("fno") Integer fno) throws Exception {
+		
+		pptService.delete(fno);
+		
+		return "redirect:./myPage";
+	}*/
+
 	
 	/*
 	 * @RequestMapping(value = "/pptCreate2", method = RequestMethod.POST)

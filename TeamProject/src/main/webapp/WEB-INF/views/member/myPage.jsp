@@ -51,6 +51,40 @@ body {
 .modal-content {
 	position: relative;
 }
+
+input[type=checkbox] {
+	display: none;
+}
+
+input[type=checkbox] + label {
+	display: inline-block;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+input[type=checkbox] + label:before {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-right: 10px;
+	left: 0;
+	bottom: 1px;
+	background-color: #ccc;
+	border-radius: 2px;
+	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 3), 0px 1px 0px 0px rgba(255, 255, 255, 8);	
+}
+
+input[type=checkbox]:checked + label:before {
+	content: "";
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 2);
+	font-size: 18px;
+	font-weight: 800;
+	color: #fff;
+	background: #2187c1;
+	line-height: 18px;
+}
+
 </style>
 
 <body>
@@ -128,8 +162,7 @@ body {
 											<input type="text" class="form-control" name="username"
 												placeholder="이름 수정" value="${MemberVO.username}">
 										</div>
-									</div>
-									<button class="btn btn-primary"></button>
+									</div>								
 								</form>
 							</div>
 							<!-- 수정확인 버튼 -->
@@ -214,6 +247,7 @@ body {
 									cellspacing="0">
 									<thead>
 										<tr>
+											<th>check</th>
 											<th>발표분야</th>
 											<th>제목</th>
 										</tr>
@@ -223,6 +257,8 @@ body {
 										<c:forEach items="${pptUserList}" var="PptVO">
 											<ul class="pptUserList">
 												<tr id="${PptVO.fno}">
+													<td><input type="checkbox" name="checkbox" id="check1">
+													<label for="check1"></label></td>
 													<td>${PptVO.ppt_kind}</td>
 													<td><a class="title-tag" id="${PptVO.fno}"
 														href="#">${PptVO.ppt_title}</a></td>
@@ -270,14 +306,7 @@ body {
 									value="primary" id="createBtn">생성</button>
 
 								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary" id="pptDelBtn">
-									<span class="fa fa-times"></span>
-								</button>
-
-								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary" onclick="location.href='createPage'">
-									<span class="fa fa-paypal"></span>
-								</button>
+									value="primary" id="pptDelBtn">삭제</button>
 							</div>
 						</div> 
 						<!-- ppt 정보 & img 뿌리기 -->
@@ -320,8 +349,8 @@ body {
 									</div>
 									<div class="panel-body padding-0">
 										<div id="context" class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
-											<h2 id='pTitle'></h2>
-											<p id='pDesc'></p>
+											<h2 id='pTitle' style="color:green;"></h2>
+											<p id='pDesc' style="color:purple;"></p>
 										</div>
 										<div class="calendar fc fc-ltr fc-unthemed">
 											<div class="fc-toolbar"></div>
