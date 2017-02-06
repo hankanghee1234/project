@@ -8,6 +8,7 @@ public class MemberVO {
 	private String userpw;
 	private String email;
 	private String username;
+	private String uimg;
 	private Date regdate;
 	private Date modidate;
 
@@ -67,10 +68,24 @@ public class MemberVO {
 		this.modidate = modidate;
 	}
 
+	public String getUimg() {
+		return uimg;
+	}
+
+	public void setUimg(String uimg) {
+		this.uimg = uimg;
+	}
+
 	@Override
 	public String toString() {
 		return "MemberVO [userid=" + userid + ", userpw=" + userpw + ", email=" + email + ", username=" + username
-				+ ", regdate=" + regdate + ", modidate=" + modidate + "]";
+				+ ", uimg=" + uimg + ", regdate=" + regdate + ", modidate=" + modidate + ", getUserid()=" + getUserid()
+				+ ", getUserpw()=" + getUserpw() + ", getEmail()=" + getEmail() + ", getUsername()=" + getUsername()
+				+ ", getRegdate()=" + getRegdate() + ", getModidate()=" + getModidate() + ", getUimg()=" + getUimg()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
+
+	
 
 }

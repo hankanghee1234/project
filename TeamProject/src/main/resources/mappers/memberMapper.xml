@@ -15,9 +15,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="update" parameterType="MemberVO">
 		update tbl_member set userpw = #{userpw}, email = #{email},
-		username = #{username}, modidate = now() where userid = #{userid}
+		username = #{username}, uimg = #{uimg}, modidate = now() where userid = #{userid}
 	</update>
-
+	
 	<delete id="delete" parameterType="MemberVO">
 		delete from tbl_member where userid = #{userid}
 	</delete>
@@ -26,8 +26,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_member
 	</select>
 
-	
-	
 	<select id="memberLogin" resultType="String" parameterType="MemberVO">
 		select userid from tbl_member where userid = #{userid} and userpw = #{userpw}
 	</select>

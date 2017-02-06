@@ -47,44 +47,14 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-
 .modal-content {
 	position: relative;
 }
-
-input[type=checkbox] {
-	display: none;
+.fileDrop {
+	width: 80px;
+	height: 80px;
+	border: 1px groove blue;
 }
-
-input[type=checkbox] + label {
-	display: inline-block;
-	cursor: pointer;
-	font-size: 13px;
-}
-
-input[type=checkbox] + label:before {
-	content: "";
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	margin-right: 10px;
-	left: 0;
-	bottom: 1px;
-	background-color: #ccc;
-	border-radius: 2px;
-	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 3), 0px 1px 0px 0px rgba(255, 255, 255, 8);	
-}
-
-input[type=checkbox]:checked + label:before {
-	content: "";
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 2);
-	font-size: 18px;
-	font-weight: 800;
-	color: #fff;
-	background: #2187c1;
-	line-height: 18px;
-}
-
 </style>
 
 <body>
@@ -95,7 +65,7 @@ input[type=checkbox]:checked + label:before {
 			<div class="col-md-12  profile-v1-cover-wrap"
 				style="padding-right: 0px;">
 				<div class="profile-v1-pp">
-					<img src="../resources/miminium-master/asset/img/avatar.jpg">
+					<img src="show?name=${read.uimg}">
 					<div class="presenter-imformatiop"
 						style="text-align: left; position: absolute;">
 						<!-- 유저 정보 출력 -->
@@ -121,15 +91,14 @@ input[type=checkbox]:checked + label:before {
 					<!-- 회원 정보 수정 하기 -->
 					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
-
 							<h4>회원정보 수정</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
 							</h2>
 						</div>
 
-						<div class="panel-body" style="text-align: center;">
-							<div class="modal-body col-md-12" style="line-height: 10px;">
+						<div class="panel-body" style="text-align:center;">
+							<div class="modal-body col-md-12">
 								<form role="form" action="updatePost" method="post">
 									<!-- 아이디는 고정값으로 보여주기 -->
 									<div class="form-group">
@@ -162,7 +131,10 @@ input[type=checkbox]:checked + label:before {
 											<input type="text" class="form-control" name="username"
 												placeholder="이름 수정" value="${MemberVO.username}">
 										</div>
-									</div>								
+									</div>
+									<p><input type="hidden" name="uimg" id="imgsrc"></p>
+									<div class='fileDrop'></div>									
+									<div class="uploadedList"></div>
 								</form>
 							</div>
 							<!-- 수정확인 버튼 -->
@@ -173,17 +145,14 @@ input[type=checkbox]:checked + label:before {
 						<div class="modal-footer"></div>
 					</div>
 					<!-- /.회원 정보 수정 하기 -->
-
 					<!-- 회원 정보 삭제 하기 -->
 					<div class="modal-content modal-secession">
 						<div class="modal-header" style="height: 50px;">
-
 							<h4>회원탈퇴 확인</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
 							</h2>
 						</div>
-
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
 								<h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
@@ -192,13 +161,10 @@ input[type=checkbox]:checked + label:before {
 							<button class="btn btn-warning" id="dangerBtn"
 								data-dismiss="modal" aria-label="Close">취소</button>
 						</div>
-
 						<div class="modal-footer"></div>
 					</div>
-
 				</div>
 				<!-- /.회원 정보 삭제 하기 -->
-
 				<div class="col-md-12 profile-v1-cover">
 					<img src="../resources/miminium-master/asset/img/bg1.jpg"
 						class="img-responsive" style="height: 300px;">
@@ -247,7 +213,6 @@ input[type=checkbox]:checked + label:before {
 									cellspacing="0">
 									<thead>
 										<tr>
-											<th>check</th>
 											<th>발표분야</th>
 											<th>제목</th>
 										</tr>
@@ -257,8 +222,6 @@ input[type=checkbox]:checked + label:before {
 										<c:forEach items="${pptUserList}" var="PptVO">
 											<ul class="pptUserList">
 												<tr id="${PptVO.fno}">
-													<td><input type="checkbox" name="checkbox" id="check1">
-													<label for="check1"></label></td>
 													<td>${PptVO.ppt_kind}</td>
 													<td><a class="title-tag" id="${PptVO.fno}"
 														href="#">${PptVO.ppt_title}</a></td>
@@ -413,9 +376,7 @@ input[type=checkbox]:checked + label:before {
 			})
  
 		$(".title-tag").on("click", function(event) {
-
 			event.preventDefault();
-
 			var fno = $(this).attr('id'); // fno를 아이디 값에 속성을 매김		
 			console.log(fno);
 			
@@ -424,7 +385,6 @@ input[type=checkbox]:checked + label:before {
 			$.ajax({
 				url : "../ppt/pptRead/" + fno, // pptRead를 controller에 출력하여 fno에 대한 ppt를 읽는다.
 				type : "get", // get 방식
-
 				success : function(data) {
 					console.log(data.ppt_title);
 					console.log(data.ppt_desc);
@@ -488,9 +448,7 @@ input[type=checkbox]:checked + label:before {
                   }); 
 				}
 			});
-
 		}); // ajax 처리로 이미지 및 ppt 정보 호출
-
 		$("#searchBtn").on("click", function(event) {
 			
 			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
@@ -506,62 +464,92 @@ input[type=checkbox]:checked + label:before {
 		
 		var formObj = $("form[role='form']");
 		console.log(formObj);
-
+		
 		$("#updateBtn").on("click", function() {
 			formObj.submit();
 		}); // 유저 정보 update
-
+		
 		$("#deleteBtn").on("click", function() {
 			formObj.attr("action", "delete");
 			formObj.attr("mehtod", "post");
 			formObj.submit();
 		}); // 유저 정보 delete
-
+		
 		$("#createBtn").on("click", function(){
 			
 			var cookie = document.cookie.split(';');
 	        console.log('로그인쿠키값!! : ' + cookie);
-
 	        var cooki = JSON.stringify(cookie);
-
-
 	        var cook = new Array();
 	        cook = cooki.split("=");
-
 	        console.log(cook[1]);
-
 	        var cook2 = new Array();
 	        cook2 = cook[1].split('"');
-
 	        console.log(cook2[0]);
 	        
 			$("#useridF").val(cook2[0]);
 			
-		
 			$("#f1").attr("action", "dropzone").submit();
+			
 		}); // 생성 페이지 이동
+		
+		var uploadedList = $(".uploadedList");
+		
+		$(".fileDrop").on("dragenter dragover", function(event) {
+			event.preventDefault();
+		});
+		
+		$(".fileDrop").on("drop", function(event) {
+			event.preventDefault();
+			
+			var files = event.originalEvent.dataTransfer.files;
+			var file = files[0];
+			
+			var formData = new FormData();
+			
+			$('.uploadedList').empty();
+			formData.append("file", file);
+			
+			console.log(formData);
+			
+			$.ajax({
+				url : "upload",
+				data : formData,
+				dataType : 'text',
+				type : "post",
+				contentType : false,
+				processData : false,
+				success : function(data) {
+					uploadedList.html("<img src=show?name=" + data + ">");
+					$("#imgsrc").val(data);
+					alert("이미지 수정 완료");
+				}
+			});
+		}); // drag & drop end
 		
 	});
 </script>
 
 <script>
-	$(".modal-content").hide();
 
+	$(".modal-content").hide();
+	
 	$("#cancelBtn").click(function() {
 		$(".modal-reset").hide();
 	});
-
+	
 	$(".reset").click(function() {
 		$(".modal-reset").toggle("slow");
 	});
-
+	
 	$("#dangerBtn").click(function() {
 		$(".modal-secession").hide();
 	});
-
+	
 	$(".secession").click(function() {
 		$(".modal-secession").toggle("slow");
 	});
+	
 </script>
 
 </html>

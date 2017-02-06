@@ -44,7 +44,7 @@ public class MemberDAOTest {
 		vo.setEmail("bbb@ccc.com");
 		vo.setUsername("user11");
 		vo.setUserid("user00");
-
+		vo.setUimg("1.jpg");
 		dao.update(vo);
 		System.out.println(vo);
 	}

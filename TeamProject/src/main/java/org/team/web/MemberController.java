@@ -1,17 +1,30 @@
 package org.team.web;
 
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.util.UUID;
+
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
+import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.MemberVO;
 import org.team.domain.PageMaker;
@@ -31,6 +44,43 @@ public class MemberController {
    private PptServiceImpl pptService;
 
    private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+   
+   @GetMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" })
+	public @ResponseBody byte[] show(String name) throws Exception {
+
+		InputStream in = new FileInputStream("C:\\zzz\\" + name);
+
+		return IOUtils.toByteArray(in);
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	public String upload(@RequestBody MultipartFile file) throws Exception {
+		logger.info("drag & drop POST......" + file);
+
+		UUID uid = UUID.randomUUID();
+
+		InputStream is = file.getInputStream();
+		String fileName = file.getOriginalFilename();
+
+		String uploadName = uid + "_" + fileName;
+
+		FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
+		FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
+
+		BufferedImage origin = ImageIO.read(is);
+
+		BufferedImage destImg = Scalr.resize(origin, Scalr.Method.AUTOMATIC, 
+				Scalr.Mode.FIT_TO_HEIGHT, 80);
+
+		ImageIO.write(origin, "jpg", fos);
+		ImageIO.write(destImg, "jpg", foss);
+
+		fos.close();
+		foss.close();
+
+		return uploadName;
+	} // drag & drop
    
    @RequestMapping(value = "/dropzone", method = RequestMethod.GET)
    public void dropzoneGET() throws Exception {
@@ -139,6 +189,7 @@ public class MemberController {
       logger.info(vo.toString());
 
       memberService.update(vo);
+     
       rttr.addFlashAttribute("msg", "success");
       
       return "redirect:./myPage";

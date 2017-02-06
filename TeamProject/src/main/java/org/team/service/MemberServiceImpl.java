@@ -48,6 +48,4 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.memberLogin(vo);
 	}
 
-	
-
 }

@@ -57,9 +57,9 @@ public class PptController {
 
 		InputStream in = new FileInputStream("C:\\zzz\\" + name);
 
-		/*InputStream in = new FileInputStream(
-				"C:\\Users\\ASUS\\Desktop\\Last project\\chat3\\chat2\\public\\reveal-view\\img\\" + name);*/
-
+		//InputStream in = new FileInputStream(
+		//		"C:\\Users\\ASUS\\Desktop\\Last project\\chat3\\chat2\\public\\reveal-view\\img\\" + name);
+		
 		return IOUtils.toByteArray(in);
 	}
 
