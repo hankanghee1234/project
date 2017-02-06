@@ -18,6 +18,8 @@ public interface PptService {
 
 	public void delete(Integer fno) throws Exception;
 	
+	public void broadStart(Integer fno) throws Exception;
+	
 	public List<PptVO> listCriteria(Criteria cri) throws Exception;
 	
 	public int listCountCriteria(Criteria cri) throws Exception;

@@ -24,7 +24,11 @@ public class PptDAOImpl implements PptDAO {
 		session.insert(NAME + ".create", vo);
 	}
 	
-	
+	@Override
+	public void broadStart(Integer fno) throws Exception {
+		
+		session.update(NAME + ".broadStart", fno);
+	}
 	
 	public List<PptFnoVO> pptFnoRead(String vo)throws Exception {
 		

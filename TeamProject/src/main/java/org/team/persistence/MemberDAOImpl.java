@@ -41,12 +41,6 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 	
 	@Override
-	public void broadStart(String userid) throws Exception {
-		
-		session.update(NAME + ".broadStart", userid);
-	}
-	
-	@Override
 	public boolean memberLogin(MemberVO vo) throws Exception {
 		String userid = session.selectOne(NAME + ".memberLogin", vo);
 		if (userid != null) {

@@ -26,9 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_member
 	</select>
 
-	<select id="broadStart" parameterType="String">
-		update tbl_member set broad_state = 1 where userid = #{userid}
-	</select>
+	
 	
 	<select id="memberLogin" resultType="String" parameterType="MemberVO">
 		select userid from tbl_member where userid = #{userid} and userpw = #{userpw}

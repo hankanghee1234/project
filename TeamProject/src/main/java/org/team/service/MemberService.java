@@ -16,8 +16,6 @@ public interface MemberService {
 
 	public List<MemberVO> list() throws Exception;
 
-	public void broadStart(String userid) throws Exception;
-
 	public boolean memberLogin(MemberVO vo) throws Exception;
 
 	public boolean loginDupleChk(String userid) throws Exception;

@@ -27,6 +27,10 @@ public class PptServiceImpl implements PptService {
 		return pptDAO.pptFnoRead(vo);
 	}
 	
+	@Override
+	public void broadStart(Integer fno) throws Exception {
+		pptDAO.broadStart(fno);
+	}
 	
 	@Override
 	public List<PptVO> pptGuestList() throws Exception {
@@ -76,9 +80,4 @@ public class PptServiceImpl implements PptService {
 		return pptDAO.pptRead(fno);
 	}
 
-	
-
-
-
-	
 }

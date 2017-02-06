@@ -8,7 +8,6 @@ public class MemberVO {
 	private String userpw;
 	private String email;
 	private String username;
-	private Integer broad_state;
 	private Date regdate;
 	private Date modidate;
 
@@ -52,14 +51,6 @@ public class MemberVO {
 		this.username = username;
 	}
 
-	public Integer getBroad_state() {
-		return broad_state;
-	}
-
-	public void setBroad_state(Integer broad_state) {
-		this.broad_state = broad_state;
-	}
-
 	public Date getRegdate() {
 		return regdate;
 	}
@@ -79,9 +70,7 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [userid=" + userid + ", userpw=" + userpw + ", email=" + email + ", username=" + username
-				+ ", broad_state=" + broad_state + ", regdate=" + regdate + ", modidate=" + modidate + "]";
+				+ ", regdate=" + regdate + ", modidate=" + modidate + "]";
 	}
-
-	
 
 }
