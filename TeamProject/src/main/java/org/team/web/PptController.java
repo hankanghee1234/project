@@ -63,34 +63,6 @@ public class PptController {
 		return IOUtils.toByteArray(in);
 	}
 
-	@ResponseBody
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public String upload(@RequestBody MultipartFile file) throws Exception {
-		logger.info("drag & drop POST......" + file);
-
-		UUID uid = UUID.randomUUID();
-
-		InputStream is = file.getInputStream();
-		String fileName = file.getOriginalFilename();
-
-		String uploadName = uid + "_" + fileName;
-
-		FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
-		FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
-
-		BufferedImage origin = ImageIO.read(is);
-
-		BufferedImage destImg = Scalr.resize(origin, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
-
-		ImageIO.write(origin, "jpg", fos);
-		ImageIO.write(destImg, "jpg", foss);
-
-		fos.close();
-		foss.close();
-
-		return uploadName;
-	} // drag & drop
-
 	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
 	public ResponseEntity<List<PptVO>> chatList() throws Exception {
 		logger.info("PPT리스트..인덱스페이지에서..");
