@@ -72,7 +72,7 @@ body {
 						<h3 style="color: blue;">${read.username}</h3>
 						<h3 style="color: yellow;">${read.email}</h3>
 					</div>
-
+					
 					<button
 						class="reset btn ripple-infinite btn-round btn-3d btn-default btn-lg"
 						style="position: relative;">
@@ -88,6 +88,9 @@ body {
 							<span class="icon-user-unfollow"></span>
 						</div>
 					</button>
+					 <!-- 로그아웃 폼(강희) -->
+					<button id="logout" >로그아웃</button>
+					
 					<!-- 회원 정보 수정 하기 -->
 					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
@@ -338,6 +341,13 @@ body {
       <input id="circleHidden" type="hidden"  value="9">
  
     </form> 
+    
+    
+    <!-- 로그아웃 폼(강희) -->
+    <form method="post" id="logoutForm" action="logout">
+      <input id="logoutHidden" type="hidden" name="userid" value="${userid}">
+ 
+    </form>
 	<!-- end: content -->
 
 	<button id="mimin-mobile-menu-opener"
@@ -366,7 +376,15 @@ body {
 <script>
 	$(document).ready(function() {
 		
-		 var loginSession = '${userid}';
+		
+		var loginSession = '${userid}';
+
+		$("#logout").on("click", function(){
+					
+			$('#logoutForm').submit();
+					
+		}); // 로그아웃 처리 (강희)
+			
 			console.log(loginSession);
 			$('#circle2').on("click", function(event) {
 				
@@ -525,7 +543,7 @@ body {
 					alert("이미지 수정 완료");
 				}
 			});
-		}); // drag & drop end
+		}); // drag & drop end (강희)
 		
 	});
 </script>

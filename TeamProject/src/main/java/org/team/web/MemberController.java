@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -133,13 +134,13 @@ public class MemberController {
    }
 
    @RequestMapping(value = "/loginPOST", method = RequestMethod.POST)
-   public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, RedirectAttributes rttr)
-         throws Exception {
+   public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, 
+		   RedirectAttributes rttr) throws Exception {
 
       String userid = vo.getUserid();
       String userpw = vo.getUserpw();
       boolean check = memberService.memberLogin(vo);
-
+      
       if (check == true) {
          rttr.addFlashAttribute("msg", "loginSUCCESS");
          logger.info("로그인성공..." + check);
@@ -151,27 +152,19 @@ public class MemberController {
       }
    }
 
+   @RequestMapping(value = "/logout", method = RequestMethod.POST)
+   public String logout(HttpServletRequest req, HttpServletResponse res, 
+		   MemberVO vo) throws Exception {
+	   logger.info("logout: " + vo);
+	   String userid = vo.getUserid();
+	  
+	   return loginUtil.logout(req, res, userid);
+   }
+   
    @RequestMapping(value = "/loginGeustPOST", method = RequestMethod.POST)
    public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res, String userid) throws Exception {
+        logger.info("GUEST 쿠키 생성 ...........");
 
-   
-      
-      /*boolean check = memberService.memberLogin(vo);
-
-      if (check == true) {
-         rttr.addFlashAttribute("msg", "loginSUCCESS");
-         logger.info("로그인성공..." + check);
-         return loginUtil.Success(req, res, userid, userpw);
-      } else {
-         rttr.addFlashAttribute("msg", "loginFail");
-         logger.info("로그인실패..." + check);
-         return loginUtil.Fail(req, res);
-      }*/
-      
-        logger.info("GESUT 쿠키 생성 ...........");
-
-     
-        
         return loginUtil.Geust(req, res, userid);
    }
 
