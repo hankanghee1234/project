@@ -41,10 +41,6 @@ public class PptController {
 	@Autowired
 	private ImgServiceImpl imgService;
 
-	/*
-	 * @Autowired private FileServiceImpl fileService;
-	 */
-
 	private static final Logger logger = LoggerFactory.getLogger(PptController.class);
 
 	@GetMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" })
@@ -52,9 +48,6 @@ public class PptController {
 
 		InputStream in = new FileInputStream("C:\\zzz\\" + name);
 
-		//InputStream in = new FileInputStream(
-		//		"C:\\Users\\ASUS\\Desktop\\Last project\\chat3\\chat2\\public\\reveal-view\\img\\" + name);
-		
 		return IOUtils.toByteArray(in);
 	}
 
@@ -100,7 +93,7 @@ public class PptController {
 
 		pptService.create(pvo);
 
-		List<PptFnoVO> list = pptService.pptFnoRead("user01");
+		List<PptFnoVO> list = pptService.pptFnoRead("user00");
 
 		String tos = null;
 		System.out.println("0번쨰임  " + list.get(0));

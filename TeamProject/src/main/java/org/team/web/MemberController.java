@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.MemberVO;
 import org.team.domain.PageMaker;
+import org.team.domain.PptVO;
 import org.team.domain.SearchCriteria;
 import org.team.service.MemberServiceImpl;
 import org.team.service.PptServiceImpl;
@@ -116,13 +117,6 @@ public class MemberController {
      
    } // 페이징 처리 및 검색 조건 처리 및 로그인 정보 출력 완료
 
-   @RequestMapping(value = "/circle", method = RequestMethod.POST)
-   public String circle() throws Exception {
-      logger.info("circle............");
-      /* cc?id= */
-      return "redirect:http://localhost:8080/cc?id=9";
-   }
-
    @RequestMapping(value = "/register", method = RequestMethod.POST)
    public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
       logger.info("register POST............");
@@ -162,14 +156,14 @@ public class MemberController {
 	   return loginUtil.logout(req, res, userid);
    }
    
-   @RequestMapping(value = "/loginGeustPOST", method = RequestMethod.POST)
-   public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res, String userid) throws Exception {
+   @RequestMapping(value = "/loginGeustPOST/{userid}", method = RequestMethod.POST)
+   public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res, 
+		   @PathVariable("userid")String userid) throws Exception {
         logger.info("GUEST 쿠키 생성 ...........");
 
         return loginUtil.Geust(req, res, userid);
    }
 
-   
    @RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
    public boolean dupleCheck(String userid) throws Exception {
       boolean check = memberService.loginDupleChk(userid);
@@ -198,5 +192,19 @@ public class MemberController {
       
       return "redirect:/index";
    } // delete controller end
+   
+   @RequestMapping(value = "/pptDel", method = RequestMethod.POST)
+   public String pptDel(PptVO pvo, RedirectAttributes rttr) throws Exception {
+      logger.info("pptDel Post...........");
+
+      System.out.println(pvo);
+   
+      Integer fno = pvo.getFno();
+      
+      pptService.delete(fno);
+      rttr.addFlashAttribute("msg", "success");
+      
+      return "redirect:./myPage";
+   } 
    
 }
