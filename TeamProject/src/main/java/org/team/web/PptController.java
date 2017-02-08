@@ -1,17 +1,13 @@
 package org.team.web;
 
-import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-
-import javax.imageio.ImageIO;
 
 import org.apache.commons.io.IOUtils;
-import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -95,32 +90,6 @@ public class PptController {
 		logger.info("pptCreate GET............");
 	}
 	
-	/*@RequestMapping(value = "/delete/{fno}", method = RequestMethod.POST)
-	public @ResponseBody String pptDelete(@PathVariable("fno") Integer fno) throws Exception {
-		
-		pptService.delete(fno);
-		
-		return "redirect:./myPage";
-	}*/
-
-	
-	/*
-	 * @RequestMapping(value = "/pptCreate2", method = RequestMethod.POST)
-	 * public String create2(ImgVO ivo, PptVO pvo, RedirectAttributes rttr)
-	 * throws Exception { logger.info("pptCreate POST............");
-	 * 
-	 * logger.info(ivo.toString()); logger.info(pvo.toString());
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * imgService.create(ivo, pvo); rttr.addFlashAttribute("msg", "success");
-	 * 
-	 * return "redirect:./myPage"; }
-	 */
-
-	/* @ResponseBody */
 	@RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
 	public String create(ImgVO ivo, PptVO pvo, RedirectAttributes rttr) throws Exception {
 		logger.info("pptCreate POST............");
@@ -208,20 +177,21 @@ public class PptController {
 		String fileName;
 
 		for (MultipartFile multipartFile : fileList) {
-
+			
 			byte[] buf = multipartFile.getBytes();
-			System.out.println(multipartFile.getOriginalFilename());
+			System.out.println("up3 : "+multipartFile.getOriginalFilename());
 
 			InputStream is = multipartFile.getInputStream();
+			
 			fileName = multipartFile.getOriginalFilename();
-
+			
 			FileOutputStream fos = new FileOutputStream("C:\\zzz\\pptdesc\\" + fileName);
-
+			 
 			fos.write(buf);
 			fos.flush();
 
 			fos.close();
-
+			
 			return fileName;
 
 		}

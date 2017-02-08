@@ -89,15 +89,16 @@ public class MemberController {
    }
    
    @RequestMapping(value = "/myPage", method = RequestMethod.GET)
-   public void pptListGET(@ModelAttribute("cri") SearchCriteria cri, Model model, Integer fno,
+   public void pptListGET(@ModelAttribute("cri") SearchCriteria cri, Model model,
          HttpServletRequest req) throws Exception {
       logger.info("PPT List GET & membership GET............");
       logger.info(cri.toString());
-
+      
       HttpSession session = req.getSession();
       String userid = session.getAttribute("userid").toString();      
       System.out.println(userid);
       cri.setUserid(userid);
+      
       model.addAttribute("read", memberService.read(userid));
       model.addAttribute("pptUserList", pptService.listSearchCriteria(cri));
       /* session처리로 로그인한 유저 정보 출력하여 로그인한 정보마다 ppt 정보 출력 */
@@ -115,11 +116,6 @@ public class MemberController {
       logger.info("circle............");
       /* cc?id= */
       return "redirect:http://localhost:8080/cc?id=9";
-   }
-
-   @RequestMapping(value = "/createPage", method = RequestMethod.GET)
-   public void createPageGET() throws Exception {
-      logger.info("CREATE PAGE............");
    }
 
    @RequestMapping(value = "/register", method = RequestMethod.POST)

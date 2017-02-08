@@ -197,6 +197,7 @@ body {
 										<div class="input-group-text">
 											<input type="text" class="form-control" name="keyword"
 												id="keywordInput" value="${cri.keyword}">
+												
 										</div>
 										<!-- /input-group -->
 										<!-- btn-group -->
@@ -339,15 +340,16 @@ body {
              
    <form method="post" id="circle" action="circle">
       <input id="circleHidden" type="hidden"  value="9">
- 
     </form> 
-    
     
     <!-- 로그아웃 폼(강희) -->
     <form method="post" id="logoutForm" action="logout">
       <input id="logoutHidden" type="hidden" name="userid" value="${userid}">
- 
     </form>
+
+	<!-- 페이징 이동시 information 값 저장용 -->
+	<input type="hidden" id="info" name="fno" value="${cri.fno}">
+	
 	<!-- end: content -->
 
 	<button id="mimin-mobile-menu-opener"
@@ -467,11 +469,13 @@ body {
 				}
 			});
 		}); // ajax 처리로 이미지 및 ppt 정보 호출
+		
 		$("#searchBtn").on("click", function(event) {
 			
 			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
 							+ $("select option:selected").val() 
-							+ "&keyword=" + $('#keywordInput').val();
+							+ "&keyword=" + $('#keywordInput').val()
+							/* + "fno=" + $('#info').val() */;
 		}); // 검색 조건 처리
 		
 		var msg = '${msg}';

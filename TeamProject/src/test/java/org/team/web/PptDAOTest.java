@@ -34,7 +34,10 @@ public class PptDAOTest {
 		vo.setPpt_desc("ajax");
 		
 		dao.create(vo);
+		
+		System.out.println("=========================");
 		System.out.println(vo);
+		System.out.println("=========================");
 	}
 	
 	@Test
@@ -47,13 +50,18 @@ public class PptDAOTest {
 		
 		
 		String tos = null;
+		
+		System.out.println("=========================");
 		System.out.println("0번쨰임  "+list.get(0));
+		System.out.println("=========================");
 		
 		for(int i = 0; i<list.size();i++){
 			PptFnoVO str = list.get(i);
 			tos = str.toString();
 			
+			System.out.println("=========================");
 			System.out.println(tos);
+			System.out.println("=========================");
 			
 			String[] s1 = tos.split("=");
 				
@@ -63,33 +71,16 @@ public class PptDAOTest {
 			
 			String s2[] = tos1.split("]");
 			
+			System.out.println("=========================");
 			System.out.println(s2[0]);
+			System.out.println("=========================");
 			
 			tos = s2[0];
 			
 		}
-		
-		
-	
+		System.out.println("=========================");
 		System.out.println("누적?"+tos);
-		
-		
-		
-		
-		
-		/*
-		for(int i = 0; i<list.size(); i++){
-			str = list.get(i);
-			
-			
-			System.out.println(str);
-			
-			
-		}
-*/
-	
-		
-		
+		System.out.println("=========================");
 	}
 	
 	@Test
@@ -102,7 +93,10 @@ public class PptDAOTest {
 	public void testPptRead() throws Exception {
 		
 		Integer fno = 1;
+		
+		System.out.println("=========================");
 		System.out.println(dao.pptRead(fno));
+		System.out.println("=========================");
 	}
 	
 	@Test
@@ -115,7 +109,10 @@ public class PptDAOTest {
 		vo.setPpt_desc("realsense");
 		
 		dao.update(vo);
+		
+		System.out.println("=========================");
 		System.out.println(vo);
+		System.out.println("=========================");
 	}
 	
 	@Test
@@ -123,7 +120,10 @@ public class PptDAOTest {
 		
 		Integer fno = 1;
 		dao.delete(fno);
+		
+		System.out.println("=========================");
 		System.out.println(fno);
+		System.out.println("=========================");
 	}
 	
 	@Test
@@ -131,12 +131,16 @@ public class PptDAOTest {
 		
 		int page = 1;
 		
-		List<PptVO> list = dao.listPage(page);
+		System.out.println("=========================");
+		System.out.println(dao.listPage(page));
+		System.out.println("=========================");
+		
+		/*List<PptVO> list = dao.listPage(page);
 		
 		for (PptVO PptVO : list) {
 			System.out.println(PptVO.getFno() + ":" + PptVO.getUserid()
 			+ ":" + PptVO.getPpt_kind() + ":" + PptVO.getPpt_title() + ":" + PptVO.getPpt_desc());
-		}
+		}*/
 	}
 	
 	@Test
@@ -145,14 +149,17 @@ public class PptDAOTest {
 		Criteria cri = new Criteria();
 		
 		cri.setPage(1);
-		cri.setPerPageNum(20);
+		cri.setPerPageNum(10);
 		
-		List<PptVO> list = dao.listCriteria(cri);
+		System.out.println("=========================");
+		System.out.println(dao.listCriteria(cri));
+		System.out.println("=========================");
+		/*List<PptVO> list = dao.listCriteria(cri);
 		
 		for (PptVO PptVO : list) {
 			System.out.println(PptVO.getFno() + ":" + PptVO.getUserid()
 			+ ":" + PptVO.getPpt_kind() + ":" + PptVO.getPpt_title() + ":" + PptVO.getPpt_desc());
-		}
+		}*/
 	}
 	
 	@Test
@@ -174,5 +181,7 @@ public class PptDAOTest {
 		
 		System.out.println("================================");
 		System.out.println("COUNT: " + dao.listSearchCount(cri));
+		System.out.println("================================");
 	} 
+	
 }

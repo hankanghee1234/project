@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="imgRead" resultType="ImgVO" parameterType="int">
-		select * from tbl_img where fno = #{fno} order by ino desc
+		select * from tbl_img where fno = #{fno} order by ino asc
 	</select>
 	
 	<update id="update" parameterType="ImgVO">

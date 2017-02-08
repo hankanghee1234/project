@@ -57,7 +57,7 @@ $(function() {
             contentType : false,
             processData : false,
             success : function(data) {
-               console.log(data);
+               console.log("dsdsds"+data); // 여기서 data를 받으면 한글이 깨짐
                
                
                $.ajax({
