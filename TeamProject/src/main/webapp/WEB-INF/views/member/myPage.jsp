@@ -197,7 +197,8 @@ body {
 										<div class="input-group-text">
 											<input type="text" class="form-control" name="keyword"
 												id="keywordInput" value="${cri.keyword}">
-												
+											<!-- 페이징 이동시 information 값 저장용 -->
+											<input type="hidden" id="info" name="fno" value="${cri.fno}"> 	
 										</div>
 										<!-- /input-group -->
 										<!-- btn-group -->
@@ -347,8 +348,7 @@ body {
       <input id="logoutHidden" type="hidden" name="userid" value="${userid}">
     </form>
 
-	<!-- 페이징 이동시 information 값 저장용 -->
-	<input type="hidden" id="info" name="fno" value="${cri.fno}">
+	
 	
 	<!-- end: content -->
 
@@ -378,6 +378,9 @@ body {
 <script>
 	$(document).ready(function() {
 		
+		if($('#info').val()) {
+			pptView($('#info').val()); 
+		} // 여기서 fno에 대한 값을 받는다.
 		
 		var loginSession = '${userid}';
 
@@ -399,8 +402,15 @@ body {
 			event.preventDefault();
 			var fno = $(this).attr('id'); // fno를 아이디 값에 속성을 매김		
 			console.log(fno);
+			// $('#info').val()
+			$('#info').val(fno); // fno값을 받아서 hidden값으로 나타냄
 			
+			pptView(fno); // pptView 라는 변수 하나를 잡아서 fno값을 넣어줌
 			
+		}); 
+		
+		function pptView(fno) {
+
 			/*pptRead를 ajax로 불러오기*/
 			$.ajax({
 				url : "../ppt/pptRead/" + fno, // pptRead를 controller에 출력하여 fno에 대한 ppt를 읽는다.
@@ -465,17 +475,19 @@ body {
 	                   	 );
 					};
                     console.log(obj);
-                  }); 
+                  }); // if ~ else 구문으로 이미지를 뽑는다.
 				}
-			});
-		}); // ajax 처리로 이미지 및 ppt 정보 호출
+			}); // ajax 처리로 이미지 및 ppt 정보 호출
+		} // pptView에서 정보와 이미지가 같이 호출 됨
+		
 		
 		$("#searchBtn").on("click", function(event) {
 			
-			self.location = "myPage" + '${pageMaker.makeQuery(1)}' + "&searchType="
+			self.location = "myPage" + '${pageMaker.makeQuery(1)}' 
+							+ "&fno=" + $('#info').val()  
+							+ "&searchType="
 							+ $("select option:selected").val() 
-							+ "&keyword=" + $('#keywordInput').val()
-							/* + "fno=" + $('#info').val() */;
+							+ "&keyword=" + $('#keywordInput').val();
 		}); // 검색 조건 처리
 		
 		var msg = '${msg}';

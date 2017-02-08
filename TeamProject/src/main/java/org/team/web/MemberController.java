@@ -89,7 +89,7 @@ public class MemberController {
    }
    
    @RequestMapping(value = "/myPage", method = RequestMethod.GET)
-   public void pptListGET(@ModelAttribute("cri") SearchCriteria cri, Model model,
+   public void pptListGET(@ModelAttribute("cri") SearchCriteria cri, Model model, Integer fno,
          HttpServletRequest req) throws Exception {
       logger.info("PPT List GET & membership GET............");
       logger.info(cri.toString());
@@ -106,7 +106,12 @@ public class MemberController {
       PageMaker pageMaker = new PageMaker();
       pageMaker.setCri(cri);
       pageMaker.setTotalCount(pptService.listSearchCount(cri));
-
+      
+      System.out.println("====================");
+      cri.setFno(fno);
+      System.out.println("fno 값 확인:" + fno);
+      System.out.println("====================");
+      
       model.addAttribute("pageMaker", pageMaker);
      
    } // 페이징 처리 및 검색 조건 처리 및 로그인 정보 출력 완료

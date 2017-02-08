@@ -5,7 +5,18 @@ public class SearchCriteria extends Criteria {
 	private String searchType;
 	private String keyword;
 	private String userid;
+	private Integer fno;
 	
+	public SearchCriteria() {
+		this.fno = 1;
+	}
+	
+	public Integer getFno() {
+		return fno;
+	}
+	public void setFno(Integer fno) {
+		this.fno = fno;
+	}
 	public String getSearchType() {
 		return searchType;
 	}
@@ -27,12 +38,8 @@ public class SearchCriteria extends Criteria {
 	
 	@Override
 	public String toString() {
-		return "SearchCriteria [searchType=" + searchType + ", keyword=" + keyword + ", userid=" + userid + "]";
+		return "SearchCriteria [searchType=" + searchType + ", keyword=" + keyword + ", userid=" + userid + ", fno="
+				+ fno + "]";
 	}
-	
-	
-	
-	
-	
 
 }
