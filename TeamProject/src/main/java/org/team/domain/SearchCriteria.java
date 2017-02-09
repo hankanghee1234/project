@@ -7,10 +7,6 @@ public class SearchCriteria extends Criteria {
 	private String userid;
 	private Integer fno;
 	
-	public SearchCriteria() {
-		this.fno = 1;
-	}
-	
 	public Integer getFno() {
 		return fno;
 	}

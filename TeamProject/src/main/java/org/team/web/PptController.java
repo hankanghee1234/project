@@ -3,7 +3,6 @@ package org.team.web;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.team.domain.ImgVO;
 import org.team.domain.PptFnoVO;
 import org.team.domain.PptVO;
+import org.team.domain.SearchCriteria;
 import org.team.domain.UploadFileVO;
 import org.team.service.ImgServiceImpl;
 import org.team.service.PptServiceImpl;
@@ -54,6 +54,7 @@ public class PptController {
 	@RequestMapping(value = "/chatList", method = RequestMethod.GET)
 	public ResponseEntity<List<PptVO>> chatList() throws Exception {
 		logger.info("PPT리스트..인덱스페이지에서..");
+		
 		ResponseEntity<List<PptVO>> entity = null;
 		try {
 			entity = new ResponseEntity<List<PptVO>>(pptService.pptGuestList(), HttpStatus.OK);
@@ -67,14 +68,18 @@ public class PptController {
 	@RequestMapping(value = "/pptRead/{fno}", method = RequestMethod.GET)
 	public @ResponseBody PptVO pptReadGET(@PathVariable("fno") Integer fno) throws Exception {
 		logger.info("pptRead GET..............");
-
+		logger.info("ppt file 번호: " + fno);
+		logger.info("======================================");
+		
 		return pptService.pptRead(fno);
 	}
 
 	@RequestMapping(value = "/imgRead/{fno}", method = RequestMethod.GET)
 	public @ResponseBody List<ImgVO> imgViewGET(@PathVariable("fno") Integer fno) throws Exception {
-		logger.info("IMage GET................");
-
+		logger.info("Image GET................");
+		logger.info("img file 번호: " + fno);
+		logger.info("======================================");
+		
 		return imgService.imgRead(fno);
 	} // ppt 이미지 읽기
 
@@ -88,8 +93,6 @@ public class PptController {
 		logger.info("pptCreate POST............");
 		logger.info(ivo.toString());
 		logger.info(pvo.toString());
-		System.out.println(ivo);
-		System.out.println(pvo);
 
 		pptService.create(pvo);
 

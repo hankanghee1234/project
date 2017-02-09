@@ -196,9 +196,7 @@ body {
 									<div class="input-group">
 										<div class="input-group-text">
 											<input type="text" class="form-control" name="keyword"
-												id="keywordInput" value="${cri.keyword}">
-											<!-- 페이징 이동시 information 값 저장용(강희) -->
-											<input type="hidden" id="info" name="fno" value="${cri.fno}"> 	
+												id="keywordInput" value="${cri.keyword}">							 	
 										</div>
 										<!-- /input-group -->
 										<!-- btn-group -->
@@ -238,11 +236,12 @@ body {
 							</div>
 							<!-- list paging 처리 -->
 							<div class="col-md-8">
+							<div class="paging">
 								<ul class="pagination pull-right">
 									<c:if test="${pageMaker.prev}">
 										<li><a
 											href="myPage${pageMaker.makeSearch(pageMaker.startPage - 1)}"
-											aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+											aria-label="Previous"><span aria-hidden="true">≪</span></a></li>
 									</c:if>
 									<c:forEach begin="${pageMaker.startPage}"
 										end="${pageMaker.endPage}" var="idx">
@@ -254,9 +253,10 @@ body {
 									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 										<li><a
 											href="myPage${pageMaker.makeSearch(pageMaker.endPage + 1)}"
-											aria-label="Next"><span aria-hidden="true">»</span></a></li>
+											aria-label="Next"><span aria-hidden="true">≫</span></a></li>
 									</c:if>
 								</ul>
+							</div>
 							</div> <!-- /.list paging 처리 -->
 						</div> <!-- /.ppt list 출력-->
 					</div>
@@ -348,7 +348,8 @@ body {
       <input id="logoutHidden" type="hidden" name="userid" value="${userid}">
     </form>
 
-	
+	<!-- 페이징 이동시 information 값 저장용(강희) -->
+	<input type="hidden" id="info" name="fno" value="${cri.fno}">
 	
 	<!-- end: content -->
 
@@ -391,18 +392,19 @@ body {
 		}); // 로그아웃 처리 (강희)
 			
 			console.log(loginSession);
-			$('#circle2').on("click", function(event) {
-				
-				/* self.location.href="주소"; */
-				/* self.location.href="http://localhost:8082/cc?id=9#/2"; */
-				 self.location = "http://192.168.0.28:8082/cc?id=9&userid="+loginSession+"#/"; 
-			})
- 
+		$('#circle2').on("click", function(event) {
+			
+			self.location = "http://192.168.0.28:8082/cc?id=9&userid="+loginSession+"#/"; 
+		
+		});
+		
+		
+
 		$(".title-tag").on("click", function(event) {
 			event.preventDefault();
 			var fno = $(this).attr('id'); // fno를 아이디 값에 속성을 매김		
 			console.log(fno);
-			// $('#info').val()
+			
 			$('#info').val(fno); // fno값을 받아서 hidden값으로 나타냄 (강희)
 			
 			pptView(fno); // pptView 라는 변수 하나를 잡아서 fno값을 넣어줌 (강희)
@@ -487,7 +489,9 @@ body {
 							+ "&fno=" + $('#info').val()  
 							+ "&searchType=" + $("select option:selected").val() 
 							+ "&keyword=" + $('#keywordInput').val(); 
+		
 		}); // 검색 조건 처리, 검색 처리 변경(강희)
+		
 		
 		var msg = '${msg}';
 		

@@ -31,6 +31,7 @@ import org.team.domain.MemberVO;
 import org.team.domain.PageMaker;
 import org.team.domain.PptVO;
 import org.team.domain.SearchCriteria;
+import org.team.service.ImgServiceImpl;
 import org.team.service.MemberServiceImpl;
 import org.team.service.PptServiceImpl;
 import org.team.util.loginUtil;
@@ -45,6 +46,9 @@ public class MemberController {
    @Autowired
    private PptServiceImpl pptService;
 
+   @Autowired
+   private ImgServiceImpl imgService;
+   
    private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
    
    @GetMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" })
@@ -108,10 +112,9 @@ public class MemberController {
       pageMaker.setCri(cri);
       pageMaker.setTotalCount(pptService.listSearchCount(cri));
       
-      System.out.println("====================");
-      cri.setFno(fno);
-      System.out.println("fno 값 확인:" + fno);
-      System.out.println("====================");
+      logger.info("======================================");
+      logger.info("fno값 확인: " + fno);
+      logger.info("======================================");
       
       model.addAttribute("pageMaker", pageMaker);
      
