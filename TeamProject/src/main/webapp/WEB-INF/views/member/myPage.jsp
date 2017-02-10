@@ -90,16 +90,12 @@ body {
 							<span class="icon-user-unfollow"></span>
 						</div>
 					</button>
-
 					<!-- 로그아웃 폼(강희) -->
 					<button id="logout">로그아웃</button>
-					
-					<button id="fpageBtn">HOME</button>
 
 					<!-- 회원 정보 수정 하기 -->
 					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
-
 							<h4>회원정보 수정</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
@@ -107,7 +103,7 @@ body {
 						</div>
 
 						<div class="panel-body" style="text-align: center;">
-							<div class="modal-body col-md-12" style="line-height: 10px;">
+							<div class="modal-body col-md-12">
 								<form role="form" action="updatePost" method="post">
 									<!-- 아이디는 고정값으로 보여주기 -->
 									<div class="form-group">
@@ -146,7 +142,6 @@ body {
 									</p>
 									<div class='fileDrop'></div>
 									<div class="uploadedList"></div>
-
 								</form>
 							</div>
 							<!-- 수정확인 버튼 -->
@@ -157,17 +152,14 @@ body {
 						<div class="modal-footer"></div>
 					</div>
 					<!-- /.회원 정보 수정 하기 -->
-
 					<!-- 회원 정보 삭제 하기 -->
 					<div class="modal-content modal-secession">
 						<div class="modal-header" style="height: 50px;">
-
 							<h4>회원탈퇴 확인</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
 							</h2>
 						</div>
-
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
 								<h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
@@ -176,15 +168,10 @@ body {
 							<button class="btn btn-warning" id="dangerBtn"
 								data-dismiss="modal" aria-label="Close">취소</button>
 						</div>
-
 						<div class="modal-footer"></div>
 					</div>
-
-
-
 				</div>
 				<!-- /.회원 정보 삭제 하기 -->
-
 				<div class="col-md-12 profile-v1-cover">
 					<img src="../resources/miminium-master/asset/img/bg1.jpg"
 						class="img-responsive" style="height: 300px;">
@@ -198,60 +185,51 @@ body {
 					<div class="panel">
 						<div class="panel-body">
 							<h3>PPT LIST</h3>
+							<form method="get" id="sf">
 							<div class="col-md-12 padding-0">
 								<div class="col-md-8" style="padding-left: 2px;">
 									<!-- 검색 조건 처리 -->
-									<form method="get" id="sf">
-         <input id="spageHidden" type="hidden" name="page" value=${pageMaker.current}>
-         <!-- <input id="mnoHidden" type="hidden" name="mno">  -->
-         <input id="fnoHidden" type="hidden" name="fno" value="2">
-         <select name="searchType">
-				<option value="n"
-					<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-				<option value="k"
-					<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
-				<option value="t"
-					<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
-			</select>
-      <!-- <button id='sBtn'>검색</button>  -->
-      <input type="text" class="form-control" name="keyword"
-												id="keywordInput" value="${cri.keyword}">
-      </form>
- <c:if test="${empty pptUserList}">
-         
-         
-         데이터가 없습니다.
-         <button id="fpageBtn"> 처음 페이지로</button>
-         
-      
-   </c:if> 
-         
-          
-   
+									<input id="spageHidden" type="hidden" name="page" value="${pageMaker.current}"> 
+									<input id="fnoHidden" type="hidden" name="userid"> 
+									<select name="searchType">
+										<option value="n"
+											<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
+										<option value="k"
+											<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
+										<option value="t"
+											<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
+									</select> 
+									<input type="text" class="form-control" name="keyword"
+											id="keywordInput" value="${cri.keyword}">
 									
-										<!-- btn-group -->
-										<div class="input-group-btn">
-											<button type="button" class="btn btn-default" 
-											id="searchBtn">검색</button>
-										</div>
-										<!-- /btn-group -->
+									<!-- btn-group -->
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default" 
+										id="searchBtn">검색</button>
+									<c:if test="${empty pptUserList}">데이터가 없습니다.
+			        				 	<button id="fpageBtn">처음 페이지로</button>
+									</c:if>
 									</div>
+									<!-- /btn-group -->
 								</div>
 							</div>
+							</form>
 						</div>
-						<!-- ppt list 출력-->
-						<div class="panel-body">
-							<div class="responsive-table">
-								<table class="table table-striped table-bordered" width="100%"
-									cellspacing="0">
-									<thead>
-										<tr>
-											<th>발표분야</th>
-											<th>제목</th>
-										</tr>
-									</thead>
-									<tbody>
-										<!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
+					</div>
+					<!-- ppt list 출력-->
+					<div class="panel-body">
+						<div class="responsive-table">
+							<table class="table table-striped table-bordered" width="100%"
+								cellspacing="0">
+								<thead>
+									<tr>
+										<th>발표분야</th>
+										<th>제목</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
+									<c:if test="${!empty pptUserList}">
 										<c:forEach items="${pptUserList}" var="PptVO">
 											<ul class="pptUserList">
 												<tr id="${PptVO.fno}">
@@ -261,203 +239,118 @@ body {
 											</ul>
 										</c:forEach>
 										<!-- /.로그인한 정보에 따른 ppt 리스트 보여주기 -->
-									</tbody>
-								</table>
-							</div>
+									</c:if>
+								</tbody>
+							</table>
+						</div>
 						<!-- list paging 처리 -->
-							<div class="col-md-8">
-								<ul class="pagination pull-right">
-									<c:if test="${pageMaker.prev ne 0}">
-										<li id="pagePrev"><a href="${pageMaker.prev}">이전</a></li>
-									</c:if>
-									 
-									<c:forEach begin="${pageMaker.firstPage}" end="${pageMaker.lastPage}" var='idx'>
-										<li class='active' id='pageLi'><a href='${idx}'>${idx}</a></li>
-									</c:forEach>
-									 
-									<c:if test="${pageMaker.next ne -1}">
-										 <li id="pageNext"><a href="${pageMaker.next}">다음</a></li>
-									</c:if>
-								</ul>
-							</div> <!-- /.list paging 처리 -->
+						<div class="col-md-8">
+							<ul class="pagination pull-right">
+								<c:if test="${pageMaker.prev ne 0}">
+									<li id="pagePrev"><a href="${pageMaker.prev}">이전</a></li>
+								</c:if>
+
+								<c:forEach begin="${pageMaker.firstPage}"
+									end="${pageMaker.lastPage}" var='idx'>
+									<li class='active' id='pageLi'><a href='${idx}'>${idx}</a></li>
+								</c:forEach>
+
+								<c:if test="${pageMaker.next ne -1}">
+									<li id="pageNext"><a href="${pageMaker.next}">다음</a></li>
+								</c:if>
+							</ul>
 						</div>
-						<!-- /.ppt list 출력-->
+						<!-- /.list paging 처리 -->
 					</div>
+					<!-- /.ppt list 출력-->
 				</div>
-				<!-- button 처리 -->
-				<div class="col-md-5">
-					<div class="panel box-v3">
-						<h4>Select Option</h4>
-						<div class="panel box-v4">
-							<div class="panel-body">
-								<button id="circle2"
-									class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary">방송</button>
-
-								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary" id="createBtn">생성</button>
-
-								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary" id="uploadBtn">수정</button>
-
-								<button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary" id="pptDelBtn">삭제</button>
-
-								<!-- <button class=" btn btn-circle btn-3d btn-sm btn-primary"
-									value="primary" onclick="location.href='createPage'">
-									<span class="fa fa-paypal"></span>
-								</button> -->
-							</div>
-
-
-
-
-						</div>
-						<!-- ppt 정보 & img 뿌리기 -->
-						<div class="panel box-v4">
-							<div class="panel-heading bg-white border-none">
-								<h4>
-									<span class="icon-notebook icons"></span> PPT 정보
-								</h4>
-							</div>
-							<div class="panel-body">
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<div id="carousel-example-generic" class="carousel slide"
-										data-ride="carousel">
-
-										<div class="carousel-inner" id="imgContext">
-
-											<div class="item active">
-												<img class="img-responsive"
-													data-src="holder.js/900x500/auto"
-													src="../resources/miminium-master/asset/img/bg1.jpg">
-											</div>
-											<div class="item">
-												<img class="img-responsive"
-													data-src="holder.js/900x500/auto"
-													src="../resources/miminium-master/asset/img/bg1.jpg">
-											</div>
-											<div class="item">
-												<img class="img-responsive"
-													data-src="holder.js/900x500/auto"
-													src="../resources/miminium-master/asset/img/bg1.jpg">
-											</div>
-
-										</div>
-										<a class="left carousel-control" id="prevBtn"
-											href="#carousel-example-generic" role="button"
-											data-slide="prev"> <span
-											class="glyphicon glyphicon-chevron-left"></span></a> <a
-											class="right carousel-control" id="nextBtn"
-											href="#carousel-example-generic" role="button"
-											data-slide="next"> <span
-											class="glyphicon glyphicon-chevron-right"></span></a>
-									</div>
-									<div class="panel-body padding-0">
-										<div id="context"
-											class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
-											<h2 id='pTitle'>제목</h2>
-											<p id='pDesc'>내용</p>
-										</div>
-										<div class="calendar fc fc-ltr fc-unthemed">
-											<div class="fc-toolbar"></div>
-										</div>
-
-									</div>
-
-								</div>
-							</div>
-
-							<div class="modal-content modal-upload">
-								<div class="modal-header" style="height: 50px;">
-
-									<h4>내용수정</h4>
-									<h2 class="modal-title">
-										<i class="icon-user icons"></i>
-									</h2>
-								</div>
-
-								<div class="panel-body" style="text-align: center;">
-
-
-									<form id="ddd" action="update" method="post">
-										<input id="userid" type="hidden" name="userid" value="user00">
-										<input id="upFno" type="hidden" name="fno" value="2">
-
-
-										<br>
-										<p>
-											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;해당분야</label>
-										</p>
-										<input class="w3-input w3-border w3-round-large" type="text"
-											name="ppt_kind" placeholder="Field" value="">
-										<p>
-											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;제목</label>
-										</p>
-										<input class="w3-input w3-border w3-round-large" type="text"
-											name="ppt_title" placeholder="Title" value="">
-										<p>
-											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;내용</label>
-										</p>
-										<input class="w3-input w3-border w3-round-large" type="text"
-											name="ppt_desc" placeholder="Content" value=""> <br>
-									</form>
-
-									<button type="button" id="up"
-										class="w3-btn w3-padding w3-teal w3-round-xlarge"
-										style="width: 120px;">Upload</button>
-
-								</div>
-
-								<div class="modal-footer"></div>
-							</div>
-
-
-
-						</div>
-						<!-- /.ppt 정보 & img 뿌리기 -->
-					</div>
-				</div>
-				<!-- /.button 처리 -->
 			</div>
+			<!-- button 처리 -->
+			<div class="col-md-5">
+				<div class="panel box-v3">
+					<h4>Select Option</h4>
+					<div class="panel box-v4">
+						<div class="panel-body">
+							<button id="circle2"
+								class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary">방송</button>
+
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary" id="createBtn">생성</button>
+
+							<button class=" btn btn-circle btn-3d btn-sm btn-primary"
+								value="primary" id="pptDelBtn">삭제</button>
+						</div>
+					</div>
+					<!-- ppt 정보 & img 뿌리기 -->
+					<div class="panel box-v4">
+						<div class="panel-heading bg-white border-none">
+							<h4>
+								<span class="icon-notebook icons"></span> PPT 정보
+							</h4>
+						</div>
+						<div class="panel-body">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div id="carousel-example-generic" class="carousel slide"
+									data-ride="carousel">
+									<div class="carousel-inner" id="imgContext">
+										<div class="item active">
+											<img class="img-responsive" data-src="holder.js/900x500/auto"
+												src="../resources/miminium-master/asset/img/bg1.jpg">
+										</div>
+										<div class="item">
+											<img class="img-responsive" data-src="holder.js/900x500/auto"
+												src="../resources/miminium-master/asset/img/bg1.jpg">
+										</div>
+										<div class="item">
+											<img class="img-responsive" data-src="holder.js/900x500/auto"
+												src="../resources/miminium-master/asset/img/bg1.jpg">
+										</div>
+									</div>
+									<a class="left carousel-control" id="prevBtn"
+										href="#carousel-example-generic" role="button"
+										data-slide="prev"> 
+										<span class="glyphicon glyphicon-chevron-left"></span></a> 
+										<a class="right carousel-control" id="nextBtn"
+										href="#carousel-example-generic" role="button"
+										data-slide="next"> 
+										<span class="glyphicon glyphicon-chevron-right"></span></a>
+								</div>
+								<div class="panel-body padding-0">
+									<div id="context"
+										class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
+										<h2 id='pTitle' style="color: green;"></h2>
+										<p id='pDesc' style="color: purple;"></p>
+									</div>
+									<div class="calendar fc fc-ltr fc-unthemed">
+										<div class="fc-toolbar"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.ppt 정보 & img 뿌리기 -->
+				</div>
+			</div>
+			<!-- /.button 처리 -->
 		</div>
 	</div>
+	
 	<form id="f1">
 		<input id="useridF" type="hidden" name="userid">
-
 	</form>
 
 	<form method="post" id="circle" action="circle">
 		<input id="circleHidden" type="hidden" value="9">
-
 	</form>
 
-	<form method="post" id="pptDel" action="pptDel">
-		<input id="pptDelHidden" type="hidden" name="fno" value="">
-
-	</form>
-
-
-	<form method="post" id="broadCast" action="broadCast">
-		<input id="broadCastHidden" type="hidden" name="fno" value="">
-
-	</form>
-	
-	 <form method="get" id="index" action="../index">
-                  
-      </form>
-
-
-	<!-- 로그아웃 폼(강희) -->
+	<!-- 로그아웃 폼 -->
 	<form method="post" id="logoutForm" action="logout">
 		<input id="logoutHidden" type="hidden" name="userid" value="${userid}">
-
 	</form>
 
-
 	<!-- 페이징 이동시 information 값 저장용 -->
-	<input id="infor" type="hidden" name="fno" value="2">
-
+	<input type="hidden" id="info" name="fno" value="${cri.fno}">
 
 	<!-- end: content -->
 
@@ -487,264 +380,175 @@ body {
 <script>
 	$(document).ready(function() {
 		
-		 var loginSession = '${userid}';
-		 
-		 $("#logout").on("click", function(){
-             
-	         $('#logoutForm').submit();
-	               
-	      }); // 로그아웃 처리 (강희)
+		if ($('#info').val()) {
+			pptView($('#info').val());
+		} // 여기서 fno에 대한 값을 받는다. (강희)
 
-		 
-		 var pptID = '';
-			console.log(loginSession);
-			console.log(pptID);
+		var loginSession = '${userid}';
+
+		$("#logout").on("click", function() {
+
+			$('#logoutForm').submit();
+
+		}); // 로그아웃 처리 (강희)
+
+		console.log(loginSession);
+		
 		$('#circle2').on("click", function(event) {
-			
-			var st = (String)(pptID);
-			
-	      	var formData = new FormData();
-	         
-	      	formData.append("file", st);
-		    
-	   
-	      	
-		    $.ajax({
-				url : "/member/broadCast/"+pptID, 
-				type : "post", 
-				
-				
-	         
-				success : function(data) {
-					console.log(data);
 
-				
-				}
-			});    
-			
-			
-		/* 	$('#broadCastHidden').val(pptID);
-			
-			$('#broadCast').submit();
-			 */
-			
-			 self.location = "http://192.168.0.28:8082/ppt?id="+pptID+"#&userid="+loginSession+"#/"; 
-			 
-			 
-			 
-			 
-			
-			 //self.location.href="http://192.168.0.76:8082/ppt?id="+pptID+"#&userid="+loginSession+"#/";
-			 
-			 /* self.location.href="주소"; */
-			   
-			
-		})
+			self.location = "http://192.168.0.28:8082/cc?id=9&userid="
+						+ loginSession + "#/";
 
-		
-		$("#pptDelBtn").on("click", function() {
-			
-			
-			$('#pptDel').submit();
-		}); // 피피티 삭제
-		
-		$("#up").on("click", function(){
-			$("#userid").val(loginSession);
-			$("#upFno").val(pptID);
-			$("#ddd").submit();
-			console.log("업데이트 보내기!!!")
 		});
-		
-	/* 	var fno = 2; */
+
 		$(".title-tag").on("click", function(event) {
-
 			event.preventDefault();
-			
-			var fno = $(this).attr('id'); 
-			
-			$('#infor').val(fno);
-			$('#fnoHidden').val(fno);
+			var fno = $(this).attr('id'); // fno를 아이디 값에 속성을 매김		
+			console.log(fno);
 
-			touchTitle(fno);
+			$('#fnoHidden').val(fno); // fno값을 받아서 hidden값으로 나타냄 (강희)
 
-		}); // ajax 처리로 이미지 및 ppt 정보 호출
-		
-		//즉시 실행 함수로 만들기
-		var touchTitle = function(fno){ 
-				// fno를 아이디 값에 속성을 매김		
-				console.log(fno);
-				pptID = fno;
-				console.log(pptID);
-				
-				$('#pptDelHidden').val(pptID);
-				/*pptRead를 ajax로 불러오기*/
-				$.ajax({
-					url : "../ppt/pptRead/" + fno, // pptRead를 controller에 출력하여 fno에 대한 ppt를 읽는다.
-					type : "get", // get 방식
-		
-					success : function(data) {
-						console.log(data.ppt_title);
-						console.log(data.ppt_desc);
-						
-						$('#pTitle').empty(); 
-						$('#pDesc').empty(); 
-						// title과 desc 데이터를 비운다.
-						
-						$('#pTitle').append(data.ppt_title);
-						$('#pDesc').append(data.ppt_desc);
-						// title과 desc에 대한 내용을 삽입한다.
-					}
-				}); // ajax로 ppt_title과 ppt_context 내용 출력
-			
+			pptView(fno); // pptView 라는 변수 하나를 잡아서 fno값을 넣어줌 (강희)
+
+		});
+
+		function pptView(fno) {
+
+			/*pptRead를 ajax로 불러오기*/
+			$.ajax({
+				url : "../ppt/pptRead/" + fno, // pptRead를 controller에 출력하여 fno에 대한 ppt를 읽는다.
+				type : "get", // get 방식
+				success : function(data) {
+					console.log(data.ppt_title);
+					console.log(data.ppt_desc);
+
+					$('#pTitle').empty();
+					$('#pDesc').empty();
+					// title과 desc 데이터를 비운다.
+
+					$('#pTitle').append(data.ppt_title);
+					$('#pDesc').append(data.ppt_desc);
+					// title과 desc에 대한 내용을 삽입한다.
+				}
+			}); // ajax로 ppt_title과 ppt_context 내용 출력
+
 			/*이미지와 버튼을 한번 없애준후 append로 재 삽입을 한다.*/
 			$('#imgContext').remove();
 			$('#prevBtn').remove();
 			$('#nextBtn').remove();
-			
-			$('#carousel-example-generic').append( 
-					'<div class="carousel-inner" id="imgContext"></div>'
-					 + '<a class="left carousel-control" id="prevBtn" href="#carousel-example-generic"' 
-					 + 'role="button" data-slide="prev">' 
-					 + '<span class="glyphicon glyphicon-chevron-left"></span></a>' 
-					 + '<a class="right carousel-control" id="nextBtn" href="#carousel-example-generic"' 
-					 + 'role="button" data-slide="next">'
-					 + '<span class="glyphicon glyphicon-chevron-right"></span></a>'		
-			);
-		
+
+			$('#carousel-example-generic')
+					.append('<div class="carousel-inner" id="imgContext"></div>'
+					+ '<a class="left carousel-control" id="prevBtn" href="#carousel-example-generic"' 
+					+ 'role="button" data-slide="prev">'
+					+ '<span class="glyphicon glyphicon-chevron-left"></span></a>'
+					+ '<a class="right carousel-control" id="nextBtn" href="#carousel-example-generic"' 
+	 				+ 'role="button" data-slide="next">'
+					+ '<span class="glyphicon glyphicon-chevron-right"></span></a>');
+
 			/*imgRead를 ajax로 불러오기*/
 			$.ajax({
 				url : "../ppt/imgRead/" + fno, // imgRead에 대한 fno을 불러온다.
 				type : "get",
-						
 				success : function(data) {
-					 
-					$.each(data, function(index, obj){ 
-					console.log(obj.img);
+					$.each(data, function(index, obj) {
+						console.log(obj.img);
+
+						/*if~else구문으로 img를 active 실시*/
+						if (index == 0) {
+							$('#imgContext').append('<div class="item active">'
+											+ '<img class="img-responsive"'
+											+ 'data-src="holder.js/900x500/auto"'
+											+ 'src="../ppt/show?name=' + obj.img + '">'
+											+ '</div>'
+
+							);
+						} else {
+							$('#imgContext').append('<div class="item">'
+											+ '<img class="img-responsive"'
+											+ 'data-src="holder.js/900x500/auto"'
+											+ 'src="../ppt/show?name=' + obj.img + '">'
+											+ '</div>'
+
+							);
+						};
+						console.log(obj);
+					}); // if ~ else 구문으로 이미지를 뽑는다.
 					
-					
-					/*if~else구문으로 img를 active 실시*/
-					if(index==0){
-	                    $('#imgContext').append(
-	                    		  '<div class="item active">'
-	                    		+ '<img class="img-responsive"' 
-	                    		+ 'data-src="holder.js/900x500/auto"' 
-	                    		+ 'src="../ppt/show?name=' + obj.img + '">'
-	                    		+ '</div>'
-	                        	 
-	                    );
-					} else {
-						 $('#imgContext').append(
-	                   		  '<div class="item">'
-	                   		+ '<img class="img-responsive"' 
-	                   		+ 'data-src="holder.js/900x500/auto"' 
-	                   		+ 'src="../ppt/show?name=' + obj.img + '">'
-	                   		+ '</div>'
-	                       	 
-	                   	 );
-					};
-	                console.log(obj);
-	              }); 
 				}
-			});
-		};
-		
-		
-		
-		
-		
-		
-		var fnoVal = '${cri.fno}'; 
-		if(fnoVal!=2){
-			console.log("fno는 2가 아니다"+fnoVal);
-			$('#fnoHidden').val(fnoVal);
-			touchTitle('${cri.fno}'); 
-		}else if((fnoVal==null)){
-			console.log("fno는 null 이다"+fnoVal);
-		touchTitle($('#infor').val());
-		$('#pptDelHidden').val($('#infor').val());
-		}else{
 			
-			console.log("fno는 2가 맞다"+fnoVal);
-			touchTitle('${cri.fno}');
-			$('#pptDelHidden').val($('#infor').val());
+			}); // ajax 처리로 이미지 및 ppt 정보 호출
 			
-		}
-		
-		 $('#searchBtn').on("click", function(event) {
-	         alert("검색 완료");
-	         $("#spageHidden").val("1");
-	         
-	         $("#sf").attr("action", "myPage").submit();
-	         
-	      });
-		
-		 
-	
-		
-		
-		 $('.pagination pull-right').on("click", "a", function(event) {
+		} // pptView에서 정보와 이미지가 같이 호출 됨 (강희)
 
-	          event.preventDefault(); 
+		$('#searchBtn').on("click", function(event) {
+			alert("검색 완료");
+			$("#spageHidden").val("1");
 
-	         var pageNum = $(this).attr('href');
-	         console.log(pageNum);
-	         $("#spageHidden").val(pageNum);
-	   
-	          $("#sf").attr("action", "list").attr("method","GET").submit();
-	      });
-	       
+			$("#sf").attr("action", "myPage").submit();
 
-	       $('.active').on("click", "a", function(event) {
+		});
 
-	          event.preventDefault(); 
+		$('.pagination pull-right').on("click", "a", function(event) {
 
-	         var pageNum = $(this).attr('href');
-	         console.log(pageNum);
-	         $("#spageHidden").val(pageNum);
-	   
-	          $("#sf").attr("action", "myPage").attr("method","GET").submit();
-	      });
-		 
-		 
-	       $('#pagePrev').on("click", "a", function(event) {
+			event.preventDefault();
 
-	         event.preventDefault();
+			var pageNum = $(this).attr('href');
+			console.log(pageNum);
+			$("#spageHidden").val(pageNum);
 
-	         var pageNum = $(this).attr('href');
-	         var pagePrevNum = pageNum - 1;
-	         
-	         console.log(pageNum+"pageNum");
-	         console.log(pagePrevNum+"pagePrevNum");
-	         
-	         $("#spageHidden").val(pagePrevNum);
-	         $("#sf").attr("action", "myPage").attr("method","GET").submit();
+			$("#sf").attr("action", "list").attr("method", "GET").submit();
+		});
 
-	      });
-	      
-	       
-	      $('#pageNext').on("click", "a", function(event) { 
+		$('.active').on("click", "a", function(event) {
 
-	         event.preventDefault();
- 
-	         var pageNum = $(this).attr('href');
-	         
-	         console.log(pageNum+"pageNum");
-	         
-	         var pageNextNum = ++pageNum;
-	         
-	         console.log(pageNextNum+"pageNextNum");
-	         
-	         $("#spageHidden").val(pageNextNum);
-	         $("#sf").attr("action", "myPage").attr("method","GET").submit();
+			event.preventDefault();
 
-	      });
-      	
+			var pageNum = $(this).attr('href');
+			console.log(pageNum);
+			$("#spageHidden").val(pageNum);
+
+			$("#sf").attr("action", "myPage").attr("method", "GET").submit();
+		});
+
+		$('#pagePrev').on("click", "a", function(event) {
+
+			event.preventDefault();
+
+			var pageNum = $(this).attr('href');
+			var pagePrevNum = pageNum - 1;
+
+			console.log(pageNum + "pageNum");
+			console.log(pagePrevNum + "pagePrevNum");
+
+			$("#spageHidden").val(pagePrevNum);
+			$("#sf").attr("action", "myPage").attr("method", "GET").submit();
+
+		});
+
+		$('#pageNext').on("click", "a", function(event) {
+
+			event.preventDefault();
+
+			var pageNum = $(this).attr('href');
+
+			console.log(pageNum + "pageNum");
+
+			var pageNextNum = ++pageNum;
+
+			console.log(pageNextNum + "pageNextNum");
+
+			$("#spageHidden").val(pageNextNum);
+			$("#sf").attr("action", "myPage").attr("method", "GET").submit();
+
+		});
+
 		var msg = '${msg}';
-		
+
 		if (msg == 'success') {
 			alert('완료되었습니다.');
 		}
-		
+
 		var formObj = $("form[role='form']");
 		console.log(formObj);
 
@@ -758,72 +562,65 @@ body {
 			formObj.submit();
 		}); // 유저 정보 delete
 
-		$("#fpageBtn").on("click", function(){
-			$("#index").submit();
-		})
-		
-		$("#createBtn").on("click", function(){
-			
+		$("#createBtn").on("click", function() {
+
 			var cookie = document.cookie.split(';');
-	        console.log('로그인쿠키값!! : ' + cookie);
+			console.log('로그인쿠키값!! : ' + cookie);
+			var cooki = JSON.stringify(cookie);
+			var cook = new Array();
+			cook = cooki.split("=");
+			console.log(cook[1]);
+			var cook2 = new Array();
+			cook2 = cook[1].split('"');
+			console.log(cook2[0]);
 
-	        var cooki = JSON.stringify(cookie);
-
-
-	        var cook = new Array();
-	        cook = cooki.split("=");
-
-	        console.log(cook[1]);
-
-	        var cook2 = new Array();
-	        cook2 = cook[1].split('"');
-
-	        console.log(cook2[0]);
-	        
 			$("#useridF").val(cook2[0]);
-			
-		
-			$("#f1").attr("action", "dropzone").submit();
-		}); // 생성 페이지 이동
-		
-		
-		var uploadedList = $(".uploadedList");
-	      
-	      $(".fileDrop").on("dragenter dragover", function(event) {
-	         event.preventDefault();
-	      });
-	      
-	      $(".fileDrop").on("drop", function(event) {
-	         event.preventDefault();
-	         
-	         var files = event.originalEvent.dataTransfer.files;
-	         var file = files[0];
-	         
-	         var formData = new FormData();
-	         
-	         $('.uploadedList').empty();
-	         formData.append("file", file);
-	         
-	         console.log(formData);
-	         
-	         $.ajax({
-	            url : "upload",
-	            data : formData,
-	            dataType : 'text',
-	            type : "post",
-	            contentType : false,
-	            processData : false,
-	            success : function(data) {
-	               uploadedList.html("<img src=show?name=" + data + ">");
-	               $("#imgsrc").val(data);
-	               alert("이미지 수정 완료");
-	            }
-	         });
-	      }); // drag & drop end (강희)
-	      
 
-		
+			$("#f1").attr("action", "dropzone").submit();
+
+		}); // 생성 페이지 이동
+
+		var uploadedList = $(".uploadedList");
+
+		$(".fileDrop").on("dragenter dragover", function(event) {
+			
+			event.preventDefault();
+			
+		});
+
+		$(".fileDrop").on("drop", function(event) {
+			
+			event.preventDefault();
+
+			var files = event.originalEvent.dataTransfer.files;
+			var file = files[0];
+
+			var formData = new FormData();
+
+			$('.uploadedList').empty();
+			formData.append("file", file);
+
+			console.log(formData);
+
+			$.ajax({
+				url : "upload",
+				data : formData,
+				dataType : 'text',
+				type : "post",
+				contentType : false,
+				processData : false,
+				success : function(data) {
+					uploadedList.html("<img src=show?name=" + data + ">");
+					$("#imgsrc").val(data);
+					alert("이미지 수정 완료");
+				}
+			
+			});
+			
+		}); // drag & drop end (강희)
+
 	});
+					
 </script>
 
 <script>
@@ -843,10 +640,6 @@ body {
 
 	$(".secession").click(function() {
 		$(".modal-secession").toggle("slow");
-	});
-	
-	$("#uploadBtn").click(function() {
-		$(".modal-upload").toggle("slow");
 	});
 </script>
 

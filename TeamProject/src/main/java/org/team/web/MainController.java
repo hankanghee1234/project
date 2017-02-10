@@ -28,30 +28,16 @@ public class MainController {
 	public void socket2() throws Exception {
 		logger.info("socket2페이지.........");
 		
-/*        SimpleClient cm = new SimpleClient();
-        cm.ClientRun("test");
-        
-        logger.info("test 보냈음.........");*/
-        
-	
 	}
 	
 
 	@RequestMapping(value = "/nodeWeb", method = RequestMethod.POST)
 	public String nodeWeb() throws Exception {
 		logger.info("nodeWeb.........");
-		
- /*       SimpleClient cm = new SimpleClient();
-        cm.ClientRun("test");*/
-        
 
-    
         return "redirect:http://localhost:8080";
         
-	
 	}
-	
-	
 	
 	@RequestMapping(value = "/sendSocket", method = RequestMethod.POST)
 	public String sendSocket() throws Exception {
@@ -62,9 +48,7 @@ public class MainController {
         
         logger.info("sendSocket test 보냈음.........");
 
-        
         return "redirect:http://localhost:8081/socket2";
-	
 	}
     
 }

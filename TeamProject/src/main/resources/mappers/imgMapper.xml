@@ -13,9 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into tbl_img (fno, img) 
 		values (#{fno}, #{img})
 	</insert>
-	
-	
-	
+
 	<select id="imgRead" resultType="ImgVO" parameterType="int">
 		select * from tbl_img where fno = #{fno} order by ino asc
 	</select>

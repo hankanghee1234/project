@@ -54,12 +54,6 @@ public class MemberController {
 
    private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
    
-   @RequestMapping(value = "/dropzone", method = RequestMethod.GET)
-   public void dropzoneGET() throws Exception {
-      logger.info("dropzone PAGE............");
-   }
-   
-   
    @RequestMapping(value = "/myPage", method = RequestMethod.GET)
    public void pptListGET(@ModelAttribute("cri") SearchCriteria cri, Model model, Integer fno,
          HttpServletRequest req) throws Exception {
@@ -79,26 +73,12 @@ public class MemberController {
       
       PageMaker pageMaker = new PageMaker( pageNum,pptService.listSearchCount(cri));
 
-      
       logger.info("======================================");
       logger.info("fno값 확인: " + fno);
       logger.info("======================================");
       
       model.addAttribute("pageMaker", pageMaker);
-     
    }  // 페이징 처리 및 검색 조건 처리 및 로그인 정보 출력 완료
-
-/*   @RequestMapping(value = "/circle", method = RequestMethod.POST)
-   public String circle() throws Exception {
-      logger.info("circle............");
-       cc?id= 
-      return "redirect:http://localhost:8080/cc?id=9";
-   }*/
-
-   @RequestMapping(value = "/createPage", method = RequestMethod.GET)
-   public void createPageGET() throws Exception {
-      logger.info("CREATE PAGE............");
-   }
 
    @RequestMapping(value = "/register", method = RequestMethod.POST)
    public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
@@ -112,8 +92,8 @@ public class MemberController {
    }
 
    @RequestMapping(value = "/loginPOST", method = RequestMethod.POST)
-   public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, RedirectAttributes rttr)
-         throws Exception {
+   public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, 
+		   RedirectAttributes rttr) throws Exception {
 
       String userid = vo.getUserid();
       String userpw = vo.getUserpw();
@@ -139,29 +119,12 @@ public class MemberController {
       return loginUtil.logout(req, res, userid);
    }
    
-
-
    @RequestMapping(value = "/loginGeustPOST/{userid}", method = RequestMethod.POST)
-   public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res, @PathVariable("userid") String userid) throws Exception {
+   public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res,
+		   @PathVariable("userid") String userid) throws Exception {
 
-   
-      
-      /*boolean check = memberService.memberLogin(vo);
-
-      if (check == true) {
-         rttr.addFlashAttribute("msg", "loginSUCCESS");
-         logger.info("로그인성공..." + check);
-         return loginUtil.Success(req, res, userid, userpw);
-      } else {
-         rttr.addFlashAttribute("msg", "loginFail");
-         logger.info("로그인실패..." + check);
-         return loginUtil.Fail(req, res);
-      }*/
-      
         logger.info("GESUT 쿠키 생성 ...........");
 
-     
-        
         return loginUtil.Geust(req, res, userid);
    }
 
@@ -182,7 +145,7 @@ public class MemberController {
       rttr.addFlashAttribute("msg", "success");
       
       return "redirect:./myPage";
-   } // update controller end
+   } // update controller end (회원정보 수정)
 
    @RequestMapping(value = "/delete", method = RequestMethod.POST)
    public String deletePost(String userid, RedirectAttributes rttr) throws Exception {
@@ -192,13 +155,12 @@ public class MemberController {
       rttr.addFlashAttribute("msg", "success");
       
       return "redirect:/index";
-   } // delete controller end
+   } // delete controller end (회원삭제)
    
    @RequestMapping(value = "/pptDel", method = RequestMethod.POST)
    public String pptDel(PptVO pvo, RedirectAttributes rttr) throws Exception {
       logger.info("pptDel Post...........");
 
-      
       System.out.println(pvo);
    
       Integer fno = pvo.getFno();
@@ -207,124 +169,101 @@ public class MemberController {
       rttr.addFlashAttribute("msg", "success");
       
       return "redirect:./myPage";
-   } 
+   } // delete controller end(ppt 삭제)
    
-
-
+   @RequestMapping(value = "/dropzone", method = RequestMethod.GET)
+   public void dropzoneGET() throws Exception {
+      logger.info("dropzone PAGE............");
+   }
    
-   
-   /*@ResponseBody*/
    @RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
    public String create(ImgVO ivo, PptVO pvo) throws Exception {
       logger.info("pptCreate POST............");
       logger.info(ivo.toString());
       logger.info(pvo.toString());
+      
       System.out.println(ivo);
       System.out.println(pvo);
-      
-      //임시 데이터 
-      
+
       String user = pvo.getUserid();
       
-      /*pvo.setPpt_kind("ppt_kind");
-      pvo.setPpt_desc("ppt_desc");
-      pvo.setPpt_title("ppt_title ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ");*/
-      
-    pptService.create(pvo);
+      pptService.create(pvo);
     
-    
+      List<PptFnoVO> list = pptService.pptFnoRead(user);
 	
-	List<PptFnoVO> list = pptService.pptFnoRead(user);
-	
-	
-	String tos = null;
-	System.out.println("0번쨰임  "+list.get(0));
-	
-	for(int i = 0; i<list.size();i++){
-		PptFnoVO str = list.get(i);
-		tos = str.toString();
+      String tos = null;
+      System.out.println("0번쨰임  "+list.get(0));
 		
-		System.out.println(tos);
-		
-		String[] s1 = tos.split("=");
+		for(int i = 0; i<list.size();i++){
 			
-		System.out.println(s1[1]);
-		
-		String tos1 = s1[1].toString();
-		
-		String s2[] = tos1.split("]");
-		
-		System.out.println(s2[0]);
-		
-		tos = s2[0];
-		
-	}
-	
-	
+			PptFnoVO str = list.get(i);
+			tos = str.toString();
+				
+			System.out.println(tos);
+				
+			String[] s1 = tos.split("=");
+					
+			System.out.println(s1[1]);
+				
+			String tos1 = s1[1].toString();
+			
+			String s2[] = tos1.split("]");
+				
+			System.out.println(s2[0]);
+				
+			tos = s2[0];
+				
+		}
 
-	System.out.println("fno 값 : "+tos);
-	
-	Integer fno = Integer.parseInt(tos);
-	
-	System.out.println("fno 값 : "+fno);
-
-    ivo.setFno(fno);
-    
-
-	System.out.println("img 값 : "+ivo.getImg());
-	
-	String img = ivo.getImg();
-	
-	String[] img1 = img.split(",");
-	
-	System.out.println(img1[0]);
-	System.out.println(img1[1]);
-	System.out.println(img1[2]);
-	
-	for(int i=0; i<img1.length;i++){
+		System.out.println("fno 값 : "+tos);
+			
+		Integer fno = Integer.parseInt(tos);
+			
+		System.out.println("fno 값 : "+fno);
 		
-		ivo.setImg(img1[i]);
-		imgService.create(ivo);
-	}
-    
-    
-    /*imgService.create(ivo);*/
-   
-
-      return "redirect:./myPage";
-   }
+		ivo.setFno(fno);
+		    
+		System.out.println("img 값 : "+ivo.getImg());
+			
+		String img = ivo.getImg();	
+		String[] img1 = img.split(",");
+			
+		System.out.println(img1[0]);
+		System.out.println(img1[1]);
+		System.out.println(img1[2]);
+			
+		for(int i=0; i<img1.length;i++){
+				
+			ivo.setImg(img1[i]);
+			imgService.create(ivo);
+		}
+	   	  
+		return "redirect:./myPage";
+   } // dropzone.js로 파일 생성
    
    
    @RequestMapping(value = "/broadCast/{fno}", method = RequestMethod.POST)
    public @ResponseBody String broadCast(@PathVariable("fno") Integer fno) throws Exception {
-	   //PptVO vo,
 	   
-	   logger.info("broadCast ...........");
-      System.out.println(fno);
-
-
+	  logger.info("broadCast ...........");
       
-      pptService.broadStart(fno);
+	  pptService.broadStart(fno);
+	  System.out.println(fno);
      
-      
       return "success";
-   } 
+   } // 방송 시작
    
    
    @RequestMapping(value = "/broadClose/{fno}", method = RequestMethod.POST)
    public @ResponseBody String broadClose(@PathVariable("fno") Integer fno) throws Exception {
-	   //PptVO vo,
 	   
-	   logger.info("broadCast ...........");
-      System.out.println(fno);
-
-
+	  logger.info("broadCast ...........");
       
       pptService.broadStart(fno);
-     
+      System.out.println(fno);
       
       return "success";
-   } 
+   } // 방송 끝내기
    
    @RequestMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" }, method = RequestMethod.GET)
    public @ResponseBody byte[] show(String name) throws Exception {
@@ -361,7 +300,7 @@ public class MemberController {
       foss.close();
 
       return uploadName;
-   } // drag & drop
+   } // drag & drop (회원 이미지 추가)
    
    @RequestMapping(value = "/update", method = RequestMethod.POST)
    public String updatePost(PptVO vo, RedirectAttributes rttr) throws Exception {
@@ -372,7 +311,7 @@ public class MemberController {
       rttr.addFlashAttribute("msg", "success");
       
       return "redirect:./myPage";
-   } // update controller end
+   } // update controller end (ppt 정보 수정)
 
    
    
