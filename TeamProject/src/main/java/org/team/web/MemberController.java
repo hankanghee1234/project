@@ -62,7 +62,7 @@ public class MemberController {
       
       HttpSession session = req.getSession();
       String userid = session.getAttribute("userid").toString();      
-      System.out.println(userid);
+      logger.info(userid);
       cri.setUserid(userid);
       
       int pageNum = cri.getPage();
@@ -100,12 +100,16 @@ public class MemberController {
       boolean check = memberService.memberLogin(vo);
 
       if (check == true) {
-         rttr.addFlashAttribute("msg", "loginSUCCESS");
+         
+    	  rttr.addFlashAttribute("msg", "loginSUCCESS");
          logger.info("로그인성공..." + check);
+         
          return loginUtil.Success(req, res, userid, userpw);
       } else {
-         rttr.addFlashAttribute("msg", "loginFail");
+        
+    	  rttr.addFlashAttribute("msg", "loginFail");
          logger.info("로그인실패..." + check);
+         
          return loginUtil.Fail(req, res);
       }
    }
@@ -122,18 +126,18 @@ public class MemberController {
    @RequestMapping(value = "/loginGeustPOST/{userid}", method = RequestMethod.POST)
    public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res,
 		   @PathVariable("userid") String userid) throws Exception {
-
-        logger.info("GESUT 쿠키 생성 ...........");
+        logger.info("게스트 쿠키 생성 ...........");
 
         return loginUtil.Geust(req, res, userid);
    }
 
-   
    @RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
    public boolean dupleCheck(String userid) throws Exception {
-      boolean check = memberService.loginDupleChk(userid);
-      logger.info("중복체크..." + check);
-      return check;
+
+	   boolean check = memberService.loginDupleChk(userid);
+       logger.info("중복체크..." + check);
+      
+       return check;
    }
 
    @RequestMapping(value = "/updatePost", method = RequestMethod.POST)
@@ -160,8 +164,7 @@ public class MemberController {
    @RequestMapping(value = "/pptDel", method = RequestMethod.POST)
    public String pptDel(PptVO pvo, RedirectAttributes rttr) throws Exception {
       logger.info("pptDel Post...........");
-
-      System.out.println(pvo);
+      logger.info(pvo.toString());
    
       Integer fno = pvo.getFno();
       
@@ -179,12 +182,9 @@ public class MemberController {
    @RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
    public String create(ImgVO ivo, PptVO pvo) throws Exception {
       logger.info("pptCreate POST............");
-      logger.info(ivo.toString());
-      logger.info(pvo.toString());
+      logger.info("ivo" + ivo.toString());
+      logger.info("pvo" + pvo.toString());
       
-      System.out.println(ivo);
-      System.out.println(pvo);
-
       String user = pvo.getUserid();
       
       pptService.create(pvo);
@@ -192,46 +192,48 @@ public class MemberController {
       List<PptFnoVO> list = pptService.pptFnoRead(user);
 	
       String tos = null;
-      System.out.println("0번쨰임  "+list.get(0));
+      logger.info("0번쨰임  "+list.get(0));
 		
 		for(int i = 0; i<list.size();i++){
 			
 			PptFnoVO str = list.get(i);
-			tos = str.toString();
-				
-			System.out.println(tos);
+			
+			tos = str.toString();	
+			logger.info(tos);
 				
 			String[] s1 = tos.split("=");
 					
-			System.out.println(s1[1]);
+			logger.info(s1[1]);
 				
 			String tos1 = s1[1].toString();
 			
 			String s2[] = tos1.split("]");
 				
-			System.out.println(s2[0]);
+			logger.info(s2[0]);
 				
 			tos = s2[0];
 				
 		}
 
-		System.out.println("fno 값 : "+tos);
+		logger.info("fno 값 : "+tos);
 			
 		Integer fno = Integer.parseInt(tos);
 			
-		System.out.println("fno 값 : "+fno);
+		logger.info("fno 값 : "+fno);
 		
 		ivo.setFno(fno);
 		    
-		System.out.println("img 값 : "+ivo.getImg());
+		logger.info("img 값 : "+ivo.getImg());
 			
 		String img = ivo.getImg();	
 		String[] img1 = img.split(",");
-			
-		System.out.println(img1[0]);
-		System.out.println(img1[1]);
-		System.out.println(img1[2]);
-			
+		
+		logger.info("==========================");
+		logger.info(img1[0]);
+		logger.info(img1[1]);
+		logger.info(img1[2]);
+		logger.info("==========================");
+		
 		for(int i=0; i<img1.length;i++){
 				
 			ivo.setImg(img1[i]);
@@ -248,7 +250,7 @@ public class MemberController {
 	  logger.info("broadCast ...........");
       
 	  pptService.broadStart(fno);
-	  System.out.println(fno);
+	  logger.info("fno: " + fno);
      
       return "success";
    } // 방송 시작
@@ -260,7 +262,7 @@ public class MemberController {
 	  logger.info("broadCast ...........");
       
       pptService.broadStart(fno);
-      System.out.println(fno);
+      logger.info("fno: " + fno);
       
       return "success";
    } // 방송 끝내기

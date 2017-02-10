@@ -101,10 +101,7 @@
 
 	$(document).ready(function() {
 	
-	/* 	$('#P-list').on('click',function() {
-			$('#GeustForm').submit();
-		});
-		 */
+	
 		
 		
 

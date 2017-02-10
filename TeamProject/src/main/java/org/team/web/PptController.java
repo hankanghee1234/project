@@ -10,6 +10,8 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,6 +49,19 @@ public class PptController {
 
       return IOUtils.toByteArray(in);
    }
+   
+   @RequestMapping(value = "/chatList", method = RequestMethod.GET)
+   public ResponseEntity<List<PptVO>> chatList() throws Exception {
+      logger.info("PPT리스트..인덱스페이지에서..");
+      ResponseEntity<List<PptVO>> entity = null;
+      try {
+         entity = new ResponseEntity<List<PptVO>>(pptService.pptGuestList(), HttpStatus.OK);
+      } catch (Exception e) {
+         e.printStackTrace();
+         entity = new ResponseEntity<List<PptVO>>(HttpStatus.BAD_REQUEST);
+      }
+      return entity;
+   }
 
    @RequestMapping(value = "/pptRead/{fno}", method = RequestMethod.GET)
    public @ResponseBody PptVO pptReadGET(@PathVariable("fno") Integer fno) throws Exception {
@@ -66,10 +81,9 @@ public class PptController {
    @RequestMapping(value = "/upload2", method = RequestMethod.POST)
    public String upload2(UploadFileVO vo) throws Exception {
 
-      System.out.println("=======================");
-      System.out.println(vo);
-      
-      System.out.println("=======================");
+	   logger.info("=======================");
+	   logger.info("vo: " + vo);
+	   logger.info("=======================");
 
       List<MultipartFile> fileList = vo.getFile();
 
@@ -79,22 +93,20 @@ public class PptController {
       
       for (MultipartFile multipartFile : fileList) {
 
-         System.out.println(multipartFile.getOriginalFilename());
+         logger.info("file name: " + multipartFile.getOriginalFilename());
       
       }
       return "copy finish";
 
    }
    
-   
    @ResponseBody
    @RequestMapping(value = "/upload3", method = RequestMethod.POST)
    public String upload3(UploadFileVO vo) throws Exception {
 
-      System.out.println("=======================");
-      System.out.println(vo);
-      
-      System.out.println("=======================");
+      logger.info("=======================");
+      logger.info("vo: " + vo);
+      logger.info("=======================");
 
       List<MultipartFile> fileList = vo.getFile();
 
@@ -105,7 +117,7 @@ public class PptController {
       for (MultipartFile multipartFile : fileList) {
           
          byte[] buf = multipartFile.getBytes();
-         System.out.println(multipartFile.getOriginalFilename());
+         logger.info("file name: " + multipartFile.getOriginalFilename());
          
          InputStream is = multipartFile.getInputStream();
          fileName = multipartFile.getOriginalFilename();
@@ -127,8 +139,8 @@ public class PptController {
 
    @RequestMapping(value = "/pdfConverter", method = RequestMethod.POST)
    public @ResponseBody ArrayList<String> pdfConverter(UploadFileVO data) throws Exception {
-      System.out.println("converterter입니다 : ");
-      System.out.println("converter : " + data);
+      logger.info("converterter입니다 ");
+      logger.info("converter : " + data);
 
       List<MultipartFile> fileList = data.getFile();
 
@@ -140,20 +152,20 @@ public class PptController {
       
       for (MultipartFile multipartFile : fileList) {
 
-         System.out.println("컨버터 : "+multipartFile.getOriginalFilename());
+         logger.info("컨버터 : "+ multipartFile.getOriginalFilename());
          
          String converName = multipartFile.getOriginalFilename();
          
          arrayList.addAll(PDFConvertor.JPGconvertor(converName));
          
-         
-         System.out.println("arrayList : "+arrayList);
-         System.out.println("toString 임 : "+arrayList.toString());
-
-         System.out.println(arrayList.get(0));
-         System.out.println(arrayList.get(1));
-         System.out.println(arrayList.get(2));
-
+         logger.info("==================================");
+         logger.info("arrayList : "+arrayList);
+         logger.info("toString 임 : "+arrayList.toString());
+         logger.info("==================================");
+         logger.info("arraylist(0): " + arrayList.get(0));
+         logger.info("arraylist(1): " + arrayList.get(1));
+         logger.info("arraylist(2): " + arrayList.get(2));
+         logger.info("==================================");
          
          return arrayList;
       }

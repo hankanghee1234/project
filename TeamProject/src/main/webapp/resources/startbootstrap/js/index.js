@@ -1,19 +1,19 @@
-/**
- * index page 스크립트 소스 정재관
- */
 $(document).ready(function() {
 	var msg = '${msg}';
+	
 	if (msg == 'registSUCCESS') {
 		alert('회원가입에 성공하셨습니다!');
 	} else if (msg == 'loginFail') {
 		alert('로그인에 실패하였습니다.. 다시로그인해주세요!');
 	}
 	
-	/*	$.getJSON("/ppt/chatList", function(list) { // 이 안에서 ppt 자료를 JSON data로 입력받아서 호출하는곳
+		$.getJSON("/ppt/chatList", function(list) { // 이 안에서 ppt 자료를 JSON data로 입력받아서 호출하는곳
 			var chatList = $('#chatList'); 
+			
+			
 			$(list).each(function(index, data) {
-				chatList.html("<p>" + data.ppt_title + "  -  <a href=node/chat?" 
-						+ data.userid + ">  " + data.userid + "</a></p>");
+				
+				chatList.append("<p>" + data.ppt_kind + "   -   <a class=Geust data-src='"+data.userid+"'href=http://192.168.0.28:8082/ppt?id="+data.fno+"#&userid="+data.userid+"#/ >"   + data.ppt_title+ "</a>     "+data.userid+"</p>");
 				
 					console.log(index);
 					console.log(data); 
@@ -21,15 +21,29 @@ $(document).ready(function() {
 					console.log(data.userid);
 				});
 
+			chatList.append('<p class="message" ><a href="" class="back" >뒤로 가기</a></p>');
 			});
-*/
-			// Presentation List FadeIn
-			$("#Geust").click(function(event) {
-		
-				
+		$(".back").click(function(event) {
+			self.location.reload();
+		});
 
-				$('#GeustForm').submit();
+			// Presentation List FadeIn
+		   $('#chatList').on('click','.Geust',function(event) {
 		
+			   var userid = $(this).attr("data-src");
+				 $.ajax({
+						url : "/member/loginGeustPOST/"+userid, 
+						type : "post", 
+						
+						
+			         
+						success : function(data) {
+							console.log(data);
+
+						
+						}
+					});    
+						
 			});
 			
 	

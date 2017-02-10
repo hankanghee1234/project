@@ -30,7 +30,6 @@ public class MainController {
 		
 	}
 	
-
 	@RequestMapping(value = "/nodeWeb", method = RequestMethod.POST)
 	public String nodeWeb() throws Exception {
 		logger.info("nodeWeb.........");
