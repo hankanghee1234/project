@@ -1,117 +1,65 @@
 package org.team.domain;
 
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
-
 public class PageMaker {
-   
-   private int totalCount;
-   private int startPage;
-   private int endPage;
-   private boolean prev;
-   private boolean next;
-   
-   private int displayPageNum = 10;
-   
-   private Criteria cri;
-   
-   public void setCri(Criteria cri) {
-      this.cri = cri;
-   }
-   
-   public void setTotalCount(int totalCount) {
-      this.totalCount = totalCount;
-      calcData();
-   }
-   
-   private void calcData() {
-      
-      endPage = (int)(Math.ceil(cri.getPage() / (double) displayPageNum) * displayPageNum);
-      
-      startPage = (endPage - displayPageNum) + 1;
-      
-      int tempEndPage = (int)(Math.ceil(totalCount / (double) cri.getPerPageNum()));
-      
-      if(endPage > tempEndPage) {
-         endPage = tempEndPage;
-      }
-      
-      prev = startPage == 1 ? false : true;
-      
-      next = endPage * cri.getPerPageNum() >= totalCount ? false : true;
-   }
-   
-   public String makeQuery(int page) {
-      
-      UriComponents uriComponents = UriComponentsBuilder.newInstance()
-            .queryParam("page", page).queryParam("perPageNum", cri.getPerPageNum())
-            .queryParam("fno", ((SearchCriteria)cri).getFno()).build();
-      
-      return uriComponents.toUriString();
-   }
+	// current page number;
+	private int current;
+	private int total;
+	private int firstPage, lastPage, prev, next;
 
-   public String makeSearch(int page) {
-         
-         UriComponents uriComponents = UriComponentsBuilder.newInstance()
-               .queryParam("page", page).queryParam("perPageNum", cri.getPerPageNum())
-               .queryParam("fno", ((SearchCriteria)cri).getFno())
-               .queryParam("searchType", ((SearchCriteria)cri).getSearchType())
-               .queryParam("keyword", ((SearchCriteria)cri).getKeyword())
-               .build();
-         return uriComponents.toUriString();
-   }
-   
-   public int getStartPage() {
-      return startPage;
-   }
+	public PageMaker(int current, int total) {
+		this.current = current;
+		this.total = total;
+		calcPage();
+	}
 
-   public void setStartPage(int startPage) {
-      this.startPage = startPage;
-   }
+	private void calcPage() {
 
-   public int getEndPage() {
-      return endPage;
-   }
+		int tempLast = (int) (Math.ceil(current / 10.0) * 10);
 
-   public void setEndPage(int endPage) {
-      this.endPage = endPage;
-   }
+		this.firstPage = tempLast - 9;
 
-   public boolean isPrev() {
-      return prev;
-   }
+		if (firstPage != 1) {
+			this.prev = firstPage ;
+		}
 
-   public void setPrev(boolean prev) {
-      this.prev = prev;
-   }
+		if (this.total <= tempLast * 10) {
+			this.lastPage = (int) (Math.ceil(total / 10.0));
+			this.next = -1;
 
-   public boolean isNext() {
-      return next;
-   }
+		} else {
+			this.lastPage = tempLast;
+			this.next = this.lastPage;
+		}
+	}
 
-   public void setNext(boolean next) {
-      this.next = next;
-   }
+	public int getCurrent() {
+		return current;
+	}
 
-   public int getDisplayPageNum() {
-      return displayPageNum;
-   }
+	public int getTotal() {
+		return total;
+	}
 
-   public void setDisplayPageNum(int displayPageNum) {
-      this.displayPageNum = displayPageNum;
-   }
+	public int getFirstPage() {
+		return firstPage;
+	}
 
-   public int getTotalCount() {
-      return totalCount;
-   }
+	public int getLastPage() {
+		return lastPage;
+	}
 
-   public Criteria getCri() {
-      return cri;
-   }
+	public int getPrev() {
+		return prev;
+	}
 
-   @Override
-   public String toString() {
-      return "PageMaker [totalCount=" + totalCount + ", startPage=" + startPage + ", endPage=" + endPage + ", prev="
-            + prev + ", next=" + next + ", displayPageNum=" + displayPageNum + ", cri=" + cri + "]";
-   }
+	public int getNext() {
+		return next;
+	}
+
+	@Override
+	public String toString() {
+		return "PageMaker [current=" + current + ", total=" + total + ", firstPage=" + firstPage + ", lastPage="
+				+ lastPage + ", prev=" + prev + ", next=" + next + "]";
+	}
+
 }

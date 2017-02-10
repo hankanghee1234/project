@@ -63,7 +63,7 @@ public class PptServiceImpl implements PptService {
 	}
 
 	@Override
-	public List<PptVO> listSearchCriteria(SearchCriteria cri) throws Exception {
+	public List<PptVO> listSearch(SearchCriteria cri) throws Exception {
 		
 		return pptDAO.listSearch(cri);
 	}

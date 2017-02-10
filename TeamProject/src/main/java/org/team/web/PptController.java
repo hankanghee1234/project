@@ -30,6 +30,8 @@ import org.team.service.ImgServiceImpl;
 import org.team.service.PptServiceImpl;
 import org.team.util.PDFConvertor;
 
+import com.itextpdf.text.pdf.qrcode.Encoder;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/ppt/*")
@@ -77,7 +79,7 @@ public class PptController {
 	@RequestMapping(value = "/imgRead/{fno}", method = RequestMethod.GET)
 	public @ResponseBody List<ImgVO> imgViewGET(@PathVariable("fno") Integer fno) throws Exception {
 		logger.info("Image GET................");
-		logger.info("img file 번호: " + fno);
+		logger.info("img 번호: " + fno);
 		logger.info("======================================");
 		
 		return imgService.imgRead(fno);
@@ -212,8 +214,8 @@ public class PptController {
 
 			System.out.println("컨버터 : " + multipartFile.getOriginalFilename());
 
-			String converName = multipartFile.getOriginalFilename();
-
+			String converName = new String(multipartFile.getOriginalFilename().getBytes(), "UTF-8");
+			
 			arrayList.addAll(PDFConvertor.JPGconvertor(converName));
 
 			System.out.println("arrayList : " + arrayList);

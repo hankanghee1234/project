@@ -24,7 +24,7 @@ public interface PptService {
 	
 	public int listCountCriteria(Criteria cri) throws Exception;
 	
-	public List<PptVO> listSearchCriteria(SearchCriteria cri) throws Exception;
+	public List<PptVO> listSearch (SearchCriteria cri) throws Exception;
 	
 	public int listSearchCount(SearchCriteria cri) throws Exception;
 }

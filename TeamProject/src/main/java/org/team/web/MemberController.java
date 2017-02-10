@@ -104,13 +104,14 @@ public class MemberController {
       System.out.println(userid);
       cri.setUserid(userid);
       
+      int pageNum = cri.getPage();
+      
       model.addAttribute("read", memberService.read(userid));
-      model.addAttribute("pptUserList", pptService.listSearchCriteria(cri));
+      model.addAttribute("pptUserList", pptService.listSearch(cri));
       /* session처리로 로그인한 유저 정보 출력하여 로그인한 정보마다 ppt 정보 출력 */
       
-      PageMaker pageMaker = new PageMaker();
-      pageMaker.setCri(cri);
-      pageMaker.setTotalCount(pptService.listSearchCount(cri));
+      PageMaker pageMaker = new PageMaker( pageNum,pptService.listSearchCount(cri));
+
       
       logger.info("======================================");
       logger.info("fno값 확인: " + fno);

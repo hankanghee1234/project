@@ -184,21 +184,34 @@ body {
 							<div class="col-md-12 padding-0">
 								<div class="col-md-8" style="padding-left: 2px;">
 									<!-- 검색 조건 처리 -->
-									<select name="searchType">
-										<option value="n"
-											<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
-										<option value="k"
-											<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
-										<option value="t"
-											<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
-									</select>
-									<!-- input-group -->
-									<div class="input-group">
-										<div class="input-group-text">
-											<input type="text" class="form-control" name="keyword"
-												id="keywordInput" value="${cri.keyword}">							 	
-										</div>
-										<!-- /input-group -->
+									<form method="get" id="sf">
+         <input id="spageHidden" type="hidden" name="page" value=${pageMaker.current}>
+         <!-- <input id="mnoHidden" type="hidden" name="mno">  -->
+         <input id="fnoHidden" type="hidden" name="userid">
+         <select name="searchType">
+				<option value="n"
+					<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
+				<option value="k"
+					<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
+				<option value="t"
+					<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
+			</select>
+      <!-- <button id='sBtn'>검색</button>  -->
+      <input type="text" class="form-control" name="keyword"
+												id="keywordInput" value="${cri.keyword}">
+      </form>
+ <c:if test="${empty pptUserList}">
+         
+         
+         데이터가 없습니다.
+         <button id="fpageBtn"> 처음 페이지로</button>
+         
+      
+   </c:if> 
+         
+          
+   
+									
 										<!-- btn-group -->
 										<div class="input-group-btn">
 											<button type="button" class="btn btn-default" 
@@ -222,6 +235,7 @@ body {
 									</thead>
 									<tbody>
 										<!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
+										<c:if test="${!empty pptUserList}">
 										<c:forEach items="${pptUserList}" var="PptVO">
 											<ul class="pptUserList">
 												<tr id="${PptVO.fno}">
@@ -230,33 +244,29 @@ body {
 														href="#">${PptVO.ppt_title}</a></td>
 												</tr>
 											</ul>
-										</c:forEach> <!-- /.로그인한 정보에 따른 ppt 리스트 보여주기 -->	 								
+										</c:forEach> <!-- /.로그인한 정보에 따른 ppt 리스트 보여주기 -->
+										</c:if>	 								
 									</tbody>
 								</table>
 							</div>
+							
+							
+				
 							<!-- list paging 처리 -->
 							<div class="col-md-8">
-							<div class="paging">
 								<ul class="pagination pull-right">
-									<c:if test="${pageMaker.prev}">
-										<li><a
-											href="myPage${pageMaker.makeSearch(pageMaker.startPage - 1)}"
-											aria-label="Previous"><span aria-hidden="true">≪</span></a></li>
+									<c:if test="${pageMaker.prev ne 0}">
+										<li id="pagePrev"><a href="${pageMaker.prev}">이전</a></li>
 									</c:if>
-									<c:forEach begin="${pageMaker.startPage}"
-										end="${pageMaker.endPage}" var="idx">
-										<li class="active"
-											<c:out value="${pageMaker.cri.page == idx?'class = active':''}"/>>
-											<a href="myPage${pageMaker.makeSearch(idx)}">${idx}</a>
-										</li>
+									 
+									<c:forEach begin="${pageMaker.firstPage}" end="${pageMaker.lastPage}" var='idx'>
+										<li class='active' id='pageLi'><a href='${idx}'>${idx}</a></li>
 									</c:forEach>
-									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-										<li><a
-											href="myPage${pageMaker.makeSearch(pageMaker.endPage + 1)}"
-											aria-label="Next"><span aria-hidden="true">≫</span></a></li>
+									 
+									<c:if test="${pageMaker.next ne -1}">
+										 <li id="pageNext"><a href="${pageMaker.next}">다음</a></li>
 									</c:if>
 								</ul>
-							</div>
 							</div> <!-- /.list paging 처리 -->
 						</div> <!-- /.ppt list 출력-->
 					</div>
@@ -405,7 +415,7 @@ body {
 			var fno = $(this).attr('id'); // fno를 아이디 값에 속성을 매김		
 			console.log(fno);
 			
-			$('#info').val(fno); // fno값을 받아서 hidden값으로 나타냄 (강희)
+			$('#fnoHidden').val(fno); // fno값을 받아서 hidden값으로 나타냄 (강희)
 			
 			pptView(fno); // pptView 라는 변수 하나를 잡아서 fno값을 넣어줌 (강희)
 			
@@ -483,17 +493,78 @@ body {
 		} // pptView에서 정보와 이미지가 같이 호출 됨 (강희)
 		
 		
-		$("#searchBtn").on("click", function(event) {
-			
-			self.location = "myPage" + '${pageMaker.makeQuery(1)}' 
-							+ "&fno=" + $('#info').val()  
-							+ "&searchType=" + $("select option:selected").val() 
-							+ "&keyword=" + $('#keywordInput').val(); 
 		
-		}); // 검색 조건 처리, 검색 처리 변경(강희)
+		 $('#searchBtn').on("click", function(event) {
+	         alert("검색 완료");
+	         $("#spageHidden").val("1");
+	         
+	         $("#sf").attr("action", "myPage").submit();
+	         
+	      });
+		
+		 
+	
 		
 		
-		var msg = '${msg}';
+		 $('.pagination pull-right').on("click", "a", function(event) {
+
+	          event.preventDefault(); 
+
+	         var pageNum = $(this).attr('href');
+	         console.log(pageNum);
+	         $("#spageHidden").val(pageNum);
+	   
+	          $("#sf").attr("action", "list").attr("method","GET").submit();
+	      });
+	       
+
+	       $('.active').on("click", "a", function(event) {
+
+	          event.preventDefault(); 
+
+	         var pageNum = $(this).attr('href');
+	         console.log(pageNum);
+	         $("#spageHidden").val(pageNum);
+	   
+	          $("#sf").attr("action", "myPage").attr("method","GET").submit();
+	      });
+		 
+		 
+	       $('#pagePrev').on("click", "a", function(event) {
+
+	         event.preventDefault();
+
+	         var pageNum = $(this).attr('href');
+	         var pagePrevNum = pageNum - 1;
+	         
+	         console.log(pageNum+"pageNum");
+	         console.log(pagePrevNum+"pagePrevNum");
+	         
+	         $("#spageHidden").val(pagePrevNum);
+	         $("#sf").attr("action", "myPage").attr("method","GET").submit();
+
+	      });
+	      
+	       
+	      $('#pageNext').on("click", "a", function(event) { 
+
+	         event.preventDefault();
+ 
+	         var pageNum = $(this).attr('href');
+	         
+	         console.log(pageNum+"pageNum");
+	         
+	         var pageNextNum = ++pageNum;
+	         
+	         console.log(pageNextNum+"pageNextNum");
+	         
+	         $("#spageHidden").val(pageNextNum);
+	         $("#sf").attr("action", "myPage").attr("method","GET").submit();
+
+	      });
+		
+		
+		var msg = '${msg}';                                                                                                             
 		
 		if (msg == 'success') {
 			alert('완료되었습니다.');
