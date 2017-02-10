@@ -9,10 +9,9 @@ public class PptVO {
 	private String ppt_kind;
 	private String ppt_title;
 	private String ppt_desc;
-	private Integer broad_state;
+	private int broad_state;
 	private Date regdate;
 	private Date modidate;
-	
 	public Integer getFno() {
 		return fno;
 	}
@@ -43,6 +42,12 @@ public class PptVO {
 	public void setPpt_desc(String ppt_desc) {
 		this.ppt_desc = ppt_desc;
 	}
+	public int getBroad_state() {
+		return broad_state;
+	}
+	public void setBroad_state(int broad_state) {
+		this.broad_state = broad_state;
+	}
 	public Date getRegdate() {
 		return regdate;
 	}
@@ -55,20 +60,12 @@ public class PptVO {
 	public void setModidate(Date modidate) {
 		this.modidate = modidate;
 	}
-	public Integer getBroad_state() {
-		return broad_state;
-	}
-	public void setBroad_state(Integer broad_state) {
-		this.broad_state = broad_state;
-	}
-	
 	@Override
 	public String toString() {
 		return "PptVO [fno=" + fno + ", userid=" + userid + ", ppt_kind=" + ppt_kind + ", ppt_title=" + ppt_title
 				+ ", ppt_desc=" + ppt_desc + ", broad_state=" + broad_state + ", regdate=" + regdate + ", modidate="
 				+ modidate + "]";
 	}
-	
 	
 	
 	

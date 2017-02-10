@@ -33,7 +33,7 @@
 	<div class="text-vertical-center">
 		<h1 class="title">Let's presentation!</h1>
 		<p>
-			<a class="btn btn-dark btn-lg" id="Geust">게스트</a>
+			<!-- <a class="btn btn-dark btn-lg" id="Geust">게스트</a> -->
 			
 			<a class="btn btn-dark btn-lg" id="P-list">채팅리스트</a>
 			<a class="btn btn-dark btn-lg" id="presenter">발표자</a>
@@ -42,7 +42,7 @@
 			<div class="form">
 				<form class="register-form" method="post"
 					action="<c:url value='/member/register'/>">
-					<input type="text" placeholder="회원아이디" name="userid" /> 
+					<input type="id" placeholder="회원아이디" name="userid" /> 
 					<input type="password" placeholder="비밀번호" name="userpw" />
 					<input type="text" placeholder="이름" name="username" /> 
 					<input type="text" placeholder="이메일" name="email" />
@@ -61,10 +61,10 @@
 					<input type="password" placeholder="비밀먼호" name="userpw" />
 					<button>로그인</button>
 					<p class="message">
-						회원이 아니신가요? <a href="#">회원 가입</a>
+						회원이 아니신가요? <a href="">회원 가입</a>
 					</p>
-					<p class="message">
-						<a href="#" class="back">뒤로 가기</a>
+					<p class="message" >
+						<a href="" class="back">뒤로 가기</a>
 					</p>
 				</form>
 			</div>
@@ -74,24 +74,14 @@
 				<form class="list-form" id='chatList'>
 
 
-					<p>
-						test(<a id="Geust" href="http://192.168.0.28:8082/cc?id=9&userid=user10#/3">test3.doc</a>)
-					</p>
-					<p>
-						test(<a href="">test4.ppt</a>)
-					</p>
-					<p>
-						test(<a href="">test5.exl</a>)
-					</p>
-					<p class="message">
-						<a href="#" class="back">뒤로 가기</a>
-					</p>
+			
+					
 				</form>
 			</div>
 		</div>
 		<form id='GeustForm' action="/member/loginGeustPOST" method="post">
-			<input type="hidden" name="pptFno" value="10">
-			<input type="hidden" name="userid" value="userid10">
+			<input type="hidden" name="pptFno" value="6">
+			<input type="hidden" name="userid" value="user00">
 			 
 		</form>
 		

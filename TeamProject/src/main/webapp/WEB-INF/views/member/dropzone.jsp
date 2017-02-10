@@ -20,7 +20,7 @@
 <body>
       
       <form id="ddd" action="pptCreate" method="post"  >
-      	<input id="userid" type="hidden" name="userid" value="${param.userid}" > 
+      	<input id="userid" type="hidden" name="userid" value=${param.userid} > 
       <div class="w3-container w3-teal w3-round-xlarge">
          <h3>해당하는 파일을 기록하시오</h3>
       </div>
@@ -59,17 +59,22 @@
    
 </body>
 
+   
+   
+   
+</body>
 
+
+<!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script
    src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.js"></script>
 <script src="../resources/dropzone/js/dropzone.js"></script>
 <script>
-<!-- 제이쿼리 -->
    $(document).ready(function(){
       
 	   $("#reset").on("click", function(){
-	         location.reload();
+	         location.reload()
 	      });
 	      
 	      $("#cancel").on("click", function(){
@@ -77,4 +82,6 @@
 	      });
    });
 </script>
+
+
 </html>

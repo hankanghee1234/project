@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.List;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
@@ -27,8 +28,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.team.domain.ImgVO;
 import org.team.domain.MemberVO;
 import org.team.domain.PageMaker;
+import org.team.domain.PptFnoVO;
 import org.team.domain.PptVO;
 import org.team.domain.SearchCriteria;
 import org.team.service.ImgServiceImpl;
@@ -46,49 +49,16 @@ public class MemberController {
    @Autowired
    private PptServiceImpl pptService;
    
+   @Autowired
+   private ImgServiceImpl imgService;
+
    private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-   
-   @GetMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" })
-	public @ResponseBody byte[] show(String name) throws Exception {
-
-		InputStream in = new FileInputStream("C:\\zzz\\" + name);
-
-		return IOUtils.toByteArray(in);
-	}
-
-	@ResponseBody
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public String upload(@RequestBody MultipartFile file) throws Exception {
-		logger.info("drag & drop POST......" + file);
-
-		UUID uid = UUID.randomUUID();
-
-		InputStream is = file.getInputStream();
-		String fileName = file.getOriginalFilename();
-
-		String uploadName = uid + "_" + fileName;
-
-		FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
-		FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
-
-		BufferedImage origin = ImageIO.read(is);
-
-		BufferedImage destImg = Scalr.resize(origin, Scalr.Method.AUTOMATIC, 
-				Scalr.Mode.FIT_TO_HEIGHT, 80);
-
-		ImageIO.write(origin, "jpg", fos);
-		ImageIO.write(destImg, "jpg", foss);
-
-		fos.close();
-		foss.close();
-
-		return uploadName;
-	} // drag & drop
    
    @RequestMapping(value = "/dropzone", method = RequestMethod.GET)
    public void dropzoneGET() throws Exception {
       logger.info("dropzone PAGE............");
    }
+   
    
    @RequestMapping(value = "/myPage", method = RequestMethod.GET)
    public void pptListGET(@ModelAttribute("cri") SearchCriteria cri, Model model, Integer fno,
@@ -107,15 +77,28 @@ public class MemberController {
       model.addAttribute("pptUserList", pptService.listSearch(cri));
       /* session처리로 로그인한 유저 정보 출력하여 로그인한 정보마다 ppt 정보 출력 */
       
-      PageMaker pageMaker = new PageMaker(pageNum,pptService.listSearchCount(cri));
+      PageMaker pageMaker = new PageMaker( pageNum,pptService.listSearchCount(cri));
 
+      
       logger.info("======================================");
       logger.info("fno값 확인: " + fno);
       logger.info("======================================");
       
       model.addAttribute("pageMaker", pageMaker);
      
-   } // 페이징 처리 및 검색 조건 처리 및 로그인 정보 출력 완료
+   }  // 페이징 처리 및 검색 조건 처리 및 로그인 정보 출력 완료
+
+/*   @RequestMapping(value = "/circle", method = RequestMethod.POST)
+   public String circle() throws Exception {
+      logger.info("circle............");
+       cc?id= 
+      return "redirect:http://localhost:8080/cc?id=9";
+   }*/
+
+   @RequestMapping(value = "/createPage", method = RequestMethod.GET)
+   public void createPageGET() throws Exception {
+      logger.info("CREATE PAGE............");
+   }
 
    @RequestMapping(value = "/register", method = RequestMethod.POST)
    public String registPOST(MemberVO vo, RedirectAttributes rttr) throws Exception {
@@ -129,13 +112,13 @@ public class MemberController {
    }
 
    @RequestMapping(value = "/loginPOST", method = RequestMethod.POST)
-   public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, 
-		   RedirectAttributes rttr) throws Exception {
+   public String loginPOST(HttpServletRequest req, HttpServletResponse res, MemberVO vo, RedirectAttributes rttr)
+         throws Exception {
 
       String userid = vo.getUserid();
       String userpw = vo.getUserpw();
       boolean check = memberService.memberLogin(vo);
-      
+
       if (check == true) {
          rttr.addFlashAttribute("msg", "loginSUCCESS");
          logger.info("로그인성공..." + check);
@@ -146,24 +129,43 @@ public class MemberController {
          return loginUtil.Fail(req, res);
       }
    }
-
+   
    @RequestMapping(value = "/logout", method = RequestMethod.POST)
    public String logout(HttpServletRequest req, HttpServletResponse res, 
-		   MemberVO vo) throws Exception {
-	   logger.info("logout: " + vo);
-	   String userid = vo.getUserid();
-	  
-	   return loginUtil.logout(req, res, userid);
+         MemberVO vo) throws Exception {
+      logger.info("logout: " + vo);
+      String userid = vo.getUserid();
+     
+      return loginUtil.logout(req, res, userid);
    }
    
-   @RequestMapping(value = "/loginGeustPOST/{userid}", method = RequestMethod.POST)
-   public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res, 
-		   @PathVariable("userid")String userid) throws Exception {
-        logger.info("GUEST 쿠키 생성 ...........");
 
+
+   @RequestMapping(value = "/loginGeustPOST/{userid}", method = RequestMethod.POST)
+   public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res, @PathVariable("userid") String userid) throws Exception {
+
+   
+      
+      /*boolean check = memberService.memberLogin(vo);
+
+      if (check == true) {
+         rttr.addFlashAttribute("msg", "loginSUCCESS");
+         logger.info("로그인성공..." + check);
+         return loginUtil.Success(req, res, userid, userpw);
+      } else {
+         rttr.addFlashAttribute("msg", "loginFail");
+         logger.info("로그인실패..." + check);
+         return loginUtil.Fail(req, res);
+      }*/
+      
+        logger.info("GESUT 쿠키 생성 ...........");
+
+     
+        
         return loginUtil.Geust(req, res, userid);
    }
 
+   
    @RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
    public boolean dupleCheck(String userid) throws Exception {
       boolean check = memberService.loginDupleChk(userid);
@@ -177,7 +179,6 @@ public class MemberController {
       logger.info(vo.toString());
 
       memberService.update(vo);
-     
       rttr.addFlashAttribute("msg", "success");
       
       return "redirect:./myPage";
@@ -197,6 +198,7 @@ public class MemberController {
    public String pptDel(PptVO pvo, RedirectAttributes rttr) throws Exception {
       logger.info("pptDel Post...........");
 
+      
       System.out.println(pvo);
    
       Integer fno = pvo.getFno();
@@ -206,5 +208,172 @@ public class MemberController {
       
       return "redirect:./myPage";
    } 
+   
+
+
+   
+   
+   /*@ResponseBody*/
+   @RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
+   public String create(ImgVO ivo, PptVO pvo) throws Exception {
+      logger.info("pptCreate POST............");
+      logger.info(ivo.toString());
+      logger.info(pvo.toString());
+      System.out.println(ivo);
+      System.out.println(pvo);
+      
+      //임시 데이터 
+      
+      String user = pvo.getUserid();
+      
+      /*pvo.setPpt_kind("ppt_kind");
+      pvo.setPpt_desc("ppt_desc");
+      pvo.setPpt_title("ppt_title ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ");*/
+      
+    pptService.create(pvo);
+    
+    
+	
+	List<PptFnoVO> list = pptService.pptFnoRead(user);
+	
+	
+	String tos = null;
+	System.out.println("0번쨰임  "+list.get(0));
+	
+	for(int i = 0; i<list.size();i++){
+		PptFnoVO str = list.get(i);
+		tos = str.toString();
+		
+		System.out.println(tos);
+		
+		String[] s1 = tos.split("=");
+			
+		System.out.println(s1[1]);
+		
+		String tos1 = s1[1].toString();
+		
+		String s2[] = tos1.split("]");
+		
+		System.out.println(s2[0]);
+		
+		tos = s2[0];
+		
+	}
+	
+	
+
+	System.out.println("fno 값 : "+tos);
+	
+	Integer fno = Integer.parseInt(tos);
+	
+	System.out.println("fno 값 : "+fno);
+
+    ivo.setFno(fno);
+    
+
+	System.out.println("img 값 : "+ivo.getImg());
+	
+	String img = ivo.getImg();
+	
+	String[] img1 = img.split(",");
+	
+	System.out.println(img1[0]);
+	System.out.println(img1[1]);
+	System.out.println(img1[2]);
+	
+	for(int i=0; i<img1.length;i++){
+		
+		ivo.setImg(img1[i]);
+		imgService.create(ivo);
+	}
+    
+    
+    /*imgService.create(ivo);*/
+   
+
+      return "redirect:./myPage";
+   }
+   
+   
+   @RequestMapping(value = "/broadCast/{fno}", method = RequestMethod.POST)
+   public @ResponseBody String broadCast(@PathVariable("fno") Integer fno) throws Exception {
+	   //PptVO vo,
+	   
+	   logger.info("broadCast ...........");
+      System.out.println(fno);
+
+
+      
+      pptService.broadStart(fno);
+     
+      
+      return "success";
+   } 
+   
+   
+   @RequestMapping(value = "/broadClose/{fno}", method = RequestMethod.POST)
+   public @ResponseBody String broadClose(@PathVariable("fno") Integer fno) throws Exception {
+	   //PptVO vo,
+	   
+	   logger.info("broadCast ...........");
+      System.out.println(fno);
+
+
+      
+      pptService.broadStart(fno);
+     
+      
+      return "success";
+   } 
+   
+   @RequestMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" }, method = RequestMethod.GET)
+   public @ResponseBody byte[] show(String name) throws Exception {
+
+      InputStream in = new FileInputStream("C:\\zzz\\" + name);
+
+      return IOUtils.toByteArray(in);
+   }
+
+   @ResponseBody
+   @RequestMapping(value = "/upload", method = RequestMethod.POST)
+   public String upload(@RequestBody MultipartFile file) throws Exception {
+      logger.info("drag & drop POST......" + file);
+
+      UUID uid = UUID.randomUUID();
+
+      InputStream is = file.getInputStream();
+      String fileName = file.getOriginalFilename();
+
+      String uploadName = uid + "_" + fileName;
+
+      FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
+      FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
+
+      BufferedImage origin = ImageIO.read(is);
+
+      BufferedImage destImg = Scalr.resize(origin, Scalr.Method.AUTOMATIC, 
+            Scalr.Mode.FIT_TO_HEIGHT, 80);
+
+      ImageIO.write(origin, "jpg", fos);
+      ImageIO.write(destImg, "jpg", foss);
+
+      fos.close();
+      foss.close();
+
+      return uploadName;
+   } // drag & drop
+   
+   @RequestMapping(value = "/update", method = RequestMethod.POST)
+   public String updatePost(PptVO vo, RedirectAttributes rttr) throws Exception {
+      logger.info("update Post...........");
+      logger.info(vo.toString());
+
+      pptService.update(vo);
+      rttr.addFlashAttribute("msg", "success");
+      
+      return "redirect:./myPage";
+   } // update controller end
+
+   
    
 }

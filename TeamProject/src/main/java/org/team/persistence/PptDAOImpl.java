@@ -24,11 +24,14 @@ public class PptDAOImpl implements PptDAO {
 		session.insert(NAME + ".create", vo);
 	}
 	
+	
 	@Override
-	public void broadStart(Integer fno) throws Exception {
+	public void broadStart(int fno) throws Exception {
 		
 		session.update(NAME + ".broadStart", fno);
 	}
+	
+	
 	
 	public List<PptFnoVO> pptFnoRead(String vo)throws Exception {
 		
@@ -38,7 +41,7 @@ public class PptDAOImpl implements PptDAO {
 	@Override
 	public List<PptVO> pptGuestList() throws Exception {
 		
-		return session.selectList(NAME + ".pptGuestList");
+		return session.selectList(NAME + ".pptBroadCastList");
 	}
 	
 	@Override

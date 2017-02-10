@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<delete id="delete" parameterType="ImgVO">
-		delete from tbl_img where ino = #{ino}
+		delete from tbl_img where fno = #{fno}
 	</delete>
 	
 	<select id="list" resultType="ImgVO">

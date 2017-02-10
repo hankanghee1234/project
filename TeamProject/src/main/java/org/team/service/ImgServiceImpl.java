@@ -15,12 +15,12 @@ public class ImgServiceImpl implements ImgService {
 	@Autowired
 	private ImgDAOImpl imgDAO;
 
-	@Transactional
+	
 	@Override
-	public void create(ImgVO ivo, PptVO pvo) throws Exception {
+	public void create(ImgVO ivo) throws Exception {
 
 		imgDAO.imgCreate(ivo);
-		imgDAO.pptCreate(pvo);
+		/*imgDAO.pptCreate(pvo);*/
 	}
 
 	@Override
@@ -36,9 +36,9 @@ public class ImgServiceImpl implements ImgService {
 	}
 
 	@Override
-	public void delete(Integer ino) throws Exception {
+	public void delete(Integer fno) throws Exception {
 
-		imgDAO.delete(ino);
+		imgDAO.delete(fno);
 	}
 
 	@Override

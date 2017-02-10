@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.team.domain.Criteria;
 import org.team.domain.PptFnoVO;
 import org.team.domain.PptVO;
 import org.team.domain.SearchCriteria;
+import org.team.persistence.ImgDAOImpl;
 import org.team.persistence.PptDAOImpl;
 
 @Service
@@ -15,6 +17,9 @@ public class PptServiceImpl implements PptService {
 	
 	@Autowired
 	private PptDAOImpl pptDAO;
+	
+	@Autowired
+	private ImgDAOImpl imgDAO;
 	
 	@Override
 	public void create(PptVO vo) throws Exception {
@@ -44,10 +49,16 @@ public class PptServiceImpl implements PptService {
 		pptDAO.update(vo);
 	}
 
+	@Transactional
 	@Override
 	public void delete(Integer fno) throws Exception {
 		
+		imgDAO.delete(fno);
+		
 		pptDAO.delete(fno);
+		
+		
+		
 	}
 
 	@Override

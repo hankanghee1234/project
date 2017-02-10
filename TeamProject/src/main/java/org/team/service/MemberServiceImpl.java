@@ -37,6 +37,8 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> list() throws Exception {
 		return memberDAO.list();
 	}
+
+
 	
 	@Override
 	public boolean loginDupleChk(String userid) throws Exception {
@@ -47,5 +49,7 @@ public class MemberServiceImpl implements MemberService {
 	public boolean memberLogin(MemberVO vo) throws Exception {
 		return memberDAO.memberLogin(vo);
 	}
+
+	
 
 }

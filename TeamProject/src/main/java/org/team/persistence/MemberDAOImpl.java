@@ -40,6 +40,7 @@ public class MemberDAOImpl implements MemberDAO {
 		return session.selectList(NAME + ".list");
 	}
 	
+	
 	@Override
 	public boolean memberLogin(MemberVO vo) throws Exception {
 		String userid = session.selectOne(NAME + ".memberLogin", vo);
@@ -59,5 +60,7 @@ public class MemberDAOImpl implements MemberDAO {
 			return false;
 		}
 	}
+
+	
 
 }

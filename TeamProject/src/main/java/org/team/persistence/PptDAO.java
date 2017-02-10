@@ -10,6 +10,8 @@ public interface PptDAO {
 
 	public void create(PptVO vo) throws Exception;
 
+	public void broadStart(int fno) throws Exception;
+	
 	public List<PptVO> pptGuestList() throws Exception; // guest 접속으로 인한 ppt 정보 호출
 	
 	public PptVO pptRead(Integer fno) throws Exception; // ppt data 읽기
@@ -17,8 +19,6 @@ public interface PptDAO {
 	public void update(PptVO vo) throws Exception;
 
 	public void delete(Integer fno) throws Exception;
-	
-	public void broadStart(Integer fno) throws Exception;
 	
 	public List<PptVO> listPage(int page) throws Exception;
 	
