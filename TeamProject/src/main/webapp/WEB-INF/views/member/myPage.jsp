@@ -185,7 +185,7 @@ body {
 								<div class="col-md-8" style="padding-left: 2px;">
 									<!-- 검색 조건 처리 -->
 									<form method="get" id="sf">
-         <input id="spageHidden" type="hidden" name="page" value=${pageMaker.current}>
+         <input id="spageHidden" type="hidden" name="page" value="${pageMaker.current}">
          <!-- <input id="mnoHidden" type="hidden" name="mno">  -->
          <input id="fnoHidden" type="hidden" name="userid">
          <select name="searchType">
@@ -199,15 +199,15 @@ body {
       <!-- <button id='sBtn'>검색</button>  -->
       <input type="text" class="form-control" name="keyword"
 												id="keywordInput" value="${cri.keyword}">
-      </form>
- <c:if test="${empty pptUserList}">
-         
-         
-         데이터가 없습니다.
-         <button id="fpageBtn"> 처음 페이지로</button>
-         
-      
-   </c:if> 
+			      </form>
+			 <c:if test="${empty pptUserList}">
+			         
+			         
+			         데이터가 없습니다.
+			         <button id="fpageBtn"> 처음 페이지로</button>
+			         
+			      
+			   </c:if> 
          
           
    
@@ -343,7 +343,6 @@ body {
 				</div> <!-- /.button 처리 -->
 			</div>
 		</div>
-	</div>
 <form id="f1">
 <input id="useridF" type="hidden" name="userid" >
 
