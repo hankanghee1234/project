@@ -43,7 +43,7 @@ public class PptController {
 
       /*InputStream in = new FileInputStream("C:\\zzz\\" + name);*/
       
-      InputStream in = new FileInputStream("C:\\zzz\\" + name);
+      InputStream in = new FileInputStream("C:\\zzz\\deskppt\\" + name);
 
       return IOUtils.toByteArray(in);
    }

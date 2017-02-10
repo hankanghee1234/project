@@ -265,10 +265,11 @@ public class MemberController {
       return "success";
    } // 방송 끝내기
    
-   @RequestMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" }, method = RequestMethod.GET)
+   @RequestMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" }, 
+		   method = RequestMethod.GET)
    public @ResponseBody byte[] show(String name) throws Exception {
 
-      InputStream in = new FileInputStream("C:\\zzz\\" + name);
+      InputStream in = new FileInputStream("C:\\zzz\\deskppt\\" + name);
 
       return IOUtils.toByteArray(in);
    }
