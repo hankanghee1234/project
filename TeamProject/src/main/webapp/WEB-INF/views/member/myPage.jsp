@@ -408,6 +408,8 @@ body {
 	 <form method="get" id="index" action="../index">           
       </form>
 
+	<form method="get" id="move" action="myPage">           
+      </form>
 	<!-- 로그아웃 폼 -->
 	<form method="post" id="logoutForm" action="logout">
 		<input id="logoutHidden" type="hidden" name="userid" value="${userid}">
@@ -696,8 +698,8 @@ body {
 		});
 		
 		$("#moveBtn").on("click", function(){
-			console.log('처음으로...');
-			$("#index").submit();
+			console.log('마이페이지 이동.......');
+			$("#move").submit();
 		});
 		
 		$("#createBtn").on("click", function(){
