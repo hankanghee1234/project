@@ -106,7 +106,7 @@ body {
 						</div>	
 					</button>
 	               
-					<!-- 회원 정보 수정 하기 -->
+	               	<!-- 회원 정보 수정 하기 -->
 					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
 							<h4>회원정보 수정</h4>
@@ -216,9 +216,7 @@ body {
 												id="keywordInput" value="${cri.keyword}"> 
 										</div>
 										<!-- /input-group -->
-										<%-- <c:if test="${empty pptUserList}"> 데이터가 없습니다.
-									         	<button id="fpageBtn"> 처음 페이지로</button> 
-									  			 </c:if> --%> 	  
+										 
 										<!-- btn-group -->
 										<div class="input-group-btn">
 											<button type="button" class="btn btn-secondary" 
@@ -243,6 +241,13 @@ body {
 										</tr>
 									</thead>
 									<tbody>
+									<c:if test="${empty pptUserList}"> 
+									<tr>
+								<th colspan="3">데이터가 없습니다. 
+										 <button id="moveBtn" > 처음 페이지로</button> 
+										 </th>
+									</tr>
+									</c:if>
 										<!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
 										<c:forEach items="${pptUserList}" var="PptVO">
 											<ul class="pptUserList">
@@ -686,6 +691,12 @@ body {
 		}); // 유저 정보 delete
 
 		$("#fpageBtn").on("click", function(){
+			console.log('처음으로...');
+			$("#index").submit();
+		});
+		
+		$("#moveBtn").on("click", function(){
+			console.log('처음으로...');
 			$("#index").submit();
 		});
 		
