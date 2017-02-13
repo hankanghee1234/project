@@ -27,13 +27,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 		String referer = (String) session.getAttribute("referer");
 
-		
 		if(modelAndView.getModel() == null){
 			return;
 		}
 		
 		Object value = modelAndView.getModel().get("value");
-		// 컨트롤러에서 모델에다 게스트를담는다 그걸 보여준다
+		// 모델에 아이디값을 담아서 처리해준다.
 
 		logger.info("referer....." + referer);
 
@@ -52,7 +51,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			logger.info(loginCookie.toString());
 			logger.info("로그인 인터셉터  쿠키 생성.................");
 
-			
 			response.addCookie(loginCookie);
 
 //			response.sendRedirect("/member/list");

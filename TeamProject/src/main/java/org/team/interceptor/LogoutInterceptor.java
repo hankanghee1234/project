@@ -15,7 +15,6 @@ public class LogoutInterceptor extends HandlerInterceptorAdapter {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
-
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
@@ -24,40 +23,21 @@ public class LogoutInterceptor extends HandlerInterceptorAdapter {
 			return;
 		}
 
-	/*	HttpSession session = request.getSession();
-		String referer = (String) session.getAttribute("referer");
-
-		
-		if(modelAndView.getModel() == null){
-			return;
-		}
-		
-		Object value = modelAndView.getModel().get("value");
-		// ��Ʈ�ѷ����� �𵨿��� �Խ�Ʈ����´� �װ� �����ش�
-
-		logger.info("referer....." + referer);*/
-
-		
-		
 		Cookie[] cookie = request.getCookies();
 		
-		logger.info("�α׾ƿ� ������");
+		logger.info("아이디 확인");
 		String id = cookie[1].getValue();
 		logger.info(id);
-		
-		
-
 
 		Cookie logoutCookie = new Cookie("id", id);
 		logoutCookie.setMaxAge(0 * 0 * 0);
-		logger.info("���� ������ ��Ű �� Ȯ��.");
+		
+		logger.info("쿠키값 확인");
 		logger.info(cookie[1].toString());
 		logger.info(logoutCookie.getValue());
-		logger.info("�α� �ƿ� ���ͼ���  ��Ű ����.................");
-
+		logger.info("로그아웃 쿠키 확인.............");
 		
 		response.addCookie(logoutCookie);
 
-		/*response.sendRedirect("http://localhost:8081/board/login");*/
 	}
 }

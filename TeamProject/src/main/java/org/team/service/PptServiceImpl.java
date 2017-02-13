@@ -54,10 +54,7 @@ public class PptServiceImpl implements PptService {
 	public void delete(Integer fno) throws Exception {
 		
 		imgDAO.delete(fno);
-		
 		pptDAO.delete(fno);
-		
-		
 		
 	}
 
