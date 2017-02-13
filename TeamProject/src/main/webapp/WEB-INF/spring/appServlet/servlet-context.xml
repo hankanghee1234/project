@@ -38,20 +38,13 @@
 		<beans:property name="maxUploadSize" value="50485760"></beans:property>
 	</beans:bean>
 
-	<beans:bean id="GeustLoginInterceptor" class="org.team.interceptor.GeustLoginInterceptor">
-	</beans:bean>
-	<beans:bean id="LoginInterceptor" class="org.team.interceptor.LoginInterceptor">
+	<beans:bean id="CheckLoginInterceptor" class="org.team.interceptor.CheckLoginInterceptor">
 	</beans:bean>
 	
 		<interceptors>
 			<interceptor>
-				<mapping path="/member/loginPOST"/>
-				<beans:ref bean="LoginInterceptor"/>
-			</interceptor>
-			
-			<interceptor>
-				<mapping path="/loginGeustPOST/{userid}"/>
-				<beans:ref bean="GeustLoginInterceptor"/>
+				<mapping path="/member/myPage"/>
+				<beans:ref bean="CheckLoginInterceptor"/>
 			</interceptor>
 		</interceptors>
 

@@ -31,7 +31,7 @@ public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
 
 		Cookie[] arr = request.getCookies();
 		
-		Object obj = "id";
+		Object obj = "login";
 
 		if(arr != null){
 				for(int i=0;i<arr.length;i++){
@@ -50,7 +50,7 @@ public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
 			
 			logger.info("로그인 아이디 확인");
 			session.setAttribute("referer", referer);
-			response.sendRedirect("../login");// 없으면 리다이렉트
+			response.sendRedirect("../index");// 없으면 리다이렉트
 		
 			return false;
 

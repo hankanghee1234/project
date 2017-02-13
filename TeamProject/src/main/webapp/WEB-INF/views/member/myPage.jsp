@@ -37,13 +37,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-</head>
-
 
 <style>
 body {
-	/* background-image: url("../resources/conference1.jpg"); */
-	background-color: black;
+	background-image: url("../resources/Theme/assets/img/회사.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -57,6 +54,7 @@ body {
    height: 80px;
    border: 1px groove blue;
 }
+
 </style>
 
 <body>
@@ -79,7 +77,7 @@ body {
 						class="reset btn ripple-infinite btn-round btn-3d btn-default btn-lg"
 						style="position: relative;">
 						<div>
-							<span class="icons icon-settings"></span>
+							<span class="glyphicon glyphicon-user"></span>
 						</div>
 					</button>
 
@@ -87,14 +85,26 @@ body {
 						class="secession btn ripple-infinite btn-round btn-3d btn-default btn-lg"
 						style="position: relative;">
 						<div>
-							<span class="icon-user-unfollow"></span>
+							<span class="glyphicon glyphicon-remove"></span>
 						</div>
 					</button>
 					             
 	                <!-- 로그아웃  -->
-	               <button id="logout" >로그아웃</button>
+	               <button id="logout"
+	               		class="secession btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+						style="position: relative;">
+	               		<div>
+	               			<span class="glyphicon glyphicon-off"></span>
+	               		</div>
+	               	</button>
 	               <!-- HOME -->
-	               <button id="fpageBtn">HOME</button>
+	               <button id="fpageBtn"
+	               class="secession btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+						style="position: relative;">
+						<div>
+							<span class="glyphicon glyphicon-home"></span>
+						</div>	
+					</button>
 	               
 					<!-- 회원 정보 수정 하기 -->
 					<div class="modal-content modal-reset">
@@ -195,23 +205,23 @@ body {
 										<option value="n"
 											<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
 										<option value="k"
-											<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>PPT_KIND</option>
+											<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>발표분야</option>
 										<option value="t"
-											<c:out value="${cri.searchType eq 't'?'selected':''}"/>>PPT_TITLE</option>
+											<c:out value="${cri.searchType eq 't'?'selected':''}"/>>제목</option>
 									</select>
 									<!-- input-group -->
 									<div class="input-group">
 										<div class="input-group-text">
 											<input type="text" class="form-control" name="keyword"
-												id="keywordInput" value="${cri.keyword}">	   
+												id="keywordInput" value="${cri.keyword}"> 
 										</div>
 										<!-- /input-group -->
-										<c:if test="${empty pptUserList}"> 데이터가 없습니다.
-									         <button id="fpageBtn"> 처음 페이지로</button> 
-									   </c:if> 
+										<%-- <c:if test="${empty pptUserList}"> 데이터가 없습니다.
+									         	<button id="fpageBtn"> 처음 페이지로</button> 
+									  			 </c:if> --%> 	  
 										<!-- btn-group -->
 										<div class="input-group-btn">
-											<button type="button" class="btn btn-default" 
+											<button type="button" class="btn btn-secondary" 
 											id="searchBtn">검색</button>
 										</div>
 										<!-- /btn-group -->
@@ -223,10 +233,11 @@ body {
 						<!-- ppt list 출력-->
 						<div class="panel-body">
 							<div class="responsive-table">
-								<table class="table table-striped table-bordered" width="100%"
+								<table class="table table-bordered table-hover" width="100%"
 									cellspacing="0">
 									<thead>
 										<tr>
+											<th>번호</th>
 											<th>발표분야</th>
 											<th>제목</th>
 										</tr>
@@ -236,9 +247,10 @@ body {
 										<c:forEach items="${pptUserList}" var="PptVO">
 											<ul class="pptUserList">
 												<tr id="${PptVO.fno}">
-													<td>${PptVO.ppt_kind}</td>
-													<td><a class="title-tag" id="${PptVO.fno}"
-														href="#">${PptVO.ppt_title}</a></td>
+													<th>${PptVO.fno}</th>
+													<th>${PptVO.ppt_kind}</th>
+													<th><a class="title-tag" id="${PptVO.fno}"
+														href="#">${PptVO.ppt_title}</a></th>
 												</tr>
 											</ul>
 										</c:forEach>
@@ -434,8 +446,7 @@ body {
 	         $('#logoutForm').submit();
 	               
 	      }); // 로그아웃 처리 (강희)
-
-		 
+  
 		 var pptID = '';
 	      
 			console.log(loginSession);
@@ -461,7 +472,6 @@ body {
 
 		});
 
-		
 		$("#pptDelBtn").on("click", function() {
 			
 			$('#pptDel').submit();
@@ -476,7 +486,6 @@ body {
 			console.log("업데이트 보내기!!!");
 			
 		});
-		
 		
 	/* 	var fno = 2; */
 		$(".title-tag").on("click", function(event) {
@@ -513,8 +522,8 @@ body {
 						$('#pDesc').empty(); 
 						// title과 desc 데이터를 비운다.
 						
-						$('#pTitle').append(data.ppt_title);
-						$('#pDesc').append(data.ppt_desc);
+						$('#pTitle').append("제목 - <p>"  + data.ppt_title + '</p>');
+						$('#pDesc').append("내용 - <p>" + data.ppt_desc + '</p>');
 						// title과 desc에 대한 내용을 삽입한다.
 					}
 				}); // ajax로 ppt_title과 ppt_context 내용 출력
@@ -593,9 +602,7 @@ body {
 			
 			touchTitle('${cri.fno}');
 			$('#pptDelHidden').val($('#infor').val());
-			
-		}
-		
+		} // ppt 삭제
 		
 		$('#searchBtn').on("click", function(event) {
 			alert("검색 완료");
@@ -603,7 +610,7 @@ body {
 
 			$("#sf").attr("action", "myPage").submit();
 
-		});
+		}); // 검색 처리
 		
        $("#pagination pull-right").on("click", "a",function(event) {
 	         
@@ -614,7 +621,7 @@ body {
 			$("#spageHidden").val(pageNum);
 
 			$("#sf").attr("action", "list").attr("method", "GET").submit();
-		});
+		}); // 페이지 이동
       	
        $('.active').on("click", "a", function(event) {
 
