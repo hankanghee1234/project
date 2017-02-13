@@ -288,8 +288,8 @@ public class MemberController {
 
       String uploadName = uid + "_" + fileName;
 
-      FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + fileName);
-      FileOutputStream foss = new FileOutputStream("C:\\zzz\\" + uploadName);
+      FileOutputStream fos = new FileOutputStream("C:\\zzz\\deskppt\\" + fileName);
+      FileOutputStream foss = new FileOutputStream("C:\\zzz\\deskppt\\" + uploadName);
 
       BufferedImage origin = ImageIO.read(is);
 

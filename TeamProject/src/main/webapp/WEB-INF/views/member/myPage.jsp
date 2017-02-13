@@ -61,13 +61,11 @@ body {
 
 	<!-- start: Content -->
 	<div id="content" class="profile-v1">
-		<div class="col-md-10 col-sm-10 profile-v1-wrapper" style="color:">
-			<div class="col-md-12  profile-v1-cover-wrap"
-				style="padding-right: 0px;">
+		<div class="col-md-10 col-sm-10 profile-v1-wrapper">
+			<div class="col-md-12  profile-v1-cover-wrap" style="padding-right: 0px;">
 				<div class="profile-v1-pp">
 					<img src="show?name=${read.uimg}">
-					<div class="presenter-imformatiop"
-						style="text-align: left; position: absolute;">
+					<div class="presenter-imformatiop" style="text-align: left; position: absolute;">
 						<!-- 유저 정보 출력 -->
 						<h3 style="color: blue;">${read.username}</h3>
 						<h3 style="color: yellow;">${read.email}</h3>
@@ -82,7 +80,7 @@ body {
 					</button>
 
 					<button
-						class="secession btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+						class="delete btn ripple-infinite btn-round btn-3d btn-default btn-lg"
 						style="position: relative;">
 						<div>
 							<span class="glyphicon glyphicon-remove"></span>
@@ -91,7 +89,7 @@ body {
 					             
 	                <!-- 로그아웃  -->
 	               <button id="logout"
-	               		class="secession btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+	               		class="logout btn ripple-infinite btn-round btn-3d btn-default btn-lg"
 						style="position: relative;">
 	               		<div>
 	               			<span class="glyphicon glyphicon-off"></span>
@@ -99,7 +97,7 @@ body {
 	               	</button>
 	               <!-- HOME -->
 	               <button id="fpageBtn"
-	               class="secession btn ripple-infinite btn-round btn-3d btn-default btn-lg"
+	               class="page btn ripple-infinite btn-round btn-3d btn-default btn-lg"
 						style="position: relative;">
 						<div>
 							<span class="glyphicon glyphicon-home"></span>
@@ -781,7 +779,7 @@ body {
 		$(".modal-secession").hide();
 	});
 	
-	$(".secession").click(function() {
+	$(".delete").click(function() {
 		$(".modal-secession").toggle("slow");
 	});
 	
