@@ -59,12 +59,6 @@
    
 </body>
 
-   
-   
-   
-</body>
-
-
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script
@@ -82,6 +76,4 @@
 	      });
    });
 </script>
-
-
 </html>
