@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>마이 페이지</title>
 
 <meta name="description" content="Miminium Admin Template v.1">
 <meta name="author" content="Isna Nur Azis">
@@ -183,7 +183,7 @@ body {
 				<div class="col-md-12 profile-v1-cover">
 					<img src="../resources/miminium-master/asset/img/하늘배경.jpg"
 						class="img-responsive" style="height: 300px;">
-				</div> 
+				</div>
 			</div>
 		</div>
 		<!-- 검색 조건 처리 -->
@@ -444,6 +444,30 @@ body {
 <script src="https://code.jquery.com/jquery-2.2.4.js"
 	integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 	crossorigin="anonymous"></script>
+
+<script>
+	$(".modal-content").hide();
+	
+	$("#cancelBtn").click(function() {
+		$(".modal-reset").hide();
+	});
+	
+	$(".reset").click(function() {
+		$(".modal-reset").toggle("slow");
+	});
+	
+	$("#dangerBtn").click(function() {
+		$(".modal-secession").hide();
+	});
+	
+	$(".delete").click(function() {
+		$(".modal-secession").toggle("slow");
+	});
+	
+	$("#uploadBtn").click(function() {
+		$(".modal-upload").toggle("slow");
+	});
+</script>
 
 <script>
 	$(document).ready(function() {
@@ -761,30 +785,6 @@ body {
 	      
 	      }); // drag & drop end
 	      
-	});
-</script>
-
-<script>
-	$(".modal-content").hide();
-	
-	$("#cancelBtn").click(function() {
-		$(".modal-reset").hide();
-	});
-	
-	$(".reset").click(function() {
-		$(".modal-reset").toggle("slow");
-	});
-	
-	$("#dangerBtn").click(function() {
-		$(".modal-secession").hide();
-	});
-	
-	$(".delete").click(function() {
-		$(".modal-secession").toggle("slow");
-	});
-	
-	$("#uploadBtn").click(function() {
-		$(".modal-upload").toggle("slow");
 	});
 </script>
 

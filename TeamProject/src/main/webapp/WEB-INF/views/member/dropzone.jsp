@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <style>
 .dropzone {
-   border: 2px groove;
+    border: 2px groove;
 }
 </style>
 
@@ -45,7 +45,8 @@
       <form action="/ppt/upload2" method="post" class="dropzone"
       id="my-awesome-dropzone">
       <h2 class="w3-panel w3-pale-blue w3-round-xxlarge">DropZone Space Upload(PPT & PDF)</h2>
-      </form>   
+      </form>
+         
       <p align="center">
       <button type="button" id="up" class="w3-btn w3-padding w3-teal w3-round-xlarge"
             style="width: 120px; ">업로드</button>
