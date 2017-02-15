@@ -40,7 +40,7 @@
 
 <style>
 body {
-	background-image: url("../resources/Theme/assets/img/회사.jpg");
+	background-image: url("../resources/Theme/assets/img/111.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -64,11 +64,11 @@ body {
 		<div class="col-md-10 col-sm-10 profile-v1-wrapper">
 			<div class="col-md-12  profile-v1-cover-wrap" style="padding-right: 0px;">
 				<div class="profile-v1-pp">
-					<img src="show?name=${read.uimg}">
+				<img src="show?name=${read.uimg}">
 					<div class="presenter-imformatiop" style="text-align: left; position: absolute;">
 						<!-- 유저 정보 출력 -->
-						<h3 style="color: blue;">${read.username}</h3>
-						<h3 style="color: yellow;">${read.email}</h3>
+						<h3 style="color: black;">${read.username}</h3>
+						<h3 style="color: black;">${read.email}</h3>	
 					</div>
 
 					<button
@@ -107,7 +107,7 @@ body {
 	               	<!-- 회원 정보 수정 하기 -->
 					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
-							<h4>Profile Update</h4>
+							<h4>회원정보 수정란...</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
 							</h2>
@@ -128,7 +128,7 @@ body {
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
 											<input type="password" class="form-control" name="userpw"
-												placeholder="password" value="${MemberVO.userpw}">
+												placeholder="패스워드 수정" value="${MemberVO.userpw}">
 										</div>
 									</div>
 									<!-- 이메일 -->
@@ -136,7 +136,7 @@ body {
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="email"
-												placeholder="email" value="${MemberVO.email}">
+												placeholder="이메일 수정" value="${MemberVO.email}">
 										</div>
 									</div>
 									<!-- 이름 -->
@@ -144,7 +144,7 @@ body {
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="username"
-												placeholder="username" value="${MemberVO.username}">
+												placeholder="이름 수정" value="${MemberVO.username}">
 										</div>
 									</div>
 									<p><input type="hidden" name="uimg" id="imgsrc"></p>
@@ -153,9 +153,9 @@ body {
 								</form>
 							</div>
 							<!-- 수정확인 버튼 -->
-							<button class="btn btn-primary" id="updateBtn">Update</button>
+							<button class="btn btn-primary" id="updateBtn">수정</button>
 							<button class="btn btn-warning" id="cancelBtn"
-								data-dismiss="modal" aria-label="Close">Cancel</button>
+								data-dismiss="modal" aria-label="Close">취소</button>
 						</div>
 						<div class="modal-footer"></div>
 					</div>
@@ -163,25 +163,25 @@ body {
 					<!-- 회원 정보 삭제 하기 -->
 					<div class="modal-content modal-secession">
 						<div class="modal-header" style="height: 50px;">
-							<h4>Confirm member deletion</h4>
+							<h4>회원정보 탈퇴란...</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
 							</h2>
 						</div>
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
-								<h3>Do you really want to leave your membership?</h3>
+								<h3>정말로 탈퇴를 하시겠습니까?</h3>
 							</div>
-							<button class="btn btn-danger" id="deleteBtn" value="primary">Submit</button>
+							<button class="btn btn-danger" id="deleteBtn" value="primary">삭제</button>
 							<button class="btn btn-warning" id="dangerBtn"
-								data-dismiss="modal" aria-label="Close">Cancel</button>
+								data-dismiss="modal" aria-label="Close">취소</button>
 						</div>
 						<div class="modal-footer"></div>
 					</div>
 				</div>
 				<!-- /.회원 정보 삭제 하기 -->
 				<div class="col-md-12 profile-v1-cover">
-					<img src="../resources/miminium-master/asset/img/1.jpg"
+					<img src="../resources/miminium-master/asset/img/하늘배경.jpg"
 						class="img-responsive" style="height: 300px;">
 				</div> 
 			</div>
@@ -192,7 +192,7 @@ body {
 				<div class="col-md-5">
 					<div class="panel">
 						<div class="panel-body">
-							<h3>PPT LIST</h3>
+							<h3>PPT FILE LIST</h3>
 							<div class="col-md-12 padding-0">
 								<div class="col-md-8" style="padding-left: 2px;">
 									<!-- 검색 조건 처리 -->
@@ -211,14 +211,14 @@ body {
 									<div class="input-group">
 										<div class="input-group-text">
 											<input type="text" class="form-control" name="keyword"
-												id="keywordInput" value="${cri.keyword}"> 
+												id="keywordInput" placeholder="검색명을 입력하세요" value="${cri.keyword}"> 
 										</div>
 										<!-- /input-group -->
 										 
 										<!-- btn-group -->
 										<div class="input-group-btn">
 											<button type="button" class="btn btn-secondary" 
-											id="searchBtn">검색</button>
+											id="searchBtn">Search</button>
 										</div>
 										<!-- /btn-group -->
 									</div>
@@ -232,15 +232,15 @@ body {
 								<table class="table table-bordered table-hover" width="100%"
 									cellspacing="0">
 									<thead>
-										<tr>
-											<th>Number</th>
-											<th>Field</th>
-											<th>Title</th>
+										<tr style="color:black;">
+											<th>번호</th>
+											<th>분야</th>
+											<th>제목</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:if test="${empty pptUserList}"> 
-										<tr>
+										<tr style="color:black;">
 											<th colspan="3">데이터가 없습니다. 
 												<button id="moveBtn" > 처음 페이지로</button> 
 											</th>
@@ -249,7 +249,7 @@ body {
 										<!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
 										<c:forEach items="${pptUserList}" var="PptVO">
 											<ul class="pptUserList">
-												<tr id="${PptVO.fno}">
+												<tr id="${PptVO.fno}" style="color:black;">
 													<th>${PptVO.fno}</th>
 													<th>${PptVO.ppt_kind}</th>
 													<th><a class="title-tag" id="${PptVO.fno}"
@@ -280,7 +280,6 @@ body {
 					<!-- /.ppt list 출력-->
 				</div>
 			</div>
-				
 				<div class="col-md-5">
 					<div class="panel box-v3">					
 						<h4>Select Option</h4>
@@ -335,8 +334,8 @@ body {
 									</div>
 									<div class="panel-body padding-0">
 										<div id="context" class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
-											<h2 id='pTitle'>TITLE</h2>
-											<p id='pDesc'>CONTENT</p>
+											<h2 id='pTitle'></h2>
+											<p id='pDesc'></p>
 										</div>
 										<div class="calendar fc fc-ltr fc-unthemed">
 											<div class="fc-toolbar"></div>
@@ -359,17 +358,17 @@ body {
 										<input id="upFno" type="hidden" name="fno" value="2">
 										<br>
 										<p>
-											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;Field</label>
+											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;분야</label>
 										</p>
 										<input class="w3-input w3-border w3-round-large" type="text"
 											name="ppt_kind" placeholder="Field" value="">
 										<p>
-											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;Title</label>
+											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;제목</label>
 										</p>
 										<input class="w3-input w3-border w3-round-large" type="text"
 											name="ppt_title" placeholder="Title" value="">
 										<p>
-											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;content</label>
+											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;내용</label>
 										</p>
 										<input class="w3-input w3-border w3-round-large" type="text"
 											name="ppt_desc" placeholder="Content" value=""> <br>
@@ -531,8 +530,8 @@ body {
 						$('#pDesc').empty(); 
 						// title과 desc 데이터를 비운다.
 						
-						$('#pTitle').append("Title - <p>"  + data.ppt_title + '</p>');
-						$('#pDesc').append("Content - <p>" + data.ppt_desc + '</p>');
+						$('#pTitle').append("<p>"  + data.ppt_title + '</p>');
+						$('#pDesc').append("<p>" + data.ppt_desc + '</p>');
 						// title과 desc에 대한 내용을 삽입한다.
 					}
 				}); // ajax로 ppt_title과 ppt_context 내용 출력

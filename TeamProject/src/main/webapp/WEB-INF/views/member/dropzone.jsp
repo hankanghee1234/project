@@ -20,11 +20,11 @@
       <form id="ddd" action="pptCreate" method="post"  >
       	<input id="userid" type="hidden" name="userid" value="${param.userid}" > 
       <div class="w3-container w3-teal w3-round-xlarge">
-         <h3>해당하는 파일을 기록하시오</h3>
+         <h4>내용 기록 및 파일을 올리시오..</h4>
       </div>
       <br>
       <p>
-         <label class="w3-text-grey">&nbsp;&nbsp;&nbsp;해당분야</label>
+         <label class="w3-text-grey">&nbsp;&nbsp;&nbsp;분야</label>
       </p>
       <input class="w3-input w3-border w3-round-large" type="text" 
       name="ppt_kind" placeholder="Field" value="">
@@ -44,15 +44,15 @@
    <!-- 드롭존 폼 -->
       <form action="/ppt/upload2" method="post" class="dropzone"
       id="my-awesome-dropzone">
-      <h2 class="w3-panel w3-pale-blue w3-round-xxlarge">DropZone Space upload(PPT & PDF)</h2>
+      <h2 class="w3-panel w3-pale-blue w3-round-xxlarge">DropZone Space Upload(PPT & PDF)</h2>
       </form>   
       <p align="center">
       <button type="button" id="up" class="w3-btn w3-padding w3-teal w3-round-xlarge"
-            style="width: 120px; ">Upload</button>
+            style="width: 120px; ">업로드</button>
       <button type="button" id="reset" class="w3-btn w3-padding w3-teal w3-round-xlarge"
-            style="width: 120px; ">Reset</button>
+            style="width: 120px; ">초기화</button>
       <button type="button" id="cancel" class="w3-btn w3-padding w3-teal w3-round-xlarge"
-            style="width: 120px; ">Cancel</button>
+            style="width: 120px; ">취소</button>
       </p>
    
 </body>

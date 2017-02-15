@@ -61,10 +61,10 @@
 					<input type="password" placeholder="비밀먼호" name="userpw" />
 					<button>로그인</button>
 					<p class="message">
-						회원이 아니신가요? <a href="">회원 가입</a>
+						회원이 아니신가요? <a href="#">회원 가입</a>
 					</p>
 					<p class="message" >
-						<a href="" class="back">뒤로 가기</a>
+						<a href="#" class="back">뒤로 가기</a>
 					</p>
 				</form>
 			</div>
@@ -72,19 +72,14 @@
 		<div class="list-page">
 			<div class="form" method="post">
 				<form class="list-form" id='chatList'>
-
-
-			
-					
 				</form>
 			</div>
 		</div>
+		
 		<form id='GeustForm' action="/member/loginGeustPOST" method="post">
 			<input type="hidden" name="pptFno" value="6">
-			<input type="hidden" name="userid" value="user00">
-			 
+			<input type="hidden" name="userid" value="user00">	 
 		</form>
-		
 		
 		<div class="text-vertical-center"></div>
 	</div>
