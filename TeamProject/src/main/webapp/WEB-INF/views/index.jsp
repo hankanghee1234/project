@@ -97,16 +97,4 @@
 <script
 	src="${pageContext.request.contextPath}/resources/startbootstrap/js/index.js"></script>
 	
-	<script>
-
-	$(document).ready(function() {
-	
-	
-		
-		
-
-	});
-	
-
-	</script>
 </html>

@@ -107,7 +107,7 @@ body {
 	               	<!-- 회원 정보 수정 하기 -->
 					<div class="modal-content modal-reset">
 						<div class="modal-header" style="height: 50px;">
-							<h4>회원정보 수정</h4>
+							<h4>Profile Update</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
 							</h2>
@@ -128,7 +128,7 @@ body {
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
 											<input type="password" class="form-control" name="userpw"
-												placeholder="패스워드 수정" value="${MemberVO.userpw}">
+												placeholder="password" value="${MemberVO.userpw}">
 										</div>
 									</div>
 									<!-- 이메일 -->
@@ -136,7 +136,7 @@ body {
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="email"
-												placeholder="이메일 수정" value="${MemberVO.email}">
+												placeholder="email" value="${MemberVO.email}">
 										</div>
 									</div>
 									<!-- 이름 -->
@@ -144,7 +144,7 @@ body {
 										<label class="col-sm-2 control-label text-right"></label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" name="username"
-												placeholder="이름 수정" value="${MemberVO.username}">
+												placeholder="username" value="${MemberVO.username}">
 										</div>
 									</div>
 									<p><input type="hidden" name="uimg" id="imgsrc"></p>
@@ -153,9 +153,9 @@ body {
 								</form>
 							</div>
 							<!-- 수정확인 버튼 -->
-							<button class="btn btn-primary" id="updateBtn">수정</button>
+							<button class="btn btn-primary" id="updateBtn">Update</button>
 							<button class="btn btn-warning" id="cancelBtn"
-								data-dismiss="modal" aria-label="Close">취소</button>
+								data-dismiss="modal" aria-label="Close">Cancel</button>
 						</div>
 						<div class="modal-footer"></div>
 					</div>
@@ -163,27 +163,27 @@ body {
 					<!-- 회원 정보 삭제 하기 -->
 					<div class="modal-content modal-secession">
 						<div class="modal-header" style="height: 50px;">
-							<h4>회원탈퇴 확인</h4>
+							<h4>Confirm member deletion</h4>
 							<h2 class="modal-title">
 								<i class="icon-user icons"></i>
 							</h2>
 						</div>
 						<div class="panel-body" style="text-align: center;">
 							<div class="modal-body col-md-12" style="line-height: 10px;">
-								<h3>정말로 회원을 탈퇴하시 겠습니까?</h3>
+								<h3>Do you really want to leave your membership?</h3>
 							</div>
-							<button class="btn btn-danger" id="deleteBtn" value="primary">삭제</button>
+							<button class="btn btn-danger" id="deleteBtn" value="primary">Submit</button>
 							<button class="btn btn-warning" id="dangerBtn"
-								data-dismiss="modal" aria-label="Close">취소</button>
+								data-dismiss="modal" aria-label="Close">Cancel</button>
 						</div>
 						<div class="modal-footer"></div>
 					</div>
 				</div>
 				<!-- /.회원 정보 삭제 하기 -->
 				<div class="col-md-12 profile-v1-cover">
-					<img src="../resources/miminium-master/asset/img/bg1.jpg"
+					<img src="../resources/miminium-master/asset/img/1.jpg"
 						class="img-responsive" style="height: 300px;">
-				</div>
+				</div> 
 			</div>
 		</div>
 		<!-- 검색 조건 처리 -->
@@ -203,7 +203,7 @@ body {
 										<option value="n"
 											<c:out value="${cri.searchType == null?'selected':''}"/>>---</option>
 										<option value="k"
-											<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>발표분야</option>
+											<c:out value="${cri.searchType eq 'k'?'selected':''}"/>>분야</option>
 										<option value="t"
 											<c:out value="${cri.searchType eq 't'?'selected':''}"/>>제목</option>
 									</select>
@@ -227,24 +227,24 @@ body {
 							</div>
 						</div>
 						<!-- ppt list 출력-->
-						<div class="panel-body">
+						<div class="panel-body" align="center">
 							<div class="responsive-table">
 								<table class="table table-bordered table-hover" width="100%"
 									cellspacing="0">
 									<thead>
 										<tr>
-											<th>번호</th>
-											<th>발표분야</th>
-											<th>제목</th>
+											<th>Number</th>
+											<th>Field</th>
+											<th>Title</th>
 										</tr>
 									</thead>
 									<tbody>
-									<c:if test="${empty pptUserList}"> 
-									<tr>
-								<th colspan="3">데이터가 없습니다. 
-										 <button id="moveBtn" > 처음 페이지로</button> 
-										 </th>
-									</tr>
+										<c:if test="${empty pptUserList}"> 
+										<tr>
+											<th colspan="3">데이터가 없습니다. 
+												<button id="moveBtn" > 처음 페이지로</button> 
+											</th>
+										</tr>
 									</c:if>
 										<!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
 										<c:forEach items="${pptUserList}" var="PptVO">
@@ -302,7 +302,7 @@ body {
 						<div class="panel box-v4">
 							<div class="panel-heading bg-white border-none">
 								<h4>
-									<span class="icon-notebook icons"></span> PPT 정보
+									<span class="icon-notebook icons"></span> PPT Information
 								</h4>
 							</div>
 							<div class="panel-body">
@@ -335,8 +335,8 @@ body {
 									</div>
 									<div class="panel-body padding-0">
 										<div id="context" class="col-md-12 col-xs-12 col-md-12 padding-0 box-v4-alert">
-											<h2 id='pTitle'>제목</h2>
-											<p id='pDesc'>내용</p>
+											<h2 id='pTitle'>TITLE</h2>
+											<p id='pDesc'>CONTENT</p>
 										</div>
 										<div class="calendar fc fc-ltr fc-unthemed">
 											<div class="fc-toolbar"></div>
@@ -359,17 +359,17 @@ body {
 										<input id="upFno" type="hidden" name="fno" value="2">
 										<br>
 										<p>
-											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;해당분야</label>
+											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;Field</label>
 										</p>
 										<input class="w3-input w3-border w3-round-large" type="text"
 											name="ppt_kind" placeholder="Field" value="">
 										<p>
-											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;제목</label>
+											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;Title</label>
 										</p>
 										<input class="w3-input w3-border w3-round-large" type="text"
 											name="ppt_title" placeholder="Title" value="">
 										<p>
-											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;내용</label>
+											<label class="w3-text-grey">&nbsp;&nbsp;&nbsp;content</label>
 										</p>
 										<input class="w3-input w3-border w3-round-large" type="text"
 											name="ppt_desc" placeholder="Content" value=""> <br>
@@ -379,14 +379,14 @@ body {
 										style="width: 120px;">Upload</button>
 								</div>
 									<div class="modal-footer"></div>
-							</div> 
-							<!-- /. ppt 내용 수정 -->
+							</div> <!-- /. ppt 내용 수정 -->
 						</div> <!-- /.ppt 정보 & img 뿌리기 -->
 					</div>
 				</div> <!-- /.button 처리 -->
 			</div>
 		</div>
 	</div>
+	
 	<form id="f1">
 		<input id="useridF" type="hidden" name="userid">
 	</form>
@@ -394,21 +394,26 @@ body {
 	<form method="post" id="circle" action="circle">
 		<input id="circleHidden" type="hidden" value="9">
 	</form>
-
+	
+	<!-- PPT DELETE -->
 	<form method="post" id="pptDel" action="pptDel">
 		<input id="pptDelHidden" type="hidden" name="fno" value="">
 	</form>
-
+	
+	<!-- 유저의 방송 페이지로 이동 -->
 	<form method="post" id="broadCast" action="broadCast">
 		<input id="broadCastHidden" type="hidden" name="fno" value="">
 	</form>
 	
-	 <form method="get" id="index" action="../index">           
-      </form>
-
+	<!-- HOME으로 이동  -->
+	<form method="get" id="index" action="../index">           
+    </form>
+	
+	<!-- 검색 시 조건이 없으면 원래 처음 화면으로 이동 -->
 	<form method="get" id="move" action="myPage">           
-      </form>
-	<!-- 로그아웃 폼 -->
+    </form>
+      
+	<!-- 로그아웃 처리 -->
 	<form method="post" id="logoutForm" action="logout">
 		<input id="logoutHidden" type="hidden" name="userid" value="${userid}">
 	</form>
@@ -450,7 +455,7 @@ body {
              
 	         $('#logoutForm').submit();
 	               
-	      }); // 로그아웃 처리 (강희)
+	      }); // 로그아웃 처리
   
 		 var pptID = '';
 	      
@@ -475,7 +480,7 @@ body {
 
 			 self.location = "http://192.168.0.28:8082/ppt?id="+pptID+"#&userid="+loginSession+"#/"; 
 
-		});
+		}); // 유저가 ppt를 클릭하면 pptID에 따른 방송페이지로 이동
 
 		$("#pptDelBtn").on("click", function() {
 			
@@ -492,7 +497,6 @@ body {
 			
 		});
 		
-	/* 	var fno = 2; */
 		$(".title-tag").on("click", function(event) {
 
 			event.preventDefault();
@@ -527,8 +531,8 @@ body {
 						$('#pDesc').empty(); 
 						// title과 desc 데이터를 비운다.
 						
-						$('#pTitle').append("제목 - <p>"  + data.ppt_title + '</p>');
-						$('#pDesc').append("내용 - <p>" + data.ppt_desc + '</p>');
+						$('#pTitle').append("Title - <p>"  + data.ppt_title + '</p>');
+						$('#pDesc').append("Content - <p>" + data.ppt_desc + '</p>');
 						// title과 desc에 대한 내용을 삽입한다.
 					}
 				}); // ajax로 ppt_title과 ppt_context 내용 출력
@@ -585,7 +589,7 @@ body {
 			});
 		};
 		
-		var fnoVal = '${cri.fno}'; 
+		var fnoVal = '${cri.fno}'; // fno값을 받음
 		
 		if(fnoVal!=2){
 			
@@ -607,7 +611,7 @@ body {
 			
 			touchTitle('${cri.fno}');
 			$('#pptDelHidden').val($('#infor').val());
-		} // ppt 삭제
+		} // if ~ else로 fno는 2가 맞으면 2번에 해당하는 ppt를 보여주고 그렇지 안으면 null값을 띄운다.
 		
 		$('#searchBtn').on("click", function(event) {
 			alert("검색 완료");
@@ -707,7 +711,6 @@ body {
 
 	        var cooki = JSON.stringify(cookie);
 
-
 	        var cook = new Array();
 	        cook = cooki.split("=");
 
@@ -720,11 +723,10 @@ body {
 	        
 			$("#useridF").val(cook2[0]);
 			
-		
 			$("#f1").attr("action", "dropzone").submit();
-		}); // 생성 페이지 이동
+		}); // 로그인한 유저의 정보에 따른 ppt file을 올릴수 있는 생성 페이지 이동
 		
-		
+		/*drag & drop으로 유저의 이미지 수정*/
 		var uploadedList = $(".uploadedList");
 	      
 	      $(".fileDrop").on("dragenter dragover", function(event) {
@@ -757,10 +759,9 @@ body {
 	               alert("이미지 수정 완료");
 	            }
 	         });
-	      }); // drag & drop end (강희)
 	      
-
-		
+	      }); // drag & drop end
+	      
 	});
 </script>
 
