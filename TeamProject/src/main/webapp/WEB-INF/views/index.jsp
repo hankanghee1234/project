@@ -57,23 +57,14 @@ top: 0px;
 
 
 <body>
-	<!-- Header -->
+<!-- Header -->
+<header id="top" class="header"> 
 
-
-
-	<header id="top" class="header"> 
-	
-	
-	
-	
 <!-- <video id="video"
 		class="video-js" controls preload="auto" width="640" height="264" loop
 		autoplay data-setup="{}"> 
 		<source src="../resources/mp4/Deep Blue Sky - Clouds Timelapse - Free Footage - Full HD 1080p - YouTube (1080p).mp4"
 		type='video/mp4'></source> </video> -->
-
-
-
 
 	<h1 class="title"
 		style="font-size: 500%; font-weight: 200px; position: absolute; left: 33%; top: 5%; text-shadow: 4px 4px 4px gray;">
@@ -113,7 +104,7 @@ top: 0px;
 						회원이 아니신가요? <a href="#">회원 가입</a>
 					</p>
 					<p class="message">
-						<a href="" class="back">뒤로 가기</a>
+						<a href="#" class="back">뒤로 가기</a>
 					</p>
 				</form>
 			</div>
@@ -121,26 +112,21 @@ top: 0px;
 		<div class="list-page">
 			<div class="form" method="post">
 				<form class="list-form" id='chatList'>
-
-
 					<p class="message">
 						<a href="#" class="back">뒤로 가기</a>
 					</p>
-
 				</form>
 			</div>
 		</div>
+		
 		<form id='GeustForm' action="/member/loginGeustPOST" method="post">
-			<input type="hidden" name="pptFno" value="6"> <input
-				type="hidden" name="userid" value="user00">
-
+			<input type="hidden" name="pptFno" value="6"> 
+			<input type="hidden" name="userid" value="user00">
 		</form>
-
 
 		<div class="text-vertical-center"></div>
 	</div>
 	</header>
-
 
 </body>
 <script
@@ -150,9 +136,5 @@ top: 0px;
 <script
 	src="${pageContext.request.contextPath}/resources/startbootstrap/js/index.js"></script>
 
-<script>
-	$(document).ready(function() {
 
-	});
-</script>
 </html>

@@ -75,22 +75,15 @@ margin: 10px;
 margin: 10px;
 }
 
-
 .user-name{
 	font-size : 230%;
 	font-weight: 200px;
-
-
 }
-
 
 .user-email{
 	font-size : 230%;
 	font-weight: 200px;
-
-
 }
-
 
 </style>
 
@@ -216,7 +209,6 @@ margin: 10px;
                   </div>
                   <div class="modal-footer"></div>
                </div>
-               
                  <!-- ppt 내용 수정 -->
                      <div class="modal-content modal-upload">
                         <div class="modal-header" style="height: 50px;">
@@ -253,7 +245,6 @@ margin: 10px;
                         </div>
                            <div class="modal-footer"></div>
                      </div> <!-- /. ppt 내용 수정 -->
-              
             </div>
             <!-- /.회원 정보 삭제 하기 -->
             <div class="col-md-12 profile-v1-cover">
@@ -419,8 +410,6 @@ margin: 10px;
                            </div>
                         </div>
                      </div>
-                     
-                   
                   </div> <!-- /.ppt 정보 & img 뿌리기 -->
                </div>
             </div> <!-- /.button 처리 -->
