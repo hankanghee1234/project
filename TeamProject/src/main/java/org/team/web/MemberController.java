@@ -71,7 +71,7 @@ public class MemberController {
       model.addAttribute("pptUserList", pptService.listSearch(cri));
       /* session처리로 로그인한 유저 정보 출력하여 로그인한 정보마다 ppt 정보 출력 */
       
-      PageMaker pageMaker = new PageMaker( pageNum,pptService.listSearchCount(cri));
+      PageMaker pageMaker = new PageMaker(pageNum, pptService.listSearchCount(cri));
 
       logger.info("======================================");
       logger.info("fno값 확인: " + fno);
