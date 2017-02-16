@@ -19,11 +19,11 @@
 	href="${pageContext.request.contextPath}/resources/startbootstrap/css/stylish-portfolio.css"
 	rel="stylesheet">
 <%-- <link
-	href="${pageContext.request.contextPath}/resources/startbootstrap/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css"> --%>
+   href="${pageContext.request.contextPath}/resources/startbootstrap/font-awesome/css/font-awesome.min.css"
+   rel="stylesheet" type="text/css"> --%>
 <!-- <link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
-	rel="stylesheet" type="text/css"> -->
+   href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+   rel="stylesheet" type="text/css"> -->
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <!-- 핸들바스 -->
@@ -31,40 +31,42 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 
-    <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet">
-    <script src="//vjs.zencdn.net/4.9/video.js"></script>
+<link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/4.9/video.js"></script>
 
 
 <style>
-
 
 /* #video {
 top: 0px;
      left: 0px;
  
      min-height: 100%;
- 	min-width:100%;	
-	width:0%;
+    min-width:100%;   
+   width:0%;
      height: auto;
-	z-index : -1;
-		
+   z-index : -1;
+      
 }
  */
-
 </style>
 
 </head>
 
 
 <body>
-<!-- Header -->
-<header id="top" class="header"> 
+	<!-- Header -->
 
-<!-- <video id="video"
-		class="video-js" controls preload="auto" width="640" height="264" loop
-		autoplay data-setup="{}"> 
-		<source src="../resources/mp4/Deep Blue Sky - Clouds Timelapse - Free Footage - Full HD 1080p - YouTube (1080p).mp4"
-		type='video/mp4'></source> </video> -->
+
+
+	<header id="top" class="header"> <!-- <video id="video"
+      class="video-js" controls preload="auto" width="640" height="264" loop
+      autoplay data-setup="{}"> 
+      <source src="../resources/mp4/Deep Blue Sky - Clouds Timelapse - Free Footage - Full HD 1080p - YouTube (1080p).mp4"
+      type='video/mp4'></source> </video> -->
+
+
+
 
 	<h1 class="title"
 		style="font-size: 500%; font-weight: 200px; position: absolute; left: 33%; top: 5%; text-shadow: 4px 4px 4px gray;">
@@ -104,37 +106,238 @@ top: 0px;
 						회원이 아니신가요? <a href="#">회원 가입</a>
 					</p>
 					<p class="message">
-						<a href="#" class="back">뒤로 가기</a>
+						<a href="" class="back">뒤로 가기</a>
 					</p>
 				</form>
 			</div>
 		</div>
 		<div class="list-page">
 			<div class="form" method="post">
-				<form class="list-form" id='chatList'>
-					<p class="message">
-						<a href="#" class="back">뒤로 가기</a>
-					</p>
-				</form>
+				<div class="list-form" id='chatList'>
+					<div class="responsive-table">
+
+						<table class="table table-bordered table-hover" width="100%"
+							cellspacing="0">
+							<thead>
+						
+								<tr style="color: black;">
+
+									<th>분야</th>
+									<th>제목</th>
+									<th>발표자</th>
+									
+								</tr>
+							</thead>
+							<tbody id='tableBody'>
+
+								<!-- 로그인한 정보에 따른 ppt 리스트 보여주기 -->
+
+
+			
+
+								<!-- /.로그인한 정보에 따른 ppt 리스트 보여주기 -->
+							</tbody>
+						</table>
+					</div>
+					
+
+
+				</div>
 			</div>
 		</div>
-		
 		<form id='GeustForm' action="/member/loginGeustPOST" method="post">
-			<input type="hidden" name="pptFno" value="6"> 
-			<input type="hidden" name="userid" value="user00">
+			<input type="hidden" name="pptFno" value="6"> <input
+				type="hidden" name="userid" value="user00">
+
 		</form>
+
 
 		<div class="text-vertical-center"></div>
 	</div>
 	</header>
+
 
 </body>
 <script
 	src="${pageContext.request.contextPath}/resources/startbootstrap/js/jquery.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/startbootstrap/js/bootstrap.min.js"></script>
-<script
+<%-- <script
 	src="${pageContext.request.contextPath}/resources/startbootstrap/js/index.js"></script>
+ --%>
+
+<script>
+
+		$(document).ready(function() {
+			var msg = '${msg}';
+			
+			if (msg == 'registSUCCESS') {
+				alert('회원가입에 성공하셨습니다!');
+			} else if (msg == 'loginFail') {
+				alert('로그인에 실패하였습니다.. 다시로그인해주세요!');
+			}
+			
+				$.getJSON("/ppt/chatList", function(list) { // 이 안에서 ppt 자료를 JSON data로 입력받아서 호출하는곳
+					var tableBody = $('#tableBody'); 
+
+					
+					$(list).each(function(index, data) {
+				
+							
+						tableBody.append("<tr style='color: black'><th>" + data.ppt_kind + "</th><th><a class=Geust data-src='"+data.userid+"'href=http://192.168.0.28:8082/ppt?id="+data.fno+"#&userid="+data.userid+"#/ >"   + data.ppt_title+ "</a></th>     <th>"+data.userid+"</th></tr>");
+						
+						
 
 
+							console.log(index);
+							console.log(data); 
+							console.log(data.ppt_title); 
+							console.log(data.userid);
+						
+					});
+				
+					$('#chatList').append('<p class="message" ><a href="" class="back" >뒤로 가기</a></p>');
+					
+				});
+				
+				
+					
+				
+				
+				
+				$(".back").click(function(event) {
+					self.location.reload();
+				});
+				
+				// Presentation List FadeIn
+				$('#chatList').on('click','.Geust',function(event) {
+					
+					 var userid = $(this).attr("data-src");
+					
+					 $.ajax({
+						url : "/member/loginGeustPOST/"+userid, 
+						type : "post", 
+						success : function(data) {
+							console.log(data);
+
+						}
+					});    
+								
+				});
+					
+				$("#P-list").click(function(event) {
+
+					$("#P-list").hide();
+					$("#presenter").hide();
+					$(".list-page").fadeIn("slow");
+					
+				});
+
+				// Login
+				$(".message a").click(function() {
+					$('form').animate({
+						height: "toggle",
+						opacity: "toggle"
+					}, "slow");
+				});
+
+				// Login FadeIn
+				$("#presenter").click(function(event) {
+
+					$("#P-list").hide();
+					$("#presenter").hide();
+					$(".login-page").fadeIn("slow");
+				});
+
+				// back the home
+				$(".back").click(function(event) {
+					location.reload();
+				});
+
+				// Closes the sidebar menu
+				$("#menu-close").click(function(e) {
+					e.preventDefault();
+					$("#sidebar-wrapper").toggleClass("active");
+				});
+				
+				// Opens the sidebar menu
+				$("#menu-toggle").click(function(e) {
+					e.preventDefault();
+					$("#sidebar-wrapper").toggleClass("active");
+				});
+				
+				// Scrolls to the selected menu item on the page
+				$(function() {
+					$('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+									
+						if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') ||
+									location.hostname == this.hostname) {
+							
+							var target = $(this.hash);
+							target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+							
+							if (target.length) {
+									$('html,body').animate({			
+										scrollTop: target.offset().top}, 1000);
+										return false;
+									}
+							}
+						});
+				});
+				
+				// #to-top button appears after scrolling
+				var fixed = false;
+				
+				$(document).scroll(function() {
+					if ($(this).scrollTop() > 250) {
+						if (!fixed) {
+							fixed = true;
+							// $('#to-top').css({position:'fixed', display:'block'});
+							
+							$('#to-top').show("slow", function() {
+								$('#to-top').css({
+									position: 'fixed',
+									display: 'block'
+								});
+							});
+						}
+					} else {
+						if (fixed) {
+							fixed = false;
+							$('#to-top').hide("slow", function() {
+								$('#to-top').css({
+									display: 'none'
+								});
+							});
+						}
+					}
+				});
+				
+				// Disable Google Maps scrolling
+				// See http://stackoverflow.com/a/25904582/1607849
+				// Disable scroll zooming and bind back the click event
+				var onMapMouseleaveHandler = function(event) {
+					var that = $(this);
+					that.on('click', onMapClickHandler);
+					that.off('mouseleave', onMapMouseleaveHandler);
+					that.find('iframe').css("pointer-events", "none");
+				}
+				
+				var onMapClickHandler = function(event) {
+					var that = $(this);
+					// Disable the click handler until the user leaves the
+					// map area
+					that.off('click', onMapClickHandler);
+					// Enable scrolling zoom
+					that.find('iframe').css("pointer-events", "auto");
+					// Handle the mouse leave event
+					that.on('mouseleave', onMapMouseleaveHandler);
+				}
+				// Enable map zooming with mouse scroll when the user clicks
+				// the map
+				$('.map').on('click', onMapClickHandler);
+
+			});
+
+</script>
 </html>

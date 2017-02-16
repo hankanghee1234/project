@@ -18,7 +18,6 @@ public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {// 세션써보겠음
-		
 		logger.info("Check ....");
 		HttpSession session = request.getSession();
 		logger.info("Check session....");
@@ -29,15 +28,16 @@ public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
 		logger.info(referer.toString());
 		logger.info("====================");
 
+	
 		Cookie[] arr = request.getCookies();
 		
-		Object obj = "login";
+		Object obj = "id";
 
 		if(arr != null){
 				for(int i=0;i<arr.length;i++){
 					String name = arr[i].getName();
 					if (obj.equals(name) ) {
-						logger.info("name: "+name);
+						logger.info("name��"+name);
 						return true;
 						}
 					else{
@@ -46,14 +46,20 @@ public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
 					
 				}
 			
+
 			}
 			
-			logger.info("로그인 아이디 확인");
+			logger.info("===========�α��� �����ܾ�=========");
 			session.setAttribute("referer", referer);
-			response.sendRedirect("../index");// 없으면 리다이렉트
+			response.sendRedirect("../login");// 없으면 리다이렉트
 		
 			return false;
-
-	}// 사용자가 로그인정보가  있냐 없냐를 체크해서 팅겨내는 역할
 		
+		
+		
+
+		
+	}// 사용자가 로그인정보가
+		// 있냐 없냐를 체크해서 팅겨내는 역할
+
 }

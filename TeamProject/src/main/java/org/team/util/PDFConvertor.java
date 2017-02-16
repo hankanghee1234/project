@@ -23,7 +23,10 @@ public class PDFConvertor {
 	// 서버저장경로명
 	static final String findPath = "C:\\zzz\\pptdesc\\";
 	
-	static final String savedPath = "C:\\zzz\\deskppt\\";
+	static final String savedPath = "C:\\Users\\ASUS\\Desktop\\Last project\\chat3\\chat2\\public\\reveal-view\\img\\";
+
+	
+/*	static final String savedPath = "C:\\zzz\\pptdesc\\sliceImg\\";*/
 
 	public static void main(String[] args) throws Exception {
 		// 확장자명까지 작성해주어야함.
@@ -31,11 +34,13 @@ public class PDFConvertor {
 	}
 
 	public static ArrayList<String> JPGconvertor(String Name) throws Exception {
-	
-		ArrayList<String> arr = new ArrayList<>();
+		/*String arr[] = new String[9999];*/
 		
+		ArrayList<String> arr = new ArrayList<>();
 		File file = new File(findPath + Name);
-			
+		
+		/*arr[0]= "finish";*/
+		
 		arr.add("finish");
 		
 		String filePath = file.getAbsolutePath();
@@ -67,6 +72,9 @@ public class PDFConvertor {
 		PDFRenderer renderer = new PDFRenderer(doc);
 
 		ArrayList<String> pdfName = new ArrayList<>();
+		
+		
+		
 		
 		for (int i = 0; i < doc.getNumberOfPages(); i++) {
 		
@@ -101,7 +109,11 @@ public class PDFConvertor {
 		
 		/*String name[] = new String[100];*/
 		ArrayList<String> pptName = new ArrayList<>();
+		
+	
 
+		
+	
 		for (int i = 0; i < slide.size(); i++) {
 			BufferedImage img = new BufferedImage((int) Math.ceil(pgsize.width * zoom),
 					(int) Math.ceil(pgsize.height * zoom), BufferedImage.TYPE_INT_RGB);
@@ -112,17 +124,26 @@ public class PDFConvertor {
 			graphics.fill(new Rectangle2D.Float(0, 0, pgsize.width, pgsize.height));
 			slide.get(i).draw(graphics);
 			
-			pptName.add((i + 1) + " - " + PPTName + ".jpg");
 			
-			FileOutputStream out = new FileOutputStream(savedPath + pptName.get(i));
+			pptName.add((i + 1) + " - " + PPTName + ".jpg");
+			FileOutputStream out = new FileOutputStream
+					(savedPath + pptName.get(i));
 			javax.imageio.ImageIO.write(img, "jpg", out);
 			
 			out.close();
 			
+			
 		}
 		ppt.close();
+		
+	
 
+			
+		
 		return pptName;
-	} // 컨버팅 시 ppt file 이미지와 한글이 깨짐..추가 부분 고쳐야 함!!
+	}
+	
+	
+	//word 파일하고 엑셀 등등 컨버터 하는거 추가기능으로 찾아봐야 할듯
 	
 }

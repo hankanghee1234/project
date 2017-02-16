@@ -8,7 +8,7 @@ public class SearchCriteria extends Criteria {
 	private Integer fno;
 	
 	public SearchCriteria() {
-		this.fno = 2;
+		this.fno = 1;
 	}
 	
 	public Integer getFno() {

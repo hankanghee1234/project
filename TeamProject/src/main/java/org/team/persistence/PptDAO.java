@@ -29,6 +29,4 @@ public interface PptDAO {
 	public List<PptVO> listSearch(SearchCriteria cri) throws Exception;
 	
 	public int listSearchCount(SearchCriteria cri) throws Exception;
-	
-	public void broadStart(Integer fno) throws Exception;
 }
