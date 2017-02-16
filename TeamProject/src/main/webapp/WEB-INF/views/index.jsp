@@ -9,43 +9,92 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
 <link
 	href="${pageContext.request.contextPath}/resources/startbootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link
 	href="${pageContext.request.contextPath}/resources/startbootstrap/css/stylish-portfolio.css"
 	rel="stylesheet">
-<link
+<%-- <link
 	href="${pageContext.request.contextPath}/resources/startbootstrap/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<link
+	rel="stylesheet" type="text/css"> --%>
+<!-- <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
-	rel="stylesheet" type="text/css">
+	rel="stylesheet" type="text/css"> -->
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <!-- 핸들바스 -->
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+
+    <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/4.9/video.js"></script>
+
+
+<style>
+
+
+/* #video {
+top: 0px;
+     left: 0px;
+ 
+     min-height: 100%;
+ 	min-width:100%;	
+	width:0%;
+     height: auto;
+	z-index : -1;
+		
+}
+ */
+
+</style>
+
 </head>
+
+
 <body>
 	<!-- Header -->
-	<header id="top" class="header">
+
+
+
+	<header id="top" class="header"> 
+	
+	
+	
+	
+<!-- <video id="video"
+		class="video-js" controls preload="auto" width="640" height="264" loop
+		autoplay data-setup="{}"> 
+		<source src="../resources/mp4/Deep Blue Sky - Clouds Timelapse - Free Footage - Full HD 1080p - YouTube (1080p).mp4"
+		type='video/mp4'></source> </video> -->
+
+
+
+
+	<h1 class="title"
+		style="font-size: 500%; font-weight: 200px; position: absolute; left: 33%; top: 5%; text-shadow: 4px 4px 4px gray;">
+		Let's Presentation!</h1>
+
 	<div class="text-vertical-center">
-		<h1 class="title">Let's presentation!</h1>
+
 		<p>
 			<!-- <a class="btn btn-dark btn-lg" id="Geust">게스트</a> -->
-			
-			<a class="btn btn-dark btn-lg" id="P-list">채팅리스트</a>
-			<a class="btn btn-dark btn-lg" id="presenter">발표자</a>
+
+			<a class="btn btn-dark btn-lg" id="P-list">채팅리스트</a> <a
+				class="btn btn-dark btn-lg" id="presenter">발표자</a>
 		</p>
 		<div class="login-page">
 			<div class="form">
 				<form class="register-form" method="post"
 					action="<c:url value='/member/register'/>">
-					<input type="id" placeholder="회원아이디" name="userid" /> 
-					<input type="password" placeholder="비밀번호" name="userpw" />
-					<input type="text" placeholder="이름" name="username" /> 
-					<input type="text" placeholder="이메일" name="email" />
+					<input type="id" placeholder="회원아이디" name="userid" /> <input
+						type="password" placeholder="비밀번호" name="userpw" /> <input
+						type="text" placeholder="이름" name="username" /> <input
+						type="text" placeholder="이메일" name="email" />
 					<button>회원가입</button>
 					<!-- 프로필 공간 -->
 					<p class="message">
@@ -57,13 +106,13 @@
 				</form>
 				<form class="login-form" method="post"
 					action="<c:url value='/member/loginPOST'/>">
-					<input type="text" placeholder="회원아이디" name="userid" /> 
-					<input type="password" placeholder="비밀먼호" name="userpw" />
+					<input type="text" placeholder="회원아이디" name="userid" /> <input
+						type="password" placeholder="비밀먼호" name="userpw" />
 					<button>로그인</button>
 					<p class="message">
-						회원이 아니신가요? <a href="">회원 가입</a>
+						회원이 아니신가요? <a href="#">회원 가입</a>
 					</p>
-					<p class="message" >
+					<p class="message">
 						<a href="" class="back">뒤로 가기</a>
 					</p>
 				</form>
@@ -74,21 +123,25 @@
 				<form class="list-form" id='chatList'>
 
 
-			
-					
+					<p class="message">
+						<a href="#" class="back">뒤로 가기</a>
+					</p>
+
 				</form>
 			</div>
 		</div>
 		<form id='GeustForm' action="/member/loginGeustPOST" method="post">
-			<input type="hidden" name="pptFno" value="6">
-			<input type="hidden" name="userid" value="user00">
-			 
+			<input type="hidden" name="pptFno" value="6"> <input
+				type="hidden" name="userid" value="user00">
+
 		</form>
-		
-		
+
+
 		<div class="text-vertical-center"></div>
 	</div>
 	</header>
+
+
 </body>
 <script
 	src="${pageContext.request.contextPath}/resources/startbootstrap/js/jquery.js"></script>
@@ -96,17 +149,10 @@
 	src="${pageContext.request.contextPath}/resources/startbootstrap/js/bootstrap.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/startbootstrap/js/index.js"></script>
-	
-	<script>
 
+<script>
 	$(document).ready(function() {
-	
-	
-		
-		
 
 	});
-	
-
-	</script>
+</script>
 </html>
