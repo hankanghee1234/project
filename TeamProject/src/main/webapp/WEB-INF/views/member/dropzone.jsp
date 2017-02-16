@@ -57,16 +57,13 @@ html {
 </style>
 
 <body>
+	<!-- input tag -->
 	<div id="zone">
-
 		<form id="ddd" action="pptCreate" method="post">
-			<input id="userid" type="hidden" name="userid" value=${param.userid}>
-
-
+			<input id="userid" type="hidden" name="userid" value="${param.userid}">
 			<div class="w3-container w3-teal w3-round-xlarge create-title">
 				<h3 class="input-text">입력하십시오.</h3>
 			</div>
-
 			<br>
 			<p>
 				<label class="w3-text-black label-text">&nbsp;&nbsp;&nbsp;해당분야</label>
@@ -93,22 +90,20 @@ html {
 				id="my-awesome-dropzone"></form>
 		</div>
 
-
+		<!-- button tag -->
 		<div class="btns">
 			<p align="center">
 				<button type="button" id="up"
 					class="w3-btn w3-padding w3-teal w3-round-xlarge"
-					style="width: 120px;">Upload</button>
+					style="width: 120px;">업로드</button>
 				<button type="button" id="reset"
 					class="w3-btn w3-padding w3-teal w3-round-xlarge"
-					style="width: 120px;">Reset</button>
+					style="width: 120px;">초기화</button>
 				<button type="button" id="cancel"
 					class="w3-btn w3-padding w3-teal w3-round-xlarge"
-					style="width: 120px;">Cancel</button>
+					style="width: 120px;">취소</button>
 			</p>
 		</div>
-
-
 	</div>
 </body>
 
