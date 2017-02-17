@@ -60,7 +60,6 @@ public class MemberController {
       logger.info("dropzone PAGE............");
    }
    
-   
    @RequestMapping(value = "/myPage", method = RequestMethod.GET)
    public void pptListGET(@ModelAttribute("cri") SearchCriteria cri, Model model, Integer fno,
          HttpServletRequest req) throws Exception {
@@ -80,7 +79,6 @@ public class MemberController {
       
       PageMaker pageMaker = new PageMaker( pageNum,pptService.listSearchCount(cri));
 
-      
       logger.info("======================================");
       logger.info("fno값 확인: " + fno);
       logger.info("======================================");
@@ -141,7 +139,6 @@ public class MemberController {
        return loginUtil.Geust(req, res, userid);
    }
 
-   
    @RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
    public boolean dupleCheck(String userid) throws Exception {
       boolean check = memberService.loginDupleChk(userid);
