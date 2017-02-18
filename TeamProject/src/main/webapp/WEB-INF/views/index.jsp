@@ -34,6 +34,23 @@
 <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet">
 <script src="//vjs.zencdn.net/4.9/video.js"></script>
 
+
+<style>
+
+/* #video {
+top: 0px;
+     left: 0px;
+ 
+     min-height: 100%;
+    min-width:100%;   
+   width:0%;
+     height: auto;
+   z-index : -1;
+      
+}
+ */
+</style>
+
 </head>
 
 
@@ -42,7 +59,14 @@
 
 
 
-	<header id="top" class="header">
+	<header id="top" class="header"> <!-- <video id="video"
+      class="video-js" controls preload="auto" width="640" height="264" loop
+      autoplay data-setup="{}"> 
+      <source src="../resources/mp4/Deep Blue Sky - Clouds Timelapse - Free Footage - Full HD 1080p - YouTube (1080p).mp4"
+      type='video/mp4'></source> </video> -->
+
+
+
 
 	<h1 class="title"
 		style="font-size: 500%; font-weight: 200px; position: absolute; left: 33%; top: 5%; text-shadow: 4px 4px 4px gray;">
@@ -75,8 +99,8 @@
 				</form>
 				<form class="login-form" method="post"
 					action="<c:url value='/member/loginPOST'/>">
-					<input type="text" placeholder="회원아이디" name="userid" /> 
-					<input type="password" placeholder="비밀먼호" name="userpw" />
+					<input type="text" placeholder="회원아이디" name="userid" /> <input
+						type="password" placeholder="비밀먼호" name="userpw" />
 					<button>로그인</button>
 					<p class="message">
 						회원이 아니신가요? <a href="#">회원 가입</a>
@@ -116,6 +140,8 @@
 						</table>
 					</div>
 					
+
+
 				</div>
 			</div>
 		</div>
@@ -158,7 +184,10 @@
 					$(list).each(function(index, data) {
 				
 							
-						tableBody.append("<tr style='color: black'><th>" + data.ppt_kind + "</th><th><a class=Geust data-src='" + data.userid + "'href=http://192.168.0.30:8082/ppt?id=" + data.fno + "#&userid=" + data.userid + "#/ >" + data.ppt_title + "</a></th><th>" + data.userid + "</th></tr>");
+						tableBody.append("<tr style='color: black'><th>" + data.ppt_kind + "</th><th><a class=Geust data-src='"+data.userid+"'href=http://192.168.0.28:8082/ppt?id="+data.fno+"#&userid="+data.userid+"#/ >"   + data.ppt_title+ "</a></th>     <th>"+data.userid+"</th></tr>");
+						
+						
+
 
 							console.log(index);
 							console.log(data); 
@@ -170,7 +199,12 @@
 					$('#chatList').append('<p class="message" ><a href="" class="back" >뒤로 가기</a></p>');
 					
 				});
-
+				
+				
+					
+				
+				
+				
 				$(".back").click(function(event) {
 					self.location.reload();
 				});

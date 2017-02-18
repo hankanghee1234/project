@@ -79,6 +79,7 @@ public class MemberController {
       
       PageMaker pageMaker = new PageMaker( pageNum,pptService.listSearchCount(cri));
 
+      
       logger.info("======================================");
       logger.info("fno값 확인: " + fno);
       logger.info("======================================");
@@ -86,6 +87,13 @@ public class MemberController {
       model.addAttribute("pageMaker", pageMaker);
      
    }  // 페이징 처리 및 검색 조건 처리 및 로그인 정보 출력 완료
+
+/*   @RequestMapping(value = "/circle", method = RequestMethod.POST)
+   public String circle() throws Exception {
+      logger.info("circle............");
+       cc?id= 
+      return "redirect:http://localhost:8080/cc?id=9";
+   }*/
 
    @RequestMapping(value = "/createPage", method = RequestMethod.GET)
    public void createPageGET() throws Exception {
@@ -130,15 +138,32 @@ public class MemberController {
      
       return loginUtil.logout(req, res, userid);
    }
-   
+  
    @RequestMapping(value = "/loginGeustPOST/{userid}", method = RequestMethod.POST)
    public String loginGeustPOST(HttpServletRequest req, HttpServletResponse res, @PathVariable("userid") String userid) throws Exception {
 
-	   logger.info("GESUT 쿠키 생성 ...........");
+   
+      
+      /*boolean check = memberService.memberLogin(vo);
 
-       return loginUtil.Geust(req, res, userid);
+      if (check == true) {
+         rttr.addFlashAttribute("msg", "loginSUCCESS");
+         logger.info("로그인성공..." + check);
+         return loginUtil.Success(req, res, userid, userpw);
+      } else {
+         rttr.addFlashAttribute("msg", "loginFail");
+         logger.info("로그인실패..." + check);
+         return loginUtil.Fail(req, res);
+      }*/
+      
+        logger.info("GESUT 쿠키 생성 ...........");
+
+     
+        
+        return loginUtil.Geust(req, res, userid);
    }
 
+   
    @RequestMapping(value = "/dupleCheck", method = RequestMethod.POST)
    public boolean dupleCheck(String userid) throws Exception {
       boolean check = memberService.loginDupleChk(userid);
@@ -171,6 +196,7 @@ public class MemberController {
    public String pptDel(PptVO pvo, RedirectAttributes rttr) throws Exception {
       logger.info("pptDel Post...........");
 
+      
       System.out.println(pvo);
    
       Integer fno = pvo.getFno();
@@ -180,7 +206,7 @@ public class MemberController {
       
       return "redirect:./myPage";
    } 
-   
+  
    @RequestMapping(value = "/pptCreate", method = RequestMethod.POST)
    public String create(ImgVO ivo, PptVO pvo) throws Exception {
       logger.info("pptCreate POST............");
@@ -192,78 +218,95 @@ public class MemberController {
       //임시 데이터 
       
       String user = pvo.getUserid();
-
-	  pptService.create(pvo);
-	    
-	  List<PptFnoVO> list = pptService.pptFnoRead(user);
-		
-	  String tos = null;
-	  System.out.println("0번쨰임  "+list.get(0));
-		
-	  for(int i = 0; i<list.size();i++){
+      
+      /*pvo.setPpt_kind("ppt_kind");
+      pvo.setPpt_desc("ppt_desc");
+      pvo.setPpt_title("ppt_title ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ");*/
+      
+    pptService.create(pvo);
+    
+    
+	
+	List<PptFnoVO> list = pptService.pptFnoRead(user);
+	
+	
+	String tos = null;
+	System.out.println("0번쨰임  "+list.get(0));
+	
+	for(int i = 0; i<list.size();i++){
 		PptFnoVO str = list.get(i);
 		tos = str.toString();
+		
 		System.out.println(tos);
 		
 		String[] s1 = tos.split("=");
+			
 		System.out.println(s1[1]);
 		
 		String tos1 = s1[1].toString();
-			
-		String s2[] = tos1.split("]");	
+		
+		String s2[] = tos1.split("]");
+		
 		System.out.println(s2[0]);
-			
+		
 		tos = s2[0];
 		
-		}
-		
-	  System.out.println("fno 값 : "+tos);
-		
-	  Integer fno = Integer.parseInt(tos);
-	  System.out.println("fno 값 : "+fno);
+	}
 	
-	  ivo.setFno(fno);
-	    
 	
-	  System.out.println("img 값 : "+ivo.getImg());
-			
-	  String img = ivo.getImg();
-			
-	  String[] img1 = img.split(",");
-			
-	  System.out.println(img1[0]);
-	  System.out.println(img1[1]);
-	  System.out.println(img1[2]);
+
+	System.out.println("fno 값 : "+tos);
+	
+	Integer fno = Integer.parseInt(tos);
+	
+	System.out.println("fno 값 : "+fno);
+
+    ivo.setFno(fno);
+    
+
+	System.out.println("img 값 : "+ivo.getImg());
+	
+	String img = ivo.getImg();
+	
+	String[] img1 = img.split(",");
+	
+	System.out.println(img1[0]);
+	System.out.println(img1[1]);
+	System.out.println(img1[2]);
+	
+	for(int i=0; i<img1.length;i++){
 		
-	  for(int i=0; i<img1.length;i++){
-			
 		ivo.setImg(img1[i]);
 		imgService.create(ivo);
-	  }
-	
-	  return "redirect:./myPage";
+	}
+    
+      return "redirect:./myPage";
    }
+   
    
    @RequestMapping(value = "/broadCast/{fno}", method = RequestMethod.POST)
    public @ResponseBody String broadCast(@PathVariable("fno") Integer fno) throws Exception {
+	   //PptVO vo,
 	   
-	  logger.info("broadCast ...........");
-      System.out.println(fno);
+	   logger.info("broadCast ...........");
 
       pptService.broadStart(fno);
+      System.out.println(fno);
      
+      
       return "success";
    } 
    
    
    @RequestMapping(value = "/broadClose/{fno}", method = RequestMethod.POST)
    public @ResponseBody String broadClose(@PathVariable("fno") Integer fno) throws Exception {
-	 
+	  
 	  logger.info("broadCast ...........");
-      System.out.println(fno);
-
+	  
       pptService.broadStart(fno);
      
+      System.out.println(fno);
+      
       return "success";
    } 
    
@@ -297,8 +340,8 @@ public class MemberController {
 	        
 		destImg = Scalr.resize(origin, Scalr.Mode.FIT_EXACT,80, Scalr.OP_ANTIALIAS);
 
-		FileOutputStream fos = new FileOutputStream("C:\\zzz\\deskppt\\" + file.getOriginalFilename());
-		FileOutputStream foss =	new FileOutputStream("C:\\zzz\\deskppt\\" + uploadName);
+		FileOutputStream fos = new FileOutputStream("C:\\zzz\\" + file.getOriginalFilename());
+		FileOutputStream foss =	new FileOutputStream("C:\\zzz\\" + uploadName);
 		
 		ImageIO.write(origin, "jpg", fos);// 원본 저장
 
@@ -322,4 +365,6 @@ public class MemberController {
       return "redirect:./myPage";
    } // update controller end
 
+   
+   
 }

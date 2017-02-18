@@ -47,6 +47,10 @@ public class PptController {
    @Autowired
    private ImgServiceImpl imgService;
 
+   /*
+    * @Autowired private FileServiceImpl fileService;
+    */
+
    private static final Logger logger = LoggerFactory.getLogger(PptController.class);
 
    @GetMapping(value = "/show", produces = { "image/gif", "image/jpeg", "image/jpg", "image/png" })
@@ -54,6 +58,8 @@ public class PptController {
 
       InputStream in = new FileInputStream("C:\\zzz\\deskppt\\" + name);
       
+      /*InputStream in = new FileInputStream("C:\\Users\\ASUS\\Desktop\\Last project\\chat3\\chat2\\public\\reveal-view\\img\\" + name);*/
+
       return IOUtils.toByteArray(in);
    }
 
@@ -117,6 +123,28 @@ public class PptController {
       logger.info("pptCreate GET............");
    }
 
+   
+  /* @RequestMapping(value = "/pptCreate2", method = RequestMethod.POST)
+   public String create2(ImgVO ivo, PptVO pvo, RedirectAttributes rttr) throws Exception {
+      logger.info("pptCreate POST............");
+      
+      logger.info(ivo.toString());
+      logger.info(pvo.toString());
+
+      
+      
+      
+     
+      imgService.create(ivo, pvo);
+      rttr.addFlashAttribute("msg", "success");
+
+      return "redirect:./myPage";
+   }
+   */
+   
+
+  
+
    @ResponseBody
    @RequestMapping(value = "/upload2", method = RequestMethod.POST)
    public String upload2(UploadFileVO vo) throws Exception {
@@ -140,6 +168,7 @@ public class PptController {
      return "copy finish";
 
    }
+   
    
    @ResponseBody
    @RequestMapping(value = "/upload3", method = RequestMethod.POST)
@@ -169,15 +198,18 @@ public class PptController {
          fos.write(buf);
          fos.flush();
          
+
          fos.close();
          
          return fileName;
          
       }
 
+      
       return "copy finish";
 
    }
+
 
    @RequestMapping(value = "/pdfConverter", method = RequestMethod.POST)
    public @ResponseBody ArrayList<String> pdfConverter(UploadFileVO data) throws Exception {
@@ -191,6 +223,7 @@ public class PptController {
       
       String arr[] = new String[3];
       
+      
       for (MultipartFile multipartFile : fileList) {
 
          System.out.println("컨버터 : "+multipartFile.getOriginalFilename());
@@ -199,6 +232,7 @@ public class PptController {
          
          arrayList.addAll(PDFConvertor.JPGconvertor(converName));
          
+         
          System.out.println("arrayList : "+arrayList);
          System.out.println("toString 임 : "+arrayList.toString());
 
@@ -206,6 +240,7 @@ public class PptController {
          System.out.println(arrayList.get(1));
          System.out.println(arrayList.get(2));
 
+         
          return arrayList;
       }
       arrayList.add("data none");
@@ -213,5 +248,11 @@ public class PptController {
       return arrayList;
 
    }
+   
+   
+  
+   
+   
+
    
 }
