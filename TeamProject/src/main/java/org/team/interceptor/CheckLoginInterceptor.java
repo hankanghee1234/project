@@ -1,4 +1,4 @@
-package org.team.interceptor;
+/*package org.team.interceptor;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -37,29 +37,23 @@ public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
 				for(int i=0;i<arr.length;i++){
 					String name = arr[i].getName();
 					if (obj.equals(name) ) {
-						logger.info("name��"+name);
+						logger.info("name: "+name);
 						return true;
-						}
-					else{
+					} else {
 						continue;
 					}
 					
 				}
-			
 
 			}
 			
-			logger.info("===========�α��� �����ܾ�=========");
+			logger.info("로그인정보??");
 			session.setAttribute("referer", referer);
 			response.sendRedirect("../login");// 없으면 리다이렉트
 		
 			return false;
-		
-		
-		
 
-		
 	}// 사용자가 로그인정보가
 		// 있냐 없냐를 체크해서 팅겨내는 역할
-
 }
+*/

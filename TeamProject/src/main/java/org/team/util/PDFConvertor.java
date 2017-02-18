@@ -23,10 +23,7 @@ public class PDFConvertor {
 	// 서버저장경로명
 	static final String findPath = "C:\\zzz\\pptdesc\\";
 	
-	static final String savedPath = "C:\\Users\\ASUS\\Desktop\\Last project\\chat3\\chat2\\public\\reveal-view\\img\\";
-
-	
-/*	static final String savedPath = "C:\\zzz\\pptdesc\\sliceImg\\";*/
+	static final String savedPath = "C:\\zzz\\pptdesc\\";
 
 	public static void main(String[] args) throws Exception {
 		// 확장자명까지 작성해주어야함.

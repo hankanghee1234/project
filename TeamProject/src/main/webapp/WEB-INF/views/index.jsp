@@ -158,7 +158,7 @@
 					$(list).each(function(index, data) {
 				
 							
-						tableBody.append("<tr style='color: black'><th>" + data.ppt_kind + "</th><th><a class=Geust data-src='" + data.userid + "'href=http://192.168.0.28:8082/ppt?id=" + data.fno + "#&userid=" + data.userid + "#/ >" + data.ppt_title + "</a></th><th>" + data.userid + "</th></tr>");
+						tableBody.append("<tr style='color: black'><th>" + data.ppt_kind + "</th><th><a class=Geust data-src='" + data.userid + "'href=http://192.168.0.30:8082/ppt?id=" + data.fno + "#&userid=" + data.userid + "#/ >" + data.ppt_title + "</a></th><th>" + data.userid + "</th></tr>");
 
 							console.log(index);
 							console.log(data); 
