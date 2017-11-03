@@ -60,7 +60,7 @@ html {
 	<div id="zone">
 
 		<form id="ddd" action="pptCreate" method="post">
-			<input id="userid" type="hidden" name="userid" value=${param.userid}>
+			<input id="userid" type="hidden" name="userid" value="${param.userid}">
 
 
 			<div class="w3-container w3-teal w3-round-xlarge create-title">
@@ -86,29 +86,18 @@ html {
 		</form>
 
 		<div class="drop-space">
-			<h2 id="drop-title" class="w3-panel w3-pale-blue w3-round-xxlarge">DropZone
-				Space upload(PPT & PDF)</h2>
+			<h2 id="drop-title" class="w3-panel w3-pale-blue w3-round-xxlarge">DropZone Space upload(PPT & PDF)</h2>
 			<!-- 드롭존 폼 -->
-			<form action="/ppt/upload2" method="post" class="dropzone"
-				id="my-awesome-dropzone"></form>
+			<form action="/ppt/upload2" method="post" class="dropzone" id="my-awesome-dropzone"></form>
 		</div>
-
 
 		<div class="btns">
 			<p align="center">
-				<button type="button" id="up"
-					class="w3-btn w3-padding w3-teal w3-round-xlarge"
-					style="width: 120px;">Upload</button>
-				<button type="button" id="reset"
-					class="w3-btn w3-padding w3-teal w3-round-xlarge"
-					style="width: 120px;">Reset</button>
-				<button type="button" id="cancel"
-					class="w3-btn w3-padding w3-teal w3-round-xlarge"
-					style="width: 120px;">Cancel</button>
+				<button type="button" id="up" class="w3-btn w3-padding w3-teal w3-round-xlarge" style="width: 120px;">Upload</button>
+				<button type="button" id="reset" class="w3-btn w3-padding w3-teal w3-round-xlarge" style="width: 120px;">Reset</button>
+				<button type="button" id="cancel" class="w3-btn w3-padding w3-teal w3-round-xlarge" style="width: 120px;">Cancel</button>
 			</p>
 		</div>
-
-
 	</div>
 </body>
 

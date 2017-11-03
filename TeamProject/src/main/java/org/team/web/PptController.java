@@ -123,28 +123,6 @@ public class PptController {
       logger.info("pptCreate GET............");
    }
 
-   
-  /* @RequestMapping(value = "/pptCreate2", method = RequestMethod.POST)
-   public String create2(ImgVO ivo, PptVO pvo, RedirectAttributes rttr) throws Exception {
-      logger.info("pptCreate POST............");
-      
-      logger.info(ivo.toString());
-      logger.info(pvo.toString());
-
-      
-      
-      
-     
-      imgService.create(ivo, pvo);
-      rttr.addFlashAttribute("msg", "success");
-
-      return "redirect:./myPage";
-   }
-   */
-   
-
-  
-
    @ResponseBody
    @RequestMapping(value = "/upload2", method = RequestMethod.POST)
    public String upload2(UploadFileVO vo) throws Exception {

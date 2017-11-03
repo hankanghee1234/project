@@ -219,65 +219,58 @@ public class MemberController {
       
       String user = pvo.getUserid();
       
-      /*pvo.setPpt_kind("ppt_kind");
-      pvo.setPpt_desc("ppt_desc");
-      pvo.setPpt_title("ppt_title ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ");*/
-      
-    pptService.create(pvo);
+      pptService.create(pvo);
     
-    
+      List<PptFnoVO> list = pptService.pptFnoRead(user);
 	
-	List<PptFnoVO> list = pptService.pptFnoRead(user);
+      String tos = null;
+      System.out.println("0번쨰임  "+list.get(0));
 	
-	
-	String tos = null;
-	System.out.println("0번쨰임  "+list.get(0));
-	
-	for(int i = 0; i<list.size();i++){
-		PptFnoVO str = list.get(i);
-		tos = str.toString();
+      for(int i = 0; i<list.size();i++){
+    	  PptFnoVO str = list.get(i);
+    	  tos = str.toString();
 		
-		System.out.println(tos);
+    	  System.out.println(tos);
 		
-		String[] s1 = tos.split("=");
+    	  String[] s1 = tos.split("=");
 			
-		System.out.println(s1[1]);
+    	  System.out.println(s1[1]);
 		
-		String tos1 = s1[1].toString();
+    	  String tos1 = s1[1].toString();
 		
-		String s2[] = tos1.split("]");
+    	  String s2[] = tos1.split("]");
 		
-		System.out.println(s2[0]);
+    	  System.out.println(s2[0]);
 		
-		tos = s2[0];
+    	  tos = s2[0];
 		
 	}
 	
 	
 
-	System.out.println("fno 값 : "+tos);
+      System.out.println("fno 값 : "+tos);
 	
-	Integer fno = Integer.parseInt(tos);
-	
-	System.out.println("fno 값 : "+fno);
+      Integer fno = Integer.parseInt(tos);
+		
+      System.out.println("fno 값 : "+fno);
 
-    ivo.setFno(fno);
+      ivo.setFno(fno);
     
 
-	System.out.println("img 값 : "+ivo.getImg());
+      System.out.println("img 값 : "+ivo.getImg());
 	
-	String img = ivo.getImg();
+      String img = ivo.getImg();
 	
-	String[] img1 = img.split(",");
+      String[] img1 = img.split(",");
 	
-	System.out.println(img1[0]);
-	System.out.println(img1[1]);
-	System.out.println(img1[2]);
+      System.out.println(img1[0]);
+      System.out.println(img1[1]);
+      System.out.println(img1[2]);
 	
-	for(int i=0; i<img1.length;i++){
-		
-		ivo.setImg(img1[i]);
-		imgService.create(ivo);
+      for(int i=0; i<img1.length;i++){
+    	
+    	  ivo.setImg(img1[i]);
+    	  imgService.create(ivo);
 	}
     
       return "redirect:./myPage";

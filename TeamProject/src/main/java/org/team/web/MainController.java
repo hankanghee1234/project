@@ -15,24 +15,20 @@ public class MainController {
 	@RequestMapping(value = "/*", method = RequestMethod.GET)
 	public String Home() throws Exception {
 		logger.info("index페이지.........");
+		
 		return "index";
 	}
 	
 	@RequestMapping(value = "/socket", method = RequestMethod.GET)
 	public String socket() throws Exception {
 		logger.info("socket페이지.........");
+		
 		return "socket";
 	}
 	
 	@RequestMapping(value = "/socket2", method = RequestMethod.GET)
 	public void socket2() throws Exception {
 		logger.info("socket2페이지.........");
-		
-/*        SimpleClient cm = new SimpleClient();
-        cm.ClientRun("test");
-        
-        logger.info("test 보냈음.........");*/
-        
 	
 	}
 	
@@ -41,17 +37,10 @@ public class MainController {
 	public String nodeWeb() throws Exception {
 		logger.info("nodeWeb.........");
 		
- /*       SimpleClient cm = new SimpleClient();
-        cm.ClientRun("test");*/
-        
-
-    
         return "redirect:http://localhost:8080";
         
 	
 	}
-	
-	
 	
 	@RequestMapping(value = "/sendSocket", method = RequestMethod.POST)
 	public String sendSocket() throws Exception {
@@ -62,7 +51,6 @@ public class MainController {
         
         logger.info("sendSocket test 보냈음.........");
 
-        
         return "redirect:http://localhost:8081/socket2";
 	
 	}
